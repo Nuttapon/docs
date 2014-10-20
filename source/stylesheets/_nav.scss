@@ -1,0 +1,47 @@
+.Nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 200px;
+  border-right: 1px solid #63bcdc;
+  padding: 0;
+
+  h2 {
+    font-size: .70em;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #23a6d5;
+    margin: 0;
+    padding: 5px 10px;
+  }
+
+  ul {
+    margin: 0 0 20px;
+    padding: 0 20px 0 0;
+    list-style: none;
+  }
+
+  a {
+    display: block;
+    text-decoration: none;
+    padding: 1px 10px;
+    margin: 0 0 2px;
+    color: #707070;
+    font-size: .75em;
+    border-radius: 0 4px 4px 0;
+  }
+
+  a:hover {
+    background: #f2f2f2;
+  }
+
+  a.Current {
+    background: linear-gradient(to right, #23a6d5, #22d6d6);
+    color: white;
+  }
+}
+
+.NavInner {
+  padding: 15px 0 30px;
+}

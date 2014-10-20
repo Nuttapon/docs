@@ -1,0 +1,17 @@
+.ArticleHeader {
+  padding: 20px 40px;
+  border-bottom: 1px solid #63bcdc;
+  color: #23a6d5;
+  background: #f0f9fc;
+}
+
+.ArticleHeader {
+  h1, p {
+    max-width: 680px;
+  }
+}
+
+.ArticleContent {
+  max-width: 680px;
+  padding: 20px 40px;
+}

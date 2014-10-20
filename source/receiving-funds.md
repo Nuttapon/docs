@@ -1,2 +1,5 @@
-# Receiving Funds
+---
+title: Receiving Funds
+excerpt: Excerpt
+---
 
