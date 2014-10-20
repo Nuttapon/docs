@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <title><%= current_page.data.title || "Omise" %></title>
+    <%= stylesheet_link_tag "normalize", "all" %>
+    <%= javascript_include_tag  "all" %>
+  </head>
+  <body>
+    <header class="Header">
+      <div class="Wrapper">
+        <img src="https://dashboard.omise.co/assets/logo-8b6d4ebb41f5b82452f6bc8b13440856.svg" width="96" height="32">
+      </div>
+    </header>
+    <div class="Wrapper">
+      <div class="Main">
+      <nav class="Nav">
+        <h2 class="NavHeading">Documentation</h2>
+        <ul>
+          <li><a class="Current" href="./">Getting Started</a></li>
+          <li><a href="./">Collecting Card Information</a></li>
+          <li><a href="./">Charging Cards</a></li>
+          <li><a href="./">Retrieving Financial Data</a></li>
+          <li><a href="./">Receiving Funds</a></li>
+        </ul>
+
+        <h2 class="NavHeading">References</h2>
+        <ul>
+          <li><a href="./">Omise.js</a></li>
+          <li><a href="./">Card.js</a></li>
+          <li><a href="./">WebHooks</a></li>
+          <li>&nbsp;</li>
+          <li><a href="./">Testing</a></li>
+          <li><a href="./">Versioning</a></li>
+          <li><a href="./">Authentication</a></li>
+          <li><a href="./">Errors</a></li>
+          <li>&nbsp;</li>
+          <li><a href="./">Account</a></li>
+          <li><a href="./">Balance</a></li>
+          <li><a href="./">Tokens</a></li>
+          <li><a href="./">Cards</a></li>
+          <li><a href="./">Customers</a></li>
+          <li><a href="./">Charges</a></li>
+          <li><a href="./">Transfers</a></li>
+          <li><a href="./">Transactions</a></li>
+        </ul>
+      </nav>
+      <article class="Article">
+        <header class="ArticleHeader">
+          <h1><%= current_page.data.title %></h1>
+          <p><%= current_page.data.excerpt %></p>
+        </header>
+        <div class="ArticleContent">
+          <%= yield %>
+        </div>
+      </article>
+      </div>
+    </div>
+  </body>
+<html>
