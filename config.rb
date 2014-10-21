@@ -28,10 +28,12 @@
 # proxy "/this-page-has-no-template.html", "/template-file.html", :locals => {
 #  :which_fake_page => "Rendering a fake page with a local variable" }
 
+activate :directory_indexes
+
 activate :syntax
 
 set :markdown_engine, :redcarpet
-set :markdown, fenced_code_blocks: true
+set :markdown, fenced_code_blocks: true, tables: true
 
 ###
 # Helpers
@@ -48,7 +50,7 @@ end
 # Methods defined in the helpers block are available in templates
 helpers do
   def link_to_current(name, path, options = {})
-    if request.path == path
+    if current_page.url == "#{path}/".sub("//", "/")
       options[:class] = [options[:class], "Current"].compact.join(" ")
     end
     link_to name, path, options

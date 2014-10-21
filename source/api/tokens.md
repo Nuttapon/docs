@@ -1,0 +1,135 @@
+---
+title: Tokens
+excerpt: Tokens are used as a transport layer for cards. Each token represent a card and can be used wherever a card is required just by using the token ID. Once it is used the card is attached to its new owner and the token is revoked and can't be used anymore.
+notices: It's preferable not to create tokens from your server but to create them from your customer browser using Omise.js as it will help you with PCI compliance.
+---
+
+## Create a token
+
+### Endpoint
+
+```
+POST https://vault.omise.co/tokens
+```
+
+### Request Parameters
+
+| Parameter                | Value                                             |
+|:-------------------------|:--------------------------------------------------|
+| `card[name]`             | **(required)** The cardholder name as printed on the card. |
+| `card[number]`           | **(required)** The card number. Note that the number you pass can contains spaces and dashes but will be stripped from the response. |
+| `card[expiration_month]` | **(required)** The expiration month printed on the card in the format M or MM. |
+| `card[expiration_year]`  | **(required)** The expiration year printed on the card in the format YYYY. |
+| `card[security_code]`    | **(required)** The security code (CVV, CVC, etc) printed on the back of the card. |
+| `card[postal_code]`      | **(optional)** The postal code from the city where the card was issued. |
+| `card[city]`             | **(optional)** The city where the card was issued. |
+
+### Curl
+
+```sh
+curl http://vault.omise-gateway.dev/tokens \
+  -X POST \
+  -u pkey_test_4xs8breq32civvobx15: \
+  -d "card[name]=Somchai Prasert" \
+  -d "card[number]=4242424242424242" \
+  -d "card[expiration_month]=10" \
+  -d "card[expiration_year]=2018" \
+  -d "card[city]=Bangkok" \
+  -d "card[postal_code]=10320" \
+  -d "card[security_code]=123"
+```
+
+### Ruby
+
+```ruby
+token = Omise::Token.create(card: {
+  name: "Somchai Prasert",
+  number: "4242424242424242",
+  expiration_month: 10,
+  expiration_year: 2018,
+  city: "Bangkok",
+  postal_code: "10320",
+  security_code: 123
+})
+```
+
+### JSON Object
+
+```json
+{
+  "object": "token",
+  "id": "tokn_test_4xs9408a642a1htto8z",
+  "livemode": false,
+  "location": "/tokens/tokn_test_4xs9408a642a1htto8z",
+  "used": false,
+  "card": {
+    "object": "card",
+    "id": "card_test_4xs94086bpvq56tghuo",
+    "livemode": false,
+    "country": "th",
+    "city": "Bangkok",
+    "postal_code": "10320",
+    "financing": "credit",
+    "last_digits": "4242",
+    "brand": "Visa",
+    "expiration_month": 10,
+    "expiration_year": 2018,
+    "fingerprint": "/LCaOoTah/+As+qKsohIldZkEfew0Zq2nJKgIObRwMI=",
+    "name": "Somchai Prasert",
+    "created": "2014-10-20T09:41:56Z"
+  },
+  "created": "2014-10-20T09:41:56Z"
+}
+```
+
+---
+
+## Retrieve a token
+
+### Endpoint
+
+```
+GET https://vault.omise.co/tokens/tokn_id
+```
+
+### Curl
+
+```sh
+curl http://vault.omise-gateway.dev/tokens/tokn_test_4xs9408a642a1htto8z \
+  -u pkey_test_4xs8breq32civvobx15:
+```
+
+### Ruby
+
+```ruby
+token = Omise::Token.retrieve("tokn_test_4xs9408a642a1htto8z")
+```
+
+### JSON Object
+
+```json
+{
+  "object": "token",
+  "id": "tokn_test_4xs9408a642a1htto8z",
+  "livemode": false,
+  "location": "/tokens/tokn_test_4xs9408a642a1htto8z",
+  "used": false,
+  "card": {
+    "object": "card",
+    "id": "card_test_4xs94086bpvq56tghuo",
+    "livemode": false,
+    "country": "th",
+    "city": "Bangkok",
+    "postal_code": "10320",
+    "financing": "credit",
+    "last_digits": "4242",
+    "brand": "Visa",
+    "expiration_month": 10,
+    "expiration_year": 2018,
+    "fingerprint": "/LCaOoTah/+As+qKsohIldZkEfew0Zq2nJKgIObRwMI=",
+    "name": "Somchai Prasert",
+    "created": "2014-10-20T09:41:56Z"
+  },
+  "created": "2014-10-20T09:41:56Z"
+}
+```
