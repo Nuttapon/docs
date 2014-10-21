@@ -10,16 +10,16 @@ PATCH https://api.omise.co/customers/CUSTOMER_ID/cards/CARD_ID
 
 | Parameter                | Value                                             |
 |:-------------------------|:--------------------------------------------------|
-| `name`             | **(optional)** The cardholder name as printed on the card. |
-| `expiration_month` | **(optional)** The expiration month printed on the card. |
-| `expiration_year`  | **(optional)** The expiration year printed on the card in the format YYYY. |
-| `postal_code`      | **(optional)** The postal code from the city where the card was issued. |
-| `city`             | **(optional)** The city where the card was issued. |
+| `name`             | *(optional)* The cardholder name as printed on the card. |
+| `expiration_month` | *(optional)* The expiration month printed on the card. |
+| `expiration_year`  | *(optional)* The expiration year printed on the card in the format YYYY. |
+| `postal_code`      | *(optional)* The postal code from the city where the card was issued. |
+| `city`             | *(optional)* The city where the card was issued. |
 
 ### Curl
 
 ```sh
-curl http://api.omise-gateway.dev/customers/cust_test_4xsjvylia03ur542vn6/cards/card_test_4xsjw0t21xaxnuzi9gs \
+curl http://api.omise.co/customers/cust_test_4xsjvylia03ur542vn6/cards/card_test_4xsjw0t21xaxnuzi9gs \
   -X PATCH \
   -u skey_test_4xsjvwfnvb2g0l81sjz: \
   -d "expiration_month=11" \

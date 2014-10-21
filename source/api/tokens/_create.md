@@ -15,13 +15,13 @@ POST https://vault.omise.co/tokens
 | `card[expiration_month]` | **(required)** The expiration month printed on the card in the format M or MM. |
 | `card[expiration_year]`  | **(required)** The expiration year printed on the card in the format YYYY. |
 | `card[security_code]`    | **(required)** The security code (CVV, CVC, etc) printed on the back of the card. |
-| `card[postal_code]`      | **(optional)** The postal code from the city where the card was issued. |
-| `card[city]`             | **(optional)** The city where the card was issued. |
+| `card[postal_code]`      | *(optional)* The postal code from the city where the card was issued. |
+| `card[city]`             | *(optional)* The city where the card was issued. |
 
 ### Curl
 
 ```sh
-curl http://vault.omise-gateway.dev/tokens \
+curl http://vault.omise.co/tokens \
   -X POST \
   -u pkey_test_4xs8breq32civvobx15: \
   -d "card[name]=Somchai Prasert" \
