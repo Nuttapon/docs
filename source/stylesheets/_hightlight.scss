@@ -1,0 +1,47 @@
+pre code {
+  width: 896px;
+  margin: 0 0 40px -40px;
+  padding: 16px 40px;
+  display: block;
+}
+
+.highlight {
+  border-left: 0;
+  border-right: 0;
+  background: #242b2e;
+  color: #e6eff2;
+}
+
+.plaintext {
+  color: #a9e8fc;
+}
+
+// Comment
+.c1 {
+  color: #9aa1a4;
+}
+
+// Constants
+.no, .nf {
+  color: #cca9fc;
+}
+
+// Ruby method call
+.ruby .nf {
+  color: #e6eff2;
+}
+
+// Symbol
+.ss {
+  color: #47efd3;
+}
+
+// String
+.s2, .s {
+  color: #a9e8fc;
+}
+
+// Number & Boolean
+.mi, .m, .kc, .kp, .k {
+  color: #1ec5fc;
+}

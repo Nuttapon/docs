@@ -12,17 +12,18 @@
       <div class="Wrapper">
         <img src="https://dashboard.omise.co/assets/logo-8b6d4ebb41f5b82452f6bc8b13440856.svg" width="96" height="32">
       </div>
+      <a></a>
     </header>
     <div class="Wrapper">
       <div class="Main">
       <nav class="Nav"><div class="NavInner">
         <h2>Documentation</h2>
         <ul>
-          <li><%= link_to_current "Getting Started", "index.html" %></li>
-          <li><%= link_to_current "Collecting Card Information", "collecting-card-information.html" %></li>
-          <li><%= link_to_current "Charging Cards", "charging-cards.html" %></li>
-          <li><%= link_to_current "Retrieving Financial Data", "retrieving-financial-data.html" %></li>
-          <li><%= link_to_current "Receiving Funds", "receiving-funds.html" %></li>
+          <li><%= link_to_current "Getting Started", "/" %></li>
+          <li><%= link_to_current "Collecting Card Information", "/collecting-card-information" %></li>
+          <li><%= link_to_current "Charging Cards", "/charging-cards" %></li>
+          <li><%= link_to_current "Retrieving Financial Data", "/retrieving-financial-data" %></li>
+          <li><%= link_to_current "Receiving Funds", "/receiving-funds" %></li>
         </ul>
 
         <h2>References</h2>
@@ -36,14 +37,14 @@
           <li><a href="./">Authentication</a></li>
           <li><a href="./">Errors</a></li>
           <li>&nbsp;</li>
-          <li><a href="./">Account</a></li>
-          <li><a href="./">Balance</a></li>
-          <li><a href="./">Tokens</a></li>
-          <li><a href="./">Cards</a></li>
-          <li><a href="./">Customers</a></li>
-          <li><a href="./">Charges</a></li>
-          <li><a href="./">Transfers</a></li>
-          <li><a href="./">Transactions</a></li>
+          <li><%= link_to_current "Account", "/api/account" %></li>
+          <li><%= link_to_current "Balance", "/api/balance" %></li>
+          <li><%= link_to_current "Tokens", "/api/tokens" %></li>
+          <li><%= link_to_current "Cards", "/api/cards" %></li>
+          <li><%= link_to_current "Charges", "/api/charges" %></li>
+          <li><%= link_to_current "Customers", "/api/customers" %></li>
+          <li><%= link_to_current "Transfers", "/api/transfers" %></li>
+          <li><%= link_to_current "Transactions", "/api/transactions" %></li>
         </ul>
       </div></nav>
       <article class="Article">
@@ -52,6 +53,11 @@
           <p><%= current_page.data.excerpt %></p>
         </header>
         <div class="ArticleContent">
+          <% if current_page.data.notices %>
+            <div class="Notice">
+              <%= current_page.data.notices %>
+            </div>
+          <% end %>
           <%= yield %>
         </div>
       </article>
