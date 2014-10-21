@@ -8,22 +8,22 @@ In order to get your balance information, we offer a very easy way to do that
 
 #### Ruby
 ```ruby
-balance = Omise::Balance.get()
-#balance.total returns total balance
-#balance.available returns available for transfer balance
-#balance.currency returns currency of the balance
+balance = Omise::Balance.retrieve
+#balance.total is total balance
+#balance.available is available balance which can be transferred
+#balance.currency is currency of the balance
 ```
 
 #### C&#35;
 ```c#
 var balance = client.BalanceService.GetBalance();
-//balance.Total returns total balance
-//balance.Available returns available for transfer balance
-//balance.Currency returns currency of the balance
+//balance.Total is total balance
+//balance.Available is available balance which can be transferred
+//balance.Currency is currency of the balance
 ```
 
 ## The Transactions List
-You will get a transaction list object which also contain pagination attributes which can be used for doing a query
+You will get a transaction list object which also contain pagination attributes. Those attributes can be used for doing a query.
 
 #### C&#35;
 ```c#
