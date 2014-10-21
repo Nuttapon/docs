@@ -1,5 +1,10 @@
 ## Create a token
 
+<div class="Notice">
+  It's preferable not to create tokens from your server but to create them from
+  your customer browser using Omise.js as it will help you with PCI compliance.
+</div>
+
 ### Endpoint
 
 ```
@@ -47,7 +52,7 @@ token = Omise::Token.create(card: {
 })
 ```
 
-### JSON Object
+### JSON Response
 
 ```json
 {

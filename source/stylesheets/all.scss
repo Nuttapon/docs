@@ -12,6 +12,10 @@ body {
 a {
   color: #23a6d5;
   text-decoration: none;
+
+  &:hover {
+    color: mix(#23a6d5, black, 66%);
+  }
 }
 
 @import "base";
