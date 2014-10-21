@@ -10,20 +10,23 @@ title: Account
 GET https://api.omise.co/account
 ```
 
-**Curl**
+### Curl
 
 ```sh
 curl http://api.omise-gateway.dev/account \
   -u skey_test_4xs8breq3htbkj03d2x:
 ```
 
-**Ruby**
+### Ruby
 
 ```ruby
-Omise::Account.retrieve
+account = Omise::Account.retrieve
+
+# Note that you can reload the balance if you already have an instance of it.
+account.reload
 ```
 
-**JSON Object**
+### JSON Object
 
 ```json
 {

@@ -1,9 +1,3 @@
----
-title: Tokens
-excerpt: Tokens are used as a transport layer for cards. Each token represent a card and can be used wherever a card is required just by using the token ID. Once it is used the card is attached to its new owner and the token is revoked and can't be used anymore.
-notices: It's preferable not to create tokens from your server but to create them from your customer browser using Omise.js as it will help you with PCI compliance.
----
-
 ## Create a token
 
 ### Endpoint
@@ -51,58 +45,6 @@ token = Omise::Token.create(card: {
   postal_code: "10320",
   security_code: 123
 })
-```
-
-### JSON Object
-
-```json
-{
-  "object": "token",
-  "id": "tokn_test_4xs9408a642a1htto8z",
-  "livemode": false,
-  "location": "/tokens/tokn_test_4xs9408a642a1htto8z",
-  "used": false,
-  "card": {
-    "object": "card",
-    "id": "card_test_4xs94086bpvq56tghuo",
-    "livemode": false,
-    "country": "th",
-    "city": "Bangkok",
-    "postal_code": "10320",
-    "financing": "credit",
-    "last_digits": "4242",
-    "brand": "Visa",
-    "expiration_month": 10,
-    "expiration_year": 2018,
-    "fingerprint": "/LCaOoTah/+As+qKsohIldZkEfew0Zq2nJKgIObRwMI=",
-    "name": "Somchai Prasert",
-    "created": "2014-10-20T09:41:56Z"
-  },
-  "created": "2014-10-20T09:41:56Z"
-}
-```
-
----
-
-## Retrieve a token
-
-### Endpoint
-
-```
-GET https://vault.omise.co/tokens/tokn_id
-```
-
-### Curl
-
-```sh
-curl http://vault.omise-gateway.dev/tokens/tokn_test_4xs9408a642a1htto8z \
-  -u pkey_test_4xs8breq32civvobx15:
-```
-
-### Ruby
-
-```ruby
-token = Omise::Token.retrieve("tokn_test_4xs9408a642a1htto8z")
 ```
 
 ### JSON Object

@@ -33,7 +33,7 @@ activate :directory_indexes
 activate :syntax
 
 set :markdown_engine, :redcarpet
-set :markdown, fenced_code_blocks: true, tables: true
+set :markdown, fenced_code_blocks: true, tables: true, with_toc_data: true
 
 ###
 # Helpers
