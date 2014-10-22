@@ -15,7 +15,7 @@ POST https://api.omise.co/charges
 | `return_uri`             | **(required)** The url where we will return the customer after the card has been authorized. |
 | `amount`                 | **(required)** The amount in the smallest subunits of the currency used. So for `thb` (Thai Baht) you'll need to pass the amount in satangs. |
 | `currency`               | *(optional)* The currency in which you want the charge to be done. The default and only valid value is `thb`. |
-| `capture`                 | *(optional)* Wether or not you want the charge to be capture right away. |
+| `capture`                 | *(optional)* Whether or not you want the charge to be capture right away. |
 | `description`            | *(optional)* A custom description for the charge. This value can be searched for in your dashboard. |
 | `ip`                     | *(optional)* The IP of the customer you're trying to charge. This will help detect fraudulent charge. |
 

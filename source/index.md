@@ -9,7 +9,7 @@ To be able to receive payment on your website you first need to get a bird eye v
 
 ### Collecting Credit Card Information
 
-First is to collect your customer credit card information. Those information are sensitive and needs to be protected at all cost. If you're already PCI certified you already know how much works is required to get there and it's unecessary to bother you with the details all over again. If you're not, at least remember this: any sensitive card data that transit, get stored or processed through your server requires that you pass an audit in order to be PCI compliant. If you want to do all the above, good luck to you.
+First is to collect your customer credit card information. Those information are sensitive and needs to be protected at all cost. If you're already PCI certified you already know how much works is required to get there and it's unnecessary to bother you with the details all over again. If you're not, at least remember this: any sensitive card data that transit, get stored or processed through your server requires that you pass an audit in order to be PCI compliant. If you want to do all the above, good luck to you.
 
 But for you that just want to get paid there must be a better way. That's the moment where Omise comes in. You don't need to go through so much pain and tears. Send us those sensitive card data and we'll make sure to keep them safe but accessible so you can charge your customers when you need to.
 
@@ -21,6 +21,6 @@ To collect credit cards on your website Omise offers a small Javascript library 
 
 Next up is charging your customer card. Using the token you received during the previous step you can then create a charge object using one of our libraries or simply by using your language standard library or even a tool like curl. Our API follows a REST architecture.
 
-Omise also offers a nice abstraction atop Cards called Customers that you can use to remember wich cards belongs to which customers and let you use their customer ID instead of having to exchange tokens every time you want to charge a recurring customers.
+Omise also offers a nice abstraction atop Cards called Customers that you can use to remember which cards belongs to which customers and let you use their customer ID instead of having to exchange tokens every time you want to charge a recurring customers.
 
 [Learn more on how to charge cards](./collecting-card-information.html)

@@ -49,7 +49,7 @@ Omise.createToken("card", {
     // then send the token (response.id) to your server
     // ...
   } else {
-    // an error occured, display error message
+    // an error occurred, display error message
     alert(response.code+": "+response.message);
   };
 });
