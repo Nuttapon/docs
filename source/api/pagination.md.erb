@@ -9,8 +9,8 @@ excerpt: Pagination can be used on all lists by passing extra parameters to your
 
 | Parameter     | Value                                             |
 |:--------------|:--------------------------------------------------|
-| `from`        | *(optional, default: 1970-01-01T00:00:00Z)* The UTC date and time limiting the beginning of returned records. E.g.: 2014-10-20T00:00:00Z  |
-| `to`          | *(optional, default: current UTC Datetime)* The UTC date and time limiting the end of returned records. |
+| `from`        | *(optional, default: 1970-01-01T00:00:00Z, format: [iso8601](http://en.wikipedia.org/wiki/ISO_8601))* The UTC date and time limiting the beginning of returned records. E.g.: 2014-10-20T00:00:00Z  |
+| `to`          | *(optional, default: current UTC Datetime, format: [iso8601](http://en.wikipedia.org/wiki/ISO_8601))* The UTC date and time limiting the end of returned records. |
 | `offset`      | *(optional, default: 0)* The offset of the first record returned. I.e.: How many records to skip from the beginning.|
 | `limit`       | *(optional, default: 20, maximum: 100)* The maximum amount of records returned. |
 
@@ -27,7 +27,7 @@ excerpt: Pagination can be used on all lists by passing extra parameters to your
 
 
 <div class="Notice">
-  The following examples illustrate pagination on a cards list. All pagination
+  The following examples illustrate pagination on a cards list. The same applies to all list APIs (cards, transactions, refunds) All pagination
   parameters are optional and can be used in any combination you like.
 </div>
 
