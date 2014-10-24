@@ -22,7 +22,7 @@ POST https://api.omise.co/charges
 ### Curl
 
 ```sh
-curl http://api.omise.co/charges \
+curl https://api.omise.co/charges \
   -X POST \
   -u skey_test_4xsjvwfnvb2g0l81sjz: \
   -d "amount=100000" \
@@ -62,7 +62,7 @@ charge = Omise::Charge.create({
   "transaction": null,
   "return_uri": "https://example.co.th/orders/384/complete",
   "reference": "9qt1b3n635uv6plypp2spzkpe",
-  "authorize_uri": "http://api.omise-gateway.dev/payments/9qt1b3n635uv6plypp2spzkpe/authorize",
+  "authorize_uri": "https://api.omise-gateway.dev/payments/9qt1b3n635uv6plypp2spzkpe/authorize",
   "card": {
     "object": "card",
     "id": "card_test_4xs94086bpvq56tghuo",
