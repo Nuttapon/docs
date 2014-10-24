@@ -1,6 +1,18 @@
 ---
 title: Balance
+excerpt: The balance contains information about the amount of money available on your Omise account
 ---
+
+### Balance attributes
+
+| Parameter | Value |
+|:----------|:------|
+| `object`  | *(string)* 'balance' |
+| `livemode`| *(boolean)* Whether this is a Live (true) or Test (false) balance. |
+| `available` | *(integer)* Available transferable balance in the smallest currency unit (e.g. satang, cent, ... ) |
+| `total` | *(integer)* Total balance in the smallest currency unit (e.g. satang, cent, ... ) |
+| `currency` | *(string)* The currency as its lower-cased international 3-letter code, defined by the [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) standard.
+
 
 ## Retrieving the Balance
 
@@ -10,10 +22,14 @@ title: Balance
 GET https://api.omise.co/balance
 ```
 
+### Request parameters
+
+ None.
+
 ### Curl
 
 ```sh
-curl http://api.omise.co/balance \
+curl https://api.omise.co/balance \
   -u skey_test_4xs8breq3htbkj03d2x:
 ```
 
@@ -22,11 +38,12 @@ curl http://api.omise.co/balance \
 ```ruby
 balance = Omise::Balance.retrieve
 
-# Note that you can reload the balance if you already have an instance of it.
+# After retrieving it, the balance can be refreshed:
 balance.reload
 ```
 
 ### C&#35;
+
 ```c#
 var balance = client.BalanceService.GetBalance();
 ```

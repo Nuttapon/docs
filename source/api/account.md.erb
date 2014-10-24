@@ -2,6 +2,17 @@
 title: Account
 ---
 
+### Account attributes
+
+| Parameter | Value |
+|:----------|:------|
+| `object`  | *(string)* 'account' |
+| `id`| *(string)* Account ID |
+| `email` | *(string)* Registration email |
+| `created` | *(datetime, format: [iso8601](http://en.wikipedia.org/wiki/ISO_8601))* Creation date of the account |
+
+
+
 ## Retrieving the account
 
 **Endpoint**
@@ -9,11 +20,18 @@ title: Account
 ```
 GET https://api.omise.co/account
 ```
+<div class='Notice'>
+  It may be interesting to note that both Test and Live keys will return the same account.
+</div>
+### Request parameters
+
+ None.
+
 
 ### Curl
 
 ```sh
-curl http://api.omise.co/account \
+curl https://api.omise.co/account \
   -u skey_test_4xs8breq3htbkj03d2x:
 ```
 
@@ -22,7 +40,7 @@ curl http://api.omise.co/account \
 ```ruby
 account = Omise::Account.retrieve
 
-# Note that you can reload the balance if you already have an instance of it.
+# After retrieving it, the account can be refreshed:
 account.reload
 ```
 

@@ -1,6 +1,6 @@
 ---
-title: Pagination
-excerpt: Pagination can be used on all lists by passing extra parameters to your requests.
+title: Pagination & lists
+excerpt: Several API requests return lists of objects. This is how they are structured.
 ---
 
 
@@ -19,10 +19,13 @@ excerpt: Pagination can be used on all lists by passing extra parameters to your
 
 | Parameter     | Value                                             |
 |:--------------|:--------------------------------------------------|
-| `from`        | The UTC date and time limiting the beginning of returned records. E.g.: 2014-10-20T00:00:00Z  |
-| `to`          | The UTC date and time limiting the end of returned records. |
-| `offset`      | The offset of the first record returned.  |
-| `total`        | Total amount of records between `from` and `to`  |
+| `object`      | *(string)* 'list'
+| `from`        | *(datetime, format: [iso8601](http://en.wikipedia.org/wiki/ISO_8601))* The UTC date and time limiting the beginning of returned records. E.g.: 2014-10-20T00:00:00Z  |
+| `to`          | *(datetime, format: [iso8601](http://en.wikipedia.org/wiki/ISO_8601))* The UTC date and time limiting the end of returned records. |
+| `offset`      | *(integer)* The offset of the first record returned.  |
+| `limit`       | *(integer)* The maximum amount of records returned.  |
+| `total`       | *(integer)* Total amount of records between `from` and `to`  |
+| `data`        | *(array)* Array of returned objects ([charges](/api/charges), [cards](/api/cards), ...)
 
 
 
@@ -34,7 +37,7 @@ excerpt: Pagination can be used on all lists by passing extra parameters to your
 
 ### CURL - Cards
 ```sh
-	curl http://api.omise.co/customers/cust_test_4xs68oo1vgalgffzsyw/cards \
+	curl https://api.omise.co/customers/cust_test_4xs68oo1vgalgffzsyw/cards \
 	-X GET \
 	-u skey_test_4xs68olyuul9lmmp375: \
 	-d "from=2014-10-20T00:00:00Z" \
@@ -42,8 +45,6 @@ excerpt: Pagination can be used on all lists by passing extra parameters to your
 	-d "offset=1" \
 	-d "limit=5"
 ```
-
-
 
 ### JSON Response - Cards
 

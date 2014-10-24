@@ -9,7 +9,7 @@ GET https://api.omise.co/charges/CHARGE_ID
 ### Curl
 
 ```sh
-curl http://api.omise.co/charges/chrg_test_4xso2s8ivdej29pqnhz \
+curl https://api.omise.co/charges/chrg_test_4xso2s8ivdej29pqnhz \
   -u skey_test_4xsjvwfnvb2g0l81sjz: \
 ```
 
@@ -42,7 +42,7 @@ var result = client.ChargeService.GetCharge("chrg_test_4xso2s8ivdej29pqnhz");
   "transaction": null,
   "return_uri": "https://example.co.th/orders/384/complete",
   "reference": "9qt1b3n635uv6plypp2spzkpe",
-  "authorize_uri": "http://api.omise-gateway.dev/payments/9qt1b3n635uv6plypp2spzkpe/authorize",
+  "authorize_uri": "https://api.omise-gateway.dev/payments/9qt1b3n635uv6plypp2spzkpe/authorize",
   "card": {
     "object": "card",
     "id": "card_test_4xs94086bpvq56tghuo",

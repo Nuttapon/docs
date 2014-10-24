@@ -4,10 +4,40 @@ title: Cards
 
 ## Table of Contents
 
+  - [Card attributes](#card-attributes)
+  - [Create a card](#create-a-card)
   - [List all cards](#list-all-cards)
-  - [Retrieve a token](#retrieve-a-card)
+  - [Retrieve a card](#retrieve-a-card)
   - [Update a card](#update-a-card)
   - [Destroy a card](#destroy-a-card)
+
+---
+
+### Card attributes
+| Parameter  | Value |
+|:-----------|:------|
+| `object`   | *(string)* 'card' |
+| `id`       | *(string)* Card ID |
+| `livemode` | *(boolean)* Whether this is a Live (true) or Test (false) card. |
+| `location` | *(string)* Path to retrieve the card |
+| `country`  | *(string, format: [Lowercase Iso3166](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements))* Country code based on the card number. |
+| `city`     | *(string)* City. |
+| `postal_code`     | *(string)* Postal code. |
+| `financing`     | *(string)* Type of credit card financing (Debit, credit). |
+| `last_digits`     | *(string)* Last 4 digits of the card number. |
+| `brand`     | *(string)* Card brand (e.g.: Visa, Mastercard,...). |
+| `expiration_month`     | *(integer, 1-12)* Card expiration month. |
+| `expiration_year`     | *(integer)* Card expiration year. |
+| `fingerprint`     | *(string)* Unique card-based fingerprint. Allows detection of identical cards |
+| `name`     | *(string)* Card owner full name. |
+| `created`  | *(datetime, format: [iso8601](http://en.wikipedia.org/wiki/ISO_8601))* Creation date of the card |
+
+
+---
+
+## Create a card
+
+Cards are created via tokens. See [Tokens documentation](/api/tokens)
 
 ---
 

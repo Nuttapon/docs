@@ -1,5 +1,11 @@
 ## Retrieve a token
 
+### Request Parameters
+
+| Parameter                | Value                                             |
+|:-------------------------|:--------------------------------------------------|
+| `id`             | *(required)* Token id |
+
 ### Endpoint
 
 ```
@@ -9,7 +15,7 @@ GET https://vault.omise.co/tokens/TOKEN_ID
 ### Curl
 
 ```sh
-curl http://vault.omise.co/tokens/tokn_test_4xs9408a642a1htto8z \
+curl https://vault.omise.co/tokens/tokn_test_4xs9408a642a1htto8z \
   -u pkey_test_4xs8breq32civvobx15:
 ```
 

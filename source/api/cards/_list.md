@@ -6,10 +6,21 @@
 GET https://api.omise.co/customers/CUSTOMER_ID/cards
 ```
 
+### Request Parameters
+
+| Parameter                | Value                                             |
+|:-------------------------|:--------------------------------------------------|
+| `customer_id`            | *(required)* Customer id |
+
+
+
+### Response parameters
+A [paginated list](/api/pagination) of [cards](/api/cards#card-attributes)
+
 ### Curl
 
 ```sh
-curl http://api.omise.co/customers/cust_test_4xsjvylia03ur542vn6/cards \
+curl https://api.omise.co/customers/cust_test_4xsjvylia03ur542vn6/cards \
   -u skey_test_4xsjvwfnvb2g0l81sjz:
 ```
 
