@@ -4,19 +4,19 @@
 
 | Parameter                | Value                                             |
 |:-------------------------|:--------------------------------------------------|
-| `id`             | **(required)** Token id |
+| `id`             | *(required)* Token id |
 
 
 ### Response parameters
 | Parameter  | Value |
 |:-----------|:------|
-| `object`   | **(string)** 'token' |
-| `id`       | **(string)** Token ID |
-| `livemode` | **(boolean)** Whether this is a Live (true) or Test (false) balance. |
-| `location` | **(string)** Path to retrieve the token |
-| `used`     | **(boolean)**  Whether the token has been used or not. Tokens can be used only once. |
-| `card`     | **([card](/api/cards))** Card object |
-| `created`  | **(datetime, format: [iso8601](http://en.wikipedia.org/wiki/ISO_8601))** Creation date of the token |
+| `object`   | *(string)* 'token' |
+| `id`       | *(string)* Token ID |
+| `livemode` | *(boolean)* Whether this is a Live (true) or Test (false) balance. |
+| `location` | *(string)* Path to retrieve the token |
+| `used`     | *(boolean)*  Whether the token has been used or not. Tokens can be used only once. |
+| `card`     | *([card](/api/cards))* Card object |
+| `created`  | *(datetime, format: [iso8601](http://en.wikipedia.org/wiki/ISO_8601))* Creation date of the token |
 
 
 

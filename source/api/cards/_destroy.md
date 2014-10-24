@@ -10,18 +10,18 @@ DELETE https://api.omise.co/customers/CUSTOMER_ID/cards/CARD_ID
 
 | Parameter                | Value                                             |
 |:-------------------------|:--------------------------------------------------|
-| `customer_id`            | **(required)** Customer id |
-| `card_id`                | **(required)** Card id |
+| `customer_id`            | *(required)* Customer id |
+| `card_id`                | *(required)* Card id |
 
 
 ### Response Parameters
 
 | Parameter                | Value                                             |
 |:-------------------------|:--------------------------------------------------|
-| `object`            | **(string)** 'card' |
-| `id`                | **(string)** Card id |
-| `livemode`          | **(boolean)** Whether this is a Live (true) or Test (false) card. |
-| `deleted`           | **(boolean)** Card deletion status
+| `object`            | *(string)* 'card' |
+| `id`                | *(string)* Card id |
+| `livemode`          | *(boolean)* Whether this is a Live (true) or Test (false) card. |
+| `deleted`           | *(boolean)* Card deletion status
 ### Curl
 
 ```sh

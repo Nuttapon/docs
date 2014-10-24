@@ -16,11 +16,11 @@ POST https://vault.omise.co/tokens
 
 | Parameter                | Value                                             |
 |:-------------------------|:--------------------------------------------------|
-| `card[name]`             | **(required)** The cardholder name as printed on the card. |
-| `card[number]`           | **(required)** The card number. Note that the number you pass can contains spaces and dashes but will be stripped from the response. |
-| `card[expiration_month]` | **(required)** The expiration month printed on the card in the format M or MM. |
-| `card[expiration_year]`  | **(required)** The expiration year printed on the card in the format YYYY. |
-| `card[security_code]`    | **(required)** The security code (CVV, CVC, etc) printed on the back of the card. |
+| `card[name]`             | *(required)* The cardholder name as printed on the card. |
+| `card[number]`           | *(required)* The card number. Note that the number you pass can contains spaces and dashes but will be stripped from the response. |
+| `card[expiration_month]` | *(required)* The expiration month printed on the card in the format M or MM. |
+| `card[expiration_year]`  | *(required)* The expiration year printed on the card in the format YYYY. |
+| `card[security_code]`    | *(required)* The security code (CVV, CVC, etc) printed on the back of the card. |
 | `card[postal_code]`      | *(optional)* The postal code from the city where the card was issued. |
 | `card[city]`             | *(optional)* The city where the card was issued. |
 
@@ -28,13 +28,13 @@ POST https://vault.omise.co/tokens
 ### Response parameters
 | Parameter  | Value |
 |:-----------|:------|
-| `object`   | **(string)** 'token' |
-| `id`       | **(string)** Token ID |
-| `livemode` | **(boolean)** Whether this is a Live (true) or Test (false) balance. |
-| `location` | **(string)** Path to retrieve the token |
-| `used`     | **(boolean)**  Whether the token has been used or not. Tokens can be used only once. |
-| `card`     | **([card](/api/cards))** Card object |
-| `created`  | **(datetime, format: [iso8601](http://en.wikipedia.org/wiki/ISO_8601))** Creation date of the token |
+| `object`   | *(string)* 'token' |
+| `id`       | *(string)* Token ID |
+| `livemode` | *(boolean)* Whether this is a Live (true) or Test (false) balance. |
+| `location` | *(string)* Path to retrieve the token |
+| `used`     | *(boolean)*  Whether the token has been used or not. Tokens can be used only once. |
+| `card`     | *([card](/api/cards))* Card object |
+| `created`  | *(datetime, format: [iso8601](http://en.wikipedia.org/wiki/ISO_8601))* Creation date of the token |
 
 
 
