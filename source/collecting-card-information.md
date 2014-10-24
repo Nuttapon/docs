@@ -3,14 +3,14 @@ title: Collecting Card Information
 excerpt: This article will help you build a form that will let you collect cards directly from a page on your website and tokenize them.
 ---
 
-Omise provides an easy way to collect cards information called  [Omise.js](/omise-js). This client-side JavaScript library let you have your own custom HTML form running on your customer's browser and will send the sensitive card data to Omise server in exchange for a card token. The card token can then be forwarded to your server for processing. This way your server doesn't have to deal with any sensitive card information.
+Omise provides an easy way to collect cards information called  [Omise.js](/omise-js). This client-side JavaScript library let you have your own custom HTML form running on your customer's browser that will send the sensitive card data to Omise server in exchange for a card token. The card token can then be forwarded to your server for processing. This way your server doesn't have to deal with any sensitive card information.
 
 On a high level this is how it works:
 
   - Using Omise.js and your public key, send the cardholder data from your customer's browser to Omise,
   - Omise tokens service responds with a single-use card token,
   - Forward the token back to your server,
-  - Use this token to take an action on the card. You can [charge the card](/api/charges), [save the card on a new customer](/api/customers) or [attach the card to an existing one](/api/customers).
+  - Use this token to take an action on the card. You can [charge the card](/api/charges#create-a-charge), [save the card on a new customer](/api/customers#create-a-customer) or [attach the card to an existing one](/api/customers#update-a-customer).
 
 You can learn more about the tokens API in the [tokens reference](/api/tokens).
 

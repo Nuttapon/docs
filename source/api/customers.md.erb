@@ -4,10 +4,27 @@ title: Customers
 
 ## Table of Contents
 
+  - [The customer object](#the-customer-object)
   - [Create a customer](#create-a-customer)
   - [Retrieve a customer](#retrieve-a-customer)
   - [Update a customer](#update-a-customer)
   - [Destroy a customer](#destroy-a-customer)
+
+---
+
+## The Customer Object
+
+| Key            | Value |
+|:---------------|:------|
+| `object`       | *(string)* "customer" |
+| `id`           | *(string)* Customer ID |
+| `livemode`     | *(boolean)* Whether this is a live (true) or test (false) card |
+| `location`     | *(string)* Path to retrieve the customer |
+| `default_card` | *(string)* ID of the card used as default when creating charge with a customer. The default card is the first card assigned to a customer. If the current default card is destroyed the latest card added will be set as default card and `null` in case there's no cards left. |
+| `email`        | *(string)* Email of the customer supplied during creation |
+| `description`  | *(string)* Description of the customer supplied during creation |
+| `created`      | *(datetime, format: [iso8601](http://en.wikipedia.org/wiki/ISO_8601))* Creation date of the customer |
+| `cards`        | *([list](/api/pagination))* A paginated list of [card objects](/api/cards#the-card-object) |
 
 ---
 

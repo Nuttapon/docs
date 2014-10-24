@@ -66,24 +66,24 @@ var customerResult = client.CustomerService.CreateCustomer (customerInfo);
     "limit": 20,
     "total": 0,
     "data": [
-            {
-                "object": "card",
-                "id": "card_test_4xtsoy2nbfs7ujngyyq",
-                "livemode": false,
-                "location": "/customers/cust_test_4xtrb759599jsxlhkrb/cards/card_test_4xtsoy2nbfs7ujngyyq",
-                "country": "",
-                "city": null,
-                "postal_code": null,
-                "financing": "",
-                "last_digits": "4242",
-                "brand": "Visa",
-                "expiration_month": 9,
-                "expiration_year": 2017,
-                "fingerprint": "q/kfc3jaZvlxIDobDQvziA4RSNdDdfXz9aFbXSjva8A=",
-                "name": "Test card",
-                "created": "2014-10-24T08:26:07Z"
-            }
-        ],
+      {
+        "object": "card",
+        "id": "card_test_4xtsoy2nbfs7ujngyyq",
+        "livemode": false,
+        "location": "/customers/cust_test_4xtrb759599jsxlhkrb/cards/card_test_4xtsoy2nbfs7ujngyyq",
+        "country": "",
+        "city": null,
+        "postal_code": null,
+        "financing": "",
+        "last_digits": "4242",
+        "brand": "Visa",
+        "expiration_month": 9,
+        "expiration_year": 2017,
+        "fingerprint": "q/kfc3jaZvlxIDobDQvziA4RSNdDdfXz9aFbXSjva8A=",
+        "name": "Test card",
+        "created": "2014-10-24T08:26:07Z"
+      }
+    ],
     "location": "/customers/cust_test_4xtrb759599jsxlhkrb/cards"
   }
 }

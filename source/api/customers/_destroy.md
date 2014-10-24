@@ -26,16 +26,16 @@ customer.destroyed? # => true
 
 ```c#
 var deleteResult = client.CustomerService.DeleteCustomer("cust_test_4xtrb759599jsxlhkrb");
-//deleteResult.deleted => true
+// deleteResult.deleted => true
 ```
 
 ### JSON Response
 
 ```json
 {
-    "object": "customer",
-    "id": "cust_test_4xtrb759599jsxlhkrb",
-    "livemode": false,
-    "deleted": true
+  "object": "customer",
+  "id": "cust_test_4xtrb759599jsxlhkrb",
+  "livemode": false,
+  "deleted": true
 }
 ```
