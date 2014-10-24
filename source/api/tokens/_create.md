@@ -6,6 +6,8 @@
   Rule of thumb: <strong>Sensitive card data should never go through your server.</strong>
 </div>
 
+See our article on [how to collect card information](/collecting-card-information) and the [Omise.js references](/omise-js)
+
 ### Endpoint
 
 ```
@@ -23,35 +25,6 @@ POST https://vault.omise.co/tokens
 | `card[security_code]`    | *(required)* The security code (CVV, CVC, etc) printed on the back of the card. |
 | `card[postal_code]`      | *(optional)* The postal code from the city where the card was issued. |
 | `card[city]`             | *(optional)* The city where the card was issued. |
-
-### From Your Customer Browser
-
-#### Javascript using Omise.js
-```js
-var card = documents.forms.card;
-Omise.createToken("card", {
-  "name": card.holder_name.value,
-  "number": card.number.value,
-  "expiration_month": card.expiration_month.value,
-  "expiration_year": card.expiration_year.value,
-  "security_code": card.security_code.value
-}, function (statusCode, response) {
-  if (response.object == "token") {
-    // then send the token (response.id) to your server
-    // ...
-  } else {
-    // an error occurred, display error message
-    alert(response.code+": "+response.message);
-  };
-});
-```
-
----
-### From Your Server
-<div class='Notice'>
-<strong>Do not do this</strong>. If cardholder data is going through your server, then you are doing something wrong.
-The only possible exceptions to this are: If you are PCI compliant or if you are playing around with fake test data.
-</div>
 
 ### Curl
 

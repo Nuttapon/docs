@@ -3,71 +3,107 @@ title: Collecting Card Information
 excerpt: This article will help you build a form that will let you collect cards directly from a page on your website and tokenize them.
 ---
 
-## Collecting Credit Card Information
+Omise provides an easy way to collect cards information called  [Omise.js](/omise-js). This client-side JavaScript library let you have your own custom HTML form running on your customer's browser and will send the sensitive card data to Omise server in exchange for a card token. The card token can then be forwarded to your server for processing. This way your server doesn't have to deal with any sensitive card information.
 
-Omise provides ways to collect cards information, with Omise.js client library, you can have your own HTML form running on the client browser and then pass the card information to the library, the library will send the card information to Omise server securely via SSL and you will get back a card token. This way your server doesn't have to deal with any sensitive card information. On the other hand, we also provide server side libraries in various programming languages (now ruby and .net). You can have your own form which posts card information to your server, the library will internally send the card information to secure token server and returns you a card token (doing this requires you to have PCI certified). Learn more about [ruby](./ruby-library.html) library or [.net](./dotnet-library.html) library integration.
+On a high level this is how it works:
 
-| Step | Origin| Key |
-|:--------------------|:-----------|:----|
-| Using Omise.js, send us the cardholder data | User's browser | Public key |
-| Our server responds with a single-use card token | Omise | |
-| Use this token to take an action on the card. You can [charge the card](/charging-cards), [save the card on a new customer](customers) or [attach the card to an existing one](customers)| Your server | Secret key |
+  - Using Omise.js and your public key, send the cardholder data from your customer's browser to Omise,
+  - Omise tokens service responds with a single-use card token,
+  - Forward the token back to your server,
+  - Use this token to take an action on the card. You can [charge the card](/api/charges), [save the card on a new customer](/api/customers) or [attach the card to an existing one](/api/customers).
 
-## Creating Tokens
+You can learn more about the tokens API in the [tokens reference](/api/tokens).
 
+### A full fledged example
 
-### From Your Customer Browser
+First you need to insert Omise.js into your webpage you can add it before the closing `</body>` tag.
 
-#### Javascript using Omise.js
+```html
+<script src="https://cdn.omise.co/omise.js"></script>
+```
+
+Then add your public key to let Omise.js authenticates against Omise API:
+
+```html
+<script>
+  Omise.setPublicKey("pkey_test_4xpip92iqmehclz4a4d");
+</script>
+```
+
+Next you need a form that will collect the card details.
+
+```html
+<form action="/checkout" method="post" id="checkout">
+  <div id="token_errors"></div>
+
+  <input type="hidden" name="omise_token">
+
+  <div>
+    Name<br>
+    <input type="text" data-omise="holder_name">
+  </div>
+  <div>
+    Number<br>
+    <input type="text" data-omise="number">
+  </div>
+  <div>
+    Date<br>
+    <input type="text" data-omise="expiration_month" size="4"> /
+    <input type="text" data-omise="expiration_year" size="8">
+  </div>
+  <div>
+    Security Code<br>
+    <input type="text" data-omise="security_code" size="8">
+  </div>
+
+  <input type="submit" id="create_token">
+</form>
+```
+
+Next we need to trigger the creation of the token when the submit button is pressed. Then fill the token field and clear the other fields so they are not submitted to your server
+
 ```js
-var card = documents.forms.card;
-Omise.createToken("card", {
-  "name": card.holder_name.value,
-  "number": card.number.value,
-  "expiration_month": card.expiration_month.value,
-  "expiration_year": card.expiration_year.value,
-  "security_code": card.security_code.value
-}, function (statusCode, response) {
-  if (response.object == "token") {
-    // then send the token (response.id) to your server
-    // ...
-  } else {
-    // an error occurred, display error message
-    alert(response.code+": "+response.message);
+$("#checkout").submit(function () {
+
+  var form = $(this);
+
+  // Disable the submit button to avoid repeated click.
+  form.find("input[type=submit]").prop("disabled", true);
+
+  // Serialize the form fields into a valid card object.
+  var card = {
+    "name": form.find("[data-omise=holder_name]").val(),
+    "number": form.find("[data-omise=number]").val(),
+    "expiration_month": form.find("[data-omise=expiration_month]").val(),
+    "expiration_year": form.find("[data-omise=expiration_year]").val(),
+    "security_code": form.find("[data-omise=security_code]").val()
   };
+
+  // Send a request to create a token then trigger the callback function once
+  // a response is received from Omise.
+  //
+  // Note that the response could be an error and this need to be handled within
+  // the callback.
+  Omise.createToken("card", card, function (statusCode, response) {
+    if (response.object == "error") {
+      // Display an error message.
+      $("#token_errors").html(response.message);
+
+      // Re-enable the submit button.
+      form.find("input[type=submit]").prop("disabled", false);
+    } else {
+      // Then fill the omise_token.
+      form.find("[name=omise_token]").val(response.id);
+
+      // And submit the form.
+      form.get(0).submit();
+    };
+  });
+
+  // Prevent the form from being submitted;
+  return false;
+
 });
 ```
-> Related articles: [Tokens reference](/api/tokens)
 
----
-### From Your Server
-<div class='Notice'>
-<strong>Do not do this</strong>. If cardholder data is going through your server, then you are doing something wrong.
-The only possible exceptions to this are: If you are PCI compliant or if you are playing around with fake test data.
-</div>
-
-#### Ruby
-```ruby
-token = Omise::Token.create({
-  card[number]: "4242424242424242",
-  card[name]: "test card",
-  card[expiration_month]: 9,
-  card[expiration_year]: 2017
-})
-```
-#### C&#35;
-```c#
-var card = new CardCreateInfo ();
-card.Name = "test card";
-card.Number = "4242424242424242";
-card.ExpirationMonth = 9;
-card.ExpirationYear = 2017;
-
-var token = new TokenInfo ();
-token.Card = card;
-
-var tokenResult = client.TokenService.CreateToken(token);
-```
-
-
-
+All done.

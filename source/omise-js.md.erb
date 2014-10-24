@@ -1,0 +1,61 @@
+---
+title: Omise.js
+---
+
+## setPublicKey(key)
+
+Setup your public key to authenticate against Omise API.
+
+### Arguments
+
+| Argument | Value |
+|:---------|:------|
+| key      | **(required)** `key` is the public keys that you can find in your [dashboard](https://dashboard.omise.co) once you're signed in. |
+
+### Example
+
+```js
+Omise.setPublicKey("pkey_pkey_test_4xs8breq32civvobx15")
+```
+
+---
+
+## createToken(type, object, callback)
+
+Send the card object to Omise vault service and create a one time use token that
+you can exchange for a customer or a charge.
+
+### Arguments
+
+| Argument   | Value |
+|:-----------|:------|
+| type       | **(required)** type of token you want to create. For now this value must be `card`. |
+| object     | **(required)** a javascript object containing the 5 values required for a card:  `name`, `number`, `expiration_month`, `expiration_year`, `security_code`. |
+| callback   | **(required)** a callback that will be triggered whenever the request with omise server completes (for both error and success). Two arguments will be passed back into the callback. The HTTP statusCode, like `200` for success or `400` for bad request, etc... The second argument is the response from the Omise API.
+
+### Example
+
+```js
+  // Given that you have a form element with an id of "card" in your page.
+  var card_form = document.getElementById("card");
+
+  // Serialize the card into a valid card object.
+  var card = {
+    "name": card_form.holder_name.value,
+    "number": card_form.number.value,
+    "expiration_month": card_form.expiration_month.value,
+    "expiration_year": card_form.expiration_year.value,
+    "security_code": card_form.security_code.value
+  };
+
+  Omise.createToken("card", card, function (statusCode, response) {
+    if (statusCode == 200) {
+      // Success: send back the TOKEN_ID to your server. The TOKEN_ID can be
+      // found in `response.id`.
+    } else {
+      // Error: display an error message. Note that `response.message` contains
+      // a preformatted error message. Also note that `response.code` will be
+      // "invalid_card" in case of validation error on the card.
+    };
+  });
+```

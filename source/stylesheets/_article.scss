@@ -1,5 +1,5 @@
 .ArticleHeader {
-  padding: 20px 40px;
+  padding: 30px 40px 15px;
   border-bottom: 1px solid #63bcdc;
   color: #23a6d5;
   background: #f0f9fc;
@@ -8,18 +8,21 @@
 .ArticleHeader {
   h1 {
     font-size: 2.2em;
+    margin: 0 0 15px;
   }
 
-  h1, p {
+  p {
     max-width: 680px;
+    margin: 0 0 10px;
   }
 }
 
 .ArticleContent {
   max-width: 680px;
-  padding: 5px 40px 40px;
+  padding: 10px 40px 30px;
 
   h2 {
+    margin: 0 0 .5em 0;
     padding-top: 20px;
     color: mix(#23a6d5, black, 77%);
     font-size: 1.7em;
@@ -28,7 +31,7 @@
 
 .Article hr {
   width: 976px;
-  margin: 40px 0 20px -40px;
+  margin: 30px 0 20px -40px;
   border: 0;
   height: 1px;
   background: #63bcdc;
@@ -40,5 +43,5 @@
   margin: 1.5em 0;
   background: #fcfbf0;
   color: #706f64;
-  padding: 12px 16px;
+  padding: 10px 15px;
 }

@@ -2,8 +2,10 @@
 title: Charging Cards
 excerpt: This article will guide you of ways to charge a credit card
 ---
+
 ## Using a Token
-The first step you have to do is to [create a card token](collecting-card-information) which you can choose between using Omise.js or other server library. After you have a token, the next step is to pass the token id together with charge information to your server.
+
+The first step was to [create a card token](collecting-card-information) 
 
 ```ruby
 chargeResult = Omise::Charge.create({
