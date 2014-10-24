@@ -1,10 +1,10 @@
 ---
 title: Retrieving Financial Data
-excerpt: You will learn how to retrieve your financial data such as balance amount and transactions
+excerpt: You will learn how to retrieve financial data such as balance amount and transactions
 ---
 
 ## Your Balance
-In order to get your balance information, we offer a very easy way to do that
+We offer a very easy way to get your balance information:
 
 #### Ruby
 ```ruby
@@ -21,6 +21,8 @@ var balance = client.BalanceService.GetBalance();
 //balance.Available is available balance which can be transferred
 //balance.Currency is currency of the balance
 ```
+
+> Related articles: [Balance reference](/api/balance)
 
 ## The Transactions List
 You will get a transaction list object which also contain pagination attributes. Those attributes can be used for doing a query.

@@ -11,7 +11,7 @@ Omise provides ways to collect cards information, with Omise.js client library, 
 |:--------------------|:-----------|:----|
 | Using Omise.js, send us the cardholder data | User's browser | Public key |
 | Our server responds with a single-use card token | Omise | |
-| Use this token to take an action on the card. You can [charge the card](charges), [save the card on a new customer](customers) or [attach the card to an existing one](customers)| Your server | Secret key |
+| Use this token to take an action on the card. You can [charge the card](/charging-cards), [save the card on a new customer](customers) or [attach the card to an existing one](customers)| Your server | Secret key |
 
 ## Creating Tokens
 
@@ -37,6 +37,7 @@ Omise.createToken("card", {
   };
 });
 ```
+> Related articles: [Tokens reference](/api/tokens)
 
 ---
 ### From Your Server
