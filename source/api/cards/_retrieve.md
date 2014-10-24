@@ -13,27 +13,6 @@ GET https://api.omise.co/customers/CUSTOMER_ID/cards/CARD_ID
 | `customer_id`            | *(required)* Customer id |
 | `card_id`                | *(required)* Card id |
 
-
-### Response parameters
-| Parameter  | Value |
-|:-----------|:------|
-| `object`   | *(string)* 'card' |
-| `id`       | *(string)* Card ID |
-| `livemode` | *(boolean)* Whether this is a Live (true) or Test (false) card. |
-| `location` | *(string)* Path to retrieve the card |
-| `country`  | *(string, format: [Lowercase Iso3166](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements))* Country code based on the card number. |
-| `city`     | *(string)* City. |
-| `postal_code`     | *(string)* Postal code. |
-| `financing`     | *(string)* Type of credit card financing (Debit, credit). |
-| `last_digits`     | *(string)* Last 4 digits of the card number. |
-| `brand`     | *(string)* Card brand (e.g.: Visa, Mastercard,...). |
-| `expiration_month`     | *(integer, 1-12)* Card expiration month. |
-| `expiration_year`     | *(integer)* Card expiration year. |
-| `fingerprint`     | *(string)* Unique card-based fingerprint. Allows detection of identical cards |
-| `name`     | *(string)* Card owner full name. |
-| `created`  | *(datetime, format: [iso8601](http://en.wikipedia.org/wiki/ISO_8601))* Creation date of the card |
-
-
 ### Curl
 
 ```sh

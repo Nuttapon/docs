@@ -2,6 +2,17 @@
 title: Account
 ---
 
+### Account attributes
+
+| Parameter | Value |
+|:----------|:------|
+| `object`  | *(string)* 'account' |
+| `id`| *(string)* Account ID |
+| `email` | *(string)* Registration email |
+| `created` | *(datetime, format: [iso8601](http://en.wikipedia.org/wiki/ISO_8601))* Creation date of the account |
+
+
+
 ## Retrieving the account
 
 **Endpoint**
@@ -15,15 +26,6 @@ GET https://api.omise.co/account
 ### Request parameters
 
  None.
-
-### Response parameters
-
-| Parameter | Value |
-|:----------|:------|
-| `object`  | *(string)* 'account' |
-| `id`| *(string)* Account ID |
-| `email` | *(string)* Registration email |
-| `created` | *(datetime, format: [iso8601](http://en.wikipedia.org/wiki/ISO_8601))* Creation date of the account |
 
 
 ### Curl

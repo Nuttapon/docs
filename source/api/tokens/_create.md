@@ -24,20 +24,6 @@ POST https://vault.omise.co/tokens
 | `card[postal_code]`      | *(optional)* The postal code from the city where the card was issued. |
 | `card[city]`             | *(optional)* The city where the card was issued. |
 
-
-### Response parameters
-| Parameter  | Value |
-|:-----------|:------|
-| `object`   | *(string)* 'token' |
-| `id`       | *(string)* Token ID |
-| `livemode` | *(boolean)* Whether this is a Live (true) or Test (false) balance. |
-| `location` | *(string)* Path to retrieve the token |
-| `used`     | *(boolean)*  Whether the token has been used or not. Tokens can be used only once. |
-| `card`     | *([card](/api/cards))* Card object |
-| `created`  | *(datetime, format: [iso8601](http://en.wikipedia.org/wiki/ISO_8601))* Creation date of the token |
-
-
-
 ### From Your Customer Browser
 
 #### Javascript using Omise.js
