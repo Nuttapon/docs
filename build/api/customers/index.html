@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <title>Customers - Omise</title>
+    <link rel="stylesheet" href="https://cdn.omise.co/fonts/inconsolata.css">
+    <link href="/stylesheets/all.css" rel="stylesheet" type="text/css" />
+    <script src="/javascripts/all.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <header class="Header">
+      <div class="Wrapper">
+        <img src="https://dashboard.omise.co/assets/logo-8b6d4ebb41f5b82452f6bc8b13440856.svg" width="96" height="32">
+      </div>
+      <a></a>
+    </header>
+    <div class="Wrapper">
+      <div class="Main">
+      <nav class="Nav"><div class="NavInner">
+        <h2>Documentation</h2>
+        <ul>
+          <li><a href="/">Getting Started</a></li>
+          <li><a href="/collecting-card-information">Collecting Card Information</a></li>
+          <li><a href="/charging-cards">Charging Cards</a></li>
+        </ul>
+
+        <h2>References</h2>
+        <ul>
+          <li><a href="/omise-js">Omise.js</a></li>
+          <li><a href="/api/authentication">Authentication</a></li>
+          <li><a href="/api/pagination">Pagination & lists</a></li>
+          <li>&nbsp;</li>
+          <li><a href="/api/account">Account</a></li>
+          <li><a href="/api/balance">Balance</a></li>
+          <li><a href="/api/tokens">Tokens</a></li>
+          <li><a href="/api/cards">Cards</a></li>
+          <li><a href="/api/charges">Charges</a></li>
+          <li><a class="Current" href="/api/customers">Customers</a></li>
+        </ul>
+      </div></nav>
+      <article class="Article">
+        <header class="ArticleHeader">
+          <h1>Customers</h1>
+          <p></p>
+        </header>
+        <div class="ArticleContent">
+          <h2 id="table-of-contents">Table of Contents</h2>
+
+<ul>
+<li><a href="#the-customer-object">The customer object</a></li>
+<li><a href="#create-a-customer">Create a customer</a></li>
+<li><a href="#retrieve-a-customer">Retrieve a customer</a></li>
+<li><a href="#update-a-customer">Update a customer</a></li>
+<li><a href="#destroy-a-customer">Destroy a customer</a></li>
+</ul>
+
+<hr>
+
+<h2 id="the-customer-object">The Customer Object</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Key</th>
+<th style="text-align: left">Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code>object</code></td>
+<td style="text-align: left"><em>(string)</em> &quot;customer&quot;</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>id</code></td>
+<td style="text-align: left"><em>(string)</em> Customer ID</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>livemode</code></td>
+<td style="text-align: left"><em>(boolean)</em> Whether this is a live (true) or test (false) card</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>location</code></td>
+<td style="text-align: left"><em>(string)</em> Path to retrieve the customer</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>default_card</code></td>
+<td style="text-align: left"><em>(string)</em> ID of the card used as default when creating charge with a customer. The default card is the first card assigned to a customer. If the current default card is destroyed the latest card added will be set as default card and <code>null</code> in case there&#39;s no cards left.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>email</code></td>
+<td style="text-align: left"><em>(string)</em> Email of the customer supplied during creation</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>description</code></td>
+<td style="text-align: left"><em>(string)</em> Description of the customer supplied during creation</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>created</code></td>
+<td style="text-align: left"><em>(datetime, format: <a href="http://en.wikipedia.org/wiki/ISO_8601">iso8601</a>)</em> Creation date of the customer</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>cards</code></td>
+<td style="text-align: left"><em>(<a href="/api/pagination">list</a>)</em> A paginated list of <a href="/api/cards#the-card-object">card objects</a></td>
+</tr>
+</tbody></table>
+
+<hr>
+
+<h2 id="create-a-customer">Create a customer</h2>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<pre><code class="highlight plaintext">POST https://api.omise.co/customers
+</code></pre>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code>email</code></td>
+<td style="text-align: left"><em>(optional)</em> Customer&#39;s email</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>description</code></td>
+<td style="text-align: left"><em>(optional)</em> A custom description for the customer.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>card</code></td>
+<td style="text-align: left"><em>(optional)</em> A card token in case you want to add a card to the customer</td>
+</tr>
+</tbody></table>
+
+<h3 id="curl">Curl</h3>
+
+<pre><code class="highlight shell">curl http://api.www.lvh.me/customers <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -u skey_test_4xpt8v5uaraanwc38ph: <span class="se">\</span>
+  -d <span class="s2">"description=John Doe (id: 30)"</span> <span class="se">\</span>
+  -d <span class="s2">"email=john.doe@example.com"</span> <span class="se">\</span>
+  -d <span class="s2">"card=tokn_test_4xs9408a642a1htto8z"</span>
+</code></pre>
+
+<h3 id="ruby">Ruby</h3>
+
+<pre><code class="highlight ruby"><span class="n">customer</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Customer</span><span class="p">.</span><span class="nf">create</span><span class="p">({</span>
+  <span class="ss">email: </span><span class="s2">"john.doe@example.com"</span><span class="p">,</span>
+  <span class="ss">description: </span><span class="s2">"John Doe (id: 30)"</span><span class="p">,</span>
+  <span class="ss">card: </span><span class="s2">"tokn_test_4xs9408a642a1htto8z"</span>
+<span class="p">})</span>
+</code></pre>
+
+<h3 id="c&#35;">C&#35;</h3>
+
+<pre><code class="highlight csharp"><span class="n">var</span> <span class="n">customerInfo</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">CustomerInfo</span> <span class="p">();</span>
+<span class="n">customerInfo</span><span class="p">.</span><span class="n">Email</span> <span class="p">=</span> <span class="s">"john.doe@example.com"</span><span class="p">;</span>
+<span class="n">customerInfo</span><span class="p">.</span><span class="n">Description</span> <span class="p">=</span> <span class="s">"John Doe (id: 30)"</span><span class="p">;</span>
+<span class="n">customerInfo</span><span class="p">.</span><span class="n">CardId</span> <span class="p">=</span> <span class="s">"tokn_test_4xs9408a642a1htto8z"</span>
+
+<span class="n">var</span> <span class="n">customerResult</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">CustomerService</span><span class="p">.</span><span class="nf">CreateCustomer</span> <span class="p">(</span><span class="n">customerInfo</span><span class="p">);</span>
+</code></pre>
+
+<h3 id="json-response">JSON Response</h3>
+
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cust_test_4xtrb759599jsxlhkrb"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"livemode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/customers/cust_test_4xtrb759599jsxlhkrb"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"default_card"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.doe@example.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe (id: 30)"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-10-24T06:04:48Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cards"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"list"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-01-01T07:00:00+07:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-10-24T13:04:48+07:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card_test_4xtsoy2nbfs7ujngyyq"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"livemode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/customers/cust_test_4xtrb759599jsxlhkrb/cards/card_test_4xtsoy2nbfs7ujngyyq"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"financing"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_digits"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4242"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"expiration_month"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"expiration_year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2017</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fingerprint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"q/kfc3jaZvlxIDobDQvziA4RSNdDdfXz9aFbXSjva8A="</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test card"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-10-24T08:26:07Z"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/customers/cust_test_4xtrb759599jsxlhkrb/cards"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<hr>
+
+<h2 id="retrieve-a-customer">Retrieve a customer</h2>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<pre><code class="highlight plaintext">GET https://api.omise.co/customers/CUSTOMER_ID
+</code></pre>
+
+<h3 id="curl">Curl</h3>
+
+<pre><code class="highlight shell">curl http://api.omise.co/customers/cust_test_4xtrb759599jsxlhkrb <span class="se">\</span>
+  -u skey_test_4xsjvwfnvb2g0l81sjz: <span class="se">\</span>
+</code></pre>
+
+<h3 id="ruby">Ruby</h3>
+
+<pre><code class="highlight ruby"><span class="n">customer</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Customer</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"cust_test_4xtrb759599jsxlhkrb"</span><span class="p">)</span>
+</code></pre>
+
+<h3 id="c&#35;">C&#35;</h3>
+
+<pre><code class="highlight csharp"><span class="n">var</span> <span class="n">customer</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">CustomerService</span><span class="p">.</span><span class="nf">GetCustomer</span><span class="p">(</span><span class="s">"cust_test_4xtrb759599jsxlhkrb"</span><span class="p">);</span>
+</code></pre>
+
+<h3 id="json-response">JSON Response</h3>
+
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cust_test_4xtrb759599jsxlhkrb"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"livemode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/customers/cust_test_4xtrb759599jsxlhkrb"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"default_card"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card_test_4xtsoy2nbfs7ujngyyq"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.doe@example.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe (id: 30)"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-10-24T08:26:46Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cards"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"list"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-01-01T07:00:00+07:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-10-24T15:32:31+07:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card_test_4xtsoy2nbfs7ujngyyq"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"livemode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/customers/cust_test_4xtrb759599jsxlhkrb/cards/card_test_4xtsoy2nbfs7ujngyyq"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"financing"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_digits"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4242"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"expiration_month"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"expiration_year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2017</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fingerprint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"q/kfc3jaZvlxIDobDQvziA4RSNdDdfXz9aFbXSjva8A="</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test card"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-10-24T08:26:07Z"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/customers/cust_test_4xtrb759599jsxlhkrb/cards"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<hr>
+
+<h2 id="update-a-customer">Update a customer</h2>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<pre><code class="highlight plaintext">PATCH https://api.omise.co/customers/CUSTOMER_ID
+</code></pre>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code>email</code></td>
+<td style="text-align: left"><em>(optional)</em> Customer&#39;s email</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>description</code></td>
+<td style="text-align: left"><em>(optional)</em> A custom description for the customer. This value can be searched for in your dashboard.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>card</code></td>
+<td style="text-align: left"><em>(optional)</em> A card token in case you want to add a card to the customer</td>
+</tr>
+</tbody></table>
+
+<h3 id="curl">Curl</h3>
+
+<pre><code class="highlight shell">curl http://api.omise.co/customers/cust_test_4xtrb759599jsxlhkrb <span class="se">\</span>
+  -X PATCH <span class="se">\</span>
+  -u skey_test_4xsjvwfnvb2g0l81sjz: <span class="se">\</span>
+  -d <span class="s2">"email=john.smith@example.com"</span> <span class="se">\</span>
+  -d <span class="s2">"description=Another description"</span>
+</code></pre>
+
+<h3 id="ruby">Ruby</h3>
+
+<pre><code class="highlight ruby"><span class="n">customer</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Customer</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"cust_test_4xtrb759599jsxlhkrb"</span><span class="p">)</span>
+<span class="n">customer</span><span class="p">.</span><span class="nf">update</span> <span class="p">{</span> <span class="ss">email: </span><span class="s2">"john.smith@example.com"</span><span class="p">,</span>
+                  <span class="ss">description: </span><span class="s2">"Another description"</span> <span class="p">}</span>
+</code></pre>
+
+<h3 id="c&#35;">C&#35;</h3>
+
+<pre><code class="highlight csharp"><span class="n">var</span> <span class="n">customerUpdateInfo</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">CustomerInfo</span> <span class="p">();</span>
+<span class="n">customerUpdateInfo</span><span class="p">.</span><span class="n">Email</span> <span class="p">=</span> <span class="s">"john.smith@example.com"</span><span class="p">;</span>
+<span class="n">customerUpdateInfo</span><span class="p">.</span><span class="n">Description</span> <span class="p">=</span> <span class="s">"Another description"</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">updateResult</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">CustomerService</span><span class="p">.</span><span class="nf">UpdateCustomer</span><span class="p">(</span><span class="s">"cust_test_4xtrb759599jsxlhkrb"</span><span class="p">,</span> <span class="n">customerUpdateInfo</span><span class="p">);</span>
+</code></pre>
+
+<h3 id="json-response">JSON Response</h3>
+
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cust_test_4xtrb759599jsxlhkrb"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"livemode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/customers/cust_test_4xtrb759599jsxlhkrb"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"default_card"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card_test_4xtsoy2nbfs7ujngyyq"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.smith@example.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe (id: 30)"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-10-24T08:26:46Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cards"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"list"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-01-01T07:00:00+07:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-10-24T15:36:34+07:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card_test_4xtsoy2nbfs7ujngyyq"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"livemode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/customers/cust_test_4xtrb759599jsxlhkrb/cards/card_test_4xtsoy2nbfs7ujngyyq"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"financing"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_digits"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4242"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"expiration_month"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"expiration_year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2017</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fingerprint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"q/kfc3jaZvlxIDobDQvziA4RSNdDdfXz9aFbXSjva8A="</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test card"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-10-24T08:26:07Z"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/customers/cust_test_4xtrb759599jsxlhkrb/cards"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<hr>
+
+<h2 id="destroy-a-customer">Destroy a customer</h2>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<pre><code class="highlight plaintext">DELETE https://api.omise.co/customers/CUSTOMER_ID
+</code></pre>
+
+<h3 id="curl">CURL</h3>
+
+<pre><code class="highlight shell">curl http://api.omise.co/customers/cust_test_4xtrb759599jsxlhkrb <span class="se">\</span>
+  -X DELETE <span class="se">\</span>
+  -u skey_test_4xsjvwfnvb2g0l81sjz:
+</code></pre>
+
+<h3 id="ruby">Ruby</h3>
+
+<pre><code class="highlight ruby"><span class="n">customer</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Customer</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"cust_test_4xtrb759599jsxlhkrb"</span><span class="p">)</span>
+<span class="n">customer</span><span class="p">.</span><span class="nf">destroy</span>
+<span class="n">customer</span><span class="p">.</span><span class="nf">destroyed?</span> <span class="c1"># =&gt; true</span>
+</code></pre>
+
+<h3 id="c&#35;">C&#35;</h3>
+
+<pre><code class="highlight csharp"><span class="n">var</span> <span class="n">deleteResult</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">CustomerService</span><span class="p">.</span><span class="nf">DeleteCustomer</span><span class="p">(</span><span class="s">"cust_test_4xtrb759599jsxlhkrb"</span><span class="p">);</span>
+<span class="c1">// deleteResult.deleted =&gt; true
+</span></code></pre>
+
+<h3 id="json-response">JSON Response</h3>
+
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cust_test_4xtrb759599jsxlhkrb"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"livemode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+        </div>
+      </article>
+      </div>
+    </div>
+  </body>
+<html>

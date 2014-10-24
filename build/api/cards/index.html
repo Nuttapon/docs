@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <title>Cards - Omise</title>
+    <link rel="stylesheet" href="https://cdn.omise.co/fonts/inconsolata.css">
+    <link href="/stylesheets/all.css" rel="stylesheet" type="text/css" />
+    <script src="/javascripts/all.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <header class="Header">
+      <div class="Wrapper">
+        <img src="https://dashboard.omise.co/assets/logo-8b6d4ebb41f5b82452f6bc8b13440856.svg" width="96" height="32">
+      </div>
+      <a></a>
+    </header>
+    <div class="Wrapper">
+      <div class="Main">
+      <nav class="Nav"><div class="NavInner">
+        <h2>Documentation</h2>
+        <ul>
+          <li><a href="/">Getting Started</a></li>
+          <li><a href="/collecting-card-information">Collecting Card Information</a></li>
+          <li><a href="/charging-cards">Charging Cards</a></li>
+        </ul>
+
+        <h2>References</h2>
+        <ul>
+          <li><a href="/omise-js">Omise.js</a></li>
+          <li><a href="/api/authentication">Authentication</a></li>
+          <li><a href="/api/pagination">Pagination & lists</a></li>
+          <li>&nbsp;</li>
+          <li><a href="/api/account">Account</a></li>
+          <li><a href="/api/balance">Balance</a></li>
+          <li><a href="/api/tokens">Tokens</a></li>
+          <li><a class="Current" href="/api/cards">Cards</a></li>
+          <li><a href="/api/charges">Charges</a></li>
+          <li><a href="/api/customers">Customers</a></li>
+        </ul>
+      </div></nav>
+      <article class="Article">
+        <header class="ArticleHeader">
+          <h1>Cards</h1>
+          <p></p>
+        </header>
+        <div class="ArticleContent">
+          <h2 id="table-of-contents">Table of Contents</h2>
+
+<ul>
+<li><a href="#the-card-object">The card object</a></li>
+<li><a href="#create-a-card">Create a card</a></li>
+<li><a href="#list-all-cards">List all cards</a></li>
+<li><a href="#retrieve-a-card">Retrieve a card</a></li>
+<li><a href="#update-a-card">Update a card</a></li>
+<li><a href="#destroy-a-card">Destroy a card</a></li>
+</ul>
+
+<hr>
+
+<h2 id="the-card-object">The Card Object</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code>object</code></td>
+<td style="text-align: left"><em>(string)</em> &#39;card&#39;</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>id</code></td>
+<td style="text-align: left"><em>(string)</em> Card ID</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>livemode</code></td>
+<td style="text-align: left"><em>(boolean)</em> Whether this is a Live (true) or Test (false) card.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>location</code></td>
+<td style="text-align: left"><em>(string)</em> Path to retrieve the card</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>country</code></td>
+<td style="text-align: left"><em>(string, format: <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">Lowercase Iso3166</a>)</em> Country code based on the card number.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>city</code></td>
+<td style="text-align: left"><em>(string)</em> City.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>postal_code</code></td>
+<td style="text-align: left"><em>(string)</em> Postal code.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>financing</code></td>
+<td style="text-align: left"><em>(string)</em> Type of credit card financing (Debit, credit).</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>last_digits</code></td>
+<td style="text-align: left"><em>(string)</em> Last 4 digits of the card number.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>brand</code></td>
+<td style="text-align: left"><em>(string)</em> Card brand (e.g.: Visa, Mastercard,...).</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>expiration_month</code></td>
+<td style="text-align: left"><em>(integer, 1-12)</em> Card expiration month.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>expiration_year</code></td>
+<td style="text-align: left"><em>(integer)</em> Card expiration year.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>fingerprint</code></td>
+<td style="text-align: left"><em>(string)</em> Unique card-based fingerprint. Allows detection of identical cards</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>name</code></td>
+<td style="text-align: left"><em>(string)</em> Card owner full name.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>created</code></td>
+<td style="text-align: left"><em>(datetime, format: <a href="http://en.wikipedia.org/wiki/ISO_8601">iso8601</a>)</em> Creation date of the card</td>
+</tr>
+</tbody></table>
+
+<hr>
+
+<h2 id="create-a-card">Create a card</h2>
+
+<p>Cards are created via tokens. See the <a href="/api/tokens">tokens references</a>.</p>
+
+<hr>
+
+<h2 id="list-all-cards">List all cards</h2>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<pre><code class="highlight plaintext">GET https://api.omise.co/customers/CUSTOMER_ID/cards
+</code></pre>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code>customer_id</code></td>
+<td style="text-align: left"><em>(required)</em> Customer id</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-parameters">Response parameters</h3>
+
+<p>A <a href="/api/pagination">paginated list</a> of <a href="/api/cards#card-attributes">cards</a></p>
+
+<h3 id="curl">Curl</h3>
+
+<pre><code class="highlight shell">curl https://api.omise.co/customers/cust_test_4xsjvylia03ur542vn6/cards <span class="se">\</span>
+  -u skey_test_4xsjvwfnvb2g0l81sjz:
+</code></pre>
+
+<h3 id="ruby">Ruby</h3>
+
+<pre><code class="highlight ruby"><span class="n">customer</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Customer</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"cust_test_4xsjvylia03ur542vn6"</span><span class="p">)</span>
+<span class="n">cards</span> <span class="o">=</span> <span class="n">customer</span><span class="p">.</span><span class="nf">cards</span>
+</code></pre>
+
+<h3 id="c&#35;">C&#35;</h3>
+
+<pre><code class="highlight csharp"><span class="n">cards</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">CardService</span><span class="p">.</span><span class="nf">GetAllCards</span><span class="p">(</span><span class="s">"cust_test_4xsjvylia03ur542vn6"</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">20</span><span class="p">);</span>
+</code></pre>
+
+<h3 id="json-response">JSON Response</h3>
+
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"list"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-01-01T07:00:00+07:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-10-21T11:34:42+07:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card_test_4xsjw0t21xaxnuzi9gs"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"livemode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/customers/cust_test_4xsjvylia03ur542vn6/cards/card_test_4xsjw0t21xaxnuzi9gs"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bangkok"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10320"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"financing"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_digits"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4242"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"expiration_month"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"expiration_year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2016</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"fingerprint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uBNb5Z5J6firoMoDo80jEc1X/QucKQ4SCu80kP9U0gE="</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Somchai Prasert"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-10-21T04:04:12Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<hr>
+
+<h2 id="retrieve-a-card">Retrieve a card</h2>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<pre><code class="highlight plaintext">GET https://api.omise.co/customers/CUSTOMER_ID/cards/CARD_ID
+</code></pre>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code>customer_id</code></td>
+<td style="text-align: left"><em>(required)</em> Customer id</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>card_id</code></td>
+<td style="text-align: left"><em>(required)</em> Card id</td>
+</tr>
+</tbody></table>
+
+<h3 id="curl">Curl</h3>
+
+<pre><code class="highlight shell">curl https://api.omise.co/customers/cust_test_4xsjvylia03ur542vn6/cards/card_test_4xsjw0t21xaxnuzi9gs <span class="se">\</span>
+  -u skey_test_4xsjvwfnvb2g0l81sjz:
+</code></pre>
+
+<h3 id="ruby">Ruby</h3>
+
+<pre><code class="highlight ruby"><span class="n">customer</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Customer</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"cust_test_4xsjvylia03ur542vn6"</span><span class="p">)</span>
+<span class="n">card</span> <span class="o">=</span> <span class="n">customer</span><span class="p">.</span><span class="nf">cards</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"card_test_4xsjw0t21xaxnuzi9gs"</span><span class="p">)</span>
+
+<span class="c1"># Note that you can reload the card once you have an instance of one.</span>
+<span class="n">card</span><span class="p">.</span><span class="nf">reload</span>
+</code></pre>
+
+<h3 id="c&#35;">C&#35;</h3>
+
+<pre><code class="highlight csharp"><span class="n">card</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">CardService</span><span class="p">.</span><span class="nf">GetCard</span><span class="p">(</span><span class="s">"cust_test_4xsjvylia03ur542vn6"</span><span class="p">,</span> <span class="s">"card_test_4xsjw0t21xaxnuzi9gs"</span><span class="p">);</span>
+</code></pre>
+
+<h3 id="json-response">JSON Response</h3>
+
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card_test_4xsjw0t21xaxnuzi9gs"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"livemode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/customers/cust_test_4xsjvylia03ur542vn6/cards/card_test_4xsjw0t21xaxnuzi9gs"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bangkok"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10320"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"financing"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last_digits"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4242"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expiration_month"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expiration_year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2016</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fingerprint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uBNb5Z5J6firoMoDo80jEc1X/QucKQ4SCu80kP9U0gE="</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Somchai Prasert"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-10-21T04:04:12Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<hr>
+
+<h2 id="update-a-card">Update a card</h2>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<pre><code class="highlight plaintext">PATCH https://api.omise.co/customers/CUSTOMER_ID/cards/CARD_ID
+</code></pre>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code>name</code></td>
+<td style="text-align: left"><em>(optional)</em> The cardholder name as printed on the card.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>expiration_month</code></td>
+<td style="text-align: left"><em>(optional)</em> The expiration month printed on the card.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>expiration_year</code></td>
+<td style="text-align: left"><em>(optional)</em> The expiration year printed on the card in the format YYYY.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>postal_code</code></td>
+<td style="text-align: left"><em>(optional)</em> The postal code from the city where the card was issued.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>city</code></td>
+<td style="text-align: left"><em>(optional)</em> The city where the card was issued.</td>
+</tr>
+</tbody></table>
+
+<h3 id="curl">Curl</h3>
+
+<pre><code class="highlight shell">curl https://api.omise.co/customers/cust_test_4xsjvylia03ur542vn6/cards/card_test_4xsjw0t21xaxnuzi9gs <span class="se">\</span>
+  -X PATCH <span class="se">\</span>
+  -u skey_test_4xsjvwfnvb2g0l81sjz: <span class="se">\</span>
+  -d <span class="s2">"expiration_month=11"</span> <span class="se">\</span>
+  -d <span class="s2">"expiration_year=2017"</span> <span class="se">\</span>
+  -d <span class="s2">"name=Somchai Praset"</span> <span class="se">\</span>
+  -d <span class="s2">"postal_code=10310"</span>
+</code></pre>
+
+<h3 id="ruby">Ruby</h3>
+
+<pre><code class="highlight ruby"><span class="n">customer</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Customer</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"cust_test_4xsjvylia03ur542vn6"</span><span class="p">)</span>
+<span class="n">card</span> <span class="o">=</span> <span class="n">customer</span><span class="p">.</span><span class="nf">cards</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"card_test_4xsjw0t21xaxnuzi9gs"</span><span class="p">)</span>
+<span class="n">card</span><span class="p">.</span><span class="nf">update</span><span class="p">({</span>
+  <span class="ss">expiration_month: </span><span class="mi">11</span><span class="p">,</span>
+  <span class="ss">expiration_year: </span><span class="mi">2017</span><span class="p">,</span>
+  <span class="ss">name: </span><span class="s2">"Somchai Praset"</span><span class="p">,</span>
+  <span class="ss">postal_code: </span><span class="s2">"10310"</span>
+<span class="p">})</span>
+</code></pre>
+
+<h3 id="c&#35;">C&#35;</h3>
+
+<pre><code class="highlight csharp"><span class="n">var</span> <span class="n">card</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">CardUpdateInfo</span> <span class="p">();</span>
+<span class="n">card</span><span class="p">.</span><span class="n">Id</span> <span class="p">=</span> <span class="s">"card_test_4xsjw0t21xaxnuzi9gs"</span><span class="p">;</span>
+<span class="n">card</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="s">"Somchai Praset"</span><span class="p">;</span>
+<span class="n">card</span><span class="p">.</span><span class="n">ExpirationMonth</span> <span class="p">=</span> <span class="m">11</span><span class="p">;</span>
+<span class="n">card</span><span class="p">.</span><span class="n">ExpirationYear</span> <span class="p">=</span> <span class="m">2017</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">updateResult</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">CardService</span><span class="p">.</span><span class="nf">UpdateCard</span> <span class="p">(</span><span class="s">"cust_test_4xsjvylia03ur542vn6"</span><span class="p">,</span> <span class="n">card</span><span class="p">);</span>
+</code></pre>
+
+<h3 id="json-response">JSON Response</h3>
+
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card_test_4xsjw0t21xaxnuzi9gs"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"livemode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/customers/cust_test_4xsjvylia03ur542vn6/cards/card_test_4xsjw0t21xaxnuzi9gs"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bangkok"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10310"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"financing"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last_digits"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4242"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expiration_month"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expiration_year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2017</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fingerprint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uBNb5Z5J6firoMoDo80jEc1X/QucKQ4SCu80kP9U0gE="</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Somchai Praset"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-10-21T04:04:12Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<hr>
+
+<h2 id="destroy-a-card">Destroy a card</h2>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<pre><code class="highlight plaintext">DELETE https://api.omise.co/customers/CUSTOMER_ID/cards/CARD_ID
+</code></pre>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code>customer_id</code></td>
+<td style="text-align: left"><em>(required)</em> Customer id</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>card_id</code></td>
+<td style="text-align: left"><em>(required)</em> Card id</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code>object</code></td>
+<td style="text-align: left"><em>(string)</em> &#39;card&#39;</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>id</code></td>
+<td style="text-align: left"><em>(string)</em> Card id</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>livemode</code></td>
+<td style="text-align: left"><em>(boolean)</em> Whether this is a Live (true) or Test (false) card.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>deleted</code></td>
+<td style="text-align: left"><em>(boolean)</em> Card deletion status</td>
+</tr>
+</tbody></table>
+
+<h3 id="curl">Curl</h3>
+
+<pre><code class="highlight shell">curl https://api.omise.co/customers/cust_test_4xsjvylia03ur542vn6/cards/card_test_4xsjw0t21xaxnuzi9gs <span class="se">\</span>
+  -X DELETE <span class="se">\</span>
+  -u skey_test_4xsjvwfnvb2g0l81sjz:
+</code></pre>
+
+<h3 id="ruby">Ruby</h3>
+
+<pre><code class="highlight ruby"><span class="n">customer</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Customer</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"cust_test_4xsjvylia03ur542vn6"</span><span class="p">)</span>
+<span class="n">card</span> <span class="o">=</span> <span class="n">customer</span><span class="p">.</span><span class="nf">cards</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"card_test_4xsjw0t21xaxnuzi9gs"</span><span class="p">)</span>
+<span class="n">card</span><span class="p">.</span><span class="nf">destroy</span>
+</code></pre>
+
+<h3 id="c&#35;">C&#35;</h3>
+
+<pre><code class="highlight csharp"><span class="n">var</span> <span class="n">deleteResult</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">CardService</span><span class="p">.</span><span class="nf">DeleteCard</span> <span class="p">(</span><span class="s">"cust_test_4xsjvylia03ur542vn6"</span><span class="p">,</span> <span class="s">"card_test_4xsjw0t21xaxnuzi9gs"</span><span class="p">);</span>
+</code></pre>
+
+<h3 id="json-response">JSON Response</h3>
+
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card_test_4xsjw0t21xaxnuzi9gs"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"livemode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+        </div>
+      </article>
+      </div>
+    </div>
+  </body>
+<html>
