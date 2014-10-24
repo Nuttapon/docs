@@ -30,6 +30,11 @@ card = customer.cards.retrieve("card_test_4xsjw0t21xaxnuzi9gs")
 card.reload
 ```
 
+### C&#35;
+```c#
+card = client.CardService.GetCard("cust_test_4xsjvylia03ur542vn6", "card_test_4xsjw0t21xaxnuzi9gs");
+```
+
 ### JSON Response
 
 ```json

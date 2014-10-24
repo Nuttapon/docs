@@ -45,6 +45,20 @@ charge = Omise::Charge.create({
 })
 ```
 
+### C&#35;
+
+```c#
+var charge = new ChargeCreateInfo ();
+charge.Amount = 100000;
+charge.Currency = "thb";
+charge.Description = "Order-384";
+charge.ReturnUri = "https://example.co.th/orders/384/complete";
+charge.CardId = "tokn_test_4xs9408a642a1htto8z";
+charge.Ip = "127.0.0.1";
+
+var result = client.ChargeService.CreateCharge (charge);
+```
+
 ### JSON Response
 
 ```json

@@ -25,6 +25,12 @@ curl https://vault.omise.co/tokens/tokn_test_4xs9408a642a1htto8z \
 token = Omise::Token.retrieve("tokn_test_4xs9408a642a1htto8z")
 ```
 
+### C&#35;
+
+```c#
+var resultToken = client.TokenService.GetToken ("tokn_test_4xs9408a642a1htto8z");
+```
+
 ### JSON Response
 
 ```json

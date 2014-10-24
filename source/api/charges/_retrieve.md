@@ -19,6 +19,12 @@ curl https://api.omise.co/charges/chrg_test_4xso2s8ivdej29pqnhz \
 charge = Omise::Charge.retrieve("chrg_test_4xso2s8ivdej29pqnhz")
 ```
 
+### C&#35;
+
+```c#
+var result = client.ChargeService.GetCharge("chrg_test_4xso2s8ivdej29pqnhz");
+```
+
 ### JSON Response
 
 ```json

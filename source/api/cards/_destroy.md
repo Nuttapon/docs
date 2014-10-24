@@ -38,6 +38,12 @@ card = customer.cards.retrieve("card_test_4xsjw0t21xaxnuzi9gs")
 card.destroy
 ```
 
+### C&#35;
+
+```c#
+var deleteResult = client.CardService.DeleteCard ("cust_test_4xsjvylia03ur542vn6", "card_test_4xsjw0t21xaxnuzi9gs");
+```
+
 ### JSON Response
 
 ```json
