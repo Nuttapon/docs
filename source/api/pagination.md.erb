@@ -1,5 +1,5 @@
 ---
-title: Pagination & lists
+title: Pagination &amp; Lists
 excerpt: Several API requests return lists of objects. This is how they are structured.
 ---
 
@@ -30,20 +30,20 @@ excerpt: Several API requests return lists of objects. This is how they are stru
 
 
 <div class="Notice">
-  The following examples illustrate pagination on a cards list. The same applies to all list APIs (cards, transactions, refunds) All pagination
+  The following examples illustrate pagination on a cards list. The same applies to all list APIs (cards, transactions) All pagination
   parameters are optional and can be used in any combination you like.
 </div>
 
 
 ### CURL - Cards
 ```sh
-	curl https://api.omise.co/customers/cust_test_4xs68oo1vgalgffzsyw/cards \
-	-X GET \
-	-u skey_test_4xs68olyuul9lmmp375: \
-	-d "from=2014-10-20T00:00:00Z" \
-	-d "to=2014-10-25T00:00:00Z" \
-	-d "offset=1" \
-	-d "limit=5"
+curl https://api.omise.co/customers/cust_test_4xs68oo1vgalgffzsyw/cards \
+  -X GET \
+  -u skey_test_4xs68olyuul9lmmp375: \
+  -d "from=2014-10-20T00:00:00Z" \
+  -d "to=2014-10-25T00:00:00Z" \
+  -d "offset=1" \
+  -d "limit=5"
 ```
 
 ### JSON Response - Cards
@@ -77,6 +77,3 @@ excerpt: Several API requests return lists of objects. This is how they are stru
   ]
 }
 ```
-
-
-
