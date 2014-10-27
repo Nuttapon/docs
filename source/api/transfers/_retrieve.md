@@ -3,7 +3,7 @@
 ### Endpoint
 
 ```
-POST https://api.omise.co/transfers/TRANSFER_ID
+GET https://api.omise.co/transfers/TRANSFER_ID
 ```
 
 ### Request Parameters
