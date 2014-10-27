@@ -1,19 +1,14 @@
 ## Create a token
 
-<div class="Notice">
-  For security reasons, it's highly recommended not to request a token creation from your server. Instead, do it from
-  your customer browser using Omise.js. This will help you with PCI compliance.
-  Rule of thumb: <strong>Sensitive card data should never go through your server.</strong>
-</div>
+On a Production environment, create tokens from your users browser using [Omise.js](/omise-js). Related article: [Collecting card information](/collecting-card-information).
 
-See our article on [how to collect card information](/collecting-card-information) and the [Omise.js references](/omise-js)
 
 ### Endpoint
 
 ```
 POST https://vault.omise.co/tokens
 ```
-
+<div id="token-creation-parameters"></div>
 ### Request Parameters
 
 | Parameter                | Value                                             |
@@ -26,7 +21,17 @@ POST https://vault.omise.co/tokens
 | `card[postal_code]`      | *(optional)* The postal code from the city where the card was issued. |
 | `card[city]`             | *(optional)* The city where the card was issued. |
 
+
+
+
+
+
 ### Curl
+
+<div class="Notice">
+  Reminder: <strong>Sensitive card data should never go through your server.</strong>
+  Unless you have a very good reason and know what you are doing, the following method of token creation should only be used with fake data in test mode (e.g.: Quickly creating some fake data, testing our API from a terminal, ...)
+</div>
 
 ```sh
 curl https://vault.omise.co/tokens \
@@ -43,6 +48,11 @@ curl https://vault.omise.co/tokens \
 
 ### Ruby
 
+<div class="Notice">
+  Reminder: <strong>Sensitive card data should never go through your server.</strong>
+  Unless you have a very good reason and know what you are doing, the following method of token creation should only be used with fake data in test mode (e.g.: Quickly creating some fake data, testing our API from a terminal, ...)
+</div>
+
 ```ruby
 token = Omise::Token.create(card: {
   name: "Somchai Prasert",
@@ -56,6 +66,11 @@ token = Omise::Token.create(card: {
 ```
 
 ### C&#35;
+
+<div class="Notice">
+  Reminder: <strong>Sensitive card data should never go through your server.</strong>
+  Unless you have a very good reason and know what you are doing, the following method of token creation should only be used with fake data in test mode (e.g.: Quickly creating some fake data, testing our API from a terminal, ...)
+</div>
 
 ```c#
 var card = new CardCreateInfo ();
