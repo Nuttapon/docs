@@ -394,21 +394,22 @@ a {
   margin: 0 0 15px; }
 /* line 14, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
 .ArticleHeader p {
+  color: #1b80a5;
   max-width: 680px;
   margin: 0 0 10px; }
 
-/* line 20, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
+/* line 21, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
 .ArticleContent {
   max-width: 680px;
   padding: 10px 40px 30px; }
-  /* line 24, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
+  /* line 25, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
   .ArticleContent h2 {
     margin: 0 0 .5em 0;
     padding-top: 20px;
     color: #1a7fa4;
     font-size: 1.7em; }
 
-/* line 32, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
+/* line 33, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
 .Article hr {
   width: 976px;
   margin: 30px 0 20px -40px;
@@ -416,7 +417,7 @@ a {
   height: 1px;
   background: #63bcdc; }
 
-/* line 40, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
+/* line 41, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
 .Notice {
   border-radius: 4px;
   border: 1px solid #e0dec8;

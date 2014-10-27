@@ -29,7 +29,7 @@
         <ul>
           <li><a href="/omise-js">Omise.js</a></li>
           <li><a href="/api/authentication">Authentication</a></li>
-          <li><a href="/api/pagination">Pagination & lists</a></li>
+          <li><a href="/api/pagination">Pagination &amp; Lists</a></li>
           <li>&nbsp;</li>
           <li><a href="/api/account">Account</a></li>
           <li><a href="/api/balance">Balance</a></li>
@@ -37,6 +37,8 @@
           <li><a href="/api/cards">Cards</a></li>
           <li><a class="Current" href="/api/charges">Charges</a></li>
           <li><a href="/api/customers">Customers</a></li>
+          <li><a href="/api/transfers">Transfers</a></li>
+          <li><a href="/api/transactions">Transactions</a></li>
         </ul>
       </div></nav>
       <article class="Article">
@@ -48,11 +50,92 @@
           <h2 id="table-of-contents">Table of Contents</h2>
 
 <ul>
+<li><a href="#the-charge-object">The charge object</a></li>
 <li><a href="#retrieve-a-charge">Create a charge</a></li>
 <li><a href="#retrieve-a-charge">Retrieve a charge</a></li>
 <li><a href="#update-a-charge">Update a charge</a></li>
 <li><a href="#capture-an-authorized-a-charge">Capture an authorized charge</a></li>
 </ul>
+
+<hr>
+
+<h2 id="the-charge-object">The Charge Object</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code>object</code></td>
+<td style="text-align: left"><em>(string)</em> &#39;charge&#39;</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>id</code></td>
+<td style="text-align: left"><em>(string)</em> Charge ID</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>livemode</code></td>
+<td style="text-align: left"><em>(boolean)</em> Whether this is a Live (true) or Test (false) charge.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>amount</code></td>
+<td style="text-align: left"><em>(integer)</em> The amount in the smallest subunits of the currency used. So for <code>thb</code> (Thai Baht) you&#39;ll need to pass the amount in satangs.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>currency</code></td>
+<td style="text-align: left"><em>(string)</em>  The currency as its lower-cased international 3-letter code, defined by the <a href="http://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> standard.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>description</code></td>
+<td style="text-align: left"><em>(string)</em>  The charge description as Omise received it.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>capture</code></td>
+<td style="text-align: left"><em>(boolean)</em>  Whether the charge is set to be auto-captured or not.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>authorized</code></td>
+<td style="text-align: left"><em>(boolean)</em>  Whether the charge has been authorized or not.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>captured</code></td>
+<td style="text-align: left"><em>(boolean)</em>  Whether the charge has been captured or not.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>transaction</code></td>
+<td style="text-align: left"><em>(string)</em>  <code>TRANSACTION_ID</code> of that charge.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>return_uri</code></td>
+<td style="text-align: left"><em>(string)</em>  The url where the customer was redirected after charge creation.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>reference</code></td>
+<td style="text-align: left"><em>(string)</em>  Charge reference code.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>authorize_uri</code></td>
+<td style="text-align: left"><em>(string)</em>  Uri for charge authorization.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>card</code></td>
+<td style="text-align: left"><em>(<a href="/api/cards#the-card-object">Card</a>)</em>  The card object that was charged.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>customer</code></td>
+<td style="text-align: left"><em>(string)</em>  The <code>CUSTOMER_ID</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>ip</code></td>
+<td style="text-align: left"><em>(string)</em>  The customer IP, as sent to Omise.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>created</code></td>
+<td style="text-align: left"><em>(datetime, format: <a href="http://en.wikipedia.org/wiki/ISO_8601">iso8601</a>)</em> Creation date of the charge</td>
+</tr>
+</tbody></table>
 
 <hr>
 
@@ -73,11 +156,11 @@
 </thead><tbody>
 <tr>
 <td style="text-align: left"><code>customer</code></td>
-<td style="text-align: left"><em>(required)</em> A valid <code>CUSTOMER_ID</code> that has at least one card already associated. By default the default card of the customer will be used if no card parameter is present. You can use this field in combination with the card parameter below if you want to charge a specific customer card by passing the <code>CARD_ID</code> (not a <code>TOKEN_ID</code>).</td>
+<td style="text-align: left"><em>(required unless passing a <code>TOKEN_ID</code>)</em> A valid <code>CUSTOMER_ID</code> that has at least one card already associated. By default the default card of the customer will be used</td>
 </tr>
 <tr>
 <td style="text-align: left"><code>card</code></td>
-<td style="text-align: left"><em>(required)</em> A valid unused <code>TOKEN_ID</code> or <code>CARD_ID</code>. In the case of the <code>CARD_ID</code> the customer parameter must be present and be the actual owner of the card. For the <code>TOKEN_ID</code>, the customer must not be passed.</td>
+<td style="text-align: left"><em>(optional if passing a <code>CUSTOMER_ID</code>)</em> A valid unused <code>TOKEN_ID</code> or <code>CARD_ID</code>. In the case of the <code>CARD_ID</code> the customer parameter must be present and be the actual owner of the card. For the <code>TOKEN_ID</code>, the customer must not be passed.</td>
 </tr>
 <tr>
 <td style="text-align: left"><code>return_uri</code></td>
@@ -93,7 +176,7 @@
 </tr>
 <tr>
 <td style="text-align: left"><code>capture</code></td>
-<td style="text-align: left"><em>(optional)</em> Whether or not you want the charge to be capture right away.</td>
+<td style="text-align: left"><em>(optional)</em> Whether or not you want the charge to be captured right away.</td>
 </tr>
 <tr>
 <td style="text-align: left"><code>description</code></td>
