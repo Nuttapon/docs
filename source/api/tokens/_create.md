@@ -1,19 +1,18 @@
 ## Create a token
 
-<div class="Notice">
-  For security reasons, it's highly recommended not to request a token creation from your server. Instead, do it from
-  your customer browser using Omise.js. This will help you with PCI compliance.
-  Rule of thumb: <strong>Sensitive card data should never go through your server.</strong>
-</div>
+On a Production environment, create tokens from your users browser using [Omise.js](/omise-js). Related article: [Collecting card information](/collecting-card-information).
 
-See our article on [how to collect card information](/collecting-card-information) and the [Omise.js references](/omise-js)
+Reminder: **Sensitive card data should never go through your server.**
+For this reason, our documentation does not contain any server-side token creation code.
+If you wish to quickly and easily generate fake test data, Curl commands are available on [the dashboard inline documentation](https://dashboard.omise.co/test/customers)
+
 
 ### Endpoint
 
 ```
 POST https://vault.omise.co/tokens
 ```
-
+<div id="token-creation-parameters"></div>
 ### Request Parameters
 
 | Parameter                | Value                                             |
@@ -26,77 +25,4 @@ POST https://vault.omise.co/tokens
 | `card[postal_code]`      | *(optional)* The postal code from the city where the card was issued. |
 | `card[city]`             | *(optional)* The city where the card was issued. |
 
-### Curl
 
-```sh
-curl https://vault.omise.co/tokens \
-  -X POST \
-  -u pkey_test_4xs8breq32civvobx15: \
-  -d "card[name]=Somchai Prasert" \
-  -d "card[number]=4242424242424242" \
-  -d "card[expiration_month]=10" \
-  -d "card[expiration_year]=2018" \
-  -d "card[city]=Bangkok" \
-  -d "card[postal_code]=10320" \
-  -d "card[security_code]=123"
-```
-
-### Ruby
-
-```ruby
-token = Omise::Token.create(card: {
-  name: "Somchai Prasert",
-  number: "4242424242424242",
-  expiration_month: 10,
-  expiration_year: 2018,
-  city: "Bangkok",
-  postal_code: "10320",
-  security_code: 123
-})
-```
-
-### C&#35;
-
-```c#
-var card = new CardCreateInfo ();
-card.Name = "Somchai Prasert";
-card.Number = "4242424242424242";
-card.ExpirationMonth = 10;
-card.ExpirationYear = 2018;
-card.City = "Bangkok";
-card.PostalCode = "10320";
-
-var token = new TokenInfo ();
-token.Card = card;
-
-var resultToken = client.TokenService.CreateToken (token);
-```
-
-### JSON Response
-
-```json
-{
-  "object": "token",
-  "id": "tokn_test_4xs9408a642a1htto8z",
-  "livemode": false,
-  "location": "/tokens/tokn_test_4xs9408a642a1htto8z",
-  "used": false,
-  "card": {
-    "object": "card",
-    "id": "card_test_4xs94086bpvq56tghuo",
-    "livemode": false,
-    "country": "th",
-    "city": "Bangkok",
-    "postal_code": "10320",
-    "financing": "credit",
-    "last_digits": "4242",
-    "brand": "Visa",
-    "expiration_month": 10,
-    "expiration_year": 2018,
-    "fingerprint": "/LCaOoTah/+As+qKsohIldZkEfew0Zq2nJKgIObRwMI=",
-    "name": "Somchai Prasert",
-    "created": "2014-10-20T09:41:56Z"
-  },
-  "created": "2014-10-20T09:41:56Z"
-}
-```

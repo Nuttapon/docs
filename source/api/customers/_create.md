@@ -64,7 +64,7 @@ var customerResult = client.CustomerService.CreateCustomer (customerInfo);
     "to": "2014-10-24T13:04:48+07:00",
     "offset": 0,
     "limit": 20,
-    "total": 0,
+    "total": 1,
     "data": [
       {
         "object": "card",

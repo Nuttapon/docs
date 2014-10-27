@@ -1,26 +1,33 @@
 ---
 title: Getting Started
-excerpt: In those pages you'll find all information you need to get started and start receiving payments from your website.
+excerpt: In these pages you'll find all information you need to get started and start receiving payments on your website.
 ---
 
 ## How It All Works
 
-To be able to receive payment on your website you first need to get a bird eye view of all the steps that you need to take. This document outlines just that without going into too much details at first. More details are available for each steps into their own separate articles.
+The first articles will give you a general overview of Omise so you have a good understanding of how all the pieces into place. More details are available for each steps into their own separate articles.
 
 ### Collecting Credit Card Information
 
-First is to collect your customer credit card information. Those information are sensitive and needs to be protected at all cost. If you're already PCI certified you already know how much works is required to get there and it's unnecessary to bother you with the details all over again. If you're not, at least remember this: any sensitive card data that transit, get stored or processed through your server requires that you pass an audit in order to be PCI compliant. If you want to do all the above, good luck to you.
+The first step is to collect your customer credit card information. Any sensitive card data that transits, gets stored or processed through your server requires that you pass an audit in order to be [PCI compliant](https://www.pcisecuritystandards.org/security_standards/documents.php?agreements=pcidss&association=pcidss).
+This is where Omise comes in: We are PCI certified and our API allows your server to never touch sensitive data!
 
-But for you that just want to get paid there must be a better way. That's the moment where Omise comes in. You don't need to go through so much pain and tears. Send us those sensitive card data and we'll make sure to keep them safe but accessible so you can charge your customers when you need to.
+To collect credit cards on your website, Omise offers a small Javascript library called [Omise.js](https://github.com/omise/omise.js). It can be integrated on your website very easily and will still allow you to use your own forms.
+It works by tokenizing the card:
 
-To collect credit cards on your website Omise offers a small Javascript library called [Omise.js](https://github.com/omise/omise.js) that you can integrate on your website in a few minutes. Omise.js let's you use your own forms on your own website and still don't transmit, store, or process the credit card information on your own servers. We'll take care of that for you through a process called tokenization. In exchange to the card data we'll give you a token that represents the card. You can then use that token to charge your customer card.
+*  Your users fill in their credit card details on your form. They never leave your website!
+
+*  Omise.js sends us the data and we return a token.
+
+*  You can use this token to create a one-time charge or save the card under a Customer on our servers for later use.
+
 
 [Learn more about Omise.js and Tokens](./collecting-card-information.html)
 
 ### Charging Cards
 
-Next up is charging your customer card. Using the token you received during the previous step you can then create a charge object using one of our libraries or simply by using your language standard library or even a tool like curl. Our API follows a REST architecture.
+Next up is charging your customer card. This can be done using the token you received during the previous step. We offer multiple options for this: You can use one of our libraries, your language standard library or even curl. Our API follows a REST architecture.
 
-Omise also offers a nice abstraction atop Cards called Customers that you can use to remember which cards belongs to which customers and let you use their customer ID instead of having to exchange tokens every time you want to charge a recurring customers.
+Omise also offers a convenient abstraction atop Cards called Customers. If you choose to use the token to attach the card to a customer, you can reuse that customer object later on to charge the card again. Your users will never have to enter their details twice!
 
 [Learn more on how to charge cards](./collecting-card-information.html)
