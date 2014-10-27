@@ -17,7 +17,7 @@ POST https://api.omise.co/customers
 ### Curl
 
 ```sh
-curl http://api.www.lvh.me/customers \
+curl https://api.omise.co/customers \
   -X POST \
   -u skey_test_4xsjvwfnvb2g0l81sjz: \
   -d "description=John Doe (id: 30)" \
