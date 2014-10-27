@@ -4,10 +4,36 @@ title: Charges
 
 ## Table of Contents
 
+  - [The charge object](#the-charge-object)
   - [Create a charge](#retrieve-a-charge)
   - [Retrieve a charge](#retrieve-a-charge)
   - [Update a charge](#update-a-charge)
   - [Capture an authorized charge](#capture-an-authorized-a-charge)
+
+
+---
+
+## The Charge Object
+
+| Parameter  | Value |
+|:-----------|:------|
+| `object`   | *(string)* 'charge' |
+| `id`       | *(string)* Charge ID |
+| `livemode` | *(boolean)* Whether this is a Live (true) or Test (false) charge. |
+| `amount` | *(integer)* The amount in the smallest subunits of the currency used. So for `thb` (Thai Baht) you'll need to pass the amount in satangs. |
+| `currency` | *(string)*  The currency as its lower-cased international 3-letter code, defined by the [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) standard. |
+| `description` | *(string)*  The charge description as Omise received it. |
+| `capture` | *(boolean)*  Whether the charge is set to be auto-captured or not. |
+| `authorized` | *(boolean)*  Whether the charge has been authorized or not. |
+| `captured` | *(boolean)*  Whether the charge has been captured or not. |
+| `transaction` | *(string)*  `TRANSACTION_ID` of that charge. |
+| `return_uri` | *(string)*  The url where the customer was redirected after charge creation. |
+| `reference` | *(string)*  Charge reference code. |
+| `authorize_uri` | *(string)*  Uri for charge authorization. |
+| `card` | *([Card](/api/cards#the-card-object))*  The card object that was charged. |
+| `customer` | *(string)*  The `CUSTOMER_ID`. |
+| `ip` | *(string)*  The customer IP, as sent to Omise. |
+| `created`  | *(datetime, format: [iso8601](http://en.wikipedia.org/wiki/ISO_8601))* Creation date of the charge |
 
 ---
 

@@ -83,7 +83,7 @@ $("#checkout").submit(function () {
   // Send a request to create a token then trigger the callback function once
   // a response is received from Omise.
   //
-  // Note that the response could be an error and this need to be handled within
+  // Note that the response could be an error and this needs to be handled within
   // the callback.
   Omise.createToken("card", card, function (statusCode, response) {
     if (response.object == "error") {
