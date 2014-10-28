@@ -2,17 +2,54 @@
   padding: 20px 0;
 }
 
+.Login {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #878787;
+  padding: 8px 12px;
+  border-radius: 8px;
+  -webkit-transition: all .15s ease-in-out;
+  -moz-transition: all .15s ease-in-out;
+  -ms-transition: all .15s ease-in-out;
+  transition: all .15s ease-in-out;
+
+  &:hover {
+    color: #545454;
+    background: #f0f9fc;
+  }
+
+  span {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    border-radius: 100%;
+    border: 2px solid #60c0e1;
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+}
+
 .Wrapper {
+  position: relative;
   width: 1180px;
   margin: 0 auto;
 }
 
 .Main {
-  overflow: hidden;
   position: relative;
   background: white;
   padding: 0 0 0 200px;
-  margin: 0 auto 4em;
-  border-radius: 8px;
-  border: 1px solid #23a6d5;
+  margin: 0 auto 20px;
+}
+
+.Footer {
+  margin-bottom: 80px;
+  padding-left: 250px;
+  color: #a8a8a8;
+
+  a {
+    display: inline-block;
+    margin: 0 0 0 1em;
+  }
 }

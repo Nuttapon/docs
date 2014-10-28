@@ -19,7 +19,7 @@ It works by tokenizing the card:
 *  Omise.js sends us the data and we return a token.
 *  You can use this token to create a one-time charge or save the card under a Customer on our servers for later use.
 
-[Learn more about Omise.js and Tokens](./collecting-card-information.html)
+**[Learn more about Omise.js and Tokens](./collecting-card-information.html)**
 
 ### Charging Cards
 
@@ -27,4 +27,4 @@ Next up is charging your customer card. This can be done using the token you rec
 
 Omise also offers a convenient abstraction atop Cards called Customers. If you choose to use the token to attach the card to a customer, you can reuse that customer object later on to charge the card again. Your users will never have to enter their details twice!
 
-[Learn more on how to charge cards](./charging-cards.html)
+**[Learn more on how to charge cards](./charging-cards.html)**
