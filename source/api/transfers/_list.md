@@ -28,7 +28,7 @@ transfers = Omise::Transfer.retrieve()
 ### C&#35;
 
 ```c#
-var transfers = client.TransferService.GetAllTransfer();
+var transfers = client.TransferService.GetAllTransfers();
 ```
 
 ### JSON Response
@@ -46,7 +46,7 @@ var transfers = client.TransferService.GetAllTransfer();
             "object": "transfer",
             "id": "trsf_test_4xs5px8c36dsanuwztf",
             "amount": 100000,
-            "currency": "THB",
+            "currency": "thb",
             "created": "2014-10-14T05:19:44Z"
         }
     ]

@@ -33,7 +33,7 @@ cards = customer.cards
 
 ### C&#35;
 ```c#
-cards = client.CardService.GetAllCards("cust_test_4xsjvylia03ur542vn6", null, null, 0, 20);
+cards = client.CardService.GetAllCards("cust_test_4xsjvylia03ur542vn6");
 ```
 
 ### JSON Response
