@@ -22,7 +22,7 @@ curl https://api.omise.co/transactions -u skey_test_4xsjvwfnvb2g0l81sjz:
 ### Ruby
 
 ```ruby
-transactions = Omise::Transaction.retrieve()
+transactions = Omise::Transaction.retrieve
 ```
 
 ### C&#35;
@@ -47,7 +47,7 @@ var transactions = client.TransactionService.GetAllTransactions();
             "id": "trxn_test_4xuy2z4w5vmvq4x5pfs",
             "type": "credit",
             "amount": 9635024,
-            "currency": "THB",
+            "currency": "thb",
             "created": "2014-10-27T06:58:56Z"
         },
         {
@@ -55,7 +55,7 @@ var transactions = client.TransactionService.GetAllTransactions();
             "id": "trxn_test_4xuy4dcrk5ywvyfgdhg",
             "type": "debit",
             "amount": 100025,
-            "currency": "THB",
+            "currency": "thb",
             "created": "2014-10-27T07:02:54Z"
         }
     ]

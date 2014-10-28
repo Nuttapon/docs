@@ -22,7 +22,7 @@ curl https://api.omise.co/transfers -u skey_test_4xsjvwfnvb2g0l81sjz:
 ### Ruby
 
 ```ruby
-transfers = Omise::Transfer.retrieve()
+transfers = Omise::Transfer.retrieve
 ```
 
 ### C&#35;

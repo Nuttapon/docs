@@ -15,7 +15,7 @@ GET https://api.omise.co/customers/CUSTOMER_ID/cards
 
 
 ### Response parameters
-A [paginated list](/api/pagination) of [cards](/api/cards#card-attributes)
+A [paginated list](/api/pagination) of [cards](/api/cards#the-card-object)
 
 ### Curl
 

@@ -38,7 +38,7 @@ charge = Omise::Charge.create({
 
 ## Using a Customer
 
-You have 2 options to charge a customer's card: either using a customer default card or using a specific card. Both options require an existing customer. Learn how to [manage customers](./customers.html).
+You have 2 options to charge a customer's card: either using a customer default card or using a specific card. Both options require an existing customer. Learn how to [manage customers](./api/customers.html).
 ### Using a default card
 
 #### Ruby
@@ -68,7 +68,7 @@ var chargeResult = client.ChargeService.CreateCharge(charge);
 
 
 ### Using a specific card
-In order to charge a specific customer's card, you have to know the card ID. Learn how to [create a card](./cards.html#create).
+In order to charge a specific customer's card, you have to know the card ID. Learn how to [create a card](./api/cards.html#create-a-card).
 
 #### Ruby
 ```ruby

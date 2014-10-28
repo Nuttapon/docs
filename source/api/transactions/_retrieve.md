@@ -38,7 +38,7 @@ var transaction = client.TransactionService.GetTransaction("trxn_test_4xuy2z4w5v
     "id": "trxn_test_4xuy2z4w5vmvq4x5pfs",
     "type": "credit",
     "amount": 9635024,
-    "currency": "THB",
+    "currency": "thb",
     "created": "2014-10-27T06:58:56Z"
 }
 ```
