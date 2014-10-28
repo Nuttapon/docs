@@ -13,11 +13,13 @@
     <header class="Header">
       <div class="Wrapper">
         <img src="https://dashboard.omise.co/assets/logo-8b6d4ebb41f5b82452f6bc8b13440856.svg" width="96" height="32">
+        <a class="Login" href="https://dashboard.omise.co/signin">
+          <span></span> Sign in
+        </a>
       </div>
       <a></a>
     </header>
-    <div class="Wrapper">
-      <div class="Main">
+    <div class="Wrapper"><div class="Main">
       <nav class="Nav"><div class="NavInner">
         <h2>Documentation</h2>
         <ul>
@@ -50,7 +52,7 @@
         <div class="ArticleContent">
           <h2 id="how-it-all-works">How It All Works</h2>
 
-<p>The first articles will give you a general overview of Omise so you have a good understanding of how all the pieces into place. More details are available for each steps into their own separate articles.</p>
+<p>The first articles will give you a general overview of Omise so you have a good understanding of how all the pieces fall into place. More details are available for each steps into their own separate articles.</p>
 
 <h3 id="collecting-credit-card-information">Collecting Credit Card Information</h3>
 
@@ -61,12 +63,12 @@ This is where Omise comes in: We are PCI certified and our API allows your serve
 It works by tokenizing the card:</p>
 
 <ul>
-<li><p>Your users fill in their credit card details on your form. They never leave your website!</p></li>
-<li><p>Omise.js sends us the data and we return a token.</p></li>
-<li><p>You can use this token to create a one-time charge or save the card under a Customer on our servers for later use.</p></li>
+<li> Your users fill in their credit card details on your form. They never leave your website!</li>
+<li> Omise.js sends us the data and we return a token.</li>
+<li> You can use this token to create a one-time charge or save the card under a Customer on our servers for later use.</li>
 </ul>
 
-<p><a href="/collecting-card-information/">Learn more about Omise.js and Tokens</a></p>
+<p><strong><a href="/collecting-card-information/">Learn more about Omise.js and Tokens</a></strong></p>
 
 <h3 id="charging-cards">Charging Cards</h3>
 
@@ -74,11 +76,20 @@ It works by tokenizing the card:</p>
 
 <p>Omise also offers a convenient abstraction atop Cards called Customers. If you choose to use the token to attach the card to a customer, you can reuse that customer object later on to charge the card again. Your users will never have to enter their details twice!</p>
 
-<p><a href="/collecting-card-information/">Learn more on how to charge cards</a></p>
+<p><strong><a href="/charging-cards/">Learn more on how to charge cards</a></strong></p>
 
         </div>
+        <footer class="ArticleFooter">
+          You have a question or something is missing from the docs?<br>
+          <a href="https://github.com/omise/docs">Open an issue or contribute to the docs on the github.</a>
+        </footer>
       </article>
-      </div>
-    </div>
+    </div></div>
+    <footer class="Footer Wrapper">
+      © 2014 Omise, Co. Ltd.
+      <a href="https://www.omise.co/">About</a>
+      <a href="https://www.omise.co/terms.html">Terms</a>
+      <a href="https://www.omise.co/privacy.html">Privacy</a>
+    </footer>
   </body>
 <html>
