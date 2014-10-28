@@ -5,7 +5,7 @@ excerpt: In these pages you'll find all information you need to get started and 
 
 ## How It All Works
 
-The first articles will give you a general overview of Omise so you have a good understanding of how all the pieces into place. More details are available for each steps into their own separate articles.
+The first articles will give you a general overview of Omise so you have a good understanding of how all the pieces fall into place. More details are available for each steps into their own separate articles.
 
 ### Collecting Credit Card Information
 
