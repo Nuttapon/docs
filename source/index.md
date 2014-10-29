@@ -5,7 +5,7 @@ excerpt: In these pages you'll find all information you need to get started and 
 
 ## How It All Works
 
-The first articles will give you a general overview of Omise so you have a good understanding of how all the pieces into place. More details are available for each steps into their own separate articles.
+The first articles will give you a general overview of Omise so you have a good understanding of how all the pieces fall into place. More details are available for each steps into their own separate articles.
 
 ### Collecting Credit Card Information
 
@@ -16,13 +16,10 @@ To collect credit cards on your website, Omise offers a small Javascript library
 It works by tokenizing the card:
 
 *  Your users fill in their credit card details on your form. They never leave your website!
-
 *  Omise.js sends us the data and we return a token.
-
 *  You can use this token to create a one-time charge or save the card under a Customer on our servers for later use.
 
-
-[Learn more about Omise.js and Tokens](./collecting-card-information.html)
+**[Learn more about Omise.js and Tokens](./collecting-card-information.html)**
 
 ### Charging Cards
 
@@ -30,4 +27,4 @@ Next up is charging your customer card. This can be done using the token you rec
 
 Omise also offers a convenient abstraction atop Cards called Customers. If you choose to use the token to attach the card to a customer, you can reuse that customer object later on to charge the card again. Your users will never have to enter their details twice!
 
-[Learn more on how to charge cards](./collecting-card-information.html)
+**[Learn more on how to charge cards](./charging-cards.html)**

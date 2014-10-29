@@ -1,3 +1,9 @@
+.Article {
+  overflow: hidden;
+  border: 1px solid #23a6d5;
+  border-radius: 8px;
+}
+
 .ArticleHeader {
   padding: 30px 40px 15px;
   border-bottom: 1px solid #63bcdc;
@@ -12,6 +18,7 @@
   }
 
   p {
+    color: darken(#23a6d5, 11);
     max-width: 680px;
     margin: 0 0 10px;
   }
@@ -44,4 +51,11 @@
   background: #fcfbf0;
   color: #706f64;
   padding: 10px 15px;
+}
+
+.ArticleFooter {
+  padding: 15px 40px 15px;
+  border-top: 1px solid #63bcdc;
+  color: darken(#23a6d5, 22);
+  background: #f0f9fc;
 }

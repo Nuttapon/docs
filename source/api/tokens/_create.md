@@ -2,7 +2,6 @@
 
 On a Production environment, create tokens from your users browser using [Omise.js](/omise-js). Related article: [Collecting card information](/collecting-card-information).
 
-
 ### Endpoint
 
 ```
@@ -20,11 +19,6 @@ POST https://vault.omise.co/tokens
 | `card[security_code]`    | *(required)* The security code (CVV, CVC, etc) printed on the back of the card. |
 | `card[postal_code]`      | *(optional)* The postal code from the city where the card was issued. |
 | `card[city]`             | *(optional)* The city where the card was issued. |
-
-
-
-
-
 
 ### Curl
 

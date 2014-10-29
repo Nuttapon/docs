@@ -4,7 +4,6 @@
   left: 0;
   bottom: 0;
   width: 200px;
-  border-right: 1px solid #63bcdc;
   padding: 0;
 
   h2 {
@@ -18,7 +17,7 @@
 
   ul {
     margin: 0 0 20px;
-    padding: 0 15px 0 0;
+    padding: 0 0px 0 0;
     list-style: none;
   }
 
@@ -29,7 +28,7 @@
     margin: 0 0 2px;
     color: #707070;
     font-size: .8em;
-    border-radius: 0 4px 4px 0;
+    border-radius: 4px 0 0 4px;
   }
 
   a:hover {
@@ -37,7 +36,7 @@
   }
 
   a.Current {
-    background: linear-gradient(to right, #23a6d5, #22d6d6);
+    background: linear-gradient(to right, #18c4c4, #23a6d5);
     color: white;
   }
 }

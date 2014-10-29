@@ -349,7 +349,7 @@ table {
 
 /* line 5, /Users/robinclart/src/docs/source/stylesheets/all.scss */
 body {
-  font-family: "Lato", "Helvetica", "Arial", sans-serif;
+  font-family: "LatoRegular", "Helvetica", "Arial", sans-serif;
   margin: 0;
   color: #545454;
   line-height: 1.4em; }
@@ -367,48 +367,89 @@ a {
   padding: 20px 0; }
 
 /* line 5, /Users/robinclart/src/docs/source/stylesheets/_base.scss */
+.Login {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #878787;
+  padding: 8px 12px;
+  border-radius: 8px;
+  -webkit-transition: all .15s ease-in-out;
+  -moz-transition: all .15s ease-in-out;
+  -ms-transition: all .15s ease-in-out;
+  transition: all .15s ease-in-out; }
+  /* line 17, /Users/robinclart/src/docs/source/stylesheets/_base.scss */
+  .Login:hover {
+    color: #545454;
+    background: #f0f9fc; }
+  /* line 22, /Users/robinclart/src/docs/source/stylesheets/_base.scss */
+  .Login span {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    border-radius: 100%;
+    border: 2px solid #60c0e1;
+    vertical-align: middle;
+    margin-right: 5px; }
+
+/* line 33, /Users/robinclart/src/docs/source/stylesheets/_base.scss */
 .Wrapper {
+  position: relative;
   width: 1180px;
   margin: 0 auto; }
 
-/* line 10, /Users/robinclart/src/docs/source/stylesheets/_base.scss */
+/* line 39, /Users/robinclart/src/docs/source/stylesheets/_base.scss */
 .Main {
-  overflow: hidden;
   position: relative;
   background: white;
   padding: 0 0 0 200px;
-  margin: 0 auto 4em;
-  border-radius: 8px;
-  border: 1px solid #23a6d5; }
+  margin: 0 auto 20px; }
+
+/* line 46, /Users/robinclart/src/docs/source/stylesheets/_base.scss */
+.Footer {
+  margin-bottom: 80px;
+  padding-left: 250px;
+  color: #a8a8a8; }
+  /* line 51, /Users/robinclart/src/docs/source/stylesheets/_base.scss */
+  .Footer a {
+    display: inline-block;
+    margin: 0 0 0 1em; }
 
 /* line 1, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
+.Article {
+  overflow: hidden;
+  border: 1px solid #23a6d5;
+  border-radius: 8px; }
+
+/* line 7, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
 .ArticleHeader {
   padding: 30px 40px 15px;
   border-bottom: 1px solid #63bcdc;
   color: #23a6d5;
   background: #f0f9fc; }
 
-/* line 9, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
+/* line 15, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
 .ArticleHeader h1 {
   font-size: 2.2em;
   margin: 0 0 15px; }
-/* line 14, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
+/* line 20, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
 .ArticleHeader p {
+  color: #1b80a5;
   max-width: 680px;
   margin: 0 0 10px; }
 
-/* line 20, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
+/* line 27, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
 .ArticleContent {
   max-width: 680px;
   padding: 10px 40px 30px; }
-  /* line 24, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
+  /* line 31, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
   .ArticleContent h2 {
     margin: 0 0 .5em 0;
     padding-top: 20px;
     color: #1a7fa4;
     font-size: 1.7em; }
 
-/* line 32, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
+/* line 39, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
 .Article hr {
   width: 976px;
   margin: 30px 0 20px -40px;
@@ -416,7 +457,7 @@ a {
   height: 1px;
   background: #63bcdc; }
 
-/* line 40, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
+/* line 47, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
 .Notice {
   border-radius: 4px;
   border: 1px solid #e0dec8;
@@ -425,6 +466,13 @@ a {
   color: #706f64;
   padding: 10px 15px; }
 
+/* line 56, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
+.ArticleFooter {
+  padding: 15px 40px 15px;
+  border-top: 1px solid #63bcdc;
+  color: #135b75;
+  background: #f0f9fc; }
+
 /* line 1, /Users/robinclart/src/docs/source/stylesheets/_nav.scss */
 .Nav {
   position: absolute;
@@ -432,9 +480,8 @@ a {
   left: 0;
   bottom: 0;
   width: 200px;
-  border-right: 1px solid #63bcdc;
   padding: 0; }
-  /* line 10, /Users/robinclart/src/docs/source/stylesheets/_nav.scss */
+  /* line 9, /Users/robinclart/src/docs/source/stylesheets/_nav.scss */
   .Nav h2 {
     font-size: .70em;
     font-weight: bold;
@@ -442,12 +489,12 @@ a {
     color: #23a6d5;
     margin: 0;
     padding: 5px 10px; }
-  /* line 19, /Users/robinclart/src/docs/source/stylesheets/_nav.scss */
+  /* line 18, /Users/robinclart/src/docs/source/stylesheets/_nav.scss */
   .Nav ul {
     margin: 0 0 20px;
-    padding: 0 15px 0 0;
+    padding: 0 0px 0 0;
     list-style: none; }
-  /* line 25, /Users/robinclart/src/docs/source/stylesheets/_nav.scss */
+  /* line 24, /Users/robinclart/src/docs/source/stylesheets/_nav.scss */
   .Nav a {
     display: block;
     text-decoration: none;
@@ -455,16 +502,16 @@ a {
     margin: 0 0 2px;
     color: #707070;
     font-size: .8em;
-    border-radius: 0 4px 4px 0; }
-  /* line 35, /Users/robinclart/src/docs/source/stylesheets/_nav.scss */
+    border-radius: 4px 0 0 4px; }
+  /* line 34, /Users/robinclart/src/docs/source/stylesheets/_nav.scss */
   .Nav a:hover {
     background: #f2f2f2; }
-  /* line 39, /Users/robinclart/src/docs/source/stylesheets/_nav.scss */
+  /* line 38, /Users/robinclart/src/docs/source/stylesheets/_nav.scss */
   .Nav a.Current {
-    background: linear-gradient(to right, #23a6d5, #22d6d6);
+    background: linear-gradient(to right, #18c4c4, #23a6d5);
     color: white; }
 
-/* line 45, /Users/robinclart/src/docs/source/stylesheets/_nav.scss */
+/* line 44, /Users/robinclart/src/docs/source/stylesheets/_nav.scss */
 .NavInner {
   padding: 15px 0 30px; }
 

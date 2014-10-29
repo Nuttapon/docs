@@ -13,7 +13,7 @@ This is the easiest way to charge a card. Once you receive a card token, you sen
 
 Note that the token will be void once it has been used; you won't be able to charge the card or create a customer with it anymore.
 
-Here's an example using the [omise ruby](https://github.com/omise/omise-ruby) library:
+Here's an example using the [Omise ruby](https://github.com/omise/omise-ruby) library:
 
 ```ruby
 charge = Omise::Charge.create({
@@ -25,74 +25,43 @@ charge = Omise::Charge.create({
 })
 ```
 
-## Charging the Customer Default Card
+## Charging a Customer
 
+Creating customers with a token will let you charge a card multiple times if needed. With our [customers API](/api/charges/) you could create checkout flow where your customer don't have to retype their card information all over again. This decrease dramatically the chance of cart abandonment.
 
-## Charging a Specific Customer's Card
+We offer two ways to charge a customer.
 
+### Charging the Default Card
 
+With the default card, you only pass the customer ID. This is useful if you only want to have one card per customer.
 
+Here's an example using the [Omise ruby](https://github.com/omise/omise-ruby) library:
 
-
-
-
-## Using a Customer
-
-You have 2 options to charge a customer's card: either using a customer default card or using a specific card. Both options require an existing customer. Learn how to [manage customers](./api/customers.html).
-### Using a default card
-
-#### Ruby
 ```ruby
-chargeResult = Omise::Charge.create({
+charge = Omise::Charge.create({
   amount: 100025,
   currency: "thb",
-  description: "Test creating a charge",
-  return_uri: "http://localhost/charge_complete",
-  capture: true,
-  customer: customer_id
+  description: "Order-345678",
+  return_uri: "http://localhost/orders/345678/complete",
+  customer: user.omise_customer_id
 })
 ```
 
-#### C&#35;
-```c#
-var charge = new ChargeCreateInfo ();
-charge.Amount = 10000;
-charge.Currency = "thb";
-charge.Description = "Test charge";
-charge.ReturnUri = "http://localhost/charge/complete";
-charge.Capture = true;
-charge.CustomerId = customerId;
+### Charging a Specific Card
 
-var chargeResult = client.ChargeService.CreateCharge(charge);
-```
+With a specific card, you pass both a customer ID and the specific card ID. This is particularly useful if you have multiple cards attached to a customer.
 
+Note that unlike [charging a card directly with a token](#charging-the-card-directly) to create the charge you have to pass the actual card ID instead of the token ID. You can read how to [list all customer cards](/api/cards#list-all-cards) and the [pagination documentation](/api/pagination) to see how to retrieve a list of cards for a specific customer.
 
-### Using a specific card
-In order to charge a specific customer's card, you have to know the card ID. Learn how to [create a card](./api/cards.html#create-a-card).
+Here's an example using the [Omise ruby](https://github.com/omise/omise-ruby) library:
 
-#### Ruby
 ```ruby
-chargeResult = Omise::Charge.create({
+charge = Omise::Charge.create({
   amount: 100025,
   currency: "thb",
-  description: "Test creating a charge",
-  return_uri: "http://localhost/charge_complete",
-  capture: true,
-  customer: customer_id,
-  card: card_id
+  description: "Order-345678",
+  return_uri: "http://localhost/orders/345678/complete",
+  customer: customer.omise_id
+  card: customer.cards.find_by(id: params[:id]).omise_id
 })
-```
-
-#### C&#35;
-```c#
-var charge = new ChargeCreateInfo ();
-charge.Amount = 10000;
-charge.Currency = "THB";
-charge.Description = "Test charge";
-charge.ReturnUri = "http://localhost/charge/complete";
-charge.Capture = true;
-charge.CardId = cardId;
-charge.CustomerId = customerId;
-
-var chargeResult = client.ChargeService.CreateCharge(charge);
 ```

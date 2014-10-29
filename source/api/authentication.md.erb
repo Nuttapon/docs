@@ -4,9 +4,10 @@ excerpt: This document will explain how to authenticate with our API and the pur
 ---
 
 ### The right key for the right job
-  Remember that you have 2 sets of 2 keys: One set for Test mode and one for Live mode.
-  The set of keys you use determines whether actual money will be transferred or not.
-  In other words, **you should use your Live keys only on your production server!**
+
+Remember that you have 2 sets of 2 keys: One set for Test mode and one for Live mode.
+The set of keys you use determines whether actual money will be transferred or not.
+In other words, **you should use your Live keys only on your production server!**
 
 You can easily tell which key is which:
 
@@ -22,24 +23,24 @@ You can easily tell which key is which:
 
 Whenever you need to send us sensitive cardholder data, the first step is to create a token from your user's browser using the public key.
 Since all this key can do is creating tokens, it is safe to use on a web page.
-> Related articles: [collecting card information](/collecting-card-information), [tokens](tokens), [Omise.js (external)](https://github.com/omise/omise.js)
 
+Related articles: [collecting card information](/collecting-card-information), [tokens](tokens), [Omise.js (external)](https://github.com/omise/omise.js)
 
 ### [Secret key](https://dashboard.omise.co/test/api-keys)
-  The secret key is what authenticates your server on Omise. It's used on all non-token API queries. The live secret key must never be shared nor stored unsecurely.
-  We highly recommend encrypting the key on your server for maximum protection.
 
-  Authentication to Omise API is done via HTTP Basic Auth with your private key as user name. Password is not required.
+The secret key is what authenticates your server on Omise. It's used on all non-token API queries. The live secret key must never be shared nor stored unsecurely.
+We highly recommend encrypting the key on your server for maximum protection.
 
-  If you believe your secret key has been compromised, log in to your Omise account, roll a new key and update it on your server.
+Authentication to Omise API is done via HTTP Basic Auth with your private key as user name. Password is not required.
+
+If you believe your secret key has been compromised, log in to your Omise account, roll a new key and update it on your server.
 
 #### Example of secret key usage on an API call
 
 ```sh
-	curl https://api.omise.co/customers/cust_test_4xs68oo1vgalgffzsyw/cards \
-	-X GET \
-	-u skey_test_4xs68olyuul9lmmp375: \
-	-d "offset=50" \
-	-d "limit=10"
+curl https://api.omise.co/customers/cust_test_4xs68oo1vgalgffzsyw/cards \
+  -X GET \
+  -u skey_test_4xs68olyuul9lmmp375: \
+  -d "offset=50" \
+  -d "limit=10"
 ```
-
