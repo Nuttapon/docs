@@ -15,10 +15,9 @@ excerpt: Omise will return formatted errors in case something does not go as smo
   - [Failed capture](#failed-capture)
   - [Failed fraud check](#failed-fraud-check)
 
-
-
 ---
-## The error object
+
+## The Error Object
 
 | Key            | Value |
 |:---------------|:------|
@@ -26,7 +25,6 @@ excerpt: Omise will return formatted errors in case something does not go as smo
 | `location`     | *(string)* Link to an article about the error. |
 | `code`         | *(string)* Error code |
 | `message`      | *(string)* A short explanation about the error |
-
 
 ---
 
@@ -40,12 +38,12 @@ Here is an example when trying to retrieve a customer:
 
 ```sh
 curl https://api.omise.co/customers/cust_test_4xvqerqazpdhf5xu2zj \
-		    -u skey_test_please_let_me_in:      # Incorrect secret key
+  -u skey_test_please_let_me_in:      # Incorrect secret key
 ```
 
 ### JSON Response
 
-```JSON
+```json
 {
   "object": "error",
   "location": "https://docs.omise.co/api/errors#authentication-failure",
@@ -53,6 +51,7 @@ curl https://api.omise.co/customers/cust_test_4xvqerqazpdhf5xu2zj \
   "message": "authentication failed"
 }
 ```
+
 ---
 
 ## Not Found
@@ -64,12 +63,12 @@ Here is an example, trying to retrieve a customer with an incorrect ID:
 
 ```sh
 curl https://api.omise.co/customers/cust_test_000000000000 \ # Not a valid customer ID.
-		    -u skey_test_4xc6eevsmz5phbtjcaf:
+  -u skey_test_4xc6eevsmz5phbtjcaf:
 ```
 
 ### JSON Response
 
-```JSON
+```json
 {
   "object": "error",
   "location": "https://docs.omise.co/api/errors#not-found",
@@ -78,6 +77,7 @@ curl https://api.omise.co/customers/cust_test_000000000000 \ # Not a valid custo
 
 }
 ```
+
 ---
 
 ## Used Token
@@ -85,8 +85,8 @@ curl https://api.omise.co/customers/cust_test_000000000000 \ # Not a valid custo
 Tokens are single-use only. Any attempt to re-use a token will result in a `used_token` error.
 Here is an example when trying to create a customer with a token that was already used:
 
-
 ### Curl
+
 ```sh
 curl https://api.omise.co/customers \
   -X POST \
@@ -98,15 +98,15 @@ curl https://api.omise.co/customers \
 
 ### JSON Response
 
-```JSON
+```json
 {
   "object": "error",
   "location": "https://docs.omise.co/api/errors#used-token",
   "code": "used_token",
   "message": "token was already used"
 }
-
 ```
+
 ---
 
 ## Invalid Card
@@ -115,21 +115,22 @@ Attempting to create an invalid card will result in an `invalid_card` error to b
 Here is an example of invalid card creation:
 
 ### Curl
+
 ```sh
-	curl https://vault.omise.co/tokens \
-	  -X POST \
-	  -u pkey_test_4xc6eevsm4i0ysitb4j: \
-	  -d "card[name]=JOHN DOE" \
-	  -d "card[city]=Bangkok" \
-	  -d "card[postal_code]=10320" \
-	  -d "card[number]=Definitely not a card number" \ # Invalid card number!
-	  -d "card[expiration_month]=10" \
-	  -d "card[expiration_year]=2016"
+curl https://vault.omise.co/tokens \
+  -X POST \
+  -u pkey_test_4xc6eevsm4i0ysitb4j: \
+  -d "card[name]=JOHN DOE" \
+  -d "card[city]=Bangkok" \
+  -d "card[postal_code]=10320" \
+  -d "card[number]=Definitely not a card number" \ # Invalid card number!
+  -d "card[expiration_month]=10" \
+  -d "card[expiration_year]=2016"
 ```
 
 ### JSON Response
 
-```JSON
+```json
 {
   "object": "error",
   "location": "https://docs.omise.co/api/errors#invalid-card",
@@ -137,14 +138,16 @@ Here is an example of invalid card creation:
   "message": "number is invalid and brand not supported (unknown)"
 }
 ```
+
 ---
 
 ## Invalid Card Token
 
-Some APi requests expect a card token (string) as parameter. If a non-string object is passed, the `invalid_card_token` error is raised.
+Some API requests expect a card token (string) as parameter. If a non-string object is passed, the `invalid_card_token` error is raised.
 This can typically happen when you try to pass a card dictionary instead of a token
 
 ### Curl
+
 ```sh
 curl https://api.omise.co/customers \
   -X POST \
@@ -157,7 +160,7 @@ curl https://api.omise.co/customers \
 
 ### JSON Response
 
-```JSON
+```json
 {
   "object": "error",
   "location": "https://docs.omise.co/api/errors#invalid-card-token",
@@ -165,6 +168,7 @@ curl https://api.omise.co/customers \
   "message": "invalid card token"
 }
 ```
+
 ---
 
 ## Missing Card
@@ -174,22 +178,22 @@ The creation of a token expects card data parameters. If no card parameters are 
 ### Curl
 
 ```sh
-	curl https://vault.omise.co/tokens \
-	  -X POST \
-	  -u pkey_test_4xc6eevsm4i0ysitb4j: #\
+curl https://vault.omise.co/tokens \
+  -X POST \
+  -u pkey_test_4xc6eevsm4i0ysitb4j:
 
-	  # Omitting the following parameters:
-	  #-d "card[name]=JOHN DOE" \
-	  #-d "card[city]=Bangkok" \
-	  #-d "card[postal_code]=10320" \
-	  #-d "card[number]=4242424242424242" \
-	  #-d "card[expiration_month]=10" \
-	  #-d "card[expiration_year]=2016"
+  # Omitting the following parameters:
+  #-d "card[name]=JOHN DOE" \
+  #-d "card[city]=Bangkok" \
+  #-d "card[postal_code]=10320" \
+  #-d "card[number]=4242424242424242" \
+  #-d "card[expiration_month]=10" \
+  #-d "card[expiration_year]=2016"
 ```
 
 ### JSON Response
 
-```JSON
+```json
 {
   "object": "error",
   "location": "https://docs.omise.co/api/errors#missing-card",
@@ -197,6 +201,7 @@ The creation of a token expects card data parameters. If no card parameters are 
   "message": "request contains no card parameters"
 }
 ```
+
 ---
 
 
@@ -210,17 +215,17 @@ Here is an example with an invalid amount and currency:
 
 ```sh
 curl https://api.omise.co/charges \
-		  -X POST \
-		  -u skey_test_4xc6eevsmz5phbtjcaf: \
-		  -d "amount=eleventy" \            # Not an integer
-		  -d "currency=bottle caps" \       # Currently not an accepted currency
-		  -d "return_uri=http://www.example.com/orders/3947/complete" \
-		  -d "customer=cust_test_4xko29qxltncwq3u0i3"
+  -X POST \
+  -u skey_test_4xc6eevsmz5phbtjcaf: \
+  -d "amount=eleventy" \            # Not an integer
+  -d "currency=bottle caps" \       # Currently not an accepted currency
+  -d "return_uri=http://www.example.com/orders/3947/complete" \
+  -d "customer=cust_test_4xko29qxltncwq3u0i3"
 ```
 
 ### JSON Response
 
-```JSON
+```json
 {
   "object": "error",
   "location": "https://docs.omise.co/api/errors#invalid-charge",
@@ -228,6 +233,7 @@ curl https://api.omise.co/charges \
   "message": "currency is currently not supported and amount is not a number"
 }
 ```
+
 ---
 
 ## Failed Capture
@@ -242,13 +248,13 @@ The following example shows the attempted capture of a charge that has not been 
 
 ```sh
 curl https://api.omise.co/charges/chrg_test_4xvqmz1wx93it4cut8g/capture \
-      -X POST  \
-      -u skey_test_4xc6eevsmz5phbtjcaf:
+  -X POST  \
+  -u skey_test_4xc6eevsmz5phbtjcaf:
 ```
 
 ### JSON Response
 
-```JSON
+```json
 {
   "object": "error",
   "location": "https://docs.omise.co/api/errors#failed-capture",
@@ -256,6 +262,7 @@ curl https://api.omise.co/charges/chrg_test_4xvqmz1wx93it4cut8g/capture \
   "message": "Charge is not authorized"
 }
 ```
+
 ---
 
 
@@ -278,7 +285,7 @@ curl https://api.omise.co/charges \
 
 ### JSON Response
 
-```JSON
+```json
 {
   "object": "error",
   "location": "https://docs.omise.co/api/errors#failed-fraud-check",
@@ -286,4 +293,3 @@ curl https://api.omise.co/charges \
   "message": "failed fraud check"
 }
 ```
-
