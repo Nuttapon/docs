@@ -33,6 +33,7 @@
           <li><a href="/omise-js">Omise.js</a></li>
           <li><a href="/api/authentication">Authentication</a></li>
           <li><a href="/api/pagination">Pagination &amp; Lists</a></li>
+          <li><a href="/api/errors">Errors</a></li>
           <li>&nbsp;</li>
           <li><a href="/api/account">Account</a></li>
           <li><a href="/api/balance">Balance</a></li>
@@ -115,7 +116,7 @@
 
 <h3 id="ruby">Ruby</h3>
 
-<pre><code class="highlight ruby"><span class="n">transfers</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Transfer</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">()</span>
+<pre><code class="highlight ruby"><span class="n">transfers</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Transfer</span><span class="p">.</span><span class="nf">retrieve</span>
 </code></pre>
 
 <h3 id="c&#35;">C&#35;</h3>
@@ -204,7 +205,7 @@
 
 <h3 id="endpoint">Endpoint</h3>
 
-<pre><code class="highlight plaintext">POST https://api.omise.co/transfers/TRANSFER_ID
+<pre><code class="highlight plaintext">GET https://api.omise.co/transfers/TRANSFER_ID
 </code></pre>
 
 <h3 id="request-parameters">Request Parameters</h3>
