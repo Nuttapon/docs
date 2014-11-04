@@ -2,19 +2,38 @@
 
 @import "normalize";
 
+$green: #18c4c4;
+$blue: #23a6d5;
+$light-blue: mix(white, $blue, 90%);
+
 body {
   font-family: "LatoRegular", "Helvetica", "Arial", sans-serif;
-  margin: 0;
-  color: #545454;
+  margin: 0 20px;
+  color: mix($blue, #545454, 20%);
   line-height: 1.4em;
+  background: white;
 }
 
 a {
-  color: #23a6d5;
+  color: $blue;
   text-decoration: none;
 
   &:hover {
-    color: mix(#23a6d5, black, 66%);
+    color: mix($blue, black, 70%);
+  }
+}
+
+strong a {
+  display: inline-block;
+  line-height: 44px;
+  border-radius: 22px;
+  padding: 0 24px;
+  border: 1px solid $blue;
+  font-weight: normal;
+
+  &:hover {
+    color: $blue;
+    background: $light-blue;
   }
 }
 
