@@ -378,12 +378,12 @@ strong a {
 
 /* line 1, /Users/robinclart/src/docs/source/stylesheets/_base.scss */
 .Header {
-  padding: 20px 0; }
+  padding: 20px 0 20px 200px; }
 
 /* line 5, /Users/robinclart/src/docs/source/stylesheets/_base.scss */
 .Login {
   position: absolute;
-  top: 0;
+  top: 20px;
   right: 0;
   color: #878787;
   padding: 8px 12px;
@@ -424,7 +424,7 @@ strong a {
 /* line 48, /Users/robinclart/src/docs/source/stylesheets/_base.scss */
 .Footer {
   margin-bottom: 80px;
-  padding-left: 250px;
+  padding-left: 200px;
   color: #a8a8a8; }
   /* line 53, /Users/robinclart/src/docs/source/stylesheets/_base.scss */
   .Footer a {
