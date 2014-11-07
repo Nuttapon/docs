@@ -61,6 +61,7 @@ var result = client.ChargeService.GetCharge("chrg_test_4xso2s8ivdej29pqnhz");
     "created": "2014-10-20T09:41:56Z"
   },
   "customer": null,
+  "dispute": null,
   "ip": "127.0.0.1",
   "created": "2014-10-21T11:12:28Z"
 }

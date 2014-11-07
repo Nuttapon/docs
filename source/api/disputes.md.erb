@@ -1,0 +1,46 @@
+---
+title: Disputes
+---
+
+## Table of Contents
+
+  - [The dispute object](#the-dispute-object)
+  - [Dispute statuses](#dispute-statuses)
+  - [List disputes](#list-disputes)
+  - [Retrieve a dispute](#retrieve-a-dispute)
+  - [Update a dispute](#update-a-dispute)
+
+
+---
+
+## The Dispute Object
+
+| Parameter  | Value |
+|:-----------|:------|
+| `object`        | *(string)* 'dispute' |
+| `id`            | *(string)* Dispute ID |
+| `livemode`      | *(boolean)* Whether this is a Live (true) or Test (false) dispute. |
+| `location`      | *(string)* Path to retrieve the dispute. |
+| `amount`        | *(integer)* The amount in the smallest subunits of the currency used. So for `thb` (Thai Baht) you'll need to pass the amount in satangs. |
+| `currency`      | *(string)*  The currency as its lower-cased international 3-letter code, defined by the [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) standard. |
+| `status`        | *(string)*  The dispute status. Can be one of: `open`, `pending`, `lost`, `won`|
+| `message`       | *(string)*  The dispute message, set by the user either with a [dispute update](#update-a-dispute) or from the dashboard. |
+| `charge`        | *(string)*  ID of the disputed charge. |
+| `created`       | *(datetime, format: [iso8601](http://en.wikipedia.org/wiki/ISO_8601))* Creation date of the dispute. |
+
+---
+
+<%= partial "api/disputes/statuses" %>
+
+---
+
+<%= partial "api/disputes/list" %>
+
+---
+
+<%= partial "api/disputes/retrieve" %>
+
+
+---
+
+<%= partial "api/disputes/update" %>

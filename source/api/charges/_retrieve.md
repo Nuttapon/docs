@@ -60,6 +60,18 @@ var result = client.ChargeService.GetCharge("chrg_test_4xso2s8ivdej29pqnhz");
     "created": "2014-10-20T09:41:56Z"
   },
   "customer": null,
+  "dispute": {
+    "object": "dispute",
+    "id": "dspt_test_4xz61a4hy9s2b4r3uqb",
+    "livemode": false,
+    "location": "/disputes/dspt_test_4xz61a4hy9s2b4r3uqb",
+    "amount": 100000,
+    "currency": "thb",
+    "status": "open",
+    "message": null,
+    "charge": "chrg_test_4xso2s8ivdej29pqnhz",
+    "created": "2014-11-07T01:58:44Z"
+  },
   "ip": "127.0.0.1",
   "created": "2014-10-21T11:12:28Z"
 }

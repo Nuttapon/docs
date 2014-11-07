@@ -75,6 +75,7 @@ var updateResult = client.ChargeService.UpdateCharge(chargeUpdateInfo);
     "created": "2014-10-20T09:41:56Z"
   },
   "customer": null,
+  "dispute": null,
   "ip": "127.0.0.1",
   "created": "2014-10-21T11:12:28Z"
 }

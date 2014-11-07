@@ -20,6 +20,7 @@ title: Charges
 | `object`        | *(string)* 'charge' |
 | `id`            | *(string)* Charge ID |
 | `livemode`      | *(boolean)* Whether this is a Live (true) or Test (false) charge. |
+| `location`      | *(string)* Path to retrieve the charge. |
 | `amount`        | *(integer)* The amount in the smallest subunits of the currency used. So for `thb` (Thai Baht) you'll need to pass the amount in satangs. |
 | `currency`      | *(string)*  The currency as its lower-cased international 3-letter code, defined by the [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) standard. |
 | `description`   | *(string)*  The charge description as Omise received it. |
@@ -33,6 +34,7 @@ title: Charges
 | `card`          | *([Card](/api/cards#the-card-object))*  The card object that was charged. |
 | `customer`      | *(string)*  The `CUSTOMER_ID`. |
 | `ip`            | *(string)*  The customer IP, as sent to Omise. |
+| `dispute`       | *([Dispute](/api/disputes#the-dispute-object)])*  If a dispute was opened on this charge, it will contain that dispute object. Otherwise: null. |
 | `created`       | *(datetime, format: [iso8601](http://en.wikipedia.org/wiki/ISO_8601))* Creation date of the charge |
 
 ---
