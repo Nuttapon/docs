@@ -4,7 +4,7 @@
   left: 0;
   bottom: 0;
   width: 200px;
-  padding: 0;
+  padding: 0 20px 0 0;
 
   h2 {
     font-size: .70em;
@@ -12,24 +12,24 @@
     text-transform: uppercase;
     color: $blue;
     margin: 0;
-    padding: 5px 10px;
+    padding: 5px 10px 5px 20px;
   }
 
   ul {
-    margin: 0 0 20px;
-    padding: 0 0px 0 0;
+    margin: 0 0 10px;
+    padding: 0 0 0 0;
     list-style: none;
   }
 
   a {
     display: block;
     text-decoration: none;
-    padding: 0 10px;
-    line-height: 2em;
-    margin: 0 0 2px;
+    padding: 5px 10px 5px 20px;
+    line-height: 1em;
+    margin: 0 0 1px;
     color: #878787;
     font-size: .875em;
-    border-radius: 4px 0 0 4px;
+    border-radius: 0 4px 4px 0;
   }
 
   a:hover {
@@ -38,11 +38,11 @@
   }
 
   a.Current {
-    background: linear-gradient(to right, $green, $blue);
+    background: linear-gradient(to right, $blue, $green);
     color: white;
   }
 }
 
 .NavInner {
-  padding: 15px 0 30px;
+  padding: 10px 0 30px;
 }

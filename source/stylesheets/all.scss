@@ -2,13 +2,13 @@
 
 @import "normalize";
 
-$green: #18c4c4;
-$blue: #23a6d5;
+$green: #1be0e0;
+$blue: #1bafe0;
 $light-blue: mix(white, $blue, 90%);
 
 body {
   font-family: "LatoRegular", "Helvetica", "Arial", sans-serif;
-  margin: 0 20px;
+  margin: 0;
   color: mix($blue, #545454, 20%);
   line-height: 1.4em;
   background: white;

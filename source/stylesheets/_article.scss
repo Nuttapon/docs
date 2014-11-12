@@ -1,13 +1,15 @@
 .Article {
   overflow: hidden;
-  border: 1px solid $blue;
-  border-radius: 8px;
+  border-top: 1px solid mix(white, $blue, 66%);
+  border-left: 1px solid mix(white, $blue, 66%);
+  border-bottom: 1px solid mix(white, $blue, 66%);
+  border-radius: 8px 0 0 8px;
   background: white;
 }
 
 .ArticleHeader {
-  padding: 30px 40px 15px;
-  border-bottom: 1px solid $blue;
+  padding: 30px 0 15px;
+  border-bottom: 1px solid mix(white, $blue, 66%);
   color: $blue;
   background: $light-blue;
 }
@@ -19,15 +21,14 @@
   }
 
   p {
-    color: mix($blue, black, 70%);
+    color: mix($blue, black);
     max-width: 680px;
     margin: 0 0 10px;
   }
 }
 
 .ArticleContent {
-  max-width: 680px;
-  padding: 10px 40px 30px;
+  padding: 10px 0 30px;
 
   h2 {
     margin: 0 0 .5em 0;
@@ -38,25 +39,32 @@
 }
 
 .Article hr {
-  width: 976px;
   margin: 30px 0 20px -40px;
   border: 0;
   height: 1px;
-  background: $blue;
+  background: mix(white, $blue, 66%);
 }
 
 .Notice {
   border-radius: 4px;
-  border: 1px solid #e0dec8;
+  border: 1px solid darken($light-blue, 10);
   margin: 1.5em 0;
-  background: #fcfbf0;
-  color: #706f64;
+  background: $light-blue;
+  color: darken($blue, 10);
   padding: 10px 15px;
 }
 
 .ArticleFooter {
   padding: 15px 40px 15px;
-  border-top: 1px solid $blue;
-  color: mix($blue, black, 70%);
+  border-top: 1px solid mix(white, $blue, 66%);
+  color: mix($blue, black);
   background: $light-blue;
+}
+
+.Article {
+  .Notice, p, ul, h1, h2, h3, h4, h5, h6, table {
+    max-width: 640px;
+    margin-left: 40px;
+    margin-right: 40px;
+  }
 }
