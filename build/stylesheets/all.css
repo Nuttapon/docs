@@ -350,18 +350,18 @@ table {
 /* line 9, /Users/robinclart/src/docs/source/stylesheets/all.scss */
 body {
   font-family: "LatoRegular", "Helvetica", "Arial", sans-serif;
-  margin: 0 20px;
-  color: #4a646d;
+  margin: 0;
+  color: #486670;
   line-height: 1.4em;
   background: white; }
 
 /* line 17, /Users/robinclart/src/docs/source/stylesheets/all.scss */
 a {
-  color: #23a6d5;
+  color: #1bafe0;
   text-decoration: none; }
   /* line 21, /Users/robinclart/src/docs/source/stylesheets/all.scss */
   a:hover {
-    color: #187495; }
+    color: #127a9c; }
 
 /* line 26, /Users/robinclart/src/docs/source/stylesheets/all.scss */
 strong a {
@@ -369,33 +369,45 @@ strong a {
   line-height: 44px;
   border-radius: 22px;
   padding: 0 24px;
-  border: 1px solid #23a6d5;
+  border: 1px solid #1bafe0;
   font-weight: normal; }
   /* line 34, /Users/robinclart/src/docs/source/stylesheets/all.scss */
   strong a:hover {
-    color: #23a6d5;
-    background: #e9f6fa; }
+    color: #1bafe0;
+    background: #e8f7fb; }
 
 /* line 1, /Users/robinclart/src/docs/source/stylesheets/_base.scss */
 .Header {
-  padding: 20px 0 20px 200px; }
+  height: 70px;
+  width: 100%;
+  padding-top: 2px;
+  margin: 0 0 30px;
+  background: #8aedfe;
+  background: linear-gradient(to right, #d4f4fe 0%, #9ae5fd 20%, #8aedfe 40%, #abe4fe 60%, #86fecf 80%, #6bebfd 100%); }
 
-/* line 5, /Users/robinclart/src/docs/source/stylesheets/_base.scss */
+/* line 10, /Users/robinclart/src/docs/source/stylesheets/_base.scss */
+.HeaderNavigation {
+  height: 38px;
+  padding: 16px 20px;
+  background: #3e545b; }
+
+/* line 16, /Users/robinclart/src/docs/source/stylesheets/_base.scss */
 .Login {
   position: absolute;
-  top: 20px;
+  top: 0;
   right: 0;
-  color: #878787;
-  padding: 8px 12px;
+  color: #c8dae0;
+  padding: 6px 12px;
   border-radius: 8px;
-  background: white;
-  border: 1px solid white;
+  background: #3e545b;
   -webkit-transition: all .15s ease-in-out;
   -moz-transition: all .15s ease-in-out;
   -ms-transition: all .15s ease-in-out;
   transition: all .15s ease-in-out; }
-  /* line 19, /Users/robinclart/src/docs/source/stylesheets/_base.scss */
+  /* line 29, /Users/robinclart/src/docs/source/stylesheets/_base.scss */
   .Login span {
+    position: relative;
+    top: -1px;
     width: 16px;
     height: 16px;
     display: inline-block;
@@ -403,30 +415,29 @@ strong a {
     border: 2px solid #60c0e1;
     vertical-align: middle;
     margin-right: 5px; }
-  /* line 29, /Users/robinclart/src/docs/source/stylesheets/_base.scss */
+  /* line 41, /Users/robinclart/src/docs/source/stylesheets/_base.scss */
   .Login:hover {
-    color: #545454;
-    background: #f0f9fc;
-    border-color: #dbf0f8; }
+    color: white;
+    background: #29383d; }
 
-/* line 36, /Users/robinclart/src/docs/source/stylesheets/_base.scss */
+/* line 47, /Users/robinclart/src/docs/source/stylesheets/_base.scss */
 .Wrapper {
   position: relative;
-  width: 1180px;
-  margin: 0 auto; }
+  margin: 0; }
 
-/* line 42, /Users/robinclart/src/docs/source/stylesheets/_base.scss */
+/* line 52, /Users/robinclart/src/docs/source/stylesheets/_base.scss */
 .Main {
   position: relative;
-  padding: 0 0 0 200px;
+  padding: 0 0 0 220px;
   margin: 0 auto 20px; }
 
-/* line 48, /Users/robinclart/src/docs/source/stylesheets/_base.scss */
+/* line 58, /Users/robinclart/src/docs/source/stylesheets/_base.scss */
 .Footer {
   margin-bottom: 80px;
-  padding-left: 200px;
-  color: #a8a8a8; }
-  /* line 53, /Users/robinclart/src/docs/source/stylesheets/_base.scss */
+  padding-left: 220px;
+  color: #a8a8a8;
+  font-size: .875em; }
+  /* line 64, /Users/robinclart/src/docs/source/stylesheets/_base.scss */
   .Footer a {
     display: inline-block;
     margin: 0 0 0 1em; }
@@ -434,61 +445,67 @@ strong a {
 /* line 1, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
 .Article {
   overflow: hidden;
-  border: 1px solid #23a6d5;
-  border-radius: 8px;
+  border-top: 1px solid #b1e3f4;
+  border-left: 1px solid #b1e3f4;
+  border-bottom: 1px solid #b1e3f4;
+  border-radius: 8px 0 0 8px;
   background: white; }
 
-/* line 8, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
+/* line 10, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
 .ArticleHeader {
-  padding: 30px 40px 15px;
-  border-bottom: 1px solid #23a6d5;
-  color: #23a6d5;
-  background: #e9f6fa; }
+  padding: 30px 0 15px;
+  border-bottom: 1px solid #b1e3f4;
+  color: #1bafe0;
+  background: #e8f7fb; }
 
-/* line 16, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
+/* line 18, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
 .ArticleHeader h1 {
   font-size: 2.2em;
   margin: 0 0 15px; }
-/* line 21, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
+/* line 23, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
 .ArticleHeader p {
-  color: #187495;
+  color: #0d5770;
   max-width: 680px;
   margin: 0 0 10px; }
 
-/* line 28, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
+/* line 30, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
 .ArticleContent {
-  max-width: 680px;
-  padding: 10px 40px 30px; }
-  /* line 32, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
+  padding: 10px 0 30px; }
+  /* line 33, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
   .ArticleContent h2 {
     margin: 0 0 .5em 0;
     padding-top: 20px;
-    color: #1a7fa4;
+    color: #1486ac;
     font-size: 1.7em; }
 
-/* line 40, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
+/* line 41, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
 .Article hr {
-  width: 976px;
   margin: 30px 0 20px -40px;
   border: 0;
   height: 1px;
-  background: #23a6d5; }
+  background: #b1e3f4; }
 
 /* line 48, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
 .Notice {
   border-radius: 4px;
-  border: 1px solid #e0dec8;
+  border: 1px solid #bde8f3;
   margin: 1.5em 0;
-  background: #fcfbf0;
-  color: #706f64;
+  background: #e8f7fb;
+  color: #168bb2;
   padding: 10px 15px; }
 
 /* line 57, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
 .ArticleFooter {
   padding: 15px 40px 15px;
-  border-top: 1px solid #23a6d5;
-  color: #187495;
-  background: #e9f6fa; }
+  border-top: 1px solid #b1e3f4;
+  color: #0d5770;
+  background: #e8f7fb; }
+
+/* line 65, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
+.Article .Notice, .Article p, .Article ul, .Article h1, .Article h2, .Article h3, .Article h4, .Article h5, .Article h6, .Article table {
+  max-width: 640px;
+  margin-left: 40px;
+  margin-right: 40px; }
 
 /* line 1, /Users/robinclart/src/docs/source/stylesheets/_nav.scss */
 .Nav {
@@ -497,42 +514,42 @@ strong a {
   left: 0;
   bottom: 0;
   width: 200px;
-  padding: 0; }
+  padding: 0 20px 0 0; }
   /* line 9, /Users/robinclart/src/docs/source/stylesheets/_nav.scss */
   .Nav h2 {
     font-size: .70em;
     font-weight: bold;
     text-transform: uppercase;
-    color: #23a6d5;
+    color: #1bafe0;
     margin: 0;
-    padding: 5px 10px; }
+    padding: 5px 10px 5px 20px; }
   /* line 18, /Users/robinclart/src/docs/source/stylesheets/_nav.scss */
   .Nav ul {
-    margin: 0 0 20px;
-    padding: 0 0px 0 0;
+    margin: 0 0 10px;
+    padding: 0 0 0 0;
     list-style: none; }
   /* line 24, /Users/robinclart/src/docs/source/stylesheets/_nav.scss */
   .Nav a {
     display: block;
     text-decoration: none;
-    padding: 0 10px;
-    line-height: 2em;
-    margin: 0 0 2px;
+    padding: 5px 10px 5px 20px;
+    line-height: 1em;
+    margin: 0 0 1px;
     color: #878787;
     font-size: .875em;
-    border-radius: 4px 0 0 4px; }
+    border-radius: 0 4px 4px 0; }
   /* line 35, /Users/robinclart/src/docs/source/stylesheets/_nav.scss */
   .Nav a:hover {
-    background: #e9f6fa;
-    color: #5596ae; }
+    background: #e8f7fb;
+    color: #519bb3; }
   /* line 40, /Users/robinclart/src/docs/source/stylesheets/_nav.scss */
   .Nav a.Current {
-    background: linear-gradient(to right, #18c4c4, #23a6d5);
+    background: linear-gradient(to right, #1bafe0, #1be0e0);
     color: white; }
 
 /* line 46, /Users/robinclart/src/docs/source/stylesheets/_nav.scss */
 .NavInner {
-  padding: 15px 0 30px; }
+  padding: 10px 0 30px; }
 
 /* line 1, /Users/robinclart/src/docs/source/stylesheets/_table.scss */
 table {
@@ -554,13 +571,13 @@ code {
 
 /* line 8, /Users/robinclart/src/docs/source/stylesheets/_hightlight.scss */
 pre code {
-  width: 896px;
-  margin: 0 0 40px -40px;
+  margin: 0 0 40px 0;
   padding: 16px 40px;
   display: block;
   white-space: pre;
   font-family: "InconsolataMedium", monospace;
-  font-size: 16px; }
+  font-size: 16px;
+  border-radius: 0; }
 
 /* line 18, /Users/robinclart/src/docs/source/stylesheets/_hightlight.scss */
 .highlight {
