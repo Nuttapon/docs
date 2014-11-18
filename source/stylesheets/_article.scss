@@ -68,3 +68,13 @@
     margin-right: 40px;
   }
 }
+
+#table-of-contents {
+  & + ul {
+    list-style: none;
+    padding: 0 0 0 15px;
+    border-left: 5px solid mix($light-blue, #878787, 88%);
+    font-size: 1em;
+    background: white;
+  }
+}
