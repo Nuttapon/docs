@@ -35,20 +35,27 @@ var transfers = client.TransferService.GetAllTransfers();
 
 ```json
 {
-    "object": "list",
-    "from": "1970-01-01T07:00:00+07:00",
-    "to": "2014-10-27T11:36:24+07:00",
-    "offset": 0,
-    "limit": 20,
-    "total": 1,
-    "data": [
-        {
-            "object": "transfer",
-            "id": "trsf_test_4xs5px8c36dsanuwztf",
-            "amount": 100000,
-            "currency": "thb",
-            "created": "2014-10-14T05:19:44Z"
-        }
-    ]
+  "object": "list",
+  "from": "1970-01-01T07:00:00+07:00",
+  "to": "2014-10-27T11:36:24+07:00",
+  "offset": 0,
+  "limit": 20,
+  "total": 1,
+  "data": [
+    {
+      "object": "transfer",
+      "id": "trsf_test_4y3miv1nhy0dceit4w4",
+      "livemode": false,
+      "location": "/transfers/trsf_test_4y3miv1nhy0dceit4w4",
+      "sent": false,
+      "paid": false,
+      "amount": 96350,
+      "currency": "thb",
+      "failure_code": null,
+      "failure_message": null,
+      "transaction": null,
+      "created": "2014-11-18T11:31:26Z"
+    }
+  ]
 }
 ```

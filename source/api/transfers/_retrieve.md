@@ -35,9 +35,16 @@ var transfer = client.TransferService.GetTransfer("trsf_test_4xs5px8c36dsanuwztf
 ```json
 {
   "object": "transfer",
-  "id": "trsf_test_4xs5px8c36dsanuwztf",
-  "amount": 100000,
+  "id": "trsf_test_4y3miv1nhy0dceit4w4",
+  "livemode": false,
+  "location": "/transfers/trsf_test_4y3miv1nhy0dceit4w4",
+  "sent": false,
+  "paid": false,
+  "amount": 50000,
   "currency": "thb",
-  "created": "2014-10-14T05:19:44Z"
+  "failure_code": null,
+  "failure_message": null,
+  "transaction": null,
+  "created": "2014-11-18T11:31:26Z"
 }
 ```

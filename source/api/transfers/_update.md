@@ -1,9 +1,9 @@
-## Create a transfer
+## Update a transfer
 
 ### Endpoint
 
 ```
-POST https://api.omise.co/transfers
+PATCH https://api.omise.co/transfers/TRANSFER_ID
 ```
 
 ### Request Parameters
@@ -16,23 +16,23 @@ POST https://api.omise.co/transfers
 
 ```sh
 curl https://api.omise.co/transfers \
-  -X POST \
+  -X PAYCH \
   -u skey_test_4xsjvwfnvb2g0l81sjz: \
-  -d "amount=100000" \
+  -d "amount=50000" \
 ```
 
 ### Ruby
 
 ```ruby
 transfer = Omise::Transfer.create({
-  amount: 100000
+  amount: 50000
 })
 ```
 
 ### C&#35;
 
 ```c#
-var transfer = client.TransferService.CreateTransfer(100000);
+var transfer = client.TransferService.CreateTransfer(50000);
 ```
 
 ### JSON Response
@@ -45,7 +45,7 @@ var transfer = client.TransferService.CreateTransfer(100000);
   "location": "/transfers/trsf_test_4y3miv1nhy0dceit4w4",
   "sent": false,
   "paid": false,
-  "amount": 100000,
+  "amount": 50000,
   "currency": "thb",
   "failure_code": null,
   "failure_message": null,
