@@ -507,6 +507,14 @@ strong a {
   margin-left: 40px;
   margin-right: 40px; }
 
+/* line 73, /Users/robinclart/src/docs/source/stylesheets/_article.scss */
+#table-of-contents + ul {
+  list-style: none;
+  padding: 0 0 0 15px;
+  border-left: 5px solid #dce9ed;
+  font-size: 1em;
+  background: white; }
+
 /* line 1, /Users/robinclart/src/docs/source/stylesheets/_nav.scss */
 .Nav {
   position: absolute;
