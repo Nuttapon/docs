@@ -15,8 +15,8 @@ PATCH https://api.omise.co/transfers/TRANSFER_ID
 ### Curl
 
 ```sh
-curl https://api.omise.co/transfers \
-  -X PAYCH \
+curl https://api.omise.co/transfers/trsf_test_4y3miv1nhy0dceit4w4 \
+  -X PATCH \
   -u skey_test_4xsjvwfnvb2g0l81sjz: \
   -d "amount=50000" \
 ```
@@ -24,15 +24,15 @@ curl https://api.omise.co/transfers \
 ### Ruby
 
 ```ruby
-transfer = Omise::Transfer.create({
-  amount: 50000
-})
+transfer = Omise::Transfer.retrieve("trsf_test_4y3miv1nhy0dceit4w4")
+transfer.amount = 50000
+transfer.save
 ```
 
 ### C&#35;
 
 ```c#
-var transfer = client.TransferService.CreateTransfer(50000);
+var transfer = client.TransferService.UpdateTransfer("trsf_test_4y3miv1nhy0dceit4w4", 50000);
 ```
 
 ### JSON Response

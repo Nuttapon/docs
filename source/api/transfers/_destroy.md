@@ -22,6 +22,13 @@ transfer.destroy
 transfer.destroyed? # => true
 ```
 
+### C&#35;
+
+```c#
+var deleteResult = client.TransferService.DeleteTransfer("trsf_test_4xs5px8c36dsanuwztf");
+// deleteResult.deleted => true
+```
+
 ### JSON Response
 
 ```json
