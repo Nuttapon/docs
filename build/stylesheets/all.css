@@ -552,10 +552,11 @@ strong a {
     color: #519bb3; }
   /* line 40, /Users/robinclart/src/docs/source/stylesheets/_nav.scss */
   .Nav a.Current {
+    background: #1bafe0;
     background: linear-gradient(to right, #1bafe0, #1be0e0);
     color: white; }
 
-/* line 46, /Users/robinclart/src/docs/source/stylesheets/_nav.scss */
+/* line 47, /Users/robinclart/src/docs/source/stylesheets/_nav.scss */
 .NavInner {
   padding: 10px 0 30px; }
 
