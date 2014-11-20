@@ -5,6 +5,7 @@ title: Customers
 ## Table of Contents
 
   - [The customer object](#the-customer-object)
+  - [List all customers](#list-all-customers)
   - [Create a customer](#create-a-customer)
   - [Retrieve a customer](#retrieve-a-customer)
   - [Update a customer](#update-a-customer)
@@ -25,6 +26,10 @@ title: Customers
 | `description`  | *(string)* Description of the customer supplied during creation |
 | `created`      | *(datetime, format: [iso8601](http://en.wikipedia.org/wiki/ISO_8601))* Creation date of the customer |
 | `cards`        | *([list](/api/pagination))* A paginated list of [card objects](/api/cards#the-card-object) |
+
+---
+
+<%= partial "api/customers/list" %>
 
 ---
 
