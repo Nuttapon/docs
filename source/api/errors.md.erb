@@ -7,6 +7,7 @@ excerpt: Omise will return formatted errors in case something does not go as smo
   - [The error object](#the-error-object)
   - [Authentication failure](#authentication-failure)
   - [Not found](#not-found)
+  - [Invalid params](#invalid-params)
   - [Used token](#used-token)
   - [Invalid card](#invalid-card)
   - [Invalid card Token](#invalid-card-token)
@@ -75,6 +76,42 @@ curl https://api.omise.co/customers/cust_test_000000000000 \ # Not a valid custo
   "code": "not_found",
   "message": "Customer cust_test_000000000000 was not found"
 }
+```
+
+
+---
+
+## Invalid Params
+
+This error is raised when the parameters pre-validation has failed.
+The pre-validation does not look into the parameters content. It only ensures
+that required parameters are present and that all parameters have the correct type.
+
+### Curl
+
+```sh
+curl https://vault.omise.co/tokens \
+  -X POST \
+  -u pkey_test_4xc6eevsm4i0ysitb4j: \
+  -d "card[name]=JOHN DOE" \
+  -d "card[city]=Bangkok" \
+  -d "card[postal_code]=10320" \
+  -d "card[number]=4242424242424242" \
+  -d "card[expiration_month]=October" # expiration_month should be an integer.
+  # -d "card[expiration_year]=2016" # Omitting expiration_year.
+```
+
+### JSON Response
+
+```json
+{
+  "object": "error",
+  "location": "https://docs.omise.co/api/errors#invalid-params",
+  "code": "invalid_params",
+  "message": "expiration_month expects a integer but got a string and expiration_year is required"
+}
+
+
 ```
 
 ---
