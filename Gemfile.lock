@@ -132,5 +132,3 @@ DEPENDENCIES
   middleman-livereload (~> 3.1.0)
   middleman-syntax
   redcarpet
-  tzinfo-data
-  wdm (~> 0.1.0)
