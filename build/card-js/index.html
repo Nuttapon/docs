@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <title>Card.js - Omise API Documentation</title>
+    <link rel="stylesheet" href="https://cdn1.omise.co/fonts/inconsolata.css">
+    <link rel="stylesheet" href="https://cdn2.omise.co/fonts/lato.css">
+    <link href="/stylesheets/all.css" rel="stylesheet" type="text/css" />
+    <script src="/javascripts/all.js" type="text/javascript"></script>
+    <!-- Facebook OpenGraph -->
+    <meta property="og:title" content="Card.js" />
+    <meta property="og:image" content="https://cdn.omise.co/assets/omise-2x.png" />
+  </head>
+  <body>
+    <header class="Header">
+      <div class="HeaderNavigation">
+        <div class="Wrapper">
+          <img width="96" height="32" alt="Omise" src="/images/logo.svg" />
+          <a class="Login" href="https://dashboard.omise.co/">
+            <span></span> Dashboard
+          </a>
+        </div>
+      </div>
+    </header>
+    <div class="Wrapper"><div class="Main">
+      <nav class="Nav"><div class="NavInner">
+        <h2>Documentation</h2>
+        <ul>
+          <li><a href="/">Getting Started</a></li>
+          <li><a href="/collecting-card-information">Collecting Cards</a></li>
+          <li><a href="/charging-cards">Charging Cards</a></li>
+        </ul>
+
+        <h2>References</h2>
+        <ul>
+          <li><a href="/omise-js">Omise.js</a></li>
+          <li><a class="Current" href="/card-js">Card.js</a></li>
+          <li><a href="/api/authentication">Authentication</a></li>
+          <li><a href="/api/pagination">Pagination &amp; Lists</a></li>
+          <li><a href="/api/tests">Tests</a></li>
+          <li><a href="/api/errors">Errors</a></li>
+          <li>&nbsp;</li>
+          <li><a href="/api/account">Account</a></li>
+          <li><a href="/api/balance">Balance</a></li>
+          <li><a href="/api/tokens">Tokens</a></li>
+          <li><a href="/api/cards">Cards</a></li>
+          <li><a href="/api/charges">Charges</a></li>
+          <li><a href="/api/customers">Customers</a></li>
+          <li><a href="/api/transfers">Transfers</a></li>
+          <li><a href="/api/transactions">Transactions</a></li>
+        </ul>
+      </div></nav>
+      <article class="Article">
+        <header class="ArticleHeader">
+          <h1>Card.js</h1>
+          <p></p>
+        </header>
+        <div class="ArticleContent">
+          <h3 id="getting-started">Getting Started</h3>
+
+<p>Card.js is built on top of Omise.js allows you to easily integrate a payment form into your website, tablet or mobile device. Card.js creates an Omise.js token that you can use to create a charge with another Omise API client library (ruby, .net, ...) or with Omise Rest API.</p>
+
+<h3 id="integration">Integration</h3>
+
+<p>Card.js is hosted on Omise CDN (https://cdn.omise.co/card.js). In order to use Card.js below you need to have</p>
+
+<ul>
+<li>HTML page which contains the checkout form that will post to your server to create a charge</li>
+<li>Server side script for processing posted data. Omise provides numbers of API libraries (ruby, .net, ...) which you can use to implement on your server.</li>
+</ul>
+
+<h2 id="example">Example</h2>
+
+<h3 id="html-form">Html Form</h3>
+<pre><code class="highlight html"><span class="nt">&lt;html&gt;</span>
+...
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;form</span> <span class="na">name=</span><span class="s">"checkoutForm"</span> <span class="na">method=</span><span class="s">"POST"</span> <span class="na">action=</span><span class="s">"checkout"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">name=</span><span class="s">"description"</span> <span class="na">value=</span><span class="s">"Product order ฿100.25"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">name=</span><span class="s">"amount"</span> <span class="na">value=</span><span class="s">"10025"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"https://omise-cdn.s3.amazonaws.com/card.js"</span>
+      <span class="na">data-key=</span><span class="s">"YOUR_PUBLIC_KEY"</span>
+      <span class="na">data-image=</span><span class="s">"PATH_TO_LOGO_IMAGE"</span>
+      <span class="na">data-name=</span><span class="s">"Merchant site name"</span>
+      <span class="na">data-amount=</span><span class="s">"10025"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/script&gt;</span>
+    <span class="c">&lt;!--the script will render &lt;input type="hidden" name="omiseToken"&gt; for you automatically--&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
+
+<p>Card.js renders a &#39;Pay now&#39; button on your form. The button triggers a popup which user can enter credit card information.</p>
+
+<p>If you inspect the element in the HTML debugger tool, you will see an additional <code>&lt;input type=&quot;hidden&quot; name=&quot;omiseToken&quot;&gt;</code> element generated by the script. This will be used to handle the token returns from Omise.js.</p>
+
+<h3 id="arguments">Arguments</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Argument</th>
+<th style="text-align: left">Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">data-key</td>
+<td style="text-align: left"><strong>(required)</strong> <code>data-key</code> is the public key that you can find in your <a href="https://dashboard.omise.co">dashboard</a> once you&#39;re signed in.</td>
+</tr>
+<tr>
+<td style="text-align: left">data-image</td>
+<td style="text-align: left"><strong>(required)</strong> <code>data-image</code> is the URI to your logo image. eg. <code>http://example.com/logo.png</code></td>
+</tr>
+<tr>
+<td style="text-align: left">data-name</td>
+<td style="text-align: left"><strong>(required)</strong> <code>data-name</code> is the header text you want to show in the credit card popup window</td>
+</tr>
+<tr>
+<td style="text-align: left">data-amount</td>
+<td style="text-align: left"><strong>(required)</strong> <code>data-amount</code> is the amount to be paid in Satangs (100 Satangs = 1 THB)</td>
+</tr>
+</tbody></table>
+
+<h3 id="server-side-script-(using-omise-ruby-library)">Server side script (using Omise Ruby library)</h3>
+<pre><code class="highlight ruby">
+<span class="k">def</span> <span class="nf">checkout</span>
+
+ <span class="n">token</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="ss">:omiseToken</span><span class="p">]</span>
+ <span class="n">checkout_description</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="ss">:description</span><span class="p">]</span>
+ <span class="n">checkout_amount</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="ss">:amount</span><span class="p">]</span>
+
+ <span class="n">charge</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Charge</span><span class="p">.</span><span class="nf">create</span><span class="p">({</span>
+  <span class="ss">return_uri: </span><span class="s2">"https://example.com/orders/384/complete"</span><span class="p">,</span>
+  <span class="ss">amount: </span><span class="n">checkout_amount</span><span class="p">,</span>
+  <span class="ss">currency: </span><span class="s2">"thb"</span><span class="p">,</span>
+  <span class="ss">description: </span><span class="n">checkout_description</span><span class="p">,</span>
+  <span class="ss">ip: </span><span class="s2">"127.0.0.1"</span><span class="p">,</span>
+  <span class="ss">card: </span><span class="n">token</span>
+<span class="p">})</span>
+
+<span class="k">end</span>
+
+</code></pre>
+
+<p>Upon user submits the credit card information, the Card.js will set the returned card token to &#39;omiseToken&#39; hidden input and then submit your form automatically.</p>
+
+<h2 id="styling-the-&#39;pay-now&#39;-button">Styling the &#39;Pay now&#39; button</h2>
+
+<p>There is no style attached to the generated button. This allows you to freely style it the way you want. We also provides some demos. </p>
+
+        </div>
+        <footer class="ArticleFooter">
+          You have a question or something is missing from the docs?<br>
+          <a href="https://github.com/omise/docs">Open an issue or contribute to the docs on github.</a>
+        </footer>
+      </article>
+    </div></div>
+    <div class="Wrapper">
+      <footer class="Footer">
+        © 2014 Omise, Co. Ltd.
+        <a href="https://www.omise.co/">About</a>
+        <a href="https://www.omise.co/terms.html">Terms</a>
+        <a href="https://www.omise.co/privacy.html">Privacy</a>
+      </footer>
+    </div>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-54948916-2', 'auto');
+  ga('require', 'linkid', 'linkid.js');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>
