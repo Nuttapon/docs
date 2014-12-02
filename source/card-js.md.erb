@@ -53,8 +53,8 @@ If you inspect the element in the HTML debugger tool, you will see an additional
 | data-frame-label | **(optional)** the header text you want to show in the credit card popup window |
 | data-button-label | **(optional)** the label to be displayed in the button that is embeded in your form |
 | data-submit-label | **(optional)** the label to be displayed in the submit button in credit card popup window |
-| data-location | **(optional)** the value indicates that the popup will have the Postal code and City fields included. The possible values are 'yes', 'no', 'true' or 'false' |
-| data-amount | **(required)** the amount to be paid in Satangs (100 Satangs = 1 THB) |
+| data-location | **(optional)** presence of this attribute with any non-blank value indicates that the popup will have the Postal code and City fields included.  |
+| data-amount | **(required)** the amount to be paid in the smallest unit of the currency, e.g. Satangs (100 Satangs = 1 THB) |
 | data-currency | **(required)** the currency to be displayed in the payment window |
 
 ### Server side script (using Omise Ruby library)
