@@ -20,6 +20,13 @@ curl https://api.omise.co/charges/chrg_test_4xso2s8ivdej29pqnhz/capture \
 charge = Omise::Charge.retrieve("chrg_test_4xso2s8ivdej29pqnhz")
 ```
 
+### Python
+
+```python
+charge = omise.Charge.retrieve("chrg_test_4xso2s8ivdej29pqnhz")
+charge.charge()
+```
+
 ### C&#35;
 
 ```c#

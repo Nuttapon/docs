@@ -29,6 +29,12 @@ transfer = Omise::Transfer.create({
 })
 ```
 
+### Python
+
+```python
+transfer = omise.Transfer.create(amount=100000)
+```
+
 ### C&#35;
 
 ```c#

@@ -25,6 +25,12 @@ curl https://api.omise.co/transfers -u skey_test_4xsjvwfnvb2g0l81sjz:
 transfers = Omise::Transfer.retrieve
 ```
 
+### Python
+
+```python
+transfers = omise.Transfer.retrieve()
+```
+
 ### C&#35;
 
 ```c#

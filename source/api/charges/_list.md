@@ -25,6 +25,12 @@ curl https://api.omise.co/charges -u skey_test_4xsjvwfnvb2g0l81sjz:
 charges = Omise::Charge.retrieve
 ```
 
+### Python
+
+```python
+charges = omise.Charge.retrieve()
+```
+
 ### C&#35;
 
 ```c#

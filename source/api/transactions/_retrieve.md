@@ -24,6 +24,12 @@ curl https://api.omise.co/transactions/trxn_test_4xuy2z4w5vmvq4x5pfs \
 transaction = Omise::Transaction.retrieve("trxn_test_4xuy2z4w5vmvq4x5pfs")
 ```
 
+### Python
+
+```python
+transaction = omise.Transaction.retrieve("trxn_test_4xuy2z4w5vmvq4x5pfs")
+```
+
 ### C&#35;
 
 ```c#

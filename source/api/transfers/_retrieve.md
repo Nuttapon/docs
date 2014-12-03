@@ -24,6 +24,12 @@ curl https://api.omise.co/transfers/trsf_test_4xs5px8c36dsanuwztf \
 transfer = Omise::Transfer.retrieve("trsf_test_4xs5px8c36dsanuwztf")
 ```
 
+### Python
+
+```python
+transfer = omise.Transfer.retrieve("trsf_test_4xs5px8c36dsanuwztf")
+```
+
 ### C&#35;
 
 ```c#

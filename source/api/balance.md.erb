@@ -50,6 +50,15 @@ balance = Omise::Balance.retrieve
 balance.reload
 ```
 
+### Python
+
+```python
+balance = omise.Balance.retrieve()
+
+# After retrieving it, the balance can be refreshed:
+balance.reload()
+```
+
 ### C&#35;
 
 ```c#
