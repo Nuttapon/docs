@@ -119,18 +119,6 @@
 <td style="text-align: left"><em>(string)</em>  <code>TRANSACTION_ID</code> of that charge.</td>
 </tr>
 <tr>
-<td style="text-align: left"><code>return_uri</code></td>
-<td style="text-align: left"><em>(string)</em>  The url where the customer was redirected after charge creation.</td>
-</tr>
-<tr>
-<td style="text-align: left"><code>reference</code></td>
-<td style="text-align: left"><em>(string)</em>  Charge reference code.</td>
-</tr>
-<tr>
-<td style="text-align: left"><code>authorize_uri</code></td>
-<td style="text-align: left"><em>(string)</em>  Uri for charge authorization.</td>
-</tr>
-<tr>
 <td style="text-align: left"><code>card</code></td>
 <td style="text-align: left"><em>(<a href="/api/cards#the-card-object">Card</a>)</em>  The card object that was charged.</td>
 </tr>
@@ -145,6 +133,28 @@
 <tr>
 <td style="text-align: left"><code>created</code></td>
 <td style="text-align: left"><em>(datetime, format: <a href="http://en.wikipedia.org/wiki/ISO_8601">iso8601</a>)</em> Creation date of the charge</td>
+</tr>
+</tbody></table>
+
+<h3 id="deprecated">Deprecated</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code>return_uri</code></td>
+<td style="text-align: left"><em>(string)</em>  The url where the customer was redirected after charge creation.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>reference</code></td>
+<td style="text-align: left"><em>(string)</em>  Charge reference code. Only if <code>return_uri</code> was set.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>authorize_uri</code></td>
+<td style="text-align: left"><em>(string)</em>  Uri for charge authorization. Only if <code>return_uri</code> was set. Not in use anymore.</td>
 </tr>
 </tbody></table>
 

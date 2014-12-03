@@ -28,14 +28,17 @@ title: Charges
 | `authorized`    | *(boolean)*  Whether the charge has been authorized or not. |
 | `captured`      | *(boolean)*  Whether the charge has been captured or not. |
 | `transaction`   | *(string)*  `TRANSACTION_ID` of that charge. |
-| `return_uri`    | *(string)*  The url where the customer was redirected after charge creation. |
-| `reference`     | *(string)*  Charge reference code. |
-| `authorize_uri` | *(string)*  Uri for charge authorization. |
 | `card`          | *([Card](/api/cards#the-card-object))*  The card object that was charged. |
 | `customer`      | *(string)*  The `CUSTOMER_ID`. |
 | `ip`            | *(string)*  The customer IP, as sent to Omise. |
 | `created`       | *(datetime, format: [iso8601](http://en.wikipedia.org/wiki/ISO_8601))* Creation date of the charge |
 
+### Deprecated
+| Parameter  | Value |
+|:-----------|:------|
+| `return_uri`    | *(string)*  The url where the customer was redirected after charge creation. |
+| `reference`     | *(string)*  Charge reference code. Only if `return_uri` was set. |
+| `authorize_uri` | *(string)*  Uri for charge authorization. Only if `return_uri` was set. Not in use anymore. |
 
 ---
 
