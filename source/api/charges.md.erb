@@ -5,6 +5,7 @@ title: Charges
 ## Table of Contents
 
   - [The charge object](#the-charge-object)
+  - [List all charges](#list-all-charges)
   - [Create a charge](#create-a-charge)
   - [Retrieve a charge](#retrieve-a-charge)
   - [Update a charge](#update-a-charge)
@@ -34,6 +35,11 @@ title: Charges
 | `customer`      | *(string)*  The `CUSTOMER_ID`. |
 | `ip`            | *(string)*  The customer IP, as sent to Omise. |
 | `created`       | *(datetime, format: [iso8601](http://en.wikipedia.org/wiki/ISO_8601))* Creation date of the charge |
+
+
+---
+
+<%= partial "api/charges/list" %>
 
 ---
 
