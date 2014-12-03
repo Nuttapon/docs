@@ -12,12 +12,18 @@ POST https://api.omise.co/charges
 |:-------------------------|:--------------------------------------------------|
 | `customer`               | *(required unless passing a `TOKEN_ID`)* A valid `CUSTOMER_ID` that has at least one card already associated. By default the default card of the customer will be used |
 | `card`                   | *(optional if passing a `CUSTOMER_ID`)* A valid unused `TOKEN_ID` or `CARD_ID`. In the case of the `CARD_ID` the customer parameter must be present and be the actual owner of the card. For the `TOKEN_ID`, the customer must not be passed. |
-| `return_uri`             | *(required)* The url where we will return the customer after the card has been authorized. |
 | `amount`                 | *(required)* The amount in the smallest subunits of the currency used. So for `thb` (Thai Baht) you'll need to pass the amount in satangs. |
 | `currency`               | *(optional)* The currency in which you want the charge to be done. The default and only valid value is `thb`. |
 | `capture`                 | *(optional)* Whether or not you want the charge to be captured right away. |
 | `description`            | *(optional)* A custom description for the charge. This value can be searched for in your dashboard. |
 | `ip`                     | *(optional)* The IP of the customer you're trying to charge. This will help detect fraudulent charge. |
+
+
+### Deprecated request parameters
+
+| Parameter                | Value                                             |
+|:-------------------------|:--------------------------------------------------|
+| `return_uri`             | The url where we will return the customer after the card has been authorized. |
 
 ### Curl
 
