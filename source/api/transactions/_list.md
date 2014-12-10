@@ -10,7 +10,7 @@ GET https://api.omise.co/transactions
 
 None
 parameters
-### Response 
+### Response
 A [paginated list](/api/pagination) of [transactions](/api/transactions#the-transaction-object)
 
 ### Curl
@@ -23,6 +23,12 @@ curl https://api.omise.co/transactions -u skey_test_4xsjvwfnvb2g0l81sjz:
 
 ```ruby
 transactions = Omise::Transaction.retrieve
+```
+
+### Python
+
+```python
+transactions = omise.Transaction.retrieve()
 ```
 
 ### C&#35;

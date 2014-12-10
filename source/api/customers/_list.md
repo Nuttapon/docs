@@ -25,6 +25,12 @@ curl https://api.omise.co/customers -u skey_test_4xsjvwfnvb2g0l81sjz:
 customers = Omise::Customer.retrieve
 ```
 
+### Python
+
+```python
+customers = omise.Customer.retrieve()
+```
+
 ### C&#35;
 
 ```c#

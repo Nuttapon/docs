@@ -51,6 +51,19 @@ charge = Omise::Charge.create({
 })
 ```
 
+### Python
+
+```python
+charge = omise.Charge.create(
+  return_uri="https://example.co.th/orders/384/complete",
+  amount=100000,
+  currency="thb",
+  description="Order-384",
+  ip="127.0.0.1",
+  card="tokn_test_4xs9408a642a1htto8z"
+)
+```
+
 ### C&#35;
 
 ```c#

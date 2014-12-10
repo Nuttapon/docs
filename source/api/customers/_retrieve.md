@@ -19,6 +19,12 @@ curl https://api.omise.co/customers/cust_test_4xtrb759599jsxlhkrb \
 customer = Omise::Customer.retrieve("cust_test_4xtrb759599jsxlhkrb")
 ```
 
+### Python
+
+```python
+customer = omise.Customer.retrieve("cust_test_4xtrb759599jsxlhkrb")
+```
+
 ### C&#35;
 
 ```c#

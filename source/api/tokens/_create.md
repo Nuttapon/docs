@@ -59,6 +59,25 @@ token = Omise::Token.create(card: {
 })
 ```
 
+### Python
+
+<div class="Notice">
+  Reminder: <strong>Sensitive card data should never go through your server.</strong>
+  Unless you have a very good reason and know what you are doing, the following method of token creation should only be used with fake data in test mode (e.g.: Quickly creating some fake data, testing our API from a terminal, ...)
+</div>
+
+```python
+token = omise.Token.create(
+  name="Somchai Prasert",
+  number="4242424242424242",
+  expiration_month=10,
+  expiration_year=2018,
+  city="Bangkok",
+  postal_code="10320",
+  security_code=123
+)
+```
+
 ### C&#35;
 
 <div class="Notice">
