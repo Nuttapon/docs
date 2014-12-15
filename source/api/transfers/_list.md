@@ -37,6 +37,12 @@ transfers = omise.Transfer.retrieve()
 var transfers = client.TransferService.GetAllTransfers();
 ```
 
+### PHP
+
+```php
+$list = $omise->getOmiseAccessTransfers()->listAll();
+```
+
 ### JSON Response
 
 ```json

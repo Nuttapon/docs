@@ -37,6 +37,13 @@ var deleteResult = client.CustomerService.DeleteCustomer("cust_test_4xtrb759599j
 // deleteResult.deleted => true
 ```
 
+### PHP
+
+```php
+$customer = $omise->getOmiseAccessCustomers()->destroy("cust_test_4xtrb759599jsxlhkrb");
+// $customer->getDeleted() # => true
+```
+
 ### JSON Response
 
 ```json

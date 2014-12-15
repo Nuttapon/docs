@@ -78,6 +78,20 @@ charge.Ip = "127.0.0.1";
 var result = client.ChargeService.CreateCharge (charge);
 ```
 
+### PHP
+
+```php
+$info = new OmiseChargeCreateInfo();
+$info->setCard('tokn_test_4xs9408a642a1htto8z');
+$info->setAmount(100000);
+$info->setCurrency('thb');
+$info->setDescription('Order-384');
+$info->setReturnUri('https://example.co.th/orders/384/complete');
+$info->setIP('127.0.0.1');
+
+$charge = $omise->getOmiseAccessCharges()->create($info);
+```
+
 ### JSON Response
 
 ```json

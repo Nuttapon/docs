@@ -56,6 +56,17 @@ customerInfo.CardId = "tokn_test_4xs9408a642a1htto8z"
 var customerResult = client.CustomerService.CreateCustomer (customerInfo);
 ```
 
+### PHP
+
+```php
+$info = new OmiseCustomerCreateInfo();
+$info->setEmail('john.doe@example.com');
+$info->setDescription('John Doe (id: 30)');
+$info->setCard('tokn_test_4xs9408a642a1htto8z');
+
+$customer = $omise->getOmiseAccessCustomers()->create($info);
+```
+
 ### JSON Response
 
 ```json

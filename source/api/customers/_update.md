@@ -58,6 +58,17 @@ customerUpdateInfo.Description = "Another description";
 var updateResult = client.CustomerService.UpdateCustomer(customerUpdateInfo);
 ```
 
+### PHP
+
+```php
+$info = new OmiseCustomerUpdateInfo();
+$info->setCustomerID('cust_test_4xtrb759599jsxlhkrb');
+$info->setEmail('john.smith@example.com');
+$info->setDescription('Another description');
+
+$customer = $omise->getOmiseAccessCustomers()->update($info);
+```
+
 ### JSON Response
 
 ```json

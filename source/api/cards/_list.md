@@ -43,6 +43,12 @@ cards = customer.cards
 cards = client.CardService.GetAllCards("cust_test_4xsjvylia03ur542vn6");
 ```
 
+### PHP
+
+```php
+$cards = $omise->getOmiseAccessCards()->listAll("cust_test_4xsjvylia03ur542vn6");
+```
+
 ### JSON Response
 
 ```json

@@ -72,6 +72,19 @@ card.ExpirationYear = 2017;
 var updateResult = client.CardService.UpdateCard ("cust_test_4xsjvylia03ur542vn6", card);
 ```
 
+### PHP
+
+```php
+$info = new OmiseCardUpdateInfo();
+$info->setCardID("card_test_4xsjw0t21xaxnuzi9gs");
+$info->setCustomerID("cust_test_4xsjvylia03ur542vn6");
+$info->setName('Somchai Praset');
+$info->setExpirationMonth(11);
+$info->setExpirationYear(2017);
+
+$card = $omise->getOmiseAccessCards()->update($info);
+```
+
 ### JSON Response
 
 ```json

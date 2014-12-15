@@ -41,6 +41,15 @@ transfer = omise.Transfer.create(amount=100000)
 var transfer = client.TransferService.CreateTransfer(100000);
 ```
 
+### PHP
+
+```php
+$info = new OmiseTransferCreateInfo();
+$info->setAmount(100000);
+
+$transfer = $omise->getOmiseAccessTransfers()->create($info);
+```
+
 ### JSON Response
 
 ```json

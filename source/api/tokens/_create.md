@@ -100,6 +100,25 @@ token.Card = card;
 var resultToken = client.TokenService.CreateToken (token);
 ```
 
+### PHP
+
+<div class="Notice">
+  Reminder: <strong>Sensitive card data should never go through your server.</strong>
+  Unless you have a very good reason and know what you are doing, the following method of token creation should only be used with fake data in test mode (e.g.: Quickly creating some fake data, testing our API from a terminal, ...)
+</div>
+
+```php
+$info = new OmiseTokenCreateInfo();
+$info->setName('Somchai Prasert');
+$info->setNumber('4242424242424242');
+$info->setExpirationMonth(10);
+$info->setExpirationYear(2018);
+$info->setCity('Bangkok');
+$info->setPostalCode('10320');
+
+$token = $omise->getOmiseAccessTokens()->create($info);
+```
+
 ### JSON Response
 
 ```json

@@ -45,6 +45,12 @@ card.reload()
 card = client.CardService.GetCard("cust_test_4xsjvylia03ur542vn6", "card_test_4xsjw0t21xaxnuzi9gs");
 ```
 
+### PHP
+
+```php
+$card = $omise->getOmiseAccessCards()->retrieve("cust_test_4xsjvylia03ur542vn6", "card_test_4xsjw0t21xaxnuzi9gs");
+```
+
 ### JSON Response
 
 ```json

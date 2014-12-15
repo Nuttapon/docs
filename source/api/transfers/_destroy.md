@@ -37,6 +37,13 @@ var deleteResult = client.TransferService.DeleteTransfer("trsf_test_4xs5px8c36ds
 // deleteResult.deleted => true
 ```
 
+### PHP
+
+```php
+$transfer = $omise->getOmiseAccessTransfers()->destroy('trsf_test_4xs5px8c36dsanuwztf');
+// $omiseTransfer->getDeleted() # => true
+```
+
 ### JSON Response
 
 ```json
