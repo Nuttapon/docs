@@ -75,14 +75,14 @@ var updateResult = client.CardService.UpdateCard ("cust_test_4xsjvylia03ur542vn6
 ### PHP
 
 ```php
-$info = new OmiseCardUpdateInfo();
-$info->setCardID("card_test_4xsjw0t21xaxnuzi9gs");
-$info->setCustomerID("cust_test_4xsjvylia03ur542vn6");
-$info->setName('Somchai Praset');
-$info->setExpirationMonth(11);
-$info->setExpirationYear(2017);
-
-$card = $omise->getOmiseAccessCards()->update($info);
+$customer = OmiseCustomer::retrieve('cust_test_4xsjvylia03ur542vn6');
+$card = $customer->getCards()->retrieve('card_test_4xsjw0t21xaxnuzi9gs');
+$card->update(array(
+	'expiration_month' => 11,
+	'expiration_year' => 2017,
+	'name' => 'Somchai Praset',
+	'postal_code' => '10310'
+));
 ```
 
 ### JSON Response

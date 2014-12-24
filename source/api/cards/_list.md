@@ -46,7 +46,8 @@ cards = client.CardService.GetAllCards("cust_test_4xsjvylia03ur542vn6");
 ### PHP
 
 ```php
-$cards = $omise->getOmiseAccessCards()->listAll("cust_test_4xsjvylia03ur542vn6");
+$customer = OmiseCustomer::retrieve('cust_test_4ybb9ymhoi7ju6wuizb');
+$cards = $customer->getCards();
 ```
 
 ### JSON Response

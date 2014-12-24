@@ -67,7 +67,10 @@ var account = client.AccountService.GetAccount();
 
 ### PHP
 ```php
-$account = $omise->getOmiseAccessAccount()->retrieve();
+$account = OmiseAccount::retrieve();
+
+# After retrieving it, the account can be refreshed:
+$account->reload();
 ```
 
 ### JSON Response

@@ -39,7 +39,7 @@ var transfer = client.TransferService.GetTransfer("trsf_test_4xs5px8c36dsanuwztf
 ### PHP
 
 ```php
-$transfer = $omise->getOmiseAccessTransfers()->retrieve('trsf_test_4xs5px8c36dsanuwztf');
+$transfer = OmiseTransfer::retrieve('trsf_test_4xs5px8c36dsanuwztf');
 ```
 
 ### JSON Response

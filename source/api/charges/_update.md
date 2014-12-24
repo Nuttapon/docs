@@ -54,11 +54,10 @@ var updateResult = client.ChargeService.UpdateCharge(chargeUpdateInfo);
 ### PHP
 
 ```php
-$info = new OmiseChargeUpdateInfo();
-$info->setChargeID('chrg_test_4xso2s8ivdej29pqnhz');
-$info->setDescription('Another description');
-
-$charge = $omise->getOmiseAccessCharges()->update($info);
+$charge = OmiseCharge::retrieve('chrg_test_4xso2s8ivdej29pqnhz');
+$charge->update(array(
+	'description' => 'Another description'
+));
 ```
 
 ### JSON Response

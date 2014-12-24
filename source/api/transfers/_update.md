@@ -49,11 +49,9 @@ var transfer = client.TransferService.UpdateTransfer("trsf_test_4y3miv1nhy0dceit
 ### PHP
 
 ```php
-$info = new OmiseTransferUpdateInfo();
-$info->setTransferID('trsf_test_4y3miv1nhy0dceit4w4');
-$info->setAmount(50000);
-
-$transfer = $omise->getOmiseAccessTransfers()->update($info);
+$transfer = OmiseTransfer::retrieve('trsf_test_4y3miv1nhy0dceit4w4');
+$transfer['amount'] = 50000;
+$transfer->save();
 ```
 
 ### JSON Response

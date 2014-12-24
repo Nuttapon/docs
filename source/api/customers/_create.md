@@ -59,12 +59,11 @@ var customerResult = client.CustomerService.CreateCustomer (customerInfo);
 ### PHP
 
 ```php
-$info = new OmiseCustomerCreateInfo();
-$info->setEmail('john.doe@example.com');
-$info->setDescription('John Doe (id: 30)');
-$info->setCard('tokn_test_4xs9408a642a1htto8z');
-
-$customer = $omise->getOmiseAccessCustomers()->create($info);
+$customer = OmiseCustomer::create(array(
+	'email' => 'john.doe@example.com',
+	'description' => 'John Doe (id: 30)',
+	'card' => 'tokn_test_4xs9408a642a1htto8z'
+));
 ```
 
 ### JSON Response

@@ -107,16 +107,17 @@ var resultToken = client.TokenService.CreateToken (token);
   Unless you have a very good reason and know what you are doing, the following method of token creation should only be used with fake data in test mode (e.g.: Quickly creating some fake data, testing our API from a terminal, ...)
 </div>
 
-```php
-$info = new OmiseTokenCreateInfo();
-$info->setName('Somchai Prasert');
-$info->setNumber('4242424242424242');
-$info->setExpirationMonth(10);
-$info->setExpirationYear(2018);
-$info->setCity('Bangkok');
-$info->setPostalCode('10320');
-
-$token = $omise->getOmiseAccessTokens()->create($info);
+$token = OmiseToken::create(
+	array('card' => array(
+		'name' => 'Somchai Prasert',
+		'number' => '4242424242424242',
+		'expiration_month' => 10,
+		'expiration_year' => 2018,
+		'city' => 'Bangkok',
+		'postal_code' => '10320',
+		'security_code' => 123
+	))
+);
 ```
 
 ### JSON Response

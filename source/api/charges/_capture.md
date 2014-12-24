@@ -36,7 +36,8 @@ var result = client.ChargeService.GetCharge("chrg_test_4xso2s8ivdej29pqnhz");
 ### PHP
 
 ```php
-$charge = $omise->getOmiseAccessCharges()->captureAnAuthorized("chrg_test_4xso2s8ivdej29pqnhz");
+$charge = OmiseCharge::retrieve('chrg_test_4xso2s8ivdej29pqnhz');
+$charge->capture();
 ```
 
 ### JSON Response

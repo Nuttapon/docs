@@ -40,7 +40,7 @@ var charges = client.ChargeService.GetAllCharges();
 ### PHP
 
 ```php
-$list = $omise->getOmiseAccessCharges()->listAll();
+$charges = OmiseCharge::retrieve();
 ```
 
 ### JSON Response

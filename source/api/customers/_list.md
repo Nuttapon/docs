@@ -40,7 +40,7 @@ var customers = client.CustomerService.GetAllCustomers();
 ### PHP
 
 ```php
-$list = $omise->getOmiseAccessCustomers()->listAll();
+$customer = OmiseCustomer::retrieve();
 ```
 
 ### JSON Response
