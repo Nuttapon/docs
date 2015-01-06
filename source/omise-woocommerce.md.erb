@@ -1,0 +1,50 @@
+---
+title: Omise WooCommerce Plugin
+---
+### Getting Started
+Omise WooCommerce Gateway Plugin is a wordpress plugin designed specifically for WooCommerce. The plugin adds support for Omise Payment Gateway payment method to WooCommerce. 
+
+### Requirement &amp; Dependencies
+The plugin was built and tested with Wordpress 4.0.1 and WooCommerce 2.2.8. The plugin dependencies are jQuery and [Omise.js](https://cdn.omise.co/omise.js) library.
+
+### Installation
+The plugin is not yet published to Wordpress's plugin directory. You can grap the source from our [Omise-WooCommerce](https://github.com/omise/omise-woocommerce) repo on github.
+
+After downloaded or cloned the repo, upload or copy the whole folder to your wordpress installation 'plugins' folder ( `../wp-content/plugins` ). Then go to wordpress 'Plugins' menu, you will see 'Omise Gateway Wordpress plugin' in the list.
+
+Then the following steps are needed
+
+* Activate the plugin
+* Go to WooCommerce->Settings
+* Select 'Checkout' tab on the top, you will see Payment Gateways at the bottom of the page with Omise payment gateway in the list. You can select 'Default' checkbox if you want to make Omise Payment gateway the default one.  
+* Select 'Settings' button of Omise payment gateway
+* You will see the settings
+
+| Setting             | Description |
+|:-------------------------|:------|
+| `Enable/Disable` | Select the checkbox 'Enable Omise Payment Module' |
+| `Sandbox` | If selected, all transactions will be in TEST mode and TEST keys will be used |
+| `Title` | Title of Omise Payment gateway user will see during checkout |
+| `Description` | Description of Omise Payment Gateway user will see during checkout |
+| `Private key for test` | your TEST Private (Secret) key which you can find in Omise Dashboard |
+| `Public key for test` | your TEST Public key which you can find in Omise Dashboard |
+| `Private key for list` | your LIVE Private (Secret) key which you can find in Omise Dashboard |
+| `Public key for live` | your LIVE Public key which you can find in Omise Dashboard |
+
+  after finished editing the settings, click 'Save changes' to save all changes
+
+### Checking out
+  
+  ![Check out](/images/omise_sample_checkout.png)
+
+  User can select 'Omise payment gateway' on checkout page. The card name, card number, expiry dates and security code are required. When user click PLACE ORDER button, the card token will be generated and will be used to create a charge in the backend. 
+
+  The logged in user can save the card if needed. In such case, the plugin will create an Omise Customer associated to current WooCommerce user account.
+
+  In case user have the saved cards, they can select a card from the list at the time they checkout.
+
+### Manage the cards
+
+  ![Manage cards](/images/omise_sample_myaccount.png)
+
+  Each WooCommerce user who have the saved cards can delete or add a new card in 'My Account' page.
