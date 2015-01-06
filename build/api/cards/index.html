@@ -49,6 +49,12 @@
           <li><a href="/api/customers">Customers</a></li>
           <li><a href="/api/transfers">Transfers</a></li>
           <li><a href="/api/transactions">Transactions</a></li>
+          <li>&nbsp;</li>
+        </ul>
+
+        <h2>Plugins</h2>
+        <ul>
+          <li><a href="/omise-woocommerce">WooCommerce</a></li>
         </ul>
       </div></nav>
       <article class="Article">
@@ -191,6 +197,12 @@
 <span class="n">cards</span> <span class="o">=</span> <span class="n">customer</span><span class="p">.</span><span class="nf">cards</span>
 </code></pre>
 
+<h3 id="python">Python</h3>
+
+<pre><code class="highlight python"><span class="n">customer</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Customer</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"cust_test_4xsjvylia03ur542vn6"</span><span class="p">)</span>
+<span class="n">cards</span> <span class="o">=</span> <span class="n">customer</span><span class="o">.</span><span class="n">cards</span>
+</code></pre>
+
 <h3 id="c&#35;">C&#35;</h3>
 
 <pre><code class="highlight csharp"><span class="n">cards</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">CardService</span><span class="p">.</span><span class="nf">GetAllCards</span><span class="p">(</span><span class="s">"cust_test_4xsjvylia03ur542vn6"</span><span class="p">);</span>
@@ -267,6 +279,15 @@
 
 <span class="c1"># Note that you can reload the card once you have an instance of one.</span>
 <span class="n">card</span><span class="p">.</span><span class="nf">reload</span>
+</code></pre>
+
+<h3 id="python">Python</h3>
+
+<pre><code class="highlight python"><span class="n">customer</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Customer</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"cust_test_4xsjvylia03ur542vn6"</span><span class="p">)</span>
+<span class="n">card</span> <span class="o">=</span> <span class="n">customer</span><span class="o">.</span><span class="n">cards</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"card_test_4xsjw0t21xaxnuzi9gs"</span><span class="p">)</span>
+
+<span class="c"># Note that you can reload the card once you have an instance of one.</span>
+<span class="n">card</span><span class="o">.</span><span class="nb">reload</span><span class="p">()</span>
 </code></pre>
 
 <h3 id="c&#35;">C&#35;</h3>
@@ -355,6 +376,25 @@
   <span class="ss">name: </span><span class="s2">"Somchai Praset"</span><span class="p">,</span>
   <span class="ss">postal_code: </span><span class="s2">"10310"</span>
 <span class="p">})</span>
+</code></pre>
+
+<h3 id="python">Python</h3>
+
+<pre><code class="highlight python"><span class="n">customer</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Customer</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"cust_test_4xsjvylia03ur542vn6"</span><span class="p">)</span>
+<span class="n">card</span> <span class="o">=</span> <span class="n">customer</span><span class="o">.</span><span class="n">cards</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"card_test_4xsjw0t21xaxnuzi9gs"</span><span class="p">)</span>
+<span class="n">card</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+  <span class="n">expiration_month</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span>
+  <span class="n">expiration_year</span><span class="o">=</span><span class="mi">2017</span><span class="p">,</span>
+  <span class="n">name</span><span class="o">=</span><span class="s">"Somchai Praset"</span><span class="p">,</span>
+  <span class="n">postal_code</span><span class="o">=</span><span class="s">"10310"</span>
+<span class="p">)</span>
+
+<span class="c"># Or alternatively:</span>
+<span class="n">card</span><span class="o">.</span><span class="n">expiration_month</span> <span class="o">=</span> <span class="mi">11</span>
+<span class="n">card</span><span class="o">.</span><span class="n">expiration_year</span> <span class="o">=</span> <span class="mi">2017</span>
+<span class="n">card</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">"Somchai Praset"</span>
+<span class="n">card</span><span class="o">.</span><span class="n">postal_code</span> <span class="o">=</span> <span class="s">"10310"</span>
+<span class="n">card</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
 </code></pre>
 
 <h3 id="c&#35;">C&#35;</h3>
@@ -456,6 +496,13 @@
 <span class="n">card</span><span class="p">.</span><span class="nf">destroy</span>
 </code></pre>
 
+<h3 id="python">Python</h3>
+
+<pre><code class="highlight python"><span class="n">customer</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Customer</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"cust_test_4xsjvylia03ur542vn6"</span><span class="p">)</span>
+<span class="n">card</span> <span class="o">=</span> <span class="n">customer</span><span class="o">.</span><span class="n">cards</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"card_test_4xsjw0t21xaxnuzi9gs"</span><span class="p">)</span>
+<span class="n">card</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
+</code></pre>
+
 <h3 id="c&#35;">C&#35;</h3>
 
 <pre><code class="highlight csharp"><span class="n">var</span> <span class="n">deleteResult</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">CardService</span><span class="p">.</span><span class="nf">DeleteCard</span> <span class="p">(</span><span class="s">"cust_test_4xsjvylia03ur542vn6"</span><span class="p">,</span> <span class="s">"card_test_4xsjw0t21xaxnuzi9gs"</span><span class="p">);</span>
@@ -480,7 +527,7 @@
     </div></div>
     <div class="Wrapper">
       <footer class="Footer">
-        © 2014 Omise, Co. Ltd.
+        © 2015 Omise, Co. Ltd.
         <a href="https://www.omise.co/">About</a>
         <a href="https://www.omise.co/terms.html">Terms</a>
         <a href="https://www.omise.co/privacy.html">Privacy</a>

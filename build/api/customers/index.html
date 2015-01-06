@@ -49,6 +49,12 @@
           <li><a class="Current" href="/api/customers">Customers</a></li>
           <li><a href="/api/transfers">Transfers</a></li>
           <li><a href="/api/transactions">Transactions</a></li>
+          <li>&nbsp;</li>
+        </ul>
+
+        <h2>Plugins</h2>
+        <ul>
+          <li><a href="/omise-woocommerce">WooCommerce</a></li>
         </ul>
       </div></nav>
       <article class="Article">
@@ -142,6 +148,11 @@ parameters</p>
 <h3 id="ruby">Ruby</h3>
 
 <pre><code class="highlight ruby"><span class="n">customers</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Customer</span><span class="p">.</span><span class="nf">retrieve</span>
+</code></pre>
+
+<h3 id="python">Python</h3>
+
+<pre><code class="highlight python"><span class="n">customers</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Customer</span><span class="o">.</span><span class="n">retrieve</span><span class="p">()</span>
 </code></pre>
 
 <h3 id="c&#35;">C&#35;</h3>
@@ -327,6 +338,15 @@ parameters</p>
 <span class="p">})</span>
 </code></pre>
 
+<h3 id="python">Python</h3>
+
+<pre><code class="highlight python"><span class="n">customer</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Customer</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+  <span class="n">email</span><span class="o">=</span><span class="s">"john.doe@example.com"</span><span class="p">,</span>
+  <span class="n">description</span><span class="o">=</span><span class="s">"John Doe (id: 30)"</span><span class="p">,</span>
+  <span class="n">card</span><span class="o">=</span><span class="s">"tokn_test_4xs9408a642a1htto8z"</span>
+<span class="p">)</span>
+</code></pre>
+
 <h3 id="c&#35;">C&#35;</h3>
 
 <pre><code class="highlight csharp"><span class="n">var</span> <span class="n">customerInfo</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">CustomerInfo</span> <span class="p">();</span>
@@ -397,6 +417,11 @@ parameters</p>
 <h3 id="ruby">Ruby</h3>
 
 <pre><code class="highlight ruby"><span class="n">customer</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Customer</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"cust_test_4xtrb759599jsxlhkrb"</span><span class="p">)</span>
+</code></pre>
+
+<h3 id="python">Python</h3>
+
+<pre><code class="highlight python"><span class="n">customer</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Customer</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"cust_test_4xtrb759599jsxlhkrb"</span><span class="p">)</span>
 </code></pre>
 
 <h3 id="c&#35;">C&#35;</h3>
@@ -493,6 +518,20 @@ parameters</p>
                   <span class="ss">description: </span><span class="s2">"Another description"</span> <span class="p">}</span>
 </code></pre>
 
+<h3 id="python">Python</h3>
+
+<pre><code class="highlight python"><span class="n">customer</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Customer</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"cust_test_4xtrb759599jsxlhkrb"</span><span class="p">)</span>
+<span class="n">customer</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+  <span class="n">email</span><span class="o">=</span><span class="s">"john.smith@example.com"</span><span class="p">,</span>
+  <span class="n">description</span><span class="o">=</span><span class="s">"Another description"</span>
+<span class="p">)</span>
+
+<span class="c"># Or alternatively:</span>
+<span class="n">customer</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="s">"john.smith@example.com"</span>
+<span class="n">customer</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="s">"Another description"</span>
+<span class="n">customer</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+</code></pre>
+
 <h3 id="c&#35;">C&#35;</h3>
 
 <pre><code class="highlight csharp"><span class="n">var</span> <span class="n">customerUpdateInfo</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">CustomerInfo</span> <span class="p">();</span>
@@ -568,6 +607,13 @@ parameters</p>
 <span class="n">customer</span><span class="p">.</span><span class="nf">destroyed?</span> <span class="c1"># =&gt; true</span>
 </code></pre>
 
+<h3 id="python">Python</h3>
+
+<pre><code class="highlight python"><span class="n">customer</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Customer</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"cust_test_4xtrb759599jsxlhkrb"</span><span class="p">)</span>
+<span class="n">customer</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
+<span class="n">customer</span><span class="o">.</span><span class="n">destroyed</span> <span class="c"># =&gt; true</span>
+</code></pre>
+
 <h3 id="c&#35;">C&#35;</h3>
 
 <pre><code class="highlight csharp"><span class="n">var</span> <span class="n">deleteResult</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">CustomerService</span><span class="p">.</span><span class="nf">DeleteCustomer</span><span class="p">(</span><span class="s">"cust_test_4xtrb759599jsxlhkrb"</span><span class="p">);</span>
@@ -593,7 +639,7 @@ parameters</p>
     </div></div>
     <div class="Wrapper">
       <footer class="Footer">
-        © 2014 Omise, Co. Ltd.
+        © 2015 Omise, Co. Ltd.
         <a href="https://www.omise.co/">About</a>
         <a href="https://www.omise.co/terms.html">Terms</a>
         <a href="https://www.omise.co/privacy.html">Privacy</a>

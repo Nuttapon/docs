@@ -49,6 +49,12 @@
           <li><a href="/api/customers">Customers</a></li>
           <li><a href="/api/transfers">Transfers</a></li>
           <li><a class="Current" href="/api/transactions">Transactions</a></li>
+          <li>&nbsp;</li>
+        </ul>
+
+        <h2>Plugins</h2>
+        <ul>
+          <li><a href="/omise-woocommerce">WooCommerce</a></li>
         </ul>
       </div></nav>
       <article class="Article">
@@ -129,6 +135,11 @@ parameters</p>
 <pre><code class="highlight ruby"><span class="n">transactions</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Transaction</span><span class="p">.</span><span class="nf">retrieve</span>
 </code></pre>
 
+<h3 id="python">Python</h3>
+
+<pre><code class="highlight python"><span class="n">transactions</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Transaction</span><span class="o">.</span><span class="n">retrieve</span><span class="p">()</span>
+</code></pre>
+
 <h3 id="c&#35;">C&#35;</h3>
 
 <pre><code class="highlight csharp"><span class="n">var</span> <span class="n">transactions</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">TransactionService</span><span class="p">.</span><span class="nf">GetAllTransactions</span><span class="p">();</span>
@@ -189,6 +200,11 @@ parameters</p>
 <pre><code class="highlight ruby"><span class="n">transaction</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Transaction</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"trxn_test_4xuy2z4w5vmvq4x5pfs"</span><span class="p">)</span>
 </code></pre>
 
+<h3 id="python">Python</h3>
+
+<pre><code class="highlight python"><span class="n">transaction</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Transaction</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"trxn_test_4xuy2z4w5vmvq4x5pfs"</span><span class="p">)</span>
+</code></pre>
+
 <h3 id="c&#35;">C&#35;</h3>
 
 <pre><code class="highlight csharp"><span class="n">var</span> <span class="n">transaction</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">TransactionService</span><span class="p">.</span><span class="nf">GetTransaction</span><span class="p">(</span><span class="s">"trxn_test_4xuy2z4w5vmvq4x5pfs"</span><span class="p">);</span>
@@ -217,7 +233,7 @@ parameters</p>
     </div></div>
     <div class="Wrapper">
       <footer class="Footer">
-        © 2014 Omise, Co. Ltd.
+        © 2015 Omise, Co. Ltd.
         <a href="https://www.omise.co/">About</a>
         <a href="https://www.omise.co/terms.html">Terms</a>
         <a href="https://www.omise.co/privacy.html">Privacy</a>

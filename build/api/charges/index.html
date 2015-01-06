@@ -49,6 +49,12 @@
           <li><a href="/api/customers">Customers</a></li>
           <li><a href="/api/transfers">Transfers</a></li>
           <li><a href="/api/transactions">Transactions</a></li>
+          <li>&nbsp;</li>
+        </ul>
+
+        <h2>Plugins</h2>
+        <ul>
+          <li><a href="/omise-woocommerce">WooCommerce</a></li>
         </ul>
       </div></nav>
       <article class="Article">
@@ -184,6 +190,11 @@ parameters</p>
 <h3 id="ruby">Ruby</h3>
 
 <pre><code class="highlight ruby"><span class="n">charges</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Charge</span><span class="p">.</span><span class="nf">retrieve</span>
+</code></pre>
+
+<h3 id="python">Python</h3>
+
+<pre><code class="highlight python"><span class="n">charges</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Charge</span><span class="o">.</span><span class="n">retrieve</span><span class="p">()</span>
 </code></pre>
 
 <h3 id="c&#35;">C&#35;</h3>
@@ -362,6 +373,18 @@ parameters</p>
 <span class="p">})</span>
 </code></pre>
 
+<h3 id="python">Python</h3>
+
+<pre><code class="highlight python"><span class="n">charge</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Charge</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+  <span class="n">return_uri</span><span class="o">=</span><span class="s">"https://example.co.th/orders/384/complete"</span><span class="p">,</span>
+  <span class="n">amount</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span>
+  <span class="n">currency</span><span class="o">=</span><span class="s">"thb"</span><span class="p">,</span>
+  <span class="n">description</span><span class="o">=</span><span class="s">"Order-384"</span><span class="p">,</span>
+  <span class="n">ip</span><span class="o">=</span><span class="s">"127.0.0.1"</span><span class="p">,</span>
+  <span class="n">card</span><span class="o">=</span><span class="s">"tokn_test_4xs9408a642a1htto8z"</span>
+<span class="p">)</span>
+</code></pre>
+
 <h3 id="c&#35;">C&#35;</h3>
 
 <pre><code class="highlight csharp"><span class="n">var</span> <span class="n">charge</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ChargeCreateInfo</span> <span class="p">();</span>
@@ -432,6 +455,11 @@ parameters</p>
 <h3 id="ruby">Ruby</h3>
 
 <pre><code class="highlight ruby"><span class="n">charge</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Charge</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">)</span>
+</code></pre>
+
+<h3 id="python">Python</h3>
+
+<pre><code class="highlight python"><span class="n">charge</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Charge</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">)</span>
 </code></pre>
 
 <h3 id="c&#35;">C&#35;</h3>
@@ -517,6 +545,16 @@ parameters</p>
 <span class="p">})</span>
 </code></pre>
 
+<h3 id="python">Python</h3>
+
+<pre><code class="highlight python"><span class="n">charge</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Charge</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">)</span>
+<span class="n">charge</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">"Another description"</span><span class="p">)</span>
+
+<span class="c"># Or alternatively:</span>
+<span class="n">charge</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="s">"Another description"</span>
+<span class="n">charge</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+</code></pre>
+
 <h3 id="c&#35;">C&#35;</h3>
 
 <pre><code class="highlight csharp"><span class="n">var</span> <span class="n">chargeUpdateInfo</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ChargeUpdateInfo</span><span class="p">();</span>
@@ -586,6 +624,12 @@ parameters</p>
 <pre><code class="highlight ruby"><span class="n">charge</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Charge</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">)</span>
 </code></pre>
 
+<h3 id="python">Python</h3>
+
+<pre><code class="highlight python"><span class="n">charge</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Charge</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">)</span>
+<span class="n">charge</span><span class="o">.</span><span class="n">charge</span><span class="p">()</span>
+</code></pre>
+
 <h3 id="c&#35;">C&#35;</h3>
 
 <pre><code class="highlight csharp"><span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">ChargeService</span><span class="p">.</span><span class="nf">GetCharge</span><span class="p">(</span><span class="s">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">);</span>
@@ -639,7 +683,7 @@ parameters</p>
     </div></div>
     <div class="Wrapper">
       <footer class="Footer">
-        © 2014 Omise, Co. Ltd.
+        © 2015 Omise, Co. Ltd.
         <a href="https://www.omise.co/">About</a>
         <a href="https://www.omise.co/terms.html">Terms</a>
         <a href="https://www.omise.co/privacy.html">Privacy</a>

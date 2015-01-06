@@ -49,6 +49,12 @@
           <li><a href="/api/customers">Customers</a></li>
           <li><a href="/api/transfers">Transfers</a></li>
           <li><a href="/api/transactions">Transactions</a></li>
+          <li>&nbsp;</li>
+        </ul>
+
+        <h2>Plugins</h2>
+        <ul>
+          <li><a href="/omise-woocommerce">WooCommerce</a></li>
         </ul>
       </div></nav>
       <article class="Article">
@@ -193,6 +199,24 @@
 <span class="p">})</span>
 </code></pre>
 
+<h3 id="python">Python</h3>
+
+<div class="Notice">
+  Reminder: <strong>Sensitive card data should never go through your server.</strong>
+  Unless you have a very good reason and know what you are doing, the following method of token creation should only be used with fake data in test mode (e.g.: Quickly creating some fake data, testing our API from a terminal, ...)
+</div>
+
+<pre><code class="highlight python"><span class="n">token</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Token</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+  <span class="n">name</span><span class="o">=</span><span class="s">"Somchai Prasert"</span><span class="p">,</span>
+  <span class="n">number</span><span class="o">=</span><span class="s">"4242424242424242"</span><span class="p">,</span>
+  <span class="n">expiration_month</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+  <span class="n">expiration_year</span><span class="o">=</span><span class="mi">2018</span><span class="p">,</span>
+  <span class="n">city</span><span class="o">=</span><span class="s">"Bangkok"</span><span class="p">,</span>
+  <span class="n">postal_code</span><span class="o">=</span><span class="s">"10320"</span><span class="p">,</span>
+  <span class="n">security_code</span><span class="o">=</span><span class="mi">123</span>
+<span class="p">)</span>
+</code></pre>
+
 <h3 id="c&#35;">C&#35;</h3>
 
 <div class="Notice">
@@ -276,6 +300,11 @@
 <pre><code class="highlight ruby"><span class="n">token</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Token</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"tokn_test_4xs9408a642a1htto8z"</span><span class="p">)</span>
 </code></pre>
 
+<h3 id="python">Python</h3>
+
+<pre><code class="highlight python"><span class="n">token</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Token</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"tokn_test_4xs9408a642a1htto8z"</span><span class="p">)</span>
+</code></pre>
+
 <h3 id="c&#35;">C&#35;</h3>
 
 <pre><code class="highlight csharp"><span class="n">var</span> <span class="n">resultToken</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">TokenService</span><span class="p">.</span><span class="nf">GetToken</span> <span class="p">(</span><span class="s">"tokn_test_4xs9408a642a1htto8z"</span><span class="p">);</span>
@@ -318,7 +347,7 @@
     </div></div>
     <div class="Wrapper">
       <footer class="Footer">
-        © 2014 Omise, Co. Ltd.
+        © 2015 Omise, Co. Ltd.
         <a href="https://www.omise.co/">About</a>
         <a href="https://www.omise.co/terms.html">Terms</a>
         <a href="https://www.omise.co/privacy.html">Privacy</a>
