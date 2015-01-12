@@ -37,6 +37,14 @@ var deleteResult = client.CustomerService.DeleteCustomer("cust_test_4xtrb759599j
 // deleteResult.deleted => true
 ```
 
+### PHP
+
+```php
+$customer = OmiseCustomer::retrieve('cust_test_4xtrb759599jsxlhkrb');
+$customer->destroy();
+$customer->isDestroyed(); # => true
+```
+
 ### JSON Response
 
 ```json

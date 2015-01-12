@@ -58,6 +58,16 @@ customerUpdateInfo.Description = "Another description";
 var updateResult = client.CustomerService.UpdateCustomer(customerUpdateInfo);
 ```
 
+### PHP
+
+```php
+$customer = OmiseCustomer::retrieve('cust_test_4xtrb759599jsxlhkrb');
+$customer->update(array(
+  'email' => 'john.smith@example.com',
+  'description' => 'Another description'
+));
+```
+
 ### JSON Response
 
 ```json

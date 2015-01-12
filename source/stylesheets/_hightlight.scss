@@ -28,12 +28,12 @@ pre code {
 }
 
 // Comment
-.c1 {
+.c1, .c {
   color: #9aa1a4;
 }
 
 // Constants
-.no, .nf {
+.no, .nf, .python .n {
   color: #cca9fc;
 }
 

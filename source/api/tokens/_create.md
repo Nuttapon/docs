@@ -100,6 +100,26 @@ token.Card = card;
 var resultToken = client.TokenService.CreateToken (token);
 ```
 
+### PHP
+
+<div class="Notice">
+  Reminder: <strong>Sensitive card data should never go through your server.</strong>
+  Unless you have a very good reason and know what you are doing, the following method of token creation should only be used with fake data in test mode (e.g.: Quickly creating some fake data, testing our API from a terminal, ...)
+</div>
+
+$token = OmiseToken::create(array(
+  'card' => array(
+    'name' => 'Somchai Prasert',
+    'number' => '4242424242424242',
+    'expiration_month' => 10,
+    'expiration_year' => 2018,
+    'city' => 'Bangkok',
+    'postal_code' => '10320',
+    'security_code' => 123
+  )
+));
+```
+
 ### JSON Response
 
 ```json

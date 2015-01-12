@@ -65,6 +65,15 @@ balance.reload()
 var balance = client.BalanceService.GetBalance();
 ```
 
+### PHP
+
+```php
+$balance = OmiseBalance::retrieve();
+
+# After retrieving it, the balance can be refreshed:
+$balance->reload();
+```
+
 ### JSON Response
 
 ```json

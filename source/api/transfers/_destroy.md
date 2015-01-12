@@ -37,6 +37,14 @@ var deleteResult = client.TransferService.DeleteTransfer("trsf_test_4xs5px8c36ds
 // deleteResult.deleted => true
 ```
 
+### PHP
+
+```php
+$transfer = OmiseTransfer::retrieve('trsf_test_4y3miv1nhy0dceit4w4');
+$transfer->destroy();
+$transfer->isDestroyed(); # => true
+```
+
 ### JSON Response
 
 ```json

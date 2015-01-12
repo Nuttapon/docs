@@ -36,6 +36,12 @@ transaction = omise.Transaction.retrieve("trxn_test_4xuy2z4w5vmvq4x5pfs")
 var transaction = client.TransactionService.GetTransaction("trxn_test_4xuy2z4w5vmvq4x5pfs");
 ```
 
+### PHP
+
+```php
+$transactions = OmiseTransaction::retrieve('trxn_test_4xuy2z4w5vmvq4x5pfs');
+```
+
 ### JSON Response
 
 ```json

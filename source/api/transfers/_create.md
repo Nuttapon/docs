@@ -41,6 +41,14 @@ transfer = omise.Transfer.create(amount=100000)
 var transfer = client.TransferService.CreateTransfer(100000);
 ```
 
+### PHP
+
+```php
+$transfer = OmiseTransfer::create(array(
+	'amount' => 100000
+));
+```
+
 ### JSON Response
 
 ```json

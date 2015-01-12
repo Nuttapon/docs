@@ -41,8 +41,19 @@ card.reload()
 ```
 
 ### C&#35;
+
 ```c#
 card = client.CardService.GetCard("cust_test_4xsjvylia03ur542vn6", "card_test_4xsjw0t21xaxnuzi9gs");
+```
+
+### PHP
+
+```php
+$customer = OmiseCustomer::retrieve('cust_test_4xsjvylia03ur542vn6');
+$card = $customer->getCards()->retrieve('card_test_4xsjw0t21xaxnuzi9gs');
+
+# Note that you can reload the card once you have an instance of one.
+$card->reload();
 ```
 
 ### JSON Response

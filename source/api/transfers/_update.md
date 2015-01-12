@@ -46,6 +46,14 @@ transfer.update()
 var transfer = client.TransferService.UpdateTransfer("trsf_test_4y3miv1nhy0dceit4w4", 50000);
 ```
 
+### PHP
+
+```php
+$transfer = OmiseTransfer::retrieve('trsf_test_4y3miv1nhy0dceit4w4');
+$transfer['amount'] = 50000;
+$transfer->save();
+```
+
 ### JSON Response
 
 ```json

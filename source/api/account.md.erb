@@ -27,13 +27,14 @@ title: Account
 ```
 GET https://api.omise.co/account
 ```
+
 <div class='Notice'>
   It may be interesting to note that both Test and Live keys will return the same account.
 </div>
+
 ### Request parameters
 
- None.
-
+None
 
 ### Curl
 
@@ -61,8 +62,18 @@ account.reload()
 ```
 
 ### C&#35;
+
 ```c#
 var account = client.AccountService.GetAccount();
+```
+
+### PHP
+
+```php
+$account = OmiseAccount::retrieve();
+
+# After retrieving it, the account can be refreshed:
+$account->reload();
 ```
 
 ### JSON Response

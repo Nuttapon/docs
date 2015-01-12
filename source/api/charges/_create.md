@@ -78,6 +78,19 @@ charge.Ip = "127.0.0.1";
 var result = client.ChargeService.CreateCharge (charge);
 ```
 
+### PHP
+
+```php
+$charge = OmiseCharge::create(array(
+	'return_uri' => 'https://example.co.th/orders/384/complete',
+	'amount' => 100000,
+	'currency' => 'thb',
+	'description' => 'Order-384',
+	'ip' => '127.0.0.1',
+	'card' => 'tokn_test_4xs9408a642a1htto8z'
+));
+```
+
 ### JSON Response
 
 ```json

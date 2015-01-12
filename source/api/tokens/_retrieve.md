@@ -37,6 +37,12 @@ token = omise.Token.retrieve("tokn_test_4xs9408a642a1htto8z")
 var resultToken = client.TokenService.GetToken ("tokn_test_4xs9408a642a1htto8z");
 ```
 
+### PHP
+
+```php
+$token = OmiseToken::retrieve('tokn_test_4xs9408a642a1htto8z');
+```
+
 ### JSON Response
 
 ```json

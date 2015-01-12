@@ -9,8 +9,9 @@ GET https://api.omise.co/customers
 ### Request Parameters
 
 None
-parameters
+
 ### Response
+
 A [paginated list](/api/pagination) of [customers](/api/customers#the-customer-object)
 
 ### Curl
@@ -35,6 +36,12 @@ customers = omise.Customer.retrieve()
 
 ```c#
 var customers = client.CustomerService.GetAllCustomers();
+```
+
+### PHP
+
+```php
+$customer = OmiseCustomer::retrieve();
 ```
 
 ### JSON Response

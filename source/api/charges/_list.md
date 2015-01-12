@@ -9,8 +9,9 @@ GET https://api.omise.co/charges
 ### Request Parameters
 
 None
-parameters
+
 ### Response
+
 A [paginated list](/api/pagination) of [charges](/api/charges#the-charge-object)
 
 ### Curl
@@ -35,6 +36,12 @@ charges = omise.Charge.retrieve()
 
 ```c#
 var charges = client.ChargeService.GetAllCharges();
+```
+
+### PHP
+
+```php
+$charges = OmiseCharge::retrieve();
 ```
 
 ### JSON Response
