@@ -175,8 +175,7 @@
 
 <h3 id="request-parameters">Request Parameters</h3>
 
-<p>None
-parameters</p>
+<p>None</p>
 
 <h3 id="response">Response</h3>
 
@@ -200,6 +199,11 @@ parameters</p>
 <h3 id="c&#35;">C&#35;</h3>
 
 <pre><code class="highlight csharp"><span class="n">var</span> <span class="n">charges</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">ChargeService</span><span class="p">.</span><span class="nf">GetAllCharges</span><span class="p">();</span>
+</code></pre>
+
+<h3 id="php">PHP</h3>
+
+<pre><code class="highlight php">$charges = OmiseCharge::retrieve();
 </code></pre>
 
 <h3 id="json-response">JSON Response</h3>
@@ -398,6 +402,18 @@ parameters</p>
 <span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">ChargeService</span><span class="p">.</span><span class="nf">CreateCharge</span> <span class="p">(</span><span class="n">charge</span><span class="p">);</span>
 </code></pre>
 
+<h3 id="php">PHP</h3>
+
+<pre><code class="highlight php">$charge = OmiseCharge::create(array(
+    'return_uri' =&gt; 'https://example.co.th/orders/384/complete',
+    'amount' =&gt; 100000,
+    'currency' =&gt; 'thb',
+    'description' =&gt; 'Order-384',
+    'ip' =&gt; '127.0.0.1',
+    'card' =&gt; 'tokn_test_4xs9408a642a1htto8z'
+));
+</code></pre>
+
 <h3 id="json-response">JSON Response</h3>
 
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
@@ -465,6 +481,11 @@ parameters</p>
 <h3 id="c&#35;">C&#35;</h3>
 
 <pre><code class="highlight csharp"><span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">ChargeService</span><span class="p">.</span><span class="nf">GetCharge</span><span class="p">(</span><span class="s">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">);</span>
+</code></pre>
+
+<h3 id="php">PHP</h3>
+
+<pre><code class="highlight php">$charge = OmiseCharge::retrieve('chrg_test_4xso2s8ivdej29pqnhz');
 </code></pre>
 
 <h3 id="json-response">JSON Response</h3>
@@ -564,6 +585,14 @@ parameters</p>
 <span class="n">var</span> <span class="n">updateResult</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">ChargeService</span><span class="p">.</span><span class="nf">UpdateCharge</span><span class="p">(</span><span class="n">chargeUpdateInfo</span><span class="p">);</span>
 </code></pre>
 
+<h3 id="php">PHP</h3>
+
+<pre><code class="highlight php">$charge = OmiseCharge::retrieve('chrg_test_4xso2s8ivdej29pqnhz');
+$charge-&gt;update(array(
+  'description' =&gt; 'Another description'
+));
+</code></pre>
+
 <h3 id="json-response">JSON Response</h3>
 
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
@@ -633,6 +662,12 @@ parameters</p>
 <h3 id="c&#35;">C&#35;</h3>
 
 <pre><code class="highlight csharp"><span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">ChargeService</span><span class="p">.</span><span class="nf">GetCharge</span><span class="p">(</span><span class="s">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">);</span>
+</code></pre>
+
+<h3 id="php">PHP</h3>
+
+<pre><code class="highlight php">$charge = OmiseCharge::retrieve('chrg_test_4xso2s8ivdej29pqnhz');
+$charge-&gt;capture();
 </code></pre>
 
 <h3 id="json-response">JSON Response</h3>

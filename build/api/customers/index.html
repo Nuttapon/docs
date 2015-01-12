@@ -133,8 +133,7 @@
 
 <h3 id="request-parameters">Request Parameters</h3>
 
-<p>None
-parameters</p>
+<p>None</p>
 
 <h3 id="response">Response</h3>
 
@@ -158,6 +157,11 @@ parameters</p>
 <h3 id="c&#35;">C&#35;</h3>
 
 <pre><code class="highlight csharp"><span class="n">var</span> <span class="n">customers</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">CustomerService</span><span class="p">.</span><span class="nf">GetAllCustomers</span><span class="p">();</span>
+</code></pre>
+
+<h3 id="php">PHP</h3>
+
+<pre><code class="highlight php">$customer = OmiseCustomer::retrieve();
 </code></pre>
 
 <h3 id="json-response">JSON Response</h3>
@@ -357,6 +361,15 @@ parameters</p>
 <span class="n">var</span> <span class="n">customerResult</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">CustomerService</span><span class="p">.</span><span class="nf">CreateCustomer</span> <span class="p">(</span><span class="n">customerInfo</span><span class="p">);</span>
 </code></pre>
 
+<h3 id="php">PHP</h3>
+
+<pre><code class="highlight php">$customer = OmiseCustomer::create(array(
+  'email' =&gt; 'john.doe@example.com',
+  'description' =&gt; 'John Doe (id: 30)',
+  'card' =&gt; 'tokn_test_4xs9408a642a1htto8z'
+));
+</code></pre>
+
 <h3 id="json-response">JSON Response</h3>
 
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
@@ -427,6 +440,11 @@ parameters</p>
 <h3 id="c&#35;">C&#35;</h3>
 
 <pre><code class="highlight csharp"><span class="n">var</span> <span class="n">customer</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">CustomerService</span><span class="p">.</span><span class="nf">GetCustomer</span><span class="p">(</span><span class="s">"cust_test_4xtrb759599jsxlhkrb"</span><span class="p">);</span>
+</code></pre>
+
+<h3 id="php">PHP</h3>
+
+<pre><code class="highlight php">$customer = OmiseCustomer::retrieve('cust_test_4xtrb759599jsxlhkrb');
 </code></pre>
 
 <h3 id="json-response">JSON Response</h3>
@@ -542,6 +560,15 @@ parameters</p>
 <span class="n">var</span> <span class="n">updateResult</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">CustomerService</span><span class="p">.</span><span class="nf">UpdateCustomer</span><span class="p">(</span><span class="n">customerUpdateInfo</span><span class="p">);</span>
 </code></pre>
 
+<h3 id="php">PHP</h3>
+
+<pre><code class="highlight php">$customer = OmiseCustomer::retrieve('cust_test_4xtrb759599jsxlhkrb');
+$customer-&gt;update(array(
+  'email' =&gt; 'john.smith@example.com',
+  'description' =&gt; 'Another description'
+));
+</code></pre>
+
 <h3 id="json-response">JSON Response</h3>
 
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
@@ -619,6 +646,13 @@ parameters</p>
 <pre><code class="highlight csharp"><span class="n">var</span> <span class="n">deleteResult</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">CustomerService</span><span class="p">.</span><span class="nf">DeleteCustomer</span><span class="p">(</span><span class="s">"cust_test_4xtrb759599jsxlhkrb"</span><span class="p">);</span>
 <span class="c1">// deleteResult.deleted =&gt; true
 </span></code></pre>
+
+<h3 id="php">PHP</h3>
+
+<pre><code class="highlight php">$customer = OmiseCustomer::retrieve('cust_test_4xtrb759599jsxlhkrb');
+$customer-&gt;destroy();
+$customer-&gt;isDestroyed(); # =&gt; true
+</code></pre>
 
 <h3 id="json-response">JSON Response</h3>
 

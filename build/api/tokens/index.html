@@ -238,6 +238,26 @@
 <span class="n">var</span> <span class="n">resultToken</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">TokenService</span><span class="p">.</span><span class="nf">CreateToken</span> <span class="p">(</span><span class="n">token</span><span class="p">);</span>
 </code></pre>
 
+<h3 id="php">PHP</h3>
+
+<div class="Notice">
+  Reminder: <strong>Sensitive card data should never go through your server.</strong>
+  Unless you have a very good reason and know what you are doing, the following method of token creation should only be used with fake data in test mode (e.g.: Quickly creating some fake data, testing our API from a terminal, ...)
+</div>
+
+<p>$token = OmiseToken::create(array(
+  &#39;card&#39; =&gt; array(
+    &#39;name&#39; =&gt; &#39;Somchai Prasert&#39;,
+    &#39;number&#39; =&gt; &#39;4242424242424242&#39;,
+    &#39;expiration<em>month&#39; =&gt; 10,
+    &#39;expiration</em>year&#39; =&gt; 2018,
+    &#39;city&#39; =&gt; &#39;Bangkok&#39;,
+    &#39;postal<em>code&#39; =&gt; &#39;10320&#39;,
+    &#39;security</em>code&#39; =&gt; 123
+  )
+));
+```</p>
+
 <h3 id="json-response">JSON Response</h3>
 
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
@@ -308,6 +328,11 @@
 <h3 id="c&#35;">C&#35;</h3>
 
 <pre><code class="highlight csharp"><span class="n">var</span> <span class="n">resultToken</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">TokenService</span><span class="p">.</span><span class="nf">GetToken</span> <span class="p">(</span><span class="s">"tokn_test_4xs9408a642a1htto8z"</span><span class="p">);</span>
+</code></pre>
+
+<h3 id="php">PHP</h3>
+
+<pre><code class="highlight php">$token = OmiseToken::retrieve('tokn_test_4xs9408a642a1htto8z');
 </code></pre>
 
 <h3 id="json-response">JSON Response</h3>

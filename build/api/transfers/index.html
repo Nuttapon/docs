@@ -143,6 +143,11 @@
 <pre><code class="highlight csharp"><span class="n">var</span> <span class="n">transfers</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">TransferService</span><span class="p">.</span><span class="nf">GetAllTransfers</span><span class="p">();</span>
 </code></pre>
 
+<h3 id="php">PHP</h3>
+
+<pre><code class="highlight php">$transfers = OmiseTransfer::retrieve();
+</code></pre>
+
 <h3 id="json-response">JSON Response</h3>
 
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
@@ -219,6 +224,13 @@
 <pre><code class="highlight csharp"><span class="n">var</span> <span class="n">transfer</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">TransferService</span><span class="p">.</span><span class="nf">CreateTransfer</span><span class="p">(</span><span class="m">100000</span><span class="p">);</span>
 </code></pre>
 
+<h3 id="php">PHP</h3>
+
+<pre><code class="highlight php">$transfer = OmiseTransfer::create(array(
+    'amount' =&gt; 100000
+));
+</code></pre>
+
 <h3 id="json-response">JSON Response</h3>
 
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
@@ -270,6 +282,11 @@
 <h3 id="c&#35;">C&#35;</h3>
 
 <pre><code class="highlight csharp"><span class="n">var</span> <span class="n">transfer</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">TransferService</span><span class="p">.</span><span class="nf">GetTransfer</span><span class="p">(</span><span class="s">"trsf_test_4xs5px8c36dsanuwztf"</span><span class="p">);</span>
+</code></pre>
+
+<h3 id="php">PHP</h3>
+
+<pre><code class="highlight php">$transfer = OmiseTransfer::retrieve('trsf_test_4xs5px8c36dsanuwztf');
 </code></pre>
 
 <h3 id="json-response">JSON Response</h3>
@@ -343,6 +360,13 @@
 <pre><code class="highlight csharp"><span class="n">var</span> <span class="n">transfer</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">TransferService</span><span class="p">.</span><span class="nf">UpdateTransfer</span><span class="p">(</span><span class="s">"trsf_test_4y3miv1nhy0dceit4w4"</span><span class="p">,</span> <span class="m">50000</span><span class="p">);</span>
 </code></pre>
 
+<h3 id="php">PHP</h3>
+
+<pre><code class="highlight php">$transfer = OmiseTransfer::retrieve('trsf_test_4y3miv1nhy0dceit4w4');
+$transfer['amount'] = 50000;
+$transfer-&gt;save();
+</code></pre>
+
 <h3 id="json-response">JSON Response</h3>
 
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
@@ -396,6 +420,13 @@
 <pre><code class="highlight csharp"><span class="n">var</span> <span class="n">deleteResult</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">TransferService</span><span class="p">.</span><span class="nf">DeleteTransfer</span><span class="p">(</span><span class="s">"trsf_test_4xs5px8c36dsanuwztf"</span><span class="p">);</span>
 <span class="c1">// deleteResult.deleted =&gt; true
 </span></code></pre>
+
+<h3 id="php">PHP</h3>
+
+<pre><code class="highlight php">$transfer = OmiseTransfer::retrieve('trsf_test_4y3miv1nhy0dceit4w4');
+$transfer-&gt;destroy();
+$transfer-&gt;isDestroyed(); # =&gt; true
+</code></pre>
 
 <h3 id="json-response">JSON Response</h3>
 

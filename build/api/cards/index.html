@@ -208,6 +208,12 @@
 <pre><code class="highlight csharp"><span class="n">cards</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">CardService</span><span class="p">.</span><span class="nf">GetAllCards</span><span class="p">(</span><span class="s">"cust_test_4xsjvylia03ur542vn6"</span><span class="p">);</span>
 </code></pre>
 
+<h3 id="php">PHP</h3>
+
+<pre><code class="highlight php">$customer = OmiseCustomer::retrieve('cust_test_4ybb9ymhoi7ju6wuizb');
+$cards = $customer-&gt;getCards();
+</code></pre>
+
 <h3 id="json-response">JSON Response</h3>
 
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
@@ -293,6 +299,15 @@
 <h3 id="c&#35;">C&#35;</h3>
 
 <pre><code class="highlight csharp"><span class="n">card</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">CardService</span><span class="p">.</span><span class="nf">GetCard</span><span class="p">(</span><span class="s">"cust_test_4xsjvylia03ur542vn6"</span><span class="p">,</span> <span class="s">"card_test_4xsjw0t21xaxnuzi9gs"</span><span class="p">);</span>
+</code></pre>
+
+<h3 id="php">PHP</h3>
+
+<pre><code class="highlight php">$customer = OmiseCustomer::retrieve('cust_test_4xsjvylia03ur542vn6');
+$card = $customer-&gt;getCards()-&gt;retrieve('card_test_4xsjw0t21xaxnuzi9gs');
+
+# Note that you can reload the card once you have an instance of one.
+$card-&gt;reload();
 </code></pre>
 
 <h3 id="json-response">JSON Response</h3>
@@ -408,6 +423,18 @@
 <span class="n">var</span> <span class="n">updateResult</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">CardService</span><span class="p">.</span><span class="nf">UpdateCard</span> <span class="p">(</span><span class="s">"cust_test_4xsjvylia03ur542vn6"</span><span class="p">,</span> <span class="n">card</span><span class="p">);</span>
 </code></pre>
 
+<h3 id="php">PHP</h3>
+
+<pre><code class="highlight php">$customer = OmiseCustomer::retrieve('cust_test_4xsjvylia03ur542vn6');
+$card = $customer-&gt;getCards()-&gt;retrieve('card_test_4xsjw0t21xaxnuzi9gs');
+$card-&gt;update(array(
+  'expiration_month' =&gt; 11,
+  'expiration_year' =&gt; 2017,
+  'name' =&gt; 'Somchai Praset',
+  'postal_code' =&gt; '10310'
+));
+</code></pre>
+
 <h3 id="json-response">JSON Response</h3>
 
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
@@ -506,6 +533,15 @@
 <h3 id="c&#35;">C&#35;</h3>
 
 <pre><code class="highlight csharp"><span class="n">var</span> <span class="n">deleteResult</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">CardService</span><span class="p">.</span><span class="nf">DeleteCard</span> <span class="p">(</span><span class="s">"cust_test_4xsjvylia03ur542vn6"</span><span class="p">,</span> <span class="s">"card_test_4xsjw0t21xaxnuzi9gs"</span><span class="p">);</span>
+</code></pre>
+
+<h3 id="php">PHP</h3>
+
+<pre><code class="highlight php">$customer = OmiseCustomer::retrieve('cust_test_4xsjvylia03ur542vn6');
+$card = $customer-&gt;getCards()-&gt;retrieve('card_test_4xsjw0t21xaxnuzi9gs');
+$card-&gt;destroy();
+
+$card-&gt;isDestroyed(); # =&gt; true
 </code></pre>
 
 <h3 id="json-response">JSON Response</h3>

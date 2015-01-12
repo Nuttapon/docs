@@ -137,6 +137,13 @@
 <pre><code class="highlight csharp"><span class="n">var</span> <span class="n">balance</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">BalanceService</span><span class="p">.</span><span class="nf">GetBalance</span><span class="p">();</span>
 </code></pre>
 
+<h3 id="php">PHP</h3>
+<pre><code class="highlight php">$balance = OmiseBalance::retrieve();
+
+# After retrieving it, the balance can be refreshed:
+$balance-&gt;reload();
+</code></pre>
+
 <h3 id="json-response">JSON Response</h3>
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
   </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"balance"</span><span class="p">,</span><span class="w">

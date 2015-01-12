@@ -112,7 +112,7 @@
 
 <h3 id="request-parameters">Request parameters</h3>
 
-<p>None.</p>
+<p>None</p>
 
 <h3 id="curl">Curl</h3>
 <pre><code class="highlight shell">curl https://api.omise.co/account <span class="se">\</span>
@@ -135,6 +135,13 @@
 
 <h3 id="c&#35;">C&#35;</h3>
 <pre><code class="highlight csharp"><span class="n">var</span> <span class="n">account</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">AccountService</span><span class="p">.</span><span class="nf">GetAccount</span><span class="p">();</span>
+</code></pre>
+
+<h3 id="php">PHP</h3>
+<pre><code class="highlight php">$account = OmiseAccount::retrieve();
+
+# After retrieving it, the account can be refreshed:
+$account-&gt;reload();
 </code></pre>
 
 <h3 id="json-response">JSON Response</h3>
