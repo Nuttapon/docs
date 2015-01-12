@@ -9,8 +9,9 @@ GET https://api.omise.co/customers
 ### Request Parameters
 
 None
-parameters
+
 ### Response
+
 A [paginated list](/api/pagination) of [customers](/api/customers#the-customer-object)
 
 ### Curl

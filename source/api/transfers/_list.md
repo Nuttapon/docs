@@ -11,6 +11,7 @@ GET https://api.omise.co/transfers
 None
 
 ### Response parameters
+
 A [paginated list](/api/pagination) of [transfers](/api/transfers#the-transfer-object)
 
 ### Curl

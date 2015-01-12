@@ -9,8 +9,9 @@ GET https://api.omise.co/charges
 ### Request Parameters
 
 None
-parameters
+
 ### Response
+
 A [paginated list](/api/pagination) of [charges](/api/charges#the-charge-object)
 
 ### Curl

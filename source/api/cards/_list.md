@@ -12,9 +12,8 @@ GET https://api.omise.co/customers/CUSTOMER_ID/cards
 |:-------------------------|:--------------------------------------------------|
 | `customer_id`            | *(required)* Customer id |
 
-
-
 ### Response parameters
+
 A [paginated list](/api/pagination) of [cards](/api/cards#the-card-object)
 
 ### Curl
@@ -39,6 +38,7 @@ cards = customer.cards
 ```
 
 ### C&#35;
+
 ```c#
 cards = client.CardService.GetAllCards("cust_test_4xsjvylia03ur542vn6");
 ```

@@ -56,7 +56,7 @@ var updateResult = client.ChargeService.UpdateCharge(chargeUpdateInfo);
 ```php
 $charge = OmiseCharge::retrieve('chrg_test_4xso2s8ivdej29pqnhz');
 $charge->update(array(
-	'description' => 'Another description'
+  'description' => 'Another description'
 ));
 ```
 
