@@ -47,4 +47,3 @@ POST https://api.omise.co/charges/CHARGE_ID/refunds
 
 ```
 
-## Create a refund (GUI)
