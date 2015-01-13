@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <title>Retrieving Financial Data - Omise API Documentation</title>
+    <title>Refunds (GUI) - Omise API Documentation</title>
     <link rel="stylesheet" href="https://cdn1.omise.co/fonts/inconsolata.css">
     <link rel="stylesheet" href="https://cdn2.omise.co/fonts/lato.css">
     <link href="/stylesheets/all.css" rel="stylesheet" type="text/css" />
     <script src="/javascripts/all.js" type="text/javascript"></script>
     <!-- Facebook OpenGraph -->
-    <meta property="og:title" content="Retrieving Financial Data" />
+    <meta property="og:title" content="Refunds (GUI)" />
     <meta property="og:image" content="https://cdn.omise.co/assets/omise-2x.png" />
   </head>
   <body>
@@ -48,7 +48,7 @@
           <li><a href="/api/charges">Charges</a></li>
           <li><a href="/api/customers">Customers</a></li>
           <li><a href="/api/refunds">Refunds</a></li>
-          <li><a href="/refunds_gui">Refunds (GUI)</a></li>
+          <li><a class="Current" href="/refunds_gui">Refunds (GUI)</a></li>
           <li><a href="/api/transfers">Transfers</a></li>
           <li><a href="/api/transactions">Transactions</a></li>
           <li>&nbsp;</li>
@@ -61,50 +61,36 @@
       </div></nav>
       <article class="Article">
         <header class="ArticleHeader">
-          <h1>Retrieving Financial Data</h1>
-          <p>You will learn how to retrieve financial data such as balance amount and transactions</p>
+          <h1>Refunds (GUI)</h1>
+          <p></p>
         </header>
         <div class="ArticleContent">
-          <h2 id="your-balance">Your Balance</h2>
+          <h3 id="what-is-this?">What is this?</h3>
 
-<p>We offer a very easy way to get your balance information:</p>
+<p>In order to get you up and running as quickly as possible, we added the ability to create refunds directly from our Dashboard.</p>
 
-<h4 id="ruby">Ruby</h4>
-<pre><code class="highlight ruby"><span class="n">balance</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Balance</span><span class="p">.</span><span class="nf">retrieve</span>
-<span class="c1">#balance.total is total balance</span>
-<span class="c1">#balance.available is available balance which can be transferred</span>
-<span class="c1">#balance.currency is currency of the balance</span>
-</code></pre>
+<h2 id="create-a-refund">Create a refund</h2>
 
-<h4 id="c&#35;">C&#35;</h4>
-<pre><code class="highlight csharp"><span class="n">var</span> <span class="n">balance</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">BalanceService</span><span class="p">.</span><span class="nf">GetBalance</span><span class="p">();</span>
-<span class="c1">//balance.Total is total balance
-//balance.Available is available balance which can be transferred
-//balance.Currency is currency of the balance
-</span></code></pre>
+<h3 id="the-following-requirements-must-be-met-for-a-charge-to-be-refundable:">The following requirements must be met for a charge to be refundable:</h3>
 
-<blockquote>
-<p>Related articles: <a href="/api/balance">Balance reference</a></p>
-</blockquote>
+<ul>
+<li>It must be either <code>pending</code> or <code>closed</code></li>
+<li>It must have been <code>captured</code></li>
+<li>It must not be already fully refunded</li>
+<li>It must have been settled within 1 year</li>
+</ul>
 
-<h2 id="the-transactions-list">The Transactions List</h2>
+<p>First, log in to the dashboard and find the charge you want to refund.</p>
 
-<p>You will get a transaction list object which also contain pagination attributes. Those attributes can be used for doing a query.</p>
+<p>Assuming the charge meets all requirements, you will find the &quot;Refund&quot; button here:</p>
 
-<h4 id="c&#35;">C&#35;</h4>
-<pre><code class="highlight csharp"><span class="c1">//the request takes the following forms
-//  var transactions = client.TransactionService.GetAllTransactions (DateTime? from, DateTime? to, int offset, int limit);
-//where : -
-//  from and to are used to specify range of transaction creation date, these two parameters are optional
-//  limit = maximum numbers of records return
-//  offset = index where the return record starts
-</span>
-<span class="n">var</span> <span class="n">transactions</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">TransactionService</span><span class="p">.</span><span class="nf">GetAllTransactions</span> <span class="p">(</span><span class="k">null</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">20</span><span class="p">);</span>
-<span class="c1">//transactions.Limit
-//transactions.Offset
-//transactions.Total returns total amount of records
-//transactions.Collection returns list of transaction object
-</span></code></pre>
+<p><img alt="Refund button" src="/images/refunds_gui/refund_button.png" /></p>
+
+<p>Clicking on it gives you the choice to do a full or partial refund:</p>
+
+<p><img alt="Refund creation" src="/images/refunds_gui/refund_creation.png" /></p>
+
+<p>That&#39;s all there is to it!</p>
 
         </div>
         <footer class="ArticleFooter">

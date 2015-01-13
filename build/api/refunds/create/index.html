@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <title>Retrieving Financial Data - Omise API Documentation</title>
+    <title> - Omise API Documentation</title>
     <link rel="stylesheet" href="https://cdn1.omise.co/fonts/inconsolata.css">
     <link rel="stylesheet" href="https://cdn2.omise.co/fonts/lato.css">
     <link href="/stylesheets/all.css" rel="stylesheet" type="text/css" />
     <script src="/javascripts/all.js" type="text/javascript"></script>
     <!-- Facebook OpenGraph -->
-    <meta property="og:title" content="Retrieving Financial Data" />
+    <meta property="og:title" content="Omise API Documentation" />
     <meta property="og:image" content="https://cdn.omise.co/assets/omise-2x.png" />
   </head>
   <body>
@@ -61,50 +61,63 @@
       </div></nav>
       <article class="Article">
         <header class="ArticleHeader">
-          <h1>Retrieving Financial Data</h1>
-          <p>You will learn how to retrieve financial data such as balance amount and transactions</p>
+          <h1></h1>
+          <p></p>
         </header>
         <div class="ArticleContent">
-          <h2 id="your-balance">Your Balance</h2>
+          <h2 id="create-a-refund">Create a refund</h2>
 
-<p>We offer a very easy way to get your balance information:</p>
+<h3 id="the-following-requirements-must-be-met-for-a-charge-to-be-refundable:">The following requirements must be met for a charge to be refundable:</h3>
 
-<h4 id="ruby">Ruby</h4>
-<pre><code class="highlight ruby"><span class="n">balance</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Balance</span><span class="p">.</span><span class="nf">retrieve</span>
-<span class="c1">#balance.total is total balance</span>
-<span class="c1">#balance.available is available balance which can be transferred</span>
-<span class="c1">#balance.currency is currency of the balance</span>
+<ul>
+<li>It must be either <code>pending</code> or <code>closed</code></li>
+<li>It must have been <code>captured</code></li>
+<li>It must not be already fully refunded</li>
+<li>It must have been settled within 1 year</li>
+</ul>
+
+<p>If any of these requirements is not met, you will get a <code>failed_refund</code> exception.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+<pre><code class="highlight plaintext">POST https://api.omise.co/charges/CHARGE_ID/refunds
 </code></pre>
 
-<h4 id="c&#35;">C&#35;</h4>
-<pre><code class="highlight csharp"><span class="n">var</span> <span class="n">balance</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">BalanceService</span><span class="p">.</span><span class="nf">GetBalance</span><span class="p">();</span>
-<span class="c1">//balance.Total is total balance
-//balance.Available is available balance which can be transferred
-//balance.Currency is currency of the balance
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code>amount</code></td>
+<td style="text-align: left"><em>(required)</em> The amount in the smallest subunits of the charge currency. So for <code>thb</code> (Thai Baht) you&#39;ll need to pass the amount in satangs.</td>
+</tr>
+</tbody></table>
+
+<h3 id="curl">Curl</h3>
+<pre><code class="highlight shell">  curl http://api.omise.co/charges/chrg_test_4ype2jynk2len88i4er/refunds <span class="se">\</span>
+    -X POST <span class="se">\</span>
+    -u skey_test_4ypcvnwzy9ob6gs89pn: <span class="se">\</span>
+    -d <span class="s2">"amount=100000"</span>
+</code></pre>
+
+<h3 id="json-response">JSON Response</h3>
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"refund"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rfnd_test_4ypebtxon6oye5o8myu"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"livemode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/charges/chrg_test_4ype2jynk2len88i4er/refunds/rfnd_test_4ypebtxon6oye5o8myu"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thb"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"charge"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chrg_test_4ype2jynk2len88i4er"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-13T03:28:58Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
 </span></code></pre>
 
-<blockquote>
-<p>Related articles: <a href="/api/balance">Balance reference</a></p>
-</blockquote>
-
-<h2 id="the-transactions-list">The Transactions List</h2>
-
-<p>You will get a transaction list object which also contain pagination attributes. Those attributes can be used for doing a query.</p>
-
-<h4 id="c&#35;">C&#35;</h4>
-<pre><code class="highlight csharp"><span class="c1">//the request takes the following forms
-//  var transactions = client.TransactionService.GetAllTransactions (DateTime? from, DateTime? to, int offset, int limit);
-//where : -
-//  from and to are used to specify range of transaction creation date, these two parameters are optional
-//  limit = maximum numbers of records return
-//  offset = index where the return record starts
-</span>
-<span class="n">var</span> <span class="n">transactions</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">TransactionService</span><span class="p">.</span><span class="nf">GetAllTransactions</span> <span class="p">(</span><span class="k">null</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">20</span><span class="p">);</span>
-<span class="c1">//transactions.Limit
-//transactions.Offset
-//transactions.Total returns total amount of records
-//transactions.Collection returns list of transaction object
-</span></code></pre>
+<h2 id="create-a-refund-(gui)">Create a refund (GUI)</h2>
 
         </div>
         <footer class="ArticleFooter">
