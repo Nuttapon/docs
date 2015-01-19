@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <title>Account - Omise API Documentation</title>
+    <title> - Omise API Documentation</title>
     <link rel="stylesheet" href="https://cdn1.omise.co/fonts/inconsolata.css">
     <link rel="stylesheet" href="https://cdn2.omise.co/fonts/lato.css">
     <link href="/stylesheets/all.css" rel="stylesheet" type="text/css" />
     <script src="/javascripts/all.js" type="text/javascript"></script>
     <!-- Facebook OpenGraph -->
-    <meta property="og:title" content="Account" />
+    <meta property="og:title" content="Omise API Documentation" />
     <meta property="og:image" content="https://cdn.omise.co/assets/omise-2x.png" />
   </head>
   <body>
@@ -42,7 +42,7 @@
           <li><a href="/api/tests">Tests</a></li>
           <li><a href="/api/errors">Errors</a></li>
           <li>&nbsp;</li>
-          <li><a class="Current" href="/api/account">Account</a></li>
+          <li><a href="/api/account">Account</a></li>
           <li><a href="/api/balance">Balance</a></li>
           <li><a href="/api/tokens">Tokens</a></li>
           <li><a href="/api/cards">Cards</a></li>
@@ -61,20 +61,28 @@
       </div></nav>
       <article class="Article">
         <header class="ArticleHeader">
-          <h1>Account</h1>
+          <h1></h1>
           <p></p>
         </header>
         <div class="ArticleContent">
-          <h2 id="table-of-contents">Table of Contents</h2>
+          <h2 id="create-a-refund">Create a refund</h2>
+
+<p>The following requirements must be met for a charge to be refundable:</p>
 
 <ul>
-<li><a href="#the-account-object">The account object</a></li>
-<li><a href="#retrieving-the-account">Retrieving the account</a></li>
+<li>It must be either <code>pending</code> or <code>closed</code></li>
+<li>It must have been <code>captured</code></li>
+<li>It must not be already fully refunded</li>
+<li>It must have been settled within 1 year</li>
 </ul>
 
-<hr>
+<p>If any of these requirements is not met, you will get a <code>failed_refund</code> exception.</p>
 
-<h2 id="the-account-object">The Account Object</h2>
+<h3 id="endpoint">Endpoint</h3>
+<pre><code class="highlight plaintext">POST https://api.omise.co/charges/CHARGE_ID/refunds
+</code></pre>
+
+<h3 id="request-parameters">Request Parameters</h3>
 
 <table><thead>
 <tr>
@@ -83,76 +91,35 @@
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left"><code>object</code></td>
-<td style="text-align: left"><em>(string)</em> &#39;account&#39;</td>
-</tr>
-<tr>
-<td style="text-align: left"><code>id</code></td>
-<td style="text-align: left"><em>(string)</em> Account ID</td>
-</tr>
-<tr>
-<td style="text-align: left"><code>email</code></td>
-<td style="text-align: left"><em>(string)</em> Registration email</td>
-</tr>
-<tr>
-<td style="text-align: left"><code>created</code></td>
-<td style="text-align: left"><em>(datetime, format: <a href="http://en.wikipedia.org/wiki/ISO_8601">iso8601</a>)</em> Creation date of the account</td>
+<td style="text-align: left"><code>amount</code></td>
+<td style="text-align: left"><em>(required)</em> The amount in the smallest subunits of the charge currency. So for <code>thb</code> (Thai Baht) you&#39;ll need to pass the amount in satangs.</td>
 </tr>
 </tbody></table>
 
-<hr>
-
-<h2 id="retrieving-the-account">Retrieving the Account</h2>
-
-<p><strong>Endpoint</strong></p>
-<pre><code class="highlight plaintext">GET https://api.omise.co/account
-</code></pre>
-
-<div class='Notice'>
-  It may be interesting to note that both Test and Live keys will return the same account.
-</div>
-
-<h3 id="request-parameters">Request parameters</h3>
-
-<p>None</p>
-
 <h3 id="curl">Curl</h3>
-<pre><code class="highlight shell">curl https://api.omise.co/account <span class="se">\</span>
-  -u skey_test_4xs8breq3htbkj03d2x:
+<pre><code class="highlight shell">  curl http://api.omise.co/charges/chrg_test_4ype2jynk2len88i4er/refunds <span class="se">\</span>
+    -X POST <span class="se">\</span>
+    -u skey_test_4ypcvnwzy9ob6gs89pn: <span class="se">\</span>
+    -d <span class="s2">"amount=100000"</span>
 </code></pre>
 
 <h3 id="ruby">Ruby</h3>
-<pre><code class="highlight ruby"><span class="n">account</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Account</span><span class="p">.</span><span class="nf">retrieve</span>
-
-<span class="c1"># After retrieving it, the account can be refreshed:</span>
-<span class="n">account</span><span class="p">.</span><span class="nf">reload</span>
-</code></pre>
-
-<h3 id="python">Python</h3>
-<pre><code class="highlight python"><span class="n">account</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Account</span><span class="o">.</span><span class="n">retrieve</span><span class="p">()</span>
-
-<span class="c"># After retrieving it, the account can be refreshed:</span>
-<span class="n">account</span><span class="o">.</span><span class="nb">reload</span><span class="p">()</span>
-</code></pre>
-
-<h3 id="c&#35;">C&#35;</h3>
-<pre><code class="highlight csharp"><span class="n">var</span> <span class="n">account</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">AccountService</span><span class="p">.</span><span class="nf">GetAccount</span><span class="p">();</span>
-</code></pre>
-
-<h3 id="php">PHP</h3>
-<pre><code class="highlight php">$account = OmiseAccount::retrieve();
-
-# After retrieving it, the account can be refreshed:
-$account-&gt;reload();
+<pre><code class="highlight ruby"><span class="n">charge</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Charge</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">)</span>
+<span class="n">refund</span> <span class="o">=</span> <span class="n">charge</span><span class="p">.</span><span class="nf">refunds</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">amount: </span><span class="mi">10000</span><span class="p">)</span>
 </code></pre>
 
 <h3 id="json-response">JSON Response</h3>
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"account"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"acct_4xs8bre8a8vhrgijcjg"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-10-20T08:21:42Z"</span><span class="w">
+  </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"refund"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rfnd_test_4ypebtxon6oye5o8myu"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"livemode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/charges/chrg_test_4ype2jynk2len88i4er/refunds/rfnd_test_4ypebtxon6oye5o8myu"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thb"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"charge"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chrg_test_4ype2jynk2len88i4er"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-13T03:28:58Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
+
 </span></code></pre>
 
         </div>

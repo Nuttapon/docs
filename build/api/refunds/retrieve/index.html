@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <title>Getting Started - Omise API Documentation</title>
+    <title> - Omise API Documentation</title>
     <link rel="stylesheet" href="https://cdn1.omise.co/fonts/inconsolata.css">
     <link rel="stylesheet" href="https://cdn2.omise.co/fonts/lato.css">
     <link href="/stylesheets/all.css" rel="stylesheet" type="text/css" />
     <script src="/javascripts/all.js" type="text/javascript"></script>
     <!-- Facebook OpenGraph -->
-    <meta property="og:title" content="Getting Started" />
+    <meta property="og:title" content="Omise API Documentation" />
     <meta property="og:image" content="https://cdn.omise.co/assets/omise-2x.png" />
   </head>
   <body>
@@ -27,7 +27,7 @@
       <nav class="Nav"><div class="NavInner">
         <h2>Documentation</h2>
         <ul>
-          <li><a class="Current" href="/">Getting Started</a></li>
+          <li><a href="/">Getting Started</a></li>
           <li><a href="/collecting-card-information">Collecting Cards</a></li>
           <li><a href="/charging-cards">Charging Cards</a></li>
           <li><a href="/refunding-charges">Refunding Charges</a></li>
@@ -61,37 +61,39 @@
       </div></nav>
       <article class="Article">
         <header class="ArticleHeader">
-          <h1>Getting Started</h1>
-          <p>In these pages you'll find all information you need to get started and start receiving payments on your website.</p>
+          <h1></h1>
+          <p></p>
         </header>
         <div class="ArticleContent">
-          <h2 id="how-it-all-works">How It All Works</h2>
+          <h2 id="retrieve-a-refund">Retrieve a refund</h2>
 
-<p>The first articles will give you a general overview of Omise so you have a good understanding of how all the pieces fall into place. More details are available for each steps into their own separate articles.</p>
+<h3 id="endpoint">Endpoint</h3>
+<pre><code class="highlight plaintext">GET https://api.omise.co/charges/CHARGE_ID/refunds/REFUND_ID
+</code></pre>
 
-<h3 id="collecting-credit-card-information">Collecting Credit Card Information</h3>
+<h3 id="curl">Curl</h3>
+<pre><code class="highlight shell">curl http://api.omise.co/charges/chrg_test_4ype2jynk2len88i4er/refunds/rfnd_test_4ypebtxon6oye5o8myu <span class="se">\</span>
+  -u skey_test_4ypcvnwzy9ob6gs89pn:
+</code></pre>
 
-<p>The first step is to collect your customer credit card information. Any sensitive card data that transits, gets stored or processed through your server requires that you pass an audit in order to be <a href="https://www.pcisecuritystandards.org/security_standards/documents.php?agreements=pcidss&amp;association=pcidss">PCI compliant</a>.
-This is where Omise comes in: We are PCI certified and our API allows your server to never touch sensitive data!</p>
+<h3 id="ruby">Ruby</h3>
+<pre><code class="highlight ruby"><span class="n">charge</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Charge</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">)</span>
+<span class="n">refund</span> <span class="o">=</span> <span class="n">charge</span><span class="p">.</span><span class="nf">refunds</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"rfnd_test_4ypebtxon6oye5o8myu"</span><span class="p">)</span>
+</code></pre>
 
-<p>To collect credit cards on your website, Omise offers a small Javascript library called <a href="https://github.com/omise/omise.js">Omise.js</a>. It can be integrated on your website very easily and will still allow you to use your own forms.
-It works by tokenizing the card:</p>
+<h3 id="json-response">JSON Response</h3>
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"refund"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rfnd_test_4ypebtxon6oye5o8myu"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"livemode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/charges/chrg_test_4ype2jynk2len88i4er/refunds/rfnd_test_4ypebtxon6oye5o8myu"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thb"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"charge"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chrg_test_4ype2jynk2len88i4er"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-13T03:28:58Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
 
-<ul>
-<li> Your users fill in their credit card details on your form. They never leave your website!</li>
-<li> Omise.js sends us the data and we return a token.</li>
-<li> You can use this token to create a one-time charge or save the card under a Customer on our servers for later use.</li>
-</ul>
-
-<p><strong><a href="/collecting-card-information/">Learn more about Omise.js and Tokens</a></strong></p>
-
-<h3 id="charging-cards">Charging Cards</h3>
-
-<p>Next up is charging your customer card. This can be done using the token you received during the previous step. We offer multiple options for this: You can use one of our libraries, your language standard library or even curl. Our API follows a REST architecture.</p>
-
-<p>Omise also offers a convenient abstraction atop Cards called Customers. If you choose to use the token to attach the card to a customer, you can reuse that customer object later on to charge the card again. Your users will never have to enter their details twice!</p>
-
-<p><strong><a href="/charging-cards/">Learn more on how to charge cards</a></strong></p>
+</span></code></pre>
 
         </div>
         <footer class="ArticleFooter">
