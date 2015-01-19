@@ -13,6 +13,12 @@ curl http://api.omise.co/charges/chrg_test_4ype2jynk2len88i4er/refunds/rfnd_test
   -u skey_test_4ypcvnwzy9ob6gs89pn:
   ```
 
+### Ruby
+
+```ruby
+charge = Omise::Charge.retrieve("chrg_test_4xso2s8ivdej29pqnhz")
+refund = charge.refunds.retrieve("rfnd_test_4ypebtxon6oye5o8myu")
+```
 
 ### JSON Response
 

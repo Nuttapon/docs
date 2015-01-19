@@ -1,6 +1,6 @@
 ## Create a refund
 
-### The following requirements must be met for a charge to be refundable:
+The following requirements must be met for a charge to be refundable:
 
 - It must be either `pending` or `closed`
 - It must have been `captured`
@@ -21,7 +21,6 @@ POST https://api.omise.co/charges/CHARGE_ID/refunds
 |:-------------------------|:--------------------------------------------------|
 | `amount`                 | *(required)* The amount in the smallest subunits of the charge currency. So for `thb` (Thai Baht) you'll need to pass the amount in satangs. |
 
-
 ### Curl
 
 ```sh
@@ -29,6 +28,13 @@ POST https://api.omise.co/charges/CHARGE_ID/refunds
     -X POST \
     -u skey_test_4ypcvnwzy9ob6gs89pn: \
     -d "amount=100000"
+```
+
+### Ruby
+
+```ruby
+charge = Omise::Charge.retrieve("chrg_test_4xso2s8ivdej29pqnhz")
+refund = charge.refunds.create(amount: 10000)
 ```
 
 ### JSON Response
