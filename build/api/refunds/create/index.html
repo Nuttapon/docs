@@ -30,6 +30,7 @@
           <li><a href="/">Getting Started</a></li>
           <li><a href="/collecting-card-information">Collecting Cards</a></li>
           <li><a href="/charging-cards">Charging Cards</a></li>
+          <li><a href="/refunding-charges">Refunding Charges</a></li>
         </ul>
 
         <h2>References</h2>
@@ -48,7 +49,6 @@
           <li><a href="/api/charges">Charges</a></li>
           <li><a href="/api/customers">Customers</a></li>
           <li><a href="/api/refunds">Refunds</a></li>
-          <li><a href="/refunds_gui">Refunds (GUI)</a></li>
           <li><a href="/api/transfers">Transfers</a></li>
           <li><a href="/api/transactions">Transactions</a></li>
           <li>&nbsp;</li>
@@ -67,7 +67,7 @@
         <div class="ArticleContent">
           <h2 id="create-a-refund">Create a refund</h2>
 
-<h3 id="the-following-requirements-must-be-met-for-a-charge-to-be-refundable:">The following requirements must be met for a charge to be refundable:</h3>
+<p>The following requirements must be met for a charge to be refundable:</p>
 
 <ul>
 <li>It must be either <code>pending</code> or <code>closed</code></li>
@@ -101,6 +101,11 @@
     -X POST <span class="se">\</span>
     -u skey_test_4ypcvnwzy9ob6gs89pn: <span class="se">\</span>
     -d <span class="s2">"amount=100000"</span>
+</code></pre>
+
+<h3 id="ruby">Ruby</h3>
+<pre><code class="highlight ruby"><span class="n">charge</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Charge</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">)</span>
+<span class="n">refund</span> <span class="o">=</span> <span class="n">charge</span><span class="p">.</span><span class="nf">refunds</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">amount: </span><span class="mi">10000</span><span class="p">)</span>
 </code></pre>
 
 <h3 id="json-response">JSON Response</h3>
