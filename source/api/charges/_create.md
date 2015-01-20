@@ -14,10 +14,10 @@ POST https://api.omise.co/charges
 | `card`                   | *(optional if passing a `CUSTOMER_ID`)* A valid unused `TOKEN_ID` or `CARD_ID`. In the case of the `CARD_ID` the customer parameter must be present and be the actual owner of the card. For the `TOKEN_ID`, the customer must not be passed. |
 | `amount`                 | *(required)* The amount in the smallest subunits of the currency used. So for `thb` (Thai Baht) you'll need to pass the amount in satangs. |
 | `currency`               | *(optional)* The currency in which you want the charge to be done. The default and only valid value is `thb`. |
-| `capture`                 | *(optional)* Whether or not you want the charge to be captured right away. |
+| `capture`                | *(optional)* Whether or not you want the charge to be captured right away. |
 | `description`            | *(optional)* A custom description for the charge. This value can be searched for in your dashboard. |
 | `ip`                     | *(optional)* The IP of the customer you're trying to charge. This will help detect fraudulent charge. |
-
+| `statement_name`         | *(optional)* A custom name that will appear on the customer's credit card statement. Defaults to your account statement name if not passed. Can contain alphanumeric characters and `. _ - /`. Cannot be over 19 characters. |
 
 ### Deprecated request parameters
 
@@ -35,6 +35,7 @@ curl https://api.omise.co/charges \
   -d "currency=thb" \
   -d "description=Order-384" \
   -d "ip=127.0.0.1" \
+  -d "statement_name=WIRE"
   -d "card=tokn_test_4xs9408a642a1htto8z"
 ```
 
@@ -47,6 +48,7 @@ charge = Omise::Charge.create({
   currency: "thb",
   description: "Order-384",
   ip: "127.0.0.1",
+  statement_name: "WIRE",
   card: "tokn_test_4xs9408a642a1htto8z"
 })
 ```
@@ -87,6 +89,7 @@ $charge = OmiseCharge::create(array(
 	'currency' => 'thb',
 	'description' => 'Order-384',
 	'ip' => '127.0.0.1',
+	'statement_name' => 'WIRE',
 	'card' => 'tokn_test_4xs9408a642a1htto8z'
 ));
 ```
@@ -106,6 +109,7 @@ $charge = OmiseCharge::create(array(
   "authorized": false,
   "captured": false,
   "transaction": null,
+  "statement_name": "WIRE",
   "return_uri": "https://example.co.th/orders/384/complete",
   "reference": "9qt1b3n635uv6plypp2spzkpe",
   "authorize_uri": "https://api.omise-gateway.dev/payments/9qt1b3n635uv6plypp2spzkpe/authorize",

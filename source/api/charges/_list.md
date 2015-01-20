@@ -67,6 +67,7 @@ $charges = OmiseCharge::retrieve();
       "authorized": false,
       "captured": false,
       "transaction": null,
+      "statement_name": null,
       "failure_code": null,
       "failure_message": null,
       "card": {

@@ -28,6 +28,7 @@ title: Charges
 | `authorized`    | *(boolean)*  Whether the charge has been authorized or not. |
 | `captured`      | *(boolean)*  Whether the charge has been captured or not. |
 | `transaction`   | *(string)*  `TRANSACTION_ID` of that charge. |
+| `statement_name`| *(string, alphanumeric + `. _ - /` , < 20 characters)* A custom name that will appear on the customer's credit card statement. |
 | `card`          | *([Card](/api/cards#the-card-object))*  The card object that was charged. |
 | `customer`      | *(string)*  The `CUSTOMER_ID`. |
 | `ip`            | *(string)*  The customer IP, as sent to Omise. |

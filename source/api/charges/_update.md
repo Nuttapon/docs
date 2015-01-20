@@ -11,6 +11,7 @@ PATCH https://api.omise.co/charges/CHARGE_ID
 | Parameter                | Value                                             |
 |:-------------------------|:--------------------------------------------------|
 | `description`            | *(optional)* A custom description for the charge. This value can be searched for in your dashboard. |
+| `statement_name`         | *(optional)* A custom name that will appear on the customer's credit card statement. Defaults to your account statement name if not passed. Can contain alphanumeric characters and `. _ - /`. Cannot be over 19 characters. |
 
 ### Curl
 
@@ -19,6 +20,7 @@ curl https://api.omise.co/charges/chrg_test_4xso2s8ivdej29pqnhz \
   -X PATCH \
   -u skey_test_4xsjvwfnvb2g0l81sjz: \
   -d "description=Another description"
+  -d "statement_name=WIRE"
 ```
 
 ### Ruby
@@ -26,7 +28,8 @@ curl https://api.omise.co/charges/chrg_test_4xso2s8ivdej29pqnhz \
 ```ruby
 charge = Omise::Charge.retrieve("chrg_test_4xso2s8ivdej29pqnhz")
 charge.update({
-  description: "Another description"
+  description: "Another description",
+  statement_name: "WIRE"
 })
 ```
 
@@ -56,7 +59,8 @@ var updateResult = client.ChargeService.UpdateCharge(chargeUpdateInfo);
 ```php
 $charge = OmiseCharge::retrieve('chrg_test_4xso2s8ivdej29pqnhz');
 $charge->update(array(
-  'description' => 'Another description'
+  'description' => 'Another description',
+  'statement_name' => 'WIRE'
 ));
 ```
 
@@ -75,6 +79,7 @@ $charge->update(array(
   "authorized": false,
   "captured": false,
   "transaction": null,
+  "statement_name": "WIRE",
   "return_uri": "https://example.co.th/orders/384/complete",
   "reference": "9qt1b3n635uv6plypp2spzkpe",
   "authorize_uri": "https://api.omise-gateway.dev/payments/9qt1b3n635uv6plypp2spzkpe/authorize",
