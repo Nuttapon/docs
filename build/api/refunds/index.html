@@ -69,7 +69,6 @@
 
 <ul>
 <li><a href="#the-refund-object">The refund object</a></li>
-<li><a href="#is-a-charge-refundable?">Is a charge refundable?</a></li>
 <li><a href="#list-refunds">List refunds</a></li>
 <li><a href="#create-a-refund">Create a refund</a></li>
 <li><a href="#retrieve-a-refund">Retrieve a refund</a></li>
@@ -152,6 +151,12 @@
 <span class="n">refunds</span> <span class="o">=</span> <span class="n">charge</span><span class="p">.</span><span class="nf">refunds</span>
 </code></pre>
 
+<h3 id="python">Python</h3>
+
+<pre><code class="highlight python"><span class="n">charge</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Charge</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">)</span>
+<span class="n">refunds</span> <span class="o">=</span> <span class="n">charge</span><span class="o">.</span><span class="n">refunds</span>
+</code></pre>
+
 <h3 id="json-response">JSON Response</h3>
 
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
@@ -225,6 +230,12 @@
 <span class="n">refund</span> <span class="o">=</span> <span class="n">charge</span><span class="p">.</span><span class="nf">refunds</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">amount: </span><span class="mi">10000</span><span class="p">)</span>
 </code></pre>
 
+<h3 id="python">Python</h3>
+
+<pre><code class="highlight python"><span class="n">charge</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Charge</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">)</span>
+<span class="n">refund</span> <span class="o">=</span> <span class="n">charge</span><span class="o">.</span><span class="n">refund</span><span class="p">(</span><span class="n">amount</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+</code></pre>
+
 <h3 id="json-response">JSON Response</h3>
 
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
@@ -259,6 +270,12 @@
 
 <pre><code class="highlight ruby"><span class="n">charge</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Charge</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">)</span>
 <span class="n">refund</span> <span class="o">=</span> <span class="n">charge</span><span class="p">.</span><span class="nf">refunds</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"rfnd_test_4ypebtxon6oye5o8myu"</span><span class="p">)</span>
+</code></pre>
+
+<h3 id="python">Python</h3>
+
+<pre><code class="highlight python"><span class="n">charge</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Charge</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">)</span>
+<span class="n">refund</span> <span class="o">=</span> <span class="n">charge</span><span class="o">.</span><span class="n">refunds</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"rfnd_test_4ypebtxon6oye5o8myu"</span><span class="p">)</span>
 </code></pre>
 
 <h3 id="json-response">JSON Response</h3>

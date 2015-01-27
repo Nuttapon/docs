@@ -108,6 +108,11 @@
 <span class="n">refund</span> <span class="o">=</span> <span class="n">charge</span><span class="p">.</span><span class="nf">refunds</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">amount: </span><span class="mi">10000</span><span class="p">)</span>
 </code></pre>
 
+<h3 id="python">Python</h3>
+<pre><code class="highlight python"><span class="n">charge</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Charge</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">)</span>
+<span class="n">refund</span> <span class="o">=</span> <span class="n">charge</span><span class="o">.</span><span class="n">refund</span><span class="p">(</span><span class="n">amount</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+</code></pre>
+
 <h3 id="json-response">JSON Response</h3>
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
   </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"refund"</span><span class="p">,</span><span class="w">
