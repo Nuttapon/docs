@@ -37,6 +37,13 @@ charge = Omise::Charge.retrieve("chrg_test_4xso2s8ivdej29pqnhz")
 refund = charge.refunds.create(amount: 10000)
 ```
 
+### Python
+
+```python
+charge = omise.Charge.retrieve("chrg_test_4xso2s8ivdej29pqnhz")
+refund = charge.refund(amount=10000)
+```
+
 ### JSON Response
 
 ```json
