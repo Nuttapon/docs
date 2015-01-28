@@ -61,7 +61,7 @@ var updateResult = client.CustomerService.UpdateCustomer(customerUpdateInfo);
 ### PHP
 
 ```php
-$customer = Omise\Customer::retrieve('cust_test_4xtrb759599jsxlhkrb');
+$customer = OmiseCustomer::retrieve('cust_test_4xtrb759599jsxlhkrb');
 $customer->update(array(
   'email' => 'john.smith@example.com',
   'description' => 'Another description'

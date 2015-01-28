@@ -41,7 +41,7 @@ var transactions = client.TransactionService.GetAllTransactions();
 ### PHP
 
 ```php
-$transactions = Omise\Transaction::retrieve();
+$transactions = OmiseTransaction::retrieve();
 ```
 
 ### JSON Response
