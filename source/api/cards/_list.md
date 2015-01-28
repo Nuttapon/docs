@@ -47,7 +47,7 @@ cards = client.CardService.GetAllCards("cust_test_4xsjvylia03ur542vn6");
 
 ```php
 $customer = OmiseCustomer::retrieve('cust_test_4ybb9ymhoi7ju6wuizb');
-$cards = $customer->getCards();
+$cards = $customer->cards();
 ```
 
 ### JSON Response
