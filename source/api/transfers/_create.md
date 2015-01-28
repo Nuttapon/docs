@@ -44,7 +44,7 @@ var transfer = client.TransferService.CreateTransfer(100000);
 ### PHP
 
 ```php
-$transfer = OmiseTransfer::create(array(
+$transfer = Omise\Transfer::create(array(
 	'amount' => 100000
 ));
 ```

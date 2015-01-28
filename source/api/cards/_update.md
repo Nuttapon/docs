@@ -76,7 +76,7 @@ var updateResult = client.CardService.UpdateCard ("cust_test_4xsjvylia03ur542vn6
 ### PHP
 
 ```php
-$customer = OmiseCustomer::retrieve('cust_test_4xsjvylia03ur542vn6');
+$customer = Omise\Customer::retrieve('cust_test_4xsjvylia03ur542vn6');
 $card = $customer->getCards()->retrieve('card_test_4xsjw0t21xaxnuzi9gs');
 $card->update(array(
   'expiration_month' => 11,

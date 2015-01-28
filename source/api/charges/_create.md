@@ -81,7 +81,7 @@ var result = client.ChargeService.CreateCharge (charge);
 ### PHP
 
 ```php
-$charge = OmiseCharge::create(array(
+$charge = Omise\Charge::create(array(
 	'return_uri' => 'https://example.co.th/orders/384/complete',
 	'amount' => 100000,
 	'currency' => 'thb',

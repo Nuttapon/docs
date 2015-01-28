@@ -41,7 +41,7 @@ var transfers = client.TransferService.GetAllTransfers();
 ### PHP
 
 ```php
-$transfers = OmiseTransfer::retrieve();
+$transfers = Omise\Transfer::retrieve();
 ```
 
 ### JSON Response

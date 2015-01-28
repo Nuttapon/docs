@@ -107,7 +107,7 @@ var resultToken = client.TokenService.CreateToken (token);
   Unless you have a very good reason and know what you are doing, the following method of token creation should only be used with fake data in test mode (e.g.: Quickly creating some fake data, testing our API from a terminal, ...)
 </div>
 
-$token = OmiseToken::create(array(
+$token = Omise\Token::create(array(
   'card' => array(
     'name' => 'Somchai Prasert',
     'number' => '4242424242424242',

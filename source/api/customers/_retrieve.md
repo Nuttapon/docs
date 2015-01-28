@@ -34,7 +34,7 @@ var customer = client.CustomerService.GetCustomer("cust_test_4xtrb759599jsxlhkrb
 ### PHP
 
 ```php
-$customer = OmiseCustomer::retrieve('cust_test_4xtrb759599jsxlhkrb');
+$customer = Omise\Customer::retrieve('cust_test_4xtrb759599jsxlhkrb');
 ```
 
 ### JSON Response
