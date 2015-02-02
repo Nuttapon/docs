@@ -44,6 +44,13 @@ charge = omise.Charge.retrieve("chrg_test_4xso2s8ivdej29pqnhz")
 refund = charge.refund(amount=10000)
 ```
 
+### PHP
+
+```php
+$charge = OmiseCharge::retrieve("chrg_test_4xso2s8ivdej29pqnhz");
+$refund = $charge->refunds()->create(array('amount' => 10000));
+```
+
 ### JSON Response
 
 ```json
