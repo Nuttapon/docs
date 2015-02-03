@@ -94,6 +94,11 @@
 <span class="n">refunds</span> <span class="o">=</span> <span class="n">charge</span><span class="o">.</span><span class="n">refunds</span>
 </code></pre>
 
+<h3 id="php">PHP</h3>
+<pre><code class="highlight php">$charge = OmiseCharge::retrieve("chrg_test_4xso2s8ivdej29pqnhz");
+$refunds = $charge-&gt;refunds();
+</code></pre>
+
 <h3 id="json-response">JSON Response</h3>
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
   </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"list"</span><span class="p">,</span><span class="w">
