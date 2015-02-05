@@ -2,24 +2,26 @@
 title: Omise WooCommerce Plugin
 ---
 ### Getting Started
-This plugin is a Wordpress plugin designed specifically to add support for Omise Payment Gateway in WooCommerce.
+This plugin is a Wordpress plugin designed specifically to support for Omise Payment Gateway in WooCommerce.
 
 ### Requirement &amp; Dependencies
-The plugin was built and tested with Wordpress 4.0.1 and WooCommerce 2.2.8. The plugin dependencies are jQuery and [Omise.js](https://cdn.omise.co/omise.js) library.
-You will also need an Omise account.
+The plugin was built and tested with Wordpress 4.0.1+ and WooCommerce 2.2.8. The plugin dependencies are jQuery and [Omise.js](https://cdn.omise.co/omise.js) library.
+You will also need [Omise account](https://dashboard.omise.co/signup).
 
 ### Installation
-You can grab the source from our [Omise-WooCommerce](https://github.com/omise/omise-woocommerce) repository on github. At this time, the plugin is not yet available on Wordpress' plugin directory.
+Get our [Omise-WooCommerce](https://github.com/omise/omise-woocommerce) plugin that is available on github.  (Note that at the moment,  this plugin has not been added to Wordpress Plugin Directory yet).
 
-After downloading or cloning the repository, upload or copy the whole folder to your wordpress installation 'plugins' folder ( `../wp-content/plugins` ).
-'Omise Gateway Wordpress plugin' should then appear in Wordpress, under the Plugins menu.
+After getting the source code,  either downloading as a zip or git clone,  put it in Wordpress plugins folder (i.e. `mv omise-woocommerce <wordpress installed path>/wp-content/plugins/`  or upload a zip via Wordpress admin Plugins section,  just like the other Wordpress plugins).
+
+Then, Omise Gateway Wordpress plugin should be appeared in Wordpress admin page, under the Plugins menu.
 
 From there:
 
-* Go to WooCommerce -> Settings
-* Select the 'Checkout' tab on top. Select 'Omise payment gateway' at the bottom of the page, under 'Payment Gateways'.
-* Optionally, you can check 'Default' if you want to make Omise Payment gateway the default choice.
-* Click on the 'Settings' button and adjust the options as follow:
+* Go to `WooCommerce -> Settings`
+* Select the `Checkout` tab on top.
+* Select `Omise payment gateway` at the bottom of the page, under `Payment Gateways`.
+* Optionally, if you'd like to have Omise Payment gateway as a default payment gateway, you can check `Default`.
+* Click the `Settings` button and adjust the options as follow:
 
 | Setting             | Description |
 |:-------------------------|:------|
@@ -32,13 +34,13 @@ From there:
 | `Private key for live`    | Your LIVE secret key. It can be found in [your Dashboard](https://dashboard.omise.co/live/api-keys). |
 | `Public key for live`     | Your LIVE public key. It can be found in [your Dashboard](https://dashboard.omise.co/live/api-keys). |
 
-Once everything is set up, click 'Save changes'.
+After setting up the above options, then click `Save changes`.
 
 ### Checking out
-  
+
   ![Check out](/images/omise_sample_checkout.png)
 
-  Your customers can select 'Omise payment gateway' from the checkout page. Please note that the card name, number, expiry date and security code are required.
+  Your customers can select `Omise payment gateway` from the checkout page. Please note that the card name, number, expiry date and security code are required.
   Upon clicking the PLACE ORDER button, a card token will be generated and used to create a charge in your Omise account.
 
   The logged in user can save their card if required. In that case, the plugin will create an Omise Customer associated to your WooCommerce account.
@@ -49,4 +51,4 @@ Once everything is set up, click 'Save changes'.
 
   ![Manage cards](/images/omise_sample_myaccount.png)
 
-  Each WooCommerce user with saved cards can delete or add a new card under 'My Account'.
+  Each WooCommerce user with saved cards can delete or add a new card under `My Account`.
