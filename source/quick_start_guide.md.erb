@@ -1,0 +1,38 @@
+---
+title: Quick Start Guide
+excerpt: This guide is designed to get you testing and seeing how easy you can start charging with Omise as quickly as possible.
+---
+
+*Quick Start Guide*
+
+1. Sigin to Omise dashboard https://dashboard.omise.co/signin and go to grab api keys at https://dashboard.omise.co/test/api-keys
+
+		 export OMISE_KEY_PUBLIC=<Public key>
+		 export OMISE_KEY_SECRET=<Secret key>
+
+
+2. Then, fill in card informatino to create a one-time token and start charging!
+
+		token_id=$(curl https://vault.omise.co/tokens \
+		  -X POST \
+		  -u "$OMISE_KEY_PUBLIC": \
+		  -d "card[name]=JOHN DOE" \
+		  -d "card[city]=Bangkok" \
+		  -d "card[postal_code]=10320" \
+		  -d "card[number]=4242424242424242" \
+		  -d "card[expiration_month]=2" \
+		  -d "card[expiration_year]=2017" \
+		 | jq ".id" \
+		 | sed 's/"//g') \
+		 && curl https://api.omise.co/charges \
+		  -X POST \
+		  -u "$OMISE_KEY_SECRET": \
+		  -d "description=Charge for order 3947" \
+		  -d "amount=99" \
+		  -d "currency=thb" \
+		  -d "return_uri=http://www.example.com/orders/3947/complete" \
+		  -d "card=$token_id"
+
+(  Note: you could `brew install jq` on OSX or download/install via http://stedolan.github.io/jq/download/ for other OSes )
+
+Done.

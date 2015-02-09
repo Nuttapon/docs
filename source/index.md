@@ -7,6 +7,11 @@ excerpt: In these pages you'll find all information you need to get started and 
 
 The first articles will give you a general overview of Omise so you have a good understanding of how all the pieces fall into place. More details are available for each steps into their own separate articles.
 
+### Quick Start Guide
+
+This guide is designed to get you testing and seeing how easy you can get start charging with Omise as quickly as possible.
+**[Learn more to see how easy to get start](./quick_start_guide.html)**
+
 ### Collecting Credit Card Information
 
 The first step is to collect your customer credit card information. Any sensitive card data that transits, gets stored or processed through your server requires that you pass an audit in order to be [PCI compliant](https://www.pcisecuritystandards.org/security_standards/documents.php?agreements=pcidss&association=pcidss).
