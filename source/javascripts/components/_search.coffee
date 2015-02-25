@@ -9,7 +9,7 @@ class omise.Search
     @element.append(@results)
     if query = $.getParameterByName("q")
       _.forEach query.split(" "), (term) ->
-        $(".MainContent p, .MainContent h1, .MainContent h2, .MainContent h3").highlight(term, "QueryHighlight")
+        $(".MainContent h1, .MainContent h2, .MainContent h3").highlight(term, "QueryHighlight")
     $.getJSON "/index.json", (db) =>
       @constructor.db = db
 
@@ -52,9 +52,9 @@ class omise.Search
     _.map paths, (path) ->
       if doc = documents[path]
         excerpt = omise.Search.computeExcerpt(doc["content"], terms[0])
-        { path: "#{path}?q=#{terms.join("+")}", title: doc["title"], excerpt: excerpt  }
+        { path: "#{path}?q=#{terms.join("+")}", title: doc["title"], excerpt: path  }
       else
-        { path: "#{path}?q=#{terms.join("+")}", title: "", excerpt: "" }
+        { path: "#{path}?q=#{terms.join("+")}", title: path, excerpt: path }
 
   @computeExcerpt: (content, term) ->
     return "" unless content

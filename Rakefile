@@ -20,7 +20,7 @@ task :build do
 
   Dir.glob("build/**/*.html") do |path|
     doc = Nokogiri::HTML(File.read(path))
-    text = doc.css(".MainContent p, .MainContent h1, .MainContent h2, .MainContent h3, .MainContent h4")
+    text = doc.css(".MainContent h1, .MainContent h2, .MainContent h3, .MainContent h4")
       .map(&:text).join(" ")
       .gsub("\n", " ")
       .gsub(/[ ]+/, " ")
