@@ -10,6 +10,8 @@ task :build do
   require "json"
   require "nokogiri"
 
+  FileUtils.rm("build/index.json") if File.exist?("build/index.json")
+
   system "bin/middleman build"
 
   documents = {}

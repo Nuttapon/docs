@@ -4,7 +4,11 @@
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
 
-    <title>Omise: <%= I18n.t current_page.data.title %></title>
+    <% if current_page.data.skip_page_header %>
+      <title>Omise: <%= I18n.t current_page.data.title %></title>
+    <% else %>
+      <title>Omise: <%= current_page.data.title %></title>
+    <% end %>
 
     <% if build? %>
       <link srel="stylesheet" href="https://cdn1.omise.co/fonts/inconsolata.css">
