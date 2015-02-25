@@ -1,0 +1,25 @@
+<div class="EndpointParameters">
+  <h3 class="SectionTitle"><%= I18n.t(parameter_type, count: parameters.count, scope: "shared") %></h3>
+  <table class="EndpointParametersTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% parameters.each do |name, type| %>
+        <tr>
+          <td>
+            <% name.split(?.).tap do |segments| %>
+              <%= segments.shift %><%= segments.map { |s| "[#{s}]" }.join %>
+            <% end %>
+          </td>
+          <td><%= I18n.t(type, scope: "types") %></td>
+          <td><%= $markdown.render I18n.t(name, scope: [translation_scope, parameter_type.pluralize].compact) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

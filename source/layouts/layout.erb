@@ -3,89 +3,50 @@
   <head>
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <title><%= current_page.data.title %> - Omise API Documentation</title>
-    <link rel="stylesheet" href="https://cdn1.omise.co/fonts/inconsolata.css">
-    <link rel="stylesheet" href="https://cdn2.omise.co/fonts/lato.css">
+
+    <title>Omise: <%= I18n.t current_page.data.title %></title>
+
+    <% if build? %>
+      <link srel="stylesheet" href="https://cdn1.omise.co/fonts/inconsolata.css">
+      <link srel="stylesheet" href="https://cdn2.omise.co/fonts/lato.css">
+    <% end %>
+
     <%= stylesheet_link_tag "all" %>
     <%= javascript_include_tag  "all" %>
+
     <!-- Facebook OpenGraph -->
-    <meta property="og:title" content="<%= current_page.data.title || 'Omise API Documentation' %>" />
+    <meta property="og:title" content="Omise: <%= I18n.t(current_page.data.title) %>" />
     <meta property="og:image" content="https://cdn.omise.co/assets/omise-2x.png" />
   </head>
-  <body>
-    <header class="Header">
-      <div class="HeaderNavigation">
-        <div class="Wrapper">
-          <%= image_tag "logo.svg", width: 96, height: 32, alt: "Omise" %>
-          <a class="Login" href="https://dashboard.omise.co/">
-            <span></span> Dashboard
-          </a>
-        </div>
-      </div>
-    </header>
-    <div class="Wrapper"><div class="Main">
-      <nav class="Nav"><div class="NavInner">
-        <h2>Documentation</h2>
-        <ul>
-          <li><%= link_to_current "Getting Started", "/" %></li>
-          <li><%= link_to_current "Collecting Cards", "/collecting-card-information" %></li>
-          <li><%= link_to_current "Charging Cards", "/charging-cards" %></li>
-          <li><%= link_to_current "Refunding Charges", "/refunding-charges" %></li>
-        </ul>
+  <body class="<%= page_classes %>">
 
-        <h2>References</h2>
-        <ul>
-          <li><%= link_to_current "Omise.js", "/omise-js" %></li>
-          <li><%= link_to_current "Card.js", "/card-js" %></li>
-          <li><%= link_to_current "Authentication", "/api/authentication" %></li>
-          <li><%= link_to_current "Pagination &amp; Lists", "/api/pagination" %></li>
-          <li><%= link_to_current "Tests", "/api/tests" %></li>
-          <li><%= link_to_current "Errors", "/api/errors" %></li>
-          <li>&nbsp;</li>
-          <li><%= link_to_current "Account", "/api/account" %></li>
-          <li><%= link_to_current "Balance", "/api/balance" %></li>
-          <li><%= link_to_current "Tokens", "/api/tokens" %></li>
-          <li><%= link_to_current "Cards", "/api/cards" %></li>
-          <li><%= link_to_current "Charges", "/api/charges" %></li>
-          <li><%= link_to_current "Customers", "/api/customers" %></li>
-          <li><%= link_to_current "Refunds", "/api/refunds" %></li>
-          <li><%= link_to_current "Transfers", "/api/transfers" %></li>
-          <li><%= link_to_current "Transactions", "/api/transactions" %></li>
-          <li>&nbsp;</li>
-        </ul>
+    <%= partial "shared/header" %>
 
-        <h2>Plugins</h2>
-        <ul>
-          <li><%= link_to_current "WooCommerce", "/omise-woocommerce" %></li>
-        </ul>
-      </div></nav>
-      <article class="Article">
-        <header class="ArticleHeader">
-          <h1><%= current_page.data.title %></h1>
-          <p><%= current_page.data.excerpt %></p>
-        </header>
-        <div class="ArticleContent">
-          <% if current_page.data.notices %>
-            <div class="Notice">
-              <%= current_page.data.notices %>
-            </div>
-          <% end %>
+    <div class="Main">
+      <%= partial "shared/navigation" %>
+      <div class="MainContent">
+        <% unless current_page.data.skip_page_header %>
+          <header class="PageHeader">
+            <h1 class="PageTitle"><%= current_page.data.title %></h1>
+            <% if current_page.data.excerpt %>
+              <%= $markdown.render current_page.data.excerpt %>
+            <% end %>
+          </header>
+          <div class="Page">
+            <%= yield %>
+          </div>
+        <% else %>
           <%= yield %>
-        </div>
-        <footer class="ArticleFooter">
-          You have a question or something is missing from the docs?<br>
-          <%= link_to "Open an issue or contribute to the docs on github.", "https://github.com/omise/docs" %>
-        </footer>
-      </article>
-    </div></div>
-    <div class="Wrapper">
-      <footer class="Footer">
-        © <%= Time.now.year %> Omise, Co. Ltd.
-        <a href="https://www.omise.co/">About</a>
-        <a href="https://www.omise.co/terms.html">Terms</a>
-        <a href="https://www.omise.co/privacy.html">Privacy</a>
-      </footer>
+        <% end %>
+      </div>
     </div>
-    <%= partial 'google_analytics' %>
+
+    <div class="SearchBox" data-search='{}' style="display: none">
+      <input type="search">
+    </div>
+
+    <%= partial "shared/footer" %>
+    <%= partial "shared/google_analytics" if build? %>
+
   </body>
 </html>

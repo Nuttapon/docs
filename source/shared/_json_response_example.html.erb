@@ -1,0 +1,19 @@
+<div class="EndpointExamples">
+  <h3 class="SectionTitle"><%= I18n.t("shared.example", count: 1) %></h3>
+  <ul class="EndpointExamplesList">
+
+    <li class="EndpointExample" data-accordion='{ "header": ".EndpointExampleHeader", "body": ".EndpointExampleBody" }'>
+      <header class="EndpointExampleHeader">
+        <h4 class="EndpointExampleTitle">
+          <%= I18n.t("shared.json_response") %>
+        </h4>
+      </header>
+      <div class="EndpointExampleBody HIDDEN">
+        <div class="EndpointExampleCode">
+          <%= source_code File.join(example_directory_path, "response.json"), "json" %>
+        </div>
+      </div>
+    </li>
+
+  </ul>
+</div>

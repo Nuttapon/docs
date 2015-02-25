@@ -3,329 +3,490 @@
   <head>
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <title>Refunds - Omise API Documentation</title>
-    <link rel="stylesheet" href="https://cdn1.omise.co/fonts/inconsolata.css">
-    <link rel="stylesheet" href="https://cdn2.omise.co/fonts/lato.css">
+
+    <title>Omise: Refunds API Reference</title>
+
+      <link srel="stylesheet" href="https://cdn1.omise.co/fonts/inconsolata.css">
+      <link srel="stylesheet" href="https://cdn2.omise.co/fonts/lato.css">
+
     <link href="/stylesheets/all.css" rel="stylesheet" type="text/css" />
     <script src="/javascripts/all.js" type="text/javascript"></script>
+
     <!-- Facebook OpenGraph -->
-    <meta property="og:title" content="Refunds" />
+    <meta property="og:title" content="Omise: Refunds API Reference" />
     <meta property="og:image" content="https://cdn.omise.co/assets/omise-2x.png" />
   </head>
-  <body>
+  <body class="api api_refunds api_refunds_index">
+
     <header class="Header">
-      <div class="HeaderNavigation">
-        <div class="Wrapper">
-          <img width="96" height="32" alt="Omise" src="/images/logo.svg" />
-          <a class="Login" href="https://dashboard.omise.co/">
-            <span></span> Dashboard
-          </a>
+  <div class="HeaderInner">
+    <img height="20" width="61" alt="Omise" class="Logo" src="/images/logo.svg" />
+    <nav class="Menu">
+      <span data-dropdown='{ "className": ".SearchBox" }' class="SearchButton">Search</span>
+      <span data-dropdown='{ "className": ".MenuDropdown" }' class="MenuButton">Menu</span>
+      <div class="MenuDropdown" style="display:none;">
+        <a class="MenuDropdownItem" href="https://www.omise.co/">Homepage</a>
+        <hr>
+        <a class="MenuDropdownItem" href="https://dashboard.omise.co/signin">Sign In</a>
+        <a class="MenuDropdownItem" href="https://dashboard.omise.co/signup">Register</a>
+        <hr>
+        <a class="MenuDropdownItem" href="https://github.com/omise">Omise on GitHub</a>
+        <hr>
+        <a class="MenuDropdownItem" href="https://support.omise.co/">Support</a>
+        <a class="MenuDropdownItem" href="https://github.com/omise/docs/issues">Report an issue about the docs</a>
+      </div>
+    </nav>
+  </div>
+  <div class="HeaderLocation">
+      API REFERENCE
+  </div>
+</header>
+
+
+    <div class="Main">
+      <nav class="Nav"><div class="NavInner">
+  <h2>Documentation</h2>
+  <ul>
+    <li><a href="/">Getting Started</a></li>
+    <li><a href="/collecting-card-information">Collecting Cards</a></li>
+    <li><a href="/charging-cards">Charging Cards</a></li>
+    <li><a href="/refunding-charges">Refunding Charges</a></li>
+  </ul>
+
+  <h2>References</h2>
+  <ul>
+    <li><a href="/omise-js">Omise.js</a></li>
+    <li><a href="/card-js">Card.js</a></li>
+    <li><a href="/api/authentication">Authentication</a></li>
+    <li><a href="/api/pagination">Pagination &amp; Lists</a></li>
+    <li><a href="/api/tests">Tests</a></li>
+    <li><a href="/api/errors">Errors</a><br></li>
+      <li><a href="/api/account">Account</a></li>
+      <li><a href="/api/balance">Balance</a></li>
+      <li><a href="/api/cards">Cards</a></li>
+      <li><a href="/api/charges">Charges</a></li>
+      <li><a href="/api/customers">Customers</a></li>
+      <li><a class="Current" href="/api/refunds">Refunds</a></li>
+      <li><a href="/api/tokens">Tokens</a></li>
+      <li><a href="/api/transactions">Transactions</a></li>
+      <li><a href="/api/transfers">Transfers</a></li>
+  </ul>
+
+  <h2>Plugins</h2>
+  <ul>
+    <li><a href="/woocommerce">WooCommerce</a></li>
+  </ul>
+</div></nav>
+      <div class="MainContent">
+          <header class="PageHeader">
+  <h1 class="PageTitle">Refunds API</h1>
+  
+</header>
+
+
+<section class="ObjectAttributes">
+
+
+
+  <div class="EndpointExamples">
+  <h3 class="SectionTitle">Example</h3>
+  <ul class="EndpointExamplesList">
+
+    <li class="EndpointExample" data-accordion='{ "header": ".EndpointExampleHeader", "body": ".EndpointExampleBody" }'>
+      <header class="EndpointExampleHeader">
+        <h4 class="EndpointExampleTitle">
+          Response (JSON)
+        </h4>
+      </header>
+      <div class="EndpointExampleBody HIDDEN">
+        <div class="EndpointExampleCode">
+          <pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"refund"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rfnd_test_4ypebtxon6oye5o8myu"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"livemode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/charges/chrg_test_4ype2jynk2len88i4er/refunds/rfnd_test_4ypebtxon6oye5o8myu"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thb"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"charge"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chrg_test_4ype2jynk2len88i4er"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-13T03:28:58Z"</span><span class="w">
+</span><span class="p">}</span></code></pre>
+
         </div>
       </div>
+    </li>
+
+  </ul>
+</div>
+
+
+</section>
+
+  <section class="Endpoint">
+
+    <header class="EndpointHeader">
+      <h2 class="EndpointTitle">
+        List all refunds
+      </h2>
+      -
+      <span class="EndpointVerbGet">
+        GET
+      </span>
+      <span class="EndpointUrl">
+        https://api.omise.co/refunds
+      </span>
     </header>
-    <div class="Wrapper"><div class="Main">
-      <nav class="Nav"><div class="NavInner">
-        <h2>Documentation</h2>
-        <ul>
-          <li><a href="/">Getting Started</a></li>
-          <li><a href="/collecting-card-information">Collecting Cards</a></li>
-          <li><a href="/charging-cards">Charging Cards</a></li>
-          <li><a href="/refunding-charges">Refunding Charges</a></li>
-        </ul>
 
-        <h2>References</h2>
-        <ul>
-          <li><a href="/omise-js">Omise.js</a></li>
-          <li><a href="/card-js">Card.js</a></li>
-          <li><a href="/api/authentication">Authentication</a></li>
-          <li><a href="/api/pagination">Pagination &amp; Lists</a></li>
-          <li><a href="/api/tests">Tests</a></li>
-          <li><a href="/api/errors">Errors</a></li>
-          <li>&nbsp;</li>
-          <li><a href="/api/account">Account</a></li>
-          <li><a href="/api/balance">Balance</a></li>
-          <li><a href="/api/tokens">Tokens</a></li>
-          <li><a href="/api/cards">Cards</a></li>
-          <li><a href="/api/charges">Charges</a></li>
-          <li><a href="/api/customers">Customers</a></li>
-          <li><a class="Current" href="/api/refunds">Refunds</a></li>
-          <li><a href="/api/transfers">Transfers</a></li>
-          <li><a href="/api/transactions">Transactions</a></li>
-          <li>&nbsp;</li>
-        </ul>
+      <div class="EndpointBody">
+        <p>Returns a <code>list</code> of <code>refund</code> objects.</p>
 
-        <h2>Plugins</h2>
-        <ul>
-          <li><a href="/omise-woocommerce">WooCommerce</a></li>
-        </ul>
-      </div></nav>
-      <article class="Article">
-        <header class="ArticleHeader">
-          <h1>Refunds</h1>
-          <p></p>
-        </header>
-        <div class="ArticleContent">
-          <h2 id="table-of-contents">Table of Contents</h2>
+<p>Return all refund that belongs to the charge. You can learn more about
+lists in the <a href="./pagination">pagination documentation</a>.</p>
 
-<ul>
-<li><a href="#the-refund-object">The refund object</a></li>
-<li><a href="#list-refunds">List refunds</a></li>
-<li><a href="#create-a-refund">Create a refund</a></li>
-<li><a href="#retrieve-a-refund">Retrieve a refund</a></li>
-</ul>
+      </div>
 
-<hr>
+      <div class="EndpointParameters">
+  <h3 class="SectionTitle">Query Parameters</h3>
+  <table class="EndpointParametersTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+              offset
+          </td>
+          <td>integer</td>
+          <td><p>(<em>optional</em>, default: 0) The offset of the first record returned.
+I.e.: How many records to skip from the beginning.</p>
+</td>
+        </tr>
+        <tr>
+          <td>
+              limit
+          </td>
+          <td>integer</td>
+          <td><p>(<em>optional</em>, default: 20, maximum: 100) The maximum amount of records
+returned.</p>
+</td>
+        </tr>
+        <tr>
+          <td>
+              from
+          </td>
+          <td>datetime</td>
+          <td><p>(<em>optional</em>, default: <code>1970-01-01T00:00:00Z</code>, format:
+<a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a>) The UTC date and
+time limiting the beginning of returned records.
+E.g.: <code>2014-10-20T00:00:00Z</code></p>
+</td>
+        </tr>
+        <tr>
+          <td>
+              to
+          </td>
+          <td>datetime</td>
+          <td><p>(<em>optional</em>, default: current UTC Datetime, format:
+<a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a>) The UTC date and
+time limiting the end of returned records.
+E.g.: <code>2015-01-20T00:00:00Z</code></p>
+</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
-<h2 id="the-refund-object">The Refund Object</h2>
 
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Value</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left"><code>object</code></td>
-<td style="text-align: left"><em>(string)</em> &#39;refund&#39;</td>
-</tr>
-<tr>
-<td style="text-align: left"><code>id</code></td>
-<td style="text-align: left"><em>(string)</em> Refund ID</td>
-</tr>
-<tr>
-<td style="text-align: left"><code>livemode</code></td>
-<td style="text-align: left"><em>(boolean)</em> Whether this is a Live (true) or Test (false) refund.</td>
-</tr>
-<tr>
-<td style="text-align: left"><code>location</code></td>
-<td style="text-align: left"><em>(string)</em> Path to retrieve the refund</td>
-</tr>
-<tr>
-<td style="text-align: left"><code>amount</code></td>
-<td style="text-align: left"><em>(integer)</em> The amount in the smallest subunits of the currency used. So for <code>thb</code> (Thai Baht) you&#39;ll need to pass the amount in satangs.</td>
-</tr>
-<tr>
-<td style="text-align: left"><code>currency</code></td>
-<td style="text-align: left"><em>(string)</em>  The currency as its lower-cased international 3-letter code, defined by the <a href="http://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> standard.</td>
-</tr>
-<tr>
-<td style="text-align: left"><code>charge</code></td>
-<td style="text-align: left"><em>(string)</em>  The charge ID that has been refunded.</td>
-</tr>
-<tr>
-<td style="text-align: left"><code>transaction</code></td>
-<td style="text-align: left"><em>(string)</em>  The transaction ID of the refund</td>
-</tr>
-<tr>
-<td style="text-align: left"><code>created</code></td>
-<td style="text-align: left"><em>(datetime, format: <a href="http://en.wikipedia.org/wiki/ISO_8601">iso8601</a>)</em> Creation date of the refund</td>
-</tr>
-</tbody></table>
 
-<hr>
 
-<h2 id="list-refunds">List refunds</h2>
+        <div class="EndpointExamples">
+    <h3 class="SectionTitle">Example</h3>
+    <ul class="EndpointExamplesList">
+        <li class="EndpointExample" data-accordion='{ "group": "refunds.list", "header": ".EndpointExampleHeader", "body": ".EndpointExampleBody" }'>
 
-<h3 id="endpoint">Endpoint</h3>
+  <header class="EndpointExampleHeader">
+    <h4 class="EndpointExampleTitle">
+      List all refunds
+    </h4>
+  </header>
 
-<pre><code class="highlight plaintext">GET https://api.omise.co/charges/CHARGE_ID/refunds
-</code></pre>
+  <div class="EndpointExampleBody HIDDEN">
 
-<h3 id="request-parameters">Request Parameters</h3>
+      <ul class="EndpointExampleLangs">
+          <li class="EndpointExampleLang" data-lang='{ "name": "shell" }'>
+            curl
+          </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "ruby" }'>
+            ruby
+          </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "python" }'>
+            python
+          </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "php" }'>
+            php
+          </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "csharp" }'>
+            C#
+          </li>
+      </ul>
 
-<p>None</p>
+      <div class="EndpointExampleCode lang-shell HIDDEN">
+        <pre class="highlight shell"><code>curl https://api.omise.co/charges/chrg_test_4xso2s8ivdej29pqnhz/refunds <span class="se">\</span>
+  -u skey_test_4xsjvwfnvb2g0l81sjz: <span class="se">\</span></code></pre>
 
-<h3 id="response">Response</h3>
+      </div>
+      <div class="EndpointExampleCode lang-ruby HIDDEN">
+        <pre class="highlight ruby"><code><span class="n">charge</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Charge</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">)</span>
+<span class="n">refunds</span> <span class="o">=</span> <span class="n">charge</span><span class="p">.</span><span class="nf">refunds</span></code></pre>
 
-<p>A <a href="/api/pagination">paginated list</a> of <a href="/api/refunds#the-refund-object">refunds</a></p>
+      </div>
+      <div class="EndpointExampleCode lang-python HIDDEN">
+        <pre class="highlight python"><code><span class="n">charge</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Charge</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">)</span>
+<span class="n">refunds</span> <span class="o">=</span> <span class="n">charge</span><span class="o">.</span><span class="n">refunds</span></code></pre>
 
-<h3 id="curl">Curl</h3>
+      </div>
+      <div class="EndpointExampleCode lang-php HIDDEN">
+        <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 
-<pre><code class="highlight shell">curl https://api.omise.co/charges/chrg_test_4xso2s8ivdej29pqnhz/refunds <span class="se">\</span>
-  -u skey_test_4xsjvwfnvb2g0l81sjz: <span class="se">\</span>
-</code></pre>
+<span class="nv">$charge</span> <span class="o">=</span> <span class="nx">OmiseCharge</span><span class="o">::</span><span class="na">retrieve</span><span class="p">(</span><span class="s2">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">);</span>
+<span class="nv">$refunds</span> <span class="o">=</span> <span class="nv">$charge</span><span class="o">-&gt;</span><span class="na">refunds</span><span class="p">();</span></code></pre>
 
-<h3 id="ruby">Ruby</h3>
+      </div>
+      <div class="EndpointExampleCode lang-csharp HIDDEN">
+        <pre class="highlight csharp"><code><span class="p">//</span> <span class="n">Coming</span> <span class="n">soon</span></code></pre>
 
-<pre><code class="highlight ruby"><span class="n">charge</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Charge</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">)</span>
-<span class="n">refunds</span> <span class="o">=</span> <span class="n">charge</span><span class="p">.</span><span class="nf">refunds</span>
-</code></pre>
+      </div>
 
-<h3 id="python">Python</h3>
+  </div>
 
-<pre><code class="highlight python"><span class="n">charge</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Charge</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">)</span>
-<span class="n">refunds</span> <span class="o">=</span> <span class="n">charge</span><span class="o">.</span><span class="n">refunds</span>
-</code></pre>
+</li>
 
-<h3 id="php">PHP</h3>
+    </ul>
+  </div>
 
-<pre><code class="highlight php">$charge = OmiseCharge::retrieve("chrg_test_4xso2s8ivdej29pqnhz");
-$refunds = $charge-&gt;refunds();
-</code></pre>
 
-<h3 id="json-response">JSON Response</h3>
+  </section>
+  <section class="Endpoint">
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"list"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-01-01T07:00:00+07:00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-13T08:45:37+07:00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"refund"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rfnd_4ypcvo03ktuw0uki7un"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"livemode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/charges/chrg_4ypcvnygrw9na22l2e7/refunds/rfnd_4ypcvo03ktuw0uki7un"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">50000</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thb"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"charge"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chrg_4ypcvnygrw9na22l2e7"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-13T01:00:47Z"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
+    <header class="EndpointHeader">
+      <h2 class="EndpointTitle">
+        Create a refund
+      </h2>
+      -
+      <span class="EndpointVerbPost">
+        POST
+      </span>
+      <span class="EndpointUrl">
+        https://api.omise.co/refunds
+      </span>
+    </header>
 
-</span></code></pre>
+      <div class="EndpointBody">
+        <p>Returns a new refund object.</p>
 
-<hr>
+      </div>
 
-<h2 id="create-a-refund">Create a refund</h2>
 
-<p>The following requirements must be met for a charge to be refundable:</p>
+      <div class="EndpointParameters">
+  <h3 class="SectionTitle">Request Parameter</h3>
+  <table class="EndpointParametersTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+              amount
+          </td>
+          <td>integer</td>
+          <td><p>The amount in the smallest subunits of the currency used. So for <code>thb</code> (Thai Baht) you&#39;ll need to pass the amount in satangs.</p>
+</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
-<ul>
-<li>It must be either <code>pending</code> or <code>closed</code></li>
-<li>It must have been <code>captured</code></li>
-<li>It must not be already fully refunded</li>
-<li>It must have been settled within 1 year</li>
-</ul>
 
-<p>If any of these requirements is not met, you will get a <code>failed_refund</code> exception.</p>
 
-<h3 id="endpoint">Endpoint</h3>
+        <div class="EndpointExamples">
+    <h3 class="SectionTitle">Example</h3>
+    <ul class="EndpointExamplesList">
+        <li class="EndpointExample" data-accordion='{ "group": "refunds.create", "header": ".EndpointExampleHeader", "body": ".EndpointExampleBody" }'>
 
-<pre><code class="highlight plaintext">POST https://api.omise.co/charges/CHARGE_ID/refunds
-</code></pre>
+  <header class="EndpointExampleHeader">
+    <h4 class="EndpointExampleTitle">
+      Create a refund
+    </h4>
+  </header>
 
-<h3 id="request-parameters">Request Parameters</h3>
+  <div class="EndpointExampleBody HIDDEN">
 
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Value</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left"><code>amount</code></td>
-<td style="text-align: left"><em>(required)</em> The amount in the smallest subunits of the charge currency. So for <code>thb</code> (Thai Baht) you&#39;ll need to pass the amount in satangs.</td>
-</tr>
-</tbody></table>
+      <ul class="EndpointExampleLangs">
+          <li class="EndpointExampleLang" data-lang='{ "name": "shell" }'>
+            curl
+          </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "ruby" }'>
+            ruby
+          </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "python" }'>
+            python
+          </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "php" }'>
+            php
+          </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "csharp" }'>
+            C#
+          </li>
+      </ul>
 
-<h3 id="curl">Curl</h3>
+      <div class="EndpointExampleCode lang-shell HIDDEN">
+        <pre class="highlight shell"><code>curl http://api.omise.co/charges/chrg_test_4ype2jynk2len88i4er/refunds <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -u skey_test_4ypcvnwzy9ob6gs89pn: <span class="se">\</span>
+  -d <span class="s2">"amount=100000"</span></code></pre>
 
-<pre><code class="highlight shell">  curl http://api.omise.co/charges/chrg_test_4ype2jynk2len88i4er/refunds <span class="se">\</span>
-    -X POST <span class="se">\</span>
-    -u skey_test_4ypcvnwzy9ob6gs89pn: <span class="se">\</span>
-    -d <span class="s2">"amount=100000"</span>
-</code></pre>
+      </div>
+      <div class="EndpointExampleCode lang-ruby HIDDEN">
+        <pre class="highlight ruby"><code><span class="n">charge</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Charge</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">)</span>
+<span class="n">refund</span> <span class="o">=</span> <span class="n">charge</span><span class="p">.</span><span class="nf">refunds</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">amount: </span><span class="mi">10000</span><span class="p">)</span></code></pre>
 
-<h3 id="ruby">Ruby</h3>
+      </div>
+      <div class="EndpointExampleCode lang-python HIDDEN">
+        <pre class="highlight python"><code><span class="n">charge</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Charge</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">)</span>
+<span class="n">refund</span> <span class="o">=</span> <span class="n">charge</span><span class="o">.</span><span class="n">refund</span><span class="p">(</span><span class="n">amount</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span></code></pre>
 
-<pre><code class="highlight ruby"><span class="n">charge</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Charge</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">)</span>
-<span class="n">refund</span> <span class="o">=</span> <span class="n">charge</span><span class="p">.</span><span class="nf">refunds</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">amount: </span><span class="mi">10000</span><span class="p">)</span>
-</code></pre>
+      </div>
+      <div class="EndpointExampleCode lang-php HIDDEN">
+        <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 
-<h3 id="python">Python</h3>
+<span class="nv">$charge</span> <span class="o">=</span> <span class="nx">OmiseCharge</span><span class="o">::</span><span class="na">retrieve</span><span class="p">(</span><span class="s2">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">);</span>
+<span class="nv">$refund</span> <span class="o">=</span> <span class="nv">$charge</span><span class="o">-&gt;</span><span class="na">refunds</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'amount'</span> <span class="o">=&gt;</span> <span class="mi">10000</span><span class="p">));</span></code></pre>
 
-<pre><code class="highlight python"><span class="n">charge</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Charge</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">)</span>
-<span class="n">refund</span> <span class="o">=</span> <span class="n">charge</span><span class="o">.</span><span class="n">refund</span><span class="p">(</span><span class="n">amount</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
-</code></pre>
+      </div>
+      <div class="EndpointExampleCode lang-csharp HIDDEN">
+        <pre class="highlight csharp"><code><span class="p">//</span> <span class="n">Coming</span> <span class="n">soon</span></code></pre>
 
-<h3 id="php">PHP</h3>
+      </div>
 
-<pre><code class="highlight php">$charge = OmiseCharge::retrieve("chrg_test_4xso2s8ivdej29pqnhz");
-$refund = $charge-&gt;refunds()-&gt;create(array('amount' =&gt; 10000));
-</code></pre>
+  </div>
 
-<h3 id="json-response">JSON Response</h3>
+</li>
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"refund"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rfnd_test_4ypebtxon6oye5o8myu"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"livemode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/charges/chrg_test_4ype2jynk2len88i4er/refunds/rfnd_test_4ypebtxon6oye5o8myu"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100000</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thb"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"charge"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chrg_test_4ype2jynk2len88i4er"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-13T03:28:58Z"</span><span class="w">
-</span><span class="p">}</span><span class="w">
+    </ul>
+  </div>
 
-</span></code></pre>
 
-<hr>
+  </section>
+  <section class="Endpoint">
 
-<h2 id="retrieve-a-refund">Retrieve a refund</h2>
+    <header class="EndpointHeader">
+      <h2 class="EndpointTitle">
+        Retrieve a refund
+      </h2>
+      -
+      <span class="EndpointVerbGet">
+        GET
+      </span>
+      <span class="EndpointUrl">
+        https://api.omise.co/refunds/REFUND_ID
+      </span>
+    </header>
 
-<h3 id="endpoint">Endpoint</h3>
+      <div class="EndpointBody">
+        <p>Returns an existing refund object.</p>
 
-<pre><code class="highlight plaintext">GET https://api.omise.co/charges/CHARGE_ID/refunds/REFUND_ID
-</code></pre>
+      </div>
 
-<h3 id="curl">Curl</h3>
 
-<pre><code class="highlight shell">curl http://api.omise.co/charges/chrg_test_4ype2jynk2len88i4er/refunds/rfnd_test_4ypebtxon6oye5o8myu <span class="se">\</span>
-  -u skey_test_4ypcvnwzy9ob6gs89pn:
-</code></pre>
 
-<h3 id="ruby">Ruby</h3>
 
-<pre><code class="highlight ruby"><span class="n">charge</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Charge</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">)</span>
-<span class="n">refund</span> <span class="o">=</span> <span class="n">charge</span><span class="p">.</span><span class="nf">refunds</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"rfnd_test_4ypebtxon6oye5o8myu"</span><span class="p">)</span>
-</code></pre>
+        <div class="EndpointExamples">
+    <h3 class="SectionTitle">Example</h3>
+    <ul class="EndpointExamplesList">
+        <li class="EndpointExample" data-accordion='{ "group": "refunds.retrieve", "header": ".EndpointExampleHeader", "body": ".EndpointExampleBody" }'>
 
-<h3 id="python">Python</h3>
+  <header class="EndpointExampleHeader">
+    <h4 class="EndpointExampleTitle">
+      Retrieve a refund
+    </h4>
+  </header>
 
-<pre><code class="highlight python"><span class="n">charge</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Charge</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">)</span>
-<span class="n">refund</span> <span class="o">=</span> <span class="n">charge</span><span class="o">.</span><span class="n">refunds</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"rfnd_test_4ypebtxon6oye5o8myu"</span><span class="p">)</span>
-</code></pre>
+  <div class="EndpointExampleBody HIDDEN">
 
-<h3 id="php">PHP</h3>
+      <ul class="EndpointExampleLangs">
+          <li class="EndpointExampleLang" data-lang='{ "name": "shell" }'>
+            curl
+          </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "ruby" }'>
+            ruby
+          </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "python" }'>
+            python
+          </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "php" }'>
+            php
+          </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "csharp" }'>
+            C#
+          </li>
+      </ul>
 
-<pre><code class="highlight php">$charge = OmiseCharge::retrieve("chrg_test_4xso2s8ivdej29pqnhz");
-$refund = $charge-&gt;refunds()-&gt;retrieve("rfnd_test_4ypebtxon6oye5o8myu");
-</code></pre>
+      <div class="EndpointExampleCode lang-shell HIDDEN">
+        <pre class="highlight shell"><code></code></pre>
 
-<h3 id="json-response">JSON Response</h3>
+      </div>
+      <div class="EndpointExampleCode lang-ruby HIDDEN">
+        <pre class="highlight ruby"><code></code></pre>
 
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"refund"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rfnd_test_4ypebtxon6oye5o8myu"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"livemode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/charges/chrg_test_4ype2jynk2len88i4er/refunds/rfnd_test_4ypebtxon6oye5o8myu"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100000</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thb"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"charge"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chrg_test_4ype2jynk2len88i4er"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-13T03:28:58Z"</span><span class="w">
-</span><span class="p">}</span><span class="w">
+      </div>
+      <div class="EndpointExampleCode lang-python HIDDEN">
+        <pre class="highlight python"><code></code></pre>
 
-</span></code></pre>
+      </div>
+      <div class="EndpointExampleCode lang-php HIDDEN">
+        <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 
-        </div>
-        <footer class="ArticleFooter">
-          You have a question or something is missing from the docs?<br>
-          <a href="https://github.com/omise/docs">Open an issue or contribute to the docs on github.</a>
-        </footer>
-      </article>
-    </div></div>
-    <div class="Wrapper">
-      <footer class="Footer">
-        © 2015 Omise, Co. Ltd.
-        <a href="https://www.omise.co/">About</a>
-        <a href="https://www.omise.co/terms.html">Terms</a>
-        <a href="https://www.omise.co/privacy.html">Privacy</a>
-      </footer>
+<span class="nv">$charge</span> <span class="o">=</span> <span class="nx">OmiseCharge</span><span class="o">::</span><span class="na">retrieve</span><span class="p">(</span><span class="s2">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">);</span>
+<span class="nv">$refund</span> <span class="o">=</span> <span class="nv">$charge</span><span class="o">-&gt;</span><span class="na">refunds</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">retrieve</span><span class="p">(</span><span class="s2">"rfnd_test_4ypebtxon6oye5o8myu"</span><span class="p">);</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-csharp HIDDEN">
+        <pre class="highlight csharp"><code></code></pre>
+
+      </div>
+
+  </div>
+
+</li>
+
+    </ul>
+  </div>
+
+
+  </section>
+
+
+      </div>
     </div>
+
+    <div class="SearchBox" data-search='{}' style="display: none">
+      <input type="search">
+    </div>
+
+    <footer class="Footer">
+  © 2015 Omise, Co. Ltd.
+  <a href="https://www.omise.co/">About</a>
+  <a href="https://www.omise.co/terms.html">Terms</a>
+  <a href="https://www.omise.co/privacy.html">Privacy</a>
+</footer>
+
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -338,6 +499,7 @@ $refund = $charge-&gt;refunds()-&gt;retrieve("rfnd_test_4ypebtxon6oye5o8myu");
   ga('send', 'pageview');
 
 </script>
+
 
   </body>
 </html>

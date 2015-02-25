@@ -1,0 +1,50 @@
+.Nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 220px;
+  padding: 0 20px 0 0;
+  text-align: left;
+
+  h2 {
+    font-size: .70em;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $blue;
+    margin: 0;
+    padding: 5px 10px 5px 20px;
+  }
+
+  ul {
+    margin: 0 0 20px;
+    padding: 0 0 0 0;
+    list-style: none;
+  }
+
+  a {
+    display: block;
+    text-decoration: none;
+    padding: 5px 10px 5px 20px;
+    line-height: 1em;
+    margin: 0 0 1px;
+    color: #878787;
+    font-size: .875em;
+    border-radius: 0 4px 4px 0;
+  }
+
+  a:hover {
+    background: linear-gradient(to right, $blue-light, $turquoise-light);
+    color: mix(black, $blue, 20%);
+  }
+
+  a.Current {
+    background: $blue;
+    background: linear-gradient(to right, $blue, $turquoise);
+    color: white;
+  }
+}
+
+.NavInner {
+  padding: 0 0 30px;
+}

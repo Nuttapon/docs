@@ -1,0 +1,90 @@
+code {
+  @include font-monospace;
+  background: $blue-light;
+  color: mix($blue, black, 70%);
+  border: 1px solid darken($blue-light, 5);
+  padding: 1px 3px;
+  border-radius: 4px;
+}
+
+.highlight {
+  overflow: auto;
+  margin: 0;
+  padding: 16px 0;
+  border-radius: 4px;
+  background: $syntax-background;
+  color: $syntax-source;
+  hyphens: none;
+  word-break: normal;
+
+  code {
+    overflow: auto;
+    display: block;
+    line-height: 20px;
+    margin: 0;
+    padding: 0 16px;
+    border: 0;
+    border-radius: 0;
+    background: $syntax-background;
+    color: $syntax-source;
+    font-size: 16px;
+    white-space: pre;
+  }
+}
+
+.plaintext {
+  color: $syntax-foreground;
+}
+
+// Comment
+.c1,
+.c, 
+.php .cp,
+.shell .se,
+.csharp .p,
+.python .o,
+.php .o,
+.ruby .o {
+  color: #9aa1a4;
+}
+
+// Constants
+.ruby .no,
+.csharp .nf,
+.php .nx {
+  color: #cca9fc;
+}
+
+// HTML Tag
+.html .nt,
+.html .na {
+  color: #1ec5fc;
+}
+
+// Ruby method call
+.ruby .nf {
+  color: #e6eff2;
+}
+
+// Symbol
+.ruby .ss {
+  color: #47efd3;
+}
+
+// String
+.shell .s2,
+.ruby .s2,
+.csharp .s,
+.python .s,
+.php .s1,
+.json .s2,
+.html .s2,
+.html .s,
+.javascript .s2 {
+  color: #a9e8fc;
+}
+
+// Number & Boolean
+.mi, .m, .kc, .kp, .k, .kd {
+  color: #1ec5fc;
+}

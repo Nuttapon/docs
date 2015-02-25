@@ -1,0 +1,52 @@
+.SearchBox {
+  position: fixed;
+  margin: 0 0 0 -320px;
+  width: 640px;
+  top: 64px;
+  left: 50%;
+  padding: 8px 12px 3px;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 3px 9px $blue-dark;
+
+  input {
+    width: 618px;
+    padding: 2px 6px;
+    border: 0;
+    font-size: 2em;
+    margin-bottom: 7px;
+  }
+
+  input:focus {
+    outline: none;
+  }
+}
+
+.SearchResults {
+  overflow: auto;
+  max-height: 400px;
+}
+
+.SearchResult {
+  display: block;
+  overflow: hidden;
+  color: $font-color-body;
+  margin-bottom: 7px;
+  padding: 6px 8px;
+  border-radius: 4px;
+
+  &:hover {
+    background: $blue-light;
+    color: $blue-dark;
+  }
+}
+
+.SearchResultTitle {
+  display: block;
+  font-size: 1.3em;
+}
+
+.SearchResultExcerpt {
+  display: block;
+  font-size: .875em;
+}

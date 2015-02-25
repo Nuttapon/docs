@@ -1,0 +1,1 @@
+transfers = Omise::Transfer.retrieve

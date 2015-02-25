@@ -1,0 +1,23 @@
+<% if examples.any? || show_json_response %>
+  <div class="EndpointExamples">
+    <h3 class="SectionTitle"><%= I18n.t("shared.example", count: examples.count) %></h3>
+    <ul class="EndpointExamplesList">
+      <% examples.each do |example| %>
+        <%= partial "shared/example", locals: {
+          example: example,
+          langs: langs,
+          example_directory_path: example_directory_path,
+          translation_scope: translation_scope
+        } %>
+      <% end %>
+      <% if show_json_response %>
+        <%= partial "shared/example", locals: {
+          example: "response",
+          langs: { json: "json" },
+          example_directory_path: example_directory_path,
+          translation_scope: translation_scope
+        } %>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
