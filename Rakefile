@@ -1,4 +1,4 @@
-def stems(word, min)
+def consecutive_sequence_in_word(word, min)
   (min..word.size).flat_map do |i|
     word.chars.each_cons(i).map(&:join)
   end
@@ -10,6 +10,7 @@ task :build do
   require "json"
   require "nokogiri"
 
+  FileUtils.rm("source/index.json") if File.exist?("source/index.json")
   FileUtils.rm("build/index.json") if File.exist?("build/index.json")
 
   system "bin/middleman build"
@@ -37,16 +38,20 @@ task :build do
 
     words.each do |word|
       if word.size > 3
-        stems(word, 3).each do |stem|
-          index[stem] ||= []
-          index[stem] << absolute_path
-          index[stem].uniq!
+        consecutive_sequence_in_word(word, 3).each do |sequence|
+          index[sequence] ||= []
+          index[sequence] << absolute_path
+          index[sequence].uniq!
         end
       end
     end
   end
 
   File.open("build/index.json", "w+") do |file|
+    file.puts({ index: index, documents: documents }.to_json)
+  end
+
+  File.open("source/index.json", "w+") do |file|
     file.puts({ index: index, documents: documents }.to_json)
   end
 
