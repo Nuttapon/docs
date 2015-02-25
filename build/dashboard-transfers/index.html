@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
 
-      <title>Omise: Receiving Funds</title>
+      <title>Omise: Balance Transfers</title>
 
       <link srel="stylesheet" href="https://cdn1.omise.co/fonts/inconsolata.css">
       <link srel="stylesheet" href="https://cdn2.omise.co/fonts/lato.css">
@@ -13,10 +13,10 @@
     <script src="/javascripts/all-f967ae0c.js" type="text/javascript"></script>
 
     <!-- Facebook OpenGraph -->
-    <meta property="og:title" content="Omise: translation missing: en.Receiving Funds" />
+    <meta property="og:title" content="Omise: translation missing: en.Balance Transfers" />
     <meta property="og:image" content="https://cdn.omise.co/assets/omise-2x.png" />
   </head>
-  <body class="receiving-funds receiving-funds_index">
+  <body class="dashboard-transfers dashboard-transfers_index">
 
     <header class="Header">
   <div class="HeaderInner">
@@ -79,12 +79,36 @@
 </div></nav>
       <div class="MainContent">
           <header class="PageHeader">
-            <h1 class="PageTitle">Receiving Funds</h1>
-              <p>Excerpt</p>
-
+            <h1 class="PageTitle">Balance Transfers</h1>
           </header>
           <div class="Page">
-            
+            <p>For those who don&#39;t want to implement the <a href="/api/transfers/">Transfers API</a>, we give the option
+to transfer the balance directly from the Dashboard.</p>
+
+<h2 id="create-a-transfer">Create a transfer</h2>
+
+<h3 id="the-following-requirements-must-be-met-for-a-transfer-to-be-created:">The following requirements must be met for a transfer to be created:</h3>
+
+<ul>
+<li>There must be over 30 THB in your available balance.</li>
+<li>There cannot be another incomplete transfer being processed.</li>
+</ul>
+
+<p>First, log in to the dashboard and go to the Transfers menu.</p>
+
+<p>Assuming you meet the requirements, the &quot;Refund&quot; button will be there.</p>
+
+<p>Clicking on it gives you the choice to do a full or partial transfer:</p>
+
+<p><img alt="Refund creation" src="/images/dashboard_transfers/transfer_creation-9fc93220.png" /></p>
+
+<h2 id="testing">Testing</h2>
+
+<p>In test mode, you can change the transfer status from the dashboard as well.
+Open the transfer you want to edit and click on the corresponding button:</p>
+
+<p><img alt="Status button" src="/images/dashboard_transfers/transfer_status_button-1f94dd10.png" /></p>
+
           </div>
       </div>
     </div>
