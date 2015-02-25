@@ -2,7 +2,7 @@ en:
 
   shared:
     documentation: "Documentation"
-    json_response: "Response (JSON)"
+    json_response: "Default JSON Representation"
     deprecated_attribute:
       one: "Deprecated Object Attribute"
       other: "Deprecated Object Attributes"
@@ -70,7 +70,7 @@ en:
       object: "The string `account`."
       id: "The `ACCOUNT_ID`."
       email: "Registration email."
-      created: "Creation date of the account as defined by the [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) standard."
+      created: "Creation date of the account in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format."
 
     retrieve:
       title: "Retrieve the account"
@@ -129,7 +129,7 @@ en:
       expiration_year: "Card expiration year."
       fingerprint: "Unique card-based fingerprint. Allows detection of identical cards."
       name: "Card owner full name."
-      created: "Creation date of the card formatted following the [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) standard."
+      created: "Creation date of the card in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format."
 
     list:
       title: "List all cards"
@@ -202,7 +202,7 @@ en:
       card: "The card object that was charged."
       customer: "The `CUSTOMER_ID` to which the charge belongs."
       ip: "The customer IP, as sent to Omise."
-      created: "Creation date of the charge as defined by the [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) standard."
+      created: "Creation date of the charge in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format."
 
     deprecated_attributes:
       return_uri: "The url where the customer was redirected after charge creation."
@@ -288,8 +288,8 @@ en:
         as default card and `null` in case there's no cards left.
       email: "Email of the customer supplied during creation."
       description: "Description of the customer supplied during creation."
-      created: "Creation date of the customer as defined by the [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) standard."
       cards: "A paginated [list](/api/pagination) of [card](/api/cards#the-card-object) objects."
+      created: "Creation date of the customer in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format."
 
     list:
       title: "List all customers"
@@ -401,7 +401,7 @@ en:
       location: "Path to retrieve the token."
       used: "Whether the token has been used or not. Tokens can be used only once to make a charge on their card or to associate the card to a customer."
       card: "A [card](/api/cards) object."
-      created: "Creation date of the token as defined by the [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) standard."
+      created: "Creation date of the token in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format."
 
     meta:
       title: "Token API Reference"
@@ -444,7 +444,7 @@ en:
       type: "The type can be `credit` or `debit` depending if the money is going into your balance (credit) or out of it (debit)."
       amount: "Transaction amount in the smallest currency unit (e.g. satang, cent, ... )."
       currency: "The currency as its lower-cased international 3-letter code, defined by the [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) standard."
-      created: "Creation date of the transfer formatted with the [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) standard."
+      created: "Creation date of the transfer in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format."
 
     list:
       title: "List all transactions"
@@ -468,6 +468,13 @@ en:
     meta:
       title: "Transfer API Reference"
       description: ""
+
+    attributes:
+       object: "The string `transfer`."
+       id: "The `TRANSFER_ID`."
+       amount: "Transfer amount in the smallest currency unit (e.g. satang, cent, ... )."
+       currency: "The currency as its lower-cased international 3-letter code, defined by the [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) standard."
+       created: "Creation date of the transfer in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format."
 
     list:
       title: "List all transfers"

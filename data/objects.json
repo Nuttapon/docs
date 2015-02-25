@@ -469,6 +469,14 @@
     "name": "transfer",
     "resource_name": "transfers",
 
+    "attributes": {
+      "object": "string",
+      "id": "string",
+      "amount": "integer",
+      "currency": "string",
+      "created": "datetime"
+    },
+
     "endpoints": [
 
       {
