@@ -1,0 +1,7 @@
+{
+  "shell": "sh",
+  "ruby": "rb",
+  "python": "py",
+  "php": "php",
+  "csharp": "cs"
+}

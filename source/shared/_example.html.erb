@@ -1,0 +1,29 @@
+<li class="EndpointExample" data-accordion='{ "group": "<%= translation_scope %>", "header": ".EndpointExampleHeader", "body": ".EndpointExampleBody" }'>
+
+  <header class="EndpointExampleHeader">
+    <h4 class="EndpointExampleTitle">
+      <%= I18n.t(example, scope: "#{translation_scope}.examples") %>
+    </h4>
+  </header>
+
+  <div class="EndpointExampleBody HIDDEN">
+
+    <% if langs.count > 1 %>
+      <ul class="EndpointExampleLangs">
+        <% langs.each do |lang, ext| %>
+          <li class="EndpointExampleLang" data-lang='{ "name": "<%= lang %>" }'>
+            <%= I18n.t(lang, scope: "langs") %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <% langs.each do |lang, ext| %>
+      <div class="EndpointExampleCode lang-<%= lang %> <%= "HIDDEN" if langs.count > 1 %>">
+        <%= source_code("#{example_directory_path}/#{example}.#{ext}", lang.to_s) %>
+      </div>
+    <% end %>
+
+  </div>
+
+</li>

@@ -1,0 +1,197 @@
+.Endpoint {
+  margin: 0 0 64px 0;
+}
+
+.EndpointHeader {
+  line-height: 1.4em;
+  margin: 0 0 16px;
+  color: $font-color-note;
+  font-size: 1.1em;
+}
+
+.EndpointTitle {
+  @include endpoint-header-part;
+  margin: 0 4px 0 0;
+}
+
+.EndpointVerbPost {
+  @include endpoint-header-part;
+  @include endpoint-verb($green, white);
+}
+
+.EndpointVerbGet {
+  @include endpoint-header-part;
+  @include endpoint-verb($blue, white);
+}
+
+.EndpointVerbPatch,
+.EndpointVerbPut {
+  @include endpoint-header-part;
+  @include endpoint-verb($orange, white);
+}
+
+.EndpointVerbDelete {
+  @include endpoint-header-part;
+  @include endpoint-verb($red, white);
+}
+
+.EndpointUrl {
+  @include endpoint-header-part;
+  @include font-monospace;
+  font-size: .875em;
+}
+
+.EndpointBody {
+  @include section;
+  line-height: 1.5em;
+  width: 520px;
+  font-size: .875em;
+
+  p, ul, ol, dl, blockquote {
+    margin: 0 0 1em;
+  }
+}
+
+.EndpointParameters {
+  @include section;
+  width: 720px;
+}
+
+.EndpointParametersTable {
+  width: 100%;
+  line-height: 1.5em;
+  font-size: .875em;
+
+  th, td {
+    vertical-align: top;
+    padding: 8px 24px 0 0;
+    border-bottom: 1px solid $border-color-light;
+  }
+
+  th {
+    color: $font-color-note;
+    text-align: left;
+    padding: 0 24px 8px 0;
+  }
+
+  p {
+    margin: 0 0 8px;
+  }
+}
+
+.EndpointExamples {
+  @include section;
+}
+
+.EndpointExamplesList {
+  overflow: hidden;
+  width: 720px;
+  padding: 0;
+  margin: 0 0 1em;
+  border-radius: 4px;
+  background: mix(white, $syntax-background, 10%);
+  list-style-type: none;
+  box-shadow: 0 1px 3px rgba($syntax-background, .6);
+}
+
+.EndpointExample {
+  position: relative;
+  background: $syntax-background;
+  color: $syntax-foreground;
+  margin-top: 1px;
+  padding: 0;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 18px;
+    right: 24px;
+    display: block;
+    border: 6px solid transparent;
+    border-top-color: $syntax-foreground-note;
+  }
+
+  &:hover:after {
+    border-top-color: $syntax-foreground;
+  }
+
+  &.OPEN:after {
+    top: 12px;
+    border-top-color: transparent;
+    border-bottom-color: $syntax-foreground;
+  }
+}
+
+.EndpointExampleHeader {
+  padding: 12px 16px;
+  cursor: pointer;
+}
+
+.EndpointExampleTitle {
+  margin: 0;
+  font-weight: normal;
+  font-size: .875em;
+  color: $syntax-foreground;
+
+  // Bad but what the heck
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.EndpointExampleBody {
+  padding: 0;
+
+  pre {
+    margin: 0;
+    padding: 0;
+  }
+
+  pre code {
+    padding-bottom: 16px;
+  }
+}
+
+.EndpointExampleLangs {
+  overflow: hidden;
+  list-style-type: none;
+  margin: 0 16px;
+  padding: 8px 0;
+  margin-bottom: 12px;
+  border: 1px solid mix(white, $syntax-background, 5%);
+  border-right: 0;
+  border-left: 0;
+  font-size: .875em;
+
+  // Bad but what the heck
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.EndpointExampleLang {
+  display: inline-block;
+  line-height: 1.6em;
+  margin: 0 4px 0 0;
+  padding: 0 12px;
+  border: 1px solid mix(white, $syntax-background, 5%);
+  border-radius: .8em;
+  color: mix(white, $syntax-background, 50%);
+  cursor: pointer;
+
+  &.SELECTED {
+    border-color: mix(white, $syntax-background, 10%);
+    background: mix(white, $syntax-background, 10%);
+    color: white;
+  }
+}

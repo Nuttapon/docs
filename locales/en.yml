@@ -1,0 +1,514 @@
+en:
+
+  shared:
+    documentation: "Documentation"
+    json_response: "Response (JSON)"
+    deprecated_attribute:
+      one: "Deprecated Object Attribute"
+      other: "Deprecated Object Attributes"
+    attribute:
+      one: "Object Attribute"
+      other: "Object Attributes"
+    query_parameter:
+      one: "Query Parameter"
+      other: "Query Parameters"
+    request_parameter:
+      one: "Request Parameter"
+      other: "Request Parameters"
+    deprecated_request_parameter:
+      one: "Deprecated Request Parameter"
+      other: "Deprecated Request Parameters"
+    example:
+      one: Example
+      other: Examples
+    list_query_parameters: &list_query_parameters
+      offset: |
+        (*optional*, default: 0) The offset of the first record returned.
+        I.e.: How many records to skip from the beginning.
+      limit: |
+        (*optional*, default: 20, maximum: 100) The maximum amount of records
+        returned.
+      from: |
+        (*optional*, default: `1970-01-01T00:00:00Z`, format:
+        [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601)) The UTC date and
+        time limiting the beginning of returned records.
+        E.g.: `2014-10-20T00:00:00Z`
+      to: |
+        (*optional*, default: current UTC Datetime, format:
+        [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601)) The UTC date and
+        time limiting the end of returned records.
+        E.g.: `2015-01-20T00:00:00Z`
+
+  langs:
+    shell: "curl"
+    ruby: "ruby"
+    python: "python"
+    csharp: "C#"
+    php: "php"
+
+  types:
+    object_id: "object_id"
+    string: "string"
+    integer: "integer"
+    boolean: "boolean"
+    url: "url"
+    datetime: "datetime"
+    card: "card"
+    list: "list"
+
+
+  accounts:
+
+    title: "Account API"
+    description: ""
+
+    meta:
+      title: "Account API Reference"
+      description: ""
+
+    attributes:
+      object: "The string `account`."
+      id: "The `ACCOUNT_ID`."
+      email: "Registration email."
+      created: "Creation date of the account as defined by the [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) standard."
+
+    retrieve:
+      title: "Retrieve the account"
+      description: |
+        It may be interesting to note that both Test and Live keys will return the same account.
+      examples:
+        retrieve: "Retrieve the account"
+
+
+  balances:
+
+    title: "Balance API"
+    description: |
+      The balance contains information about the amount of money available on
+      your Omise account.
+
+    meta:
+      title: "Balance API Reference"
+      description: ""
+
+    attributes:
+      object: "The string `balance`."
+      livemode: "Whether this is a Live (true) or Test (false) balance."
+      available: "Available transferable balance in the smallest currency unit (e.g. satang, cent, ... )"
+      total: "Total balance in the smallest currency unit (e.g. satang, cent, ... )"
+      currency: "The currency as its lower-cased international 3-letter code, defined by the [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) standard."
+
+    retrieve:
+      title: "Retrieve the balance"
+      description: ""
+      examples:
+        retrieve: "Retrieve the balance"
+
+
+  cards:
+
+    title: "Card API"
+    description: ""
+
+    meta:
+      title: "Card API Reference"
+      description: ""
+
+    attributes:
+      object: "The string `card`."
+      id: "The `CARD_ID`."
+      livemode: "Whether this is a live (`true`) or test (`false`) card."
+      location: "Path to retrieve the card."
+      country: "Country code based on the card number following the [ISO 3166](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) standard."
+      city: "The city."
+      postal_code: "The postal code"
+      financing: "Type of credit card financing (debit or credit)."
+      last_digits: "Last 4 digits of the card number."
+      brand: "Card brand (e.g.: Visa, Mastercard,...)."
+      expiration_month: "Card expiration month (1-12)."
+      expiration_year: "Card expiration year."
+      fingerprint: "Unique card-based fingerprint. Allows detection of identical cards."
+      name: "Card owner full name."
+      created: "Creation date of the card formatted following the [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) standard."
+
+    list:
+      title: "List all cards"
+      description: |
+        Returns a `list` of `cards` objects.
+        
+        Return all charges that belongs to the customer `CUSTOMER_ID`.
+        You can learn more about lists in the [pagination documentation](./pagination).
+      query_parameters: *list_query_parameters
+      examples:
+        list: "List all cards"
+
+    retrieve:
+      title: "Retrieve a card"
+      description: |
+        Returns a single `card` object which match `CARD_ID` and belongs
+        to the customer which match `CUSTOMER_ID`.
+      examples:
+        retrieve: "Retrieve a card"
+
+    update:
+      title: "Update a card"
+      description: |
+        Update the card which match `CARD_ID` and belongs to the customer which
+        match `CUSTOMER_ID`.
+      request_parameters:
+        name: "(*optional*) The cardholder name as printed on the card."
+        expiration_month: "(*optional*) The expiration month printed on the card."
+        expiration_year: "(*optional*) The expiration year printed on the card in the format YYYY."
+        postal_code: "(*optional*) The postal code from the city where the card was issued."
+        city: "(*optional*) The city where the card was issued."
+      examples:
+        update: "Update a card"
+
+    destroy:
+      title: "Destroy a card"
+      description: |
+        Destroy the card which match `CARD_ID` and belongs to the customer which
+        match `CUSTOMER_ID`.
+      examples:
+        destroy: "Destroy a card"
+        response: "Response (JSON)"
+
+
+  charges:
+
+    title: "Charge API"
+    description: |
+      The Charge API is the most important of all. Whenever you create
+      a charge, Omise sends the order to charge the given amount on the card.
+      This API offers various ways to decide which card is charged and wether
+      it is charged right away or if the amount is held for you to
+      capture later.
+
+    meta:
+      title: "Charge API Reference"
+      description: ""
+
+    attributes:
+      object: "The string `charge`."
+      id: "A `CHARGE_ID` matching `/chrg(_test)?_[1-9a-z]+/`."
+      livemode: "Whether this is a live (`true`) or test (`false`) charge."
+      amount: "The amount in the smallest subunits of the currency used. So for `thb` (Thai Baht) you'll need to pass the amount in satangs."
+      currency: "The currency as its lower-cased international 3-letter code, defined by the [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) standard."
+      description: "The charge description as received."
+      capture: "Whether the charge is set to be auto-captured or not."
+      authorized: "Whether the charge has been authorized or not."
+      captured: "Whether the charge has been captured or not."
+      transaction: "The `TRANSACTION_ID` of that charge."
+      card: "The card object that was charged."
+      customer: "The `CUSTOMER_ID` to which the charge belongs."
+      ip: "The customer IP, as sent to Omise."
+      created: "Creation date of the charge as defined by the [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) standard."
+
+    deprecated_attributes:
+      return_uri: "The url where the customer was redirected after charge creation."
+      reference: "Charge reference code. Only if `return_uri` was set."
+      authorize_uri: "Uri for charge authorization. Only if `return_uri` was set. Not in use anymore."
+
+    list:
+      title: List all charges
+      description: |
+        Returns a `list` of `charge` objects.
+        
+        Return all charges that belongs to your account since the beginning of
+        time. You can learn more about lists in the [pagination documentation](./pagination).
+      query_parameters: *list_query_parameters
+      examples:
+        list: "List all charges"
+
+    retrieve:
+      title: "Retrieve a charge"
+      description: ""
+      examples: 
+        retrieve: "Retrieve a charge"
+
+    create:
+      title: "Create a charge"
+      description: |
+        Posting to this endpoint will either authorize or capture an amount of money
+        on a card. The card on which the money is taken depends if the card is
+        passed with a token, with a customer, or with both a customer and a card.
+      request_parameters:
+        customer: "(**required** or *optional*) A valid `CUSTOMER_ID` that has at least one card already associated. By default the default card of the customer will be used. This parameter is required unless passing a `TOKEN_ID` in the card parameter."
+        card: "(**required** or *optional*) A valid unused `TOKEN_ID` or `CARD_ID`. In the case of the `CARD_ID` the customer parameter **must** be present and be the owner of the card. For the `TOKEN_ID`, the customer **must not** be passed."
+        amount: "(**required**) The amount in the smallest subunits of the currency used. For `thb` (Thai Baht) you'll need to pass the amount in satangs."
+        currency: "(**required**) The currency in which you want the charge to be done. The default and only valid value is `thb`."
+        description: "(*optional*) A custom description for the charge. This value can be searched for in your dashboard."
+        capture: "(*optional*) Whether or not you want the charge to be captured right away."
+      deprecated_request_parameters:
+        return_uri: "(*optional*) The url where we will return the customer after the card has been authorized"
+      examples:
+        create_with_token: "Charge a card using a token"
+        create_with_customer: "Charge a card using a customer"
+        create_with_card: "Charge a card using a customer and a card"
+
+    update:
+      title: "Update a charge"
+      description: |
+        Update a charge. At this time the only charge attribute that can be
+        modified is its description.
+      request_parameters:
+        description: (*optional*) A custom description for the charge. This value can be searched for in your dashboard.
+      examples:
+        update_description: "Update a charge description"
+
+    capture:
+      title: "Capture an authorized charge"
+      description: |
+        If you have created a charge and passed `capture=false` you'll have an
+        authorizated only charge that you can capture at a later time. You can
+        hold it for as long as permitted by the issuing bank. This delay may
+        vary between cards from 1 to 30 days.
+      examples:
+        capture: Capture an authorized charge
+
+
+  customers:
+
+    title: "Customer API"
+    description: ""
+
+    meta:
+      title: "Customer API Reference"
+      description: ""
+
+    attributes:
+      object: "The string `customer`."
+      id: "The `CUSTOMER_ID`."
+      livemode: "Whether this is a live (`true`) or test (`false`) card."
+      location: "Path to retrieve the customer."
+      default_card: |
+        `CARD_ID` of the card used as default when creating charge with a
+        customer. The default card is the first card assigned to a customer. If
+        the current default card is destroyed the latest card added will be set
+        as default card and `null` in case there's no cards left.
+      email: "Email of the customer supplied during creation."
+      description: "Description of the customer supplied during creation."
+      created: "Creation date of the customer as defined by the [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) standard."
+      cards: "A paginated [list](/api/pagination) of [card](/api/cards#the-card-object) objects."
+
+    list:
+      title: "List all customers"
+      description: |
+        Returns a `list` of `customer` objects.
+        
+        Return all customers that belongs to your account since the beginning of
+        time. You can learn more about lists in the [pagination documentation](./pagination)
+      query_parameters: *list_query_parameters
+      examples:
+        list: "List all customers"
+
+    retrieve:
+      title: "Retrieve a customer"
+      description: |
+        Returns an existing customer object
+      examples:
+        retrieve: "Retrieve a customer"
+
+    create:
+      title: "Create a customer"
+      description: |
+        Returns a new customer object
+      request_parameters:
+        email: "(*optional*) Customer's email."
+        description: "(*optional*) A custom description for the customer."
+        card: "(*optional*) A card token in case you want to add a card to the customer."
+      examples:
+        create_simple: "Create a customer"
+        attach_card: "Create a customer and attach a card"
+
+    update:
+      title: "Update a customer"
+      description: |
+        Returns the updated customer object
+      request_parameters:
+        email: "(*optional*) Customer's email."
+        description: "(*optional*) A custom description for the customer."
+        card: "(*optional*) A card token in case you want to add a card to the customer."
+      examples:
+        update_simple: "Update a customer"
+        attach_card: "Attach a card to a customer"
+
+    destroy:
+      title: "Destroy a customer"
+      description: |
+        Returns the destroyed customer object
+      examples:
+        destroy: "Destroy a customer"
+        response: "Response (JSON)"
+
+
+  refunds:
+
+    title: "Refunds API"
+    description: ""
+
+    meta:
+      title: "Refunds API Reference"
+      description: ""
+
+    list:
+      title: "List all refunds"
+      description: |
+        Returns a `list` of `refund` objects.
+        
+        Return all refund that belongs to the charge. You can learn more about
+        lists in the [pagination documentation](./pagination).
+      query_parameters: *list_query_parameters
+      examples:
+        list: "List all refunds"
+
+    create:
+      title: "Create a refund"
+      description: |
+        Returns a new refund object.
+      request_parameters:
+        amount: "The amount in the smallest subunits of the currency used. So for `thb` (Thai Baht) you'll need to pass the amount in satangs."
+      examples:
+        create: "Create a refund"
+
+    retrieve:
+      title: "Retrieve a refund"
+      description: |
+        Returns an existing refund object.
+      examples:
+        retrieve: "Retrieve a refund"
+
+
+  tokens:
+
+    title: "Token API"
+    description: |
+      Tokens are used as a transport layer for cards. Each token represents a
+      card and can be used wherever a card is required just by using the
+      token ID. Once the token is used the card is attached to its new owner
+      and the token is revoked and can't be used anymore.
+    notice: |
+      **Sensitive card data should never go through your server.**  
+      Unless you have a very good reason and know what you are doing, the
+      create method described on this page should only be used with fake data in
+      test mode (e.g.: quickly creating some fake data, testing our API from
+      a terminal, etc.).
+
+    attributes:
+      object: "The string `token`."
+      id: "The `TOKEN_ID`."
+      livemode: "Whether this is a live (`true`) or test (`false`) token."
+      location: "Path to retrieve the token."
+      used: "Whether the token has been used or not. Tokens can be used only once to make a charge on their card or to associate the card to a customer."
+      card: "A [card](/api/cards) object."
+      created: "Creation date of the token as defined by the [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) standard."
+
+    meta:
+      title: "Token API Reference"
+      description: ""
+
+    create:
+      title: "Create a token"
+      description: ""
+      request_parameters:
+        card:
+          name: "The cardholder name as printed on the card."
+          number: "The card number. Note that the number you pass can contains spaces and dashes but will be stripped from the response."
+          expiration_month: "The expiration month printed on the card in the format M or MM."
+          expiration_year: "The expiration year printed on the card in the format YYYY."
+          security_code: "The security code (CVV, CVC, etc) printed on the back of the card."
+          city: "The postal code from the city where the card was issued."
+          postal_code: "The city where the card was issued."
+      examples:
+        create: "Create a token"
+
+    retrieve:
+      title: "Retrieve a token"
+      description: ""
+      examples:
+        retrieve: "Retrieve a token"
+
+
+  transactions:
+
+    title: "Transaction API"
+    description: ""
+
+    meta:
+      title: "Transaction API Reference"
+      description: ""
+
+    attributes:
+      object: "The string `transaction`."
+      id: "The `TRANSACTION_ID`."
+      type: "The type can be `credit` or `debit` depending if the money is going into your balance (credit) or out of it (debit)."
+      amount: "Transaction amount in the smallest currency unit (e.g. satang, cent, ... )."
+      currency: "The currency as its lower-cased international 3-letter code, defined by the [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) standard."
+      created: "Creation date of the transfer formatted with the [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) standard."
+
+    list:
+      title: "List all transactions"
+      description: ""
+      query_parameters: *list_query_parameters
+      examples:
+        list: "List all transactions"
+    
+    retrieve:
+      title: "Retrieve a transaction"
+      description: ""
+      examples:
+        retrieve: "Retrieve a transaction"
+
+
+  transfers:
+
+    title: "Transfer API"
+    description: ""
+
+    meta:
+      title: "Transfer API Reference"
+      description: ""
+
+    list:
+      title: "List all transfers"
+      description: |
+        Returns a `list` of `transfer` objects.
+        
+        Return all transfers that belongs to your account since the beginning of
+        time. You can learn more about lists in the [pagination documentation](./pagination)
+      query_parameters: *list_query_parameters
+      examples:
+        list: "List all transfers"
+
+    retrieve:
+      title: "Retrieve a transfer"
+      description: |
+        Returns an existing transfer object.
+      examples:
+        retrieve: "Retrieve a transfer"
+
+    create:
+      title: "Create a transfer"
+      description: |
+        Returns a new transfer object.
+      request_parameters:
+        amount: "The amount in the smallest subunits of the currency used. So for `thb` (Thai Baht) you'll need to pass the amount in satangs."
+      examples:
+        create: "Create a transfer"
+
+    update:
+      title: "Update a transfer"
+      description: |
+        Returns the updated transfer object.
+      request_parameters:
+        amount: "The amount in the smallest subunits of the currency used. So for `thb` (Thai Baht) you'll need to pass the amount in satangs."
+      examples:
+        update: "Update a transfer"
+
+    destroy:
+      title: "Destroy a transfer"
+      description: |
+        Returns the destroyed customer object.
+      examples:
+        destroy: "Destroy a transfer"
+        response: "Response (JSON)"

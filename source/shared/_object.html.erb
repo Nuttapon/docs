@@ -1,0 +1,93 @@
+<header class="PageHeader">
+  <h1 class="PageTitle"><%= I18n.t("title", scope: object.name.pluralize) %></h1>
+  <%= $markdown.render I18n.t("description", scope: object.name.pluralize) %>
+</header>
+
+<% if current_page.data.notice %>
+  <div class="Notice">
+    <%= $markdown.render I18n.t("#{object.name.pluralize}.notice") %>
+  </div>
+<% end %>
+
+<section class="ObjectAttributes">
+
+  <% if object.attributes %>
+    <%= partial "shared/parameters", locals: {
+      parameter_type: "attribute",
+      parameters: object.attributes,
+      translation_scope: object.name.pluralize
+    } %>
+  <% end %>
+
+  <% if object.deprecated_attributes %>
+    <%= partial "shared/parameters", locals: {
+      parameter_type: "deprecated_attribute",
+      parameters: object.deprecated_attributes,
+      translation_scope: object.name.pluralize
+    } %>
+  <% end %>
+
+  <%= partial "shared/json_response_example", locals: {
+    example_directory_path: File.join("api", object.name.pluralize),
+  } %>
+
+</section>
+
+<% object.endpoints.each do |e| %>
+  <section class="Endpoint">
+
+    <header class="EndpointHeader">
+      <h2 class="EndpointTitle">
+        <%= I18n.t("#{object.name.pluralize}.#{e.name}.title") %>
+      </h2>
+      -
+      <span class="EndpointVerb<%= e.verb.capitalize %>">
+        <%= e.verb %>
+      </span>
+      <span class="EndpointUrl">
+        <%= e.url %>
+      </span>
+    </header>
+
+    <% if I18n.t("#{object.name.pluralize}.#{e.name}.description").present? %>
+      <div class="EndpointBody">
+        <%= $markdown.render I18n.t("#{object.name.pluralize}.#{e.name}.description") %>
+      </div>
+    <% end %>
+
+    <% if e.query_parameters %>
+      <%= partial "shared/parameters", locals: {
+        parameter_type: "query_parameter",
+        parameters: e.query_parameters,
+        translation_scope: [object.name.pluralize, e.name].join(".")
+      } %>
+    <% end %>
+
+    <% if e.request_parameters %>
+      <%= partial "shared/parameters", locals: {
+        parameter_type: "request_parameter",
+        parameters: e.request_parameters,
+        translation_scope: [object.name.pluralize, e.name].join(".")
+      } %>
+    <% end %>
+
+    <% if e.deprecated_request_parameters %>
+      <%= partial "shared/parameters", locals: {
+        parameter_type: "deprecated_request_parameter",
+        parameters: e.deprecated_request_parameters,
+        translation_scope: [object.name.pluralize, e.name].join(".")
+      } %>
+    <% end %>
+
+    <% if e.examples %>
+      <%= partial "shared/examples", locals: {
+        examples: e.examples,
+        langs: data.langs,
+        show_json_response: e.show_json_response,
+        example_directory_path: File.join("api", object.name.pluralize, e.name),
+        translation_scope: [object.name.pluralize, e.name].join(".")
+      } %>
+    <% end %>
+
+  </section>
+<% end %>

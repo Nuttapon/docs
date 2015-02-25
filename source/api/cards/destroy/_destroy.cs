@@ -1,0 +1,1 @@
+var deleteResult = client.CardService.DeleteCard ("cust_test_4xsjvylia03ur542vn6", "card_test_4xsjw0t21xaxnuzi9gs");

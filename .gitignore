@@ -16,3 +16,6 @@
 
 # Ignore IDE files
 .idea
+
+# Ignore full text search index in source
+source/index.json

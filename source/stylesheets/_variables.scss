@@ -1,0 +1,31 @@
+// Main Colors
+$blue: #1bafe0;
+$blue-dark: mix($blue, black, 60%);
+$blue-light: mix(white, $blue, 90%);
+$grey-blue-dark: darken(desaturate($blue, 55), 20);
+$grey-blue-light: lighten(desaturate($blue, 45), 45);
+$turquoise: adjust-hue($blue, -15deg);
+$turquoise-light: mix(white, $turquoise, 90%);
+$green: #44cd16;
+$orange: #e0af1b;
+$red: #cc2616;
+
+// Border Colors
+$border-color-light: mix(white, $grey-blue-dark, 90%);
+
+// Font Colors
+$font-color-body: $grey-blue-dark;
+$font-color-heading: $blue-dark;
+$font-color-sub-heading: $blue;
+$font-color-note: mix(white, $grey-blue-dark, 55%);
+
+// Font Stacks
+$font-stack-monospace: "InconsolataMedium", "Inconsolata", monospace;
+$font-stack-heading: "LatoRegular", "Lato", "Helvetica", "Arial", sans-serif;
+$font-stack-body: "LatoRegular", "Lato", "Helvetica", "Arial", sans-serif;
+
+// Syntax Highlighting
+$syntax-background: #2c3538;
+$syntax-foreground: #e0e096;
+$syntax-source: mix(white, $syntax-background, 90%);
+$syntax-foreground-note: mix($syntax-foreground, $syntax-background);

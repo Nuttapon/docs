@@ -1,0 +1,4 @@
+curl https://api.omise.co/charges/chrg_test_4xso2s8ivdej29pqnhz \
+  -X PATCH \
+  -u skey_test_4xsjvwfnvb2g0l81sjz: \
+  -d "description=Another description"

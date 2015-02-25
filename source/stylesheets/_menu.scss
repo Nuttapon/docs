@@ -1,0 +1,69 @@
+.Menu {
+  position: relative;
+  padding: 0;
+  float: right;
+  text-align: right;
+}
+
+@mixin header-button($border-radius) {
+  position: relative;
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  border-radius: 4px;
+  padding: 0 12px;
+  color: white;
+  cursor: pointer;
+  font-size: .875em;
+  font-weight: normal;
+  transition: all ease-in-out .15s;
+
+  &.CURRENT {
+    border-radius: $border-radius;
+    background: darken($grey-blue-dark, 10);
+    color: white;
+  }
+}
+
+.MenuButton {
+  @include header-button(4px 4px 0 0);
+}
+
+.SearchButton {
+  @include header-button(4px);
+}
+
+.MenuDropdown {
+  position: absolute;
+  top: 36px;
+  right: 0;
+  min-width: 240px;
+  padding: 4px 0;
+  border-radius: 4px 0 4px 4px;
+  background: white;
+  box-shadow: 0 1px 3px rgba(black, .33);
+  font-size: .875em;
+  text-align: left;
+  z-index: 1010;
+
+  hr {
+    height: 1px;
+    margin: 4px 2px;
+    border: 0;
+    background: $border-color-light;
+  }
+}
+
+.MenuDropdownItem {
+  display: block;
+  padding: 4px 12px;
+  color: $font-color-body;
+  z-index: 1020;
+
+  &:hover {
+    background: $grey-blue-dark;
+    background: linear-gradient(to right, $grey-blue-dark, lighten($grey-blue-dark, 10));
+    color: white;
+    text-decoration: none;
+  }
+}

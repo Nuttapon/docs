@@ -1,0 +1,3 @@
+<?php
+
+$charges = OmiseCharge::retrieve();
