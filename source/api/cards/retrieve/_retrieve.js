@@ -1,0 +1,1 @@
+omise.customers.retrieveCard(customerId, cardId, function(error, card) {});

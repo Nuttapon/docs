@@ -1,0 +1,1 @@
+omise.customers.retrieve(customerId, function(err, customer) {});

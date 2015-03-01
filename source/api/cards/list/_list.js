@@ -1,0 +1,1 @@
+omise.customers.listCards(customerId, function(error, list) {});

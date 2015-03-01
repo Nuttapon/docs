@@ -1,0 +1,1 @@
+omise.customers.destroyCard(customerId, cardId, function(error, card) {});
