@@ -45,6 +45,7 @@ en:
     python: "python"
     csharp: "C#"
     php: "php"
+    nodejs: "nodejs"
 
   types:
     object_id: "object_id"
