@@ -1,0 +1,21 @@
+{
+  "object": "recipient",
+  "id": "recp_test_4z6p7e0m4k40txecj5o",
+  "livemode": false,
+  "location": "/recipients/recp_test_4z6p7e0m4k40txecj5o",
+  "name": "Test recipient 1234",
+  "email": "test_recp123@localhost",
+  "description": "Test recipient 123 description",
+  "recipient_type": "corporation",
+  "tax_id": null,
+  "created": "2015-02-26T09:08:50Z",
+  "bank_account": {
+    "object": "bank_account",
+    "brand": "bbl",
+    "bank_account_no": "test_acc123456",
+    "bank_account_name": "tes recipient 123 bank account",
+    "created": "2015-02-26T10:42:52Z"
+  },
+  "status": "pending",
+  "active": false
+}

@@ -463,6 +463,67 @@
 
   },
 
+  "recipient": {
+
+    "name": "recipient",
+    "resource_name": "recipients",
+
+    "attributes": {
+      "object": "string",
+      "id": "string",
+      "livemode": "string",
+      "location": "string",
+      "name": "string",
+      "email": "string",
+      "description": "string",
+      "recipient_type": "string",
+      "tax_id": "string",
+      "bank_account": "string",
+      "status": "string",
+      "active": "string",
+      "created": "datetime"
+    },
+
+    "endpoints": [
+      {
+        "name": "create",
+        "verb": "POST",
+        "url": "https://api.omise.co/recipients",
+        "examples": [
+          "create"
+        ]
+      },
+
+      {
+        "name": "retrieve",
+        "verb": "GET",
+        "url": "https://api.omise.co/recipients/RECIPIENT_ID",
+        "examples": [
+          "retrieve"
+        ]
+      },
+
+      {
+        "name": "update",
+        "verb": "PATCH",
+        "url": "https://api.omise.co/recipients/RECIPIENT_ID",
+        "examples": [
+          "update"
+        ]
+      },
+
+      {
+        "name": "destroy",
+        "verb": "DELETE",
+        "url": "https://api.omise.co/recipients/RECIPIENT_ID",
+        "examples": [
+          "destroy"
+        ]
+      }
+
+    ]
+
+  },
 
   "transfer": {
 

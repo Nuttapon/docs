@@ -459,6 +459,53 @@ en:
       examples:
         retrieve: "Retrieve a transaction"
 
+  recipients:
+
+    title: "Recipient API"
+    description: ""
+
+    meta:
+      title: "Recipient API Reference"
+      description: ""
+
+    attributes:
+      object: "The string `recipient`."
+      id: "The `RECIPIENT_ID`."
+      livemode: "Whether this is a live (`true`) or test (`false`) recipient."
+      location: "Path to retrieve the recipient."
+      name: "The recipient's name."
+      email: "The recipient's email."
+      description: "The recipient description."
+      recipient_type: "The recipient type `individual` or `corporation`"
+      tax_id: "The recipient tax id"
+      bank_account: "A bank_account object."
+      status: "The recipient status. `verified` or `failed`."
+      active: "The recipient activation status. `active` or `inactive`."
+      created: "Creation date of the recipient in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format."
+
+    create:
+      title: "Create a recipient"
+      description: ""
+      examples:
+        create: "Create a recipient"
+
+    retrieve:
+      title: "Retrieve a recipient"
+      description: ""
+      examples:
+        retrieve: "Retrieve a recipient"
+
+    update:
+      title: "Update a recipient"
+      description: ""
+      examples:
+        update: "Update a recipient"
+
+    destroy:
+      title: "Destroy a recipient"
+      description: ""
+      examples:
+        destroy: "Destroy a recipient"
 
   transfers:
 
