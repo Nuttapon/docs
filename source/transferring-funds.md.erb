@@ -1,0 +1,69 @@
+---
+title: Transferring funds
+description: This page will guide you how to transfer the available balance to your account or third party recipient
+---
+
+## Requirement
+
+The following requirements must be met for a transfer to be created:
+
+- There must be over 30 THB in your available balance.
+- There cannot be another incomplete transfer being processed.
+
+## Recipient
+
+  Each transfer has to be made with a valid recipient. There is 2 types of recipient, individual or corporation.
+
+### Create a recipient
+
+  ```shell
+    curl https://api.omise.co/recipients \
+    -X POST \
+    -u "$OMISE_KEY_SECRET": \
+    -d "name=James Smith"
+    -d "email=james.smith@example.com"
+    -d "description=My first other recipient" \
+    -d "recipient_type=individual"
+    -d "bank_account[brand]=test" \
+    -d "bank_account[bank_account_no]=acc12345" \
+    -d "bank_account[bank_account_name]=James Smith"
+  ```
+
+  Visit [recipient api](/api/recipients) For more API referrence
+
+### Recipient verification
+  
+  Normally we take 2-3 days to verify the recipient (existence of bank account number and name). You have to go to your dashboard recipients page to see the list of recipients you have added. There you will be able to see the recipient detail and their verification status. 
+
+  ![Recipient list](/images/transferring_funds/recipient_list.png)
+
+  ![Recipient detail](/images/transferring_funds/recipient_detail.png)
+
+  Once the recipient has been verified, you have to activate the recipient in order to transfer to.
+
+### Recipient activation
+
+  You can activate the recipient by going to recipient detail and click at "Activate this recipient". The recipient will then ready for the transfer.
+
+## Transfer to default recipient
+
+  There is a auto-created default recipient for each account (both TEST and LIVE) which has a bank account information that the available funds can be transfered to. The TEST recipient is available for you immediately once you sign up with Omise. 
+
+  ```shell
+    curl https://api.omise.co/transfers \
+      -X POST \
+      -u "$OMISE_KEY_SECRET": \
+      -d "amount=350000"
+  ```
+
+## Transfer to third party recipient
+
+  We also allow transferring funds to third party recipient. See the following command for example 
+
+  ```shell
+    curl https://api.omise.co/transfers \
+      -X POST \
+      -u "$OMISE_KEY_SECRET": \
+      -d "amount=350000"
+      -d "recipient=recp_test_4z6p7e0m4k40txecj5o"
+  ```

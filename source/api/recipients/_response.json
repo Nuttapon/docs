@@ -3,18 +3,18 @@
   "id": "recp_test_4z6p7e0m4k40txecj5o",
   "livemode": false,
   "location": "/recipients/recp_test_4z6p7e0m4k40txecj5o",
-  "name": "Test recipient 1234",
+  "name": "James smith",
   "email": "test_recp123@localhost",
-  "description": "Test recipient 123 description",
-  "recipient_type": "corporation",
-  "tax_id": null,
+  "description": "My first other recipient",
+  "recipient_type": "individual",
+  "tax_id": "1234567890",
   "created": "2015-02-26T09:08:50Z",
   "bank_account": {
     "object": "bank_account",
-    "brand": "bbl",
-    "bank_account_no": "test_acc123456",
-    "bank_account_name": "tes recipient 123 bank account",
-    "created": "2015-02-26T10:42:52Z"
+    "brand": "test",
+    "bank_account_no": "acc12345",
+    "bank_account_name": "James Smith",
+    "created": "2015-03-03T11:44:03Z"
   },
   "status": "pending",
   "active": false

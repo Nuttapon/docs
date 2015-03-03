@@ -1,0 +1,11 @@
+curl https://api.omise.co/recipients \
+    -X POST \
+    -u skey_test_4xsjvwfnvb2g0l81sjz: \
+    -d "name=James Smith" \
+    -d "email=test_recp123@localhost" \
+    -d "description=My first other recipient" \
+    -d "recipient_type=individual" \
+    -d "tax_id=1234567890" \
+    -d "bank_account[brand]=test" \
+    -d "bank_account[bank_account_no]=acc12345" \
+    -d "bank_account[bank_account_name]=James Smith"

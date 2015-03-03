@@ -1,13 +1,13 @@
 var recipientInfo = new RecipientInfo();
-recipientInfo.Name = "Test Recipient 1";
-recipientInfo.Email = "test_recp@localhost";
+recipientInfo.Name = "James Smith";
+recipientInfo.Email = "test_recp123@localhost";
 recipientInfo.TaxId = "1234567890";
 recipientInfo.RecipientType = RecipientType.Individual;
-recipientInfo.Description = "Test recipient description";
+recipientInfo.Description = "My first other recipient";
 recipientInfo.BankAccount = new BankAccountInfo(){
   Brand = "Test",
-  BankAccountNumber = "ACC12345",
-  BankAccountName = "Test Bank Account"
+  BankAccountNumber = "acc12345",
+  BankAccountName = "James Smith"
 }
 
 var recipient = client.RecipientService.CreateRecipient(recipientInfo);
