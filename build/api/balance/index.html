@@ -224,6 +224,9 @@ your Omise account.</p>
           <li class="EndpointExampleLang" data-lang='{ "name": "csharp" }'>
             C#
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "nodejs" }'>
+            nodejs
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -258,6 +261,12 @@ your Omise account.</p>
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
         <pre class="highlight csharp"><code><span class="n">var</span> <span class="n">account</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">AccountService</span><span class="p">.</span><span class="nf">GetAccount</span><span class="p">();</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-nodejs HIDDEN">
+        <pre class="highlight plaintext"><code>omise.balance.retrieve(function(error, balance) {
+  /* Response. */
+});</code></pre>
 
       </div>
 

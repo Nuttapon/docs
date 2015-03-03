@@ -338,6 +338,9 @@ a terminal, etc.).</p>
           <li class="EndpointExampleLang" data-lang='{ "name": "csharp" }'>
             C#
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "nodejs" }'>
+            nodejs
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -408,6 +411,21 @@ a terminal, etc.).</p>
 <span class="n">var</span> <span class="n">resultToken</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">TokenService</span><span class="p">.</span><span class="nf">CreateToken</span> <span class="p">(</span><span class="n">token</span><span class="p">);</span></code></pre>
 
       </div>
+      <div class="EndpointExampleCode lang-nodejs HIDDEN">
+        <pre class="highlight plaintext"><code>omise.tokens.create({
+  'card':{
+    'name': 'JOHN DOE',
+    'city': 'Bangkok',
+    'postal_code': 10320,
+    'number': '4242424242424242',
+    'expiration_month': 2,
+    'expiration_year': 2017
+  }
+}, function(error, token) {
+  /* Response. */
+});</code></pre>
+
+      </div>
 
   </div>
 
@@ -466,6 +484,9 @@ a terminal, etc.).</p>
           <li class="EndpointExampleLang" data-lang='{ "name": "csharp" }'>
             C#
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "nodejs" }'>
+            nodejs
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -489,6 +510,12 @@ a terminal, etc.).</p>
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
         <pre class="highlight csharp"><code><span class="n">var</span> <span class="n">resultToken</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">TokenService</span><span class="p">.</span><span class="nf">GetToken</span> <span class="p">(</span><span class="s">"tokn_test_4xs9408a642a1htto8z"</span><span class="p">);</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-nodejs HIDDEN">
+        <pre class="highlight plaintext"><code>omise.tokens.retrieve('tokn_test_4xs9408a642a1htto8z', function(error, token) {
+  /* Response. */
+});</code></pre>
 
       </div>
 

@@ -425,6 +425,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
           <li class="EndpointExampleLang" data-lang='{ "name": "csharp" }'>
             C#
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "nodejs" }'>
+            nodejs
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -449,6 +452,12 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
         <pre class="highlight csharp"><code><span class="n">var</span> <span class="n">charges</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">ChargeService</span><span class="p">.</span><span class="nf">GetAllCharges</span><span class="p">();</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-nodejs HIDDEN">
+        <pre class="highlight plaintext"><code>omise.charges.list(function(error, list) {
+  /* Response. */
+});</code></pre>
 
       </div>
 
@@ -601,6 +610,9 @@ passed with a token, with a customer, or with both a customer and a card.</p>
           <li class="EndpointExampleLang" data-lang='{ "name": "csharp" }'>
             C#
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "nodejs" }'>
+            nodejs
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -648,6 +660,16 @@ passed with a token, with a customer, or with both a customer and a card.</p>
 <span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">ChargeService</span><span class="p">.</span><span class="nf">CreateCharge</span><span class="p">(</span><span class="n">charge</span><span class="p">);</span></code></pre>
 
       </div>
+      <div class="EndpointExampleCode lang-nodejs HIDDEN">
+        <pre class="highlight plaintext"><code>omise.charges.create({
+  'amount': '100000',
+  'currency': 'thb',
+  'card': 'tokn_test_4xs9408a642a1htto8z'
+}, function(err, charge) {
+  /* Response. */
+});</code></pre>
+
+      </div>
 
   </div>
 
@@ -678,6 +700,9 @@ passed with a token, with a customer, or with both a customer and a card.</p>
           </li>
           <li class="EndpointExampleLang" data-lang='{ "name": "csharp" }'>
             C#
+          </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "nodejs" }'>
+            nodejs
           </li>
       </ul>
 
@@ -720,6 +745,16 @@ passed with a token, with a customer, or with both a customer and a card.</p>
         <pre class="highlight csharp"><code></code></pre>
 
       </div>
+      <div class="EndpointExampleCode lang-nodejs HIDDEN">
+        <pre class="highlight plaintext"><code>omise.charges.create({
+  'amount': '100000',
+  'currency': 'thb',
+  'customer': 'cust_test_4xtrb759599jsxlhkrb'
+}, function(error, charge) {
+  /* Response. */
+});</code></pre>
+
+      </div>
 
   </div>
 
@@ -750,6 +785,9 @@ passed with a token, with a customer, or with both a customer and a card.</p>
           </li>
           <li class="EndpointExampleLang" data-lang='{ "name": "csharp" }'>
             C#
+          </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "nodejs" }'>
+            nodejs
           </li>
       </ul>
 
@@ -794,6 +832,17 @@ passed with a token, with a customer, or with both a customer and a card.</p>
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
         <pre class="highlight csharp"><code></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-nodejs HIDDEN">
+        <pre class="highlight plaintext"><code>omise.charges.create({
+  'amount': '100000',
+  'currency': 'thb',
+  'customer': 'cust_test_4xtrb759599jsxlhkrb',
+  'card': 'tokn_test_4xs9408a642a1htto8z'
+}, function(error, charge) {
+  /* Response. */
+});</code></pre>
 
       </div>
 
@@ -854,6 +903,9 @@ passed with a token, with a customer, or with both a customer and a card.</p>
           <li class="EndpointExampleLang" data-lang='{ "name": "csharp" }'>
             C#
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "nodejs" }'>
+            nodejs
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -879,6 +931,12 @@ passed with a token, with a customer, or with both a customer and a card.</p>
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
         <pre class="highlight csharp"><code><span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">ChargeService</span><span class="p">.</span><span class="nf">GetCharge</span><span class="p">(</span><span class="s">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">);</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-nodejs HIDDEN">
+        <pre class="highlight plaintext"><code>omise.charges.retrieve('chrg_test_4xso2s8ivdej29pqnhz', function(error, charge) {
+  /* Response. */
+});</code></pre>
 
       </div>
 
@@ -967,6 +1025,9 @@ modified is its description.</p>
           <li class="EndpointExampleLang" data-lang='{ "name": "csharp" }'>
             C#
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "nodejs" }'>
+            nodejs
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -1007,6 +1068,16 @@ modified is its description.</p>
 <span class="n">chargeUpdateInfo</span><span class="p">.</span><span class="n">Description</span> <span class="p">=</span> <span class="s">"Another description"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">updateResult</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">ChargeService</span><span class="p">.</span><span class="nf">UpdateCharge</span><span class="p">(</span><span class="n">chargeUpdateInfo</span><span class="p">);</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-nodejs HIDDEN">
+        <pre class="highlight plaintext"><code>omise.charges.update(
+  'chrg_test_4xso2s8ivdej29pqnhz',
+  {description: 'Another description'},
+  function(error, charge) {
+    /* Response. */
+  }
+);</code></pre>
 
       </div>
 
@@ -1074,6 +1145,9 @@ vary between cards from 1 to 30 days.</p>
           <li class="EndpointExampleLang" data-lang='{ "name": "csharp" }'>
             C#
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "nodejs" }'>
+            nodejs
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -1103,6 +1177,13 @@ vary between cards from 1 to 30 days.</p>
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
         <pre class="highlight csharp"><code><span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">ChargeService</span><span class="p">.</span><span class="nf">GetCharge</span><span class="p">(</span><span class="s">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">);</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-nodejs HIDDEN">
+        <pre class="highlight plaintext"><code>var omise = require('omise-node')({'secretKey': 'skey_test_4xsjvwfnvb2g0l81sjz'});
+omise.charges.capture('chrg_test_4xso2s8ivdej29pqnhz', function(error, charge) {
+  /* Response. */
+});</code></pre>
 
       </div>
 

@@ -374,6 +374,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
           <li class="EndpointExampleLang" data-lang='{ "name": "csharp" }'>
             C#
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "nodejs" }'>
+            nodejs
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -402,6 +405,12 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
         <pre class="highlight csharp"><code><span class="n">cards</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">CardService</span><span class="p">.</span><span class="nf">GetAllCards</span><span class="p">(</span><span class="s">"cust_test_4xsjvylia03ur542vn6"</span><span class="p">);</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-nodejs HIDDEN">
+        <pre class="highlight plaintext"><code>omise.customers.listCards('cust_test_4xsjvylia03ur542vn6', function(error, list) {
+  /* Response. */
+});</code></pre>
 
       </div>
 
@@ -467,6 +476,9 @@ to the customer which match <code>CUSTOMER_ID</code>.</p>
           <li class="EndpointExampleLang" data-lang='{ "name": "csharp" }'>
             C#
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "nodejs" }'>
+            nodejs
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -504,6 +516,17 @@ to the customer which match <code>CUSTOMER_ID</code>.</p>
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
         <pre class="highlight csharp"><code><span class="n">card</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">CardService</span><span class="p">.</span><span class="nf">GetCard</span><span class="p">(</span><span class="s">"cust_test_4xsjvylia03ur542vn6"</span><span class="p">,</span> <span class="s">"card_test_4xsjw0t21xaxnuzi9gs"</span><span class="p">);</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-nodejs HIDDEN">
+        <pre class="highlight plaintext"><code>var omise = require('omise-node')({'secretKey': 'skey_test_4xsjvwfnvb2g0l81sjz'});
+omise.customers.retrieveCard(
+  'cust_test_4xsjvylia03ur542vn6',
+  'card_test_4xsjw0t21xaxnuzi9gs',
+  function(error, card) {
+    /* Response. */
+  }
+);</code></pre>
 
       </div>
 
@@ -624,6 +647,9 @@ match <code>CUSTOMER_ID</code>.</p>
           <li class="EndpointExampleLang" data-lang='{ "name": "csharp" }'>
             C#
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "nodejs" }'>
+            nodejs
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -690,6 +716,22 @@ match <code>CUSTOMER_ID</code>.</p>
 <span class="n">var</span> <span class="n">updateResult</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">CardService</span><span class="p">.</span><span class="nf">UpdateCard</span> <span class="p">(</span><span class="s">"cust_test_4xsjvylia03ur542vn6"</span><span class="p">,</span> <span class="n">card</span><span class="p">);</span></code></pre>
 
       </div>
+      <div class="EndpointExampleCode lang-nodejs HIDDEN">
+        <pre class="highlight plaintext"><code>omise.customers.updateCard(
+  'cust_test_4xsjvylia03ur542vn6',
+  'card_test_4xsjw0t21xaxnuzi9gs',
+  {
+    'expiration_month': 11,
+    'expiration_year': 2017,
+    'name': 'Somchai Praset',
+    'postal_code': 10310
+  },
+  function(error, card) {
+    /* Response. */
+  }
+);</code></pre>
+
+      </div>
 
   </div>
 
@@ -753,6 +795,9 @@ match <code>CUSTOMER_ID</code>.</p>
           <li class="EndpointExampleLang" data-lang='{ "name": "csharp" }'>
             C#
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "nodejs" }'>
+            nodejs
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -787,6 +832,16 @@ match <code>CUSTOMER_ID</code>.</p>
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
         <pre class="highlight csharp"><code><span class="n">var</span> <span class="n">deleteResult</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">CardService</span><span class="p">.</span><span class="nf">DeleteCard</span> <span class="p">(</span><span class="s">"cust_test_4xsjvylia03ur542vn6"</span><span class="p">,</span> <span class="s">"card_test_4xsjw0t21xaxnuzi9gs"</span><span class="p">);</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-nodejs HIDDEN">
+        <pre class="highlight plaintext"><code>omise.customers.destroyCard(
+  'cust_test_4xsjvylia03ur542vn6',
+  'card_test_4xsjw0t21xaxnuzi9gs',
+  function(error, card) {
+    /* Response. */
+  }
+);</code></pre>
 
       </div>
 

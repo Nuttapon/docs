@@ -291,6 +291,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
           <li class="EndpointExampleLang" data-lang='{ "name": "csharp" }'>
             C#
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "nodejs" }'>
+            nodejs
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -313,6 +316,12 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
         <pre class="highlight csharp"><code><span class="n">var</span> <span class="n">transfers</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">TransferService</span><span class="p">.</span><span class="nf">GetAllTransfers</span><span class="p">();</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-nodejs HIDDEN">
+        <pre class="highlight plaintext"><code>omise.transfers.list(function(error, list) {
+  /* Response. */
+});</code></pre>
 
       </div>
 
@@ -400,6 +409,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
           <li class="EndpointExampleLang" data-lang='{ "name": "csharp" }'>
             C#
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "nodejs" }'>
+            nodejs
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -427,6 +439,12 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
         <pre class="highlight csharp"><code><span class="n">var</span> <span class="n">transfer</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">TransferService</span><span class="p">.</span><span class="nf">CreateTransfer</span><span class="p">(</span><span class="m">100000</span><span class="p">);</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-nodejs HIDDEN">
+        <pre class="highlight plaintext"><code>omise.transfers.create({'amount': '100000'}, function(error, transfer) {
+  /* Response. */
+});</code></pre>
 
       </div>
 
@@ -491,6 +509,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
           <li class="EndpointExampleLang" data-lang='{ "name": "csharp" }'>
             C#
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "nodejs" }'>
+            nodejs
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -515,6 +536,12 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
         <pre class="highlight csharp"><code><span class="n">var</span> <span class="n">transfer</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">TransferService</span><span class="p">.</span><span class="nf">GetTransfer</span><span class="p">(</span><span class="s">"trsf_test_4xs5px8c36dsanuwztf"</span><span class="p">);</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-nodejs HIDDEN">
+        <pre class="highlight plaintext"><code>omise.transfers.retrieve('trsf_test_4xs5px8c36dsanuwztf', function(error, transfer) {
+  /* Response. */
+});</code></pre>
 
       </div>
 
@@ -602,6 +629,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
           <li class="EndpointExampleLang" data-lang='{ "name": "csharp" }'>
             C#
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "nodejs" }'>
+            nodejs
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -635,6 +665,16 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
         <pre class="highlight csharp"><code><span class="n">var</span> <span class="n">transfer</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">TransferService</span><span class="p">.</span><span class="nf">UpdateTransfer</span><span class="p">(</span><span class="s">"trsf_test_4y3miv1nhy0dceit4w4"</span><span class="p">,</span> <span class="m">50000</span><span class="p">);</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-nodejs HIDDEN">
+        <pre class="highlight plaintext"><code>omise.transfers.update(
+  'trsf_test_4y3miv1nhy0dceit4w4',
+  {'amount': 50000},
+  function(error, transfer) {
+    /* Response. */
+  }
+);</code></pre>
 
       </div>
 
@@ -699,6 +739,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
           <li class="EndpointExampleLang" data-lang='{ "name": "csharp" }'>
             C#
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "nodejs" }'>
+            nodejs
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -730,6 +773,12 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
         <pre class="highlight csharp"><code><span class="n">var</span> <span class="n">deleteResult</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">TransferService</span><span class="p">.</span><span class="nf">DeleteTransfer</span><span class="p">(</span><span class="s">"trsf_test_4xs5px8c36dsanuwztf"</span><span class="p">);</span>
 <span class="p">//</span> <span class="n">deleteResult</span><span class="p">.</span><span class="n">deleted</span> <span class="p">=&gt;</span> <span class="k">true</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-nodejs HIDDEN">
+        <pre class="highlight plaintext"><code>omise.transfers.destroy('trsf_test_4y3miv1nhy0rceit4w4', function(error, transfer) {
+  /* Response. */
+});</code></pre>
 
       </div>
 

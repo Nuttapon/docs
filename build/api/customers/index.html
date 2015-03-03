@@ -350,6 +350,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
           <li class="EndpointExampleLang" data-lang='{ "name": "csharp" }'>
             C#
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "nodejs" }'>
+            nodejs
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -372,6 +375,12 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
         <pre class="highlight csharp"><code><span class="n">var</span> <span class="n">customers</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">CustomerService</span><span class="p">.</span><span class="nf">GetAllCustomers</span><span class="p">();</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-nodejs HIDDEN">
+        <pre class="highlight plaintext"><code>omise.customers.list(function(error, list) {
+  /* Response. */
+});</code></pre>
 
       </div>
 
@@ -475,6 +484,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
           <li class="EndpointExampleLang" data-lang='{ "name": "csharp" }'>
             C#
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "nodejs" }'>
+            nodejs
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -517,6 +529,15 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 <span class="n">var</span> <span class="n">customerResult</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">CustomerService</span><span class="p">.</span><span class="nf">CreateCustomer</span> <span class="p">(</span><span class="n">customerInfo</span><span class="p">);</span></code></pre>
 
       </div>
+      <div class="EndpointExampleCode lang-nodejs HIDDEN">
+        <pre class="highlight plaintext"><code>omise.customers.create({
+  description: 'John Doe (id: 30)',
+  email: 'john.doe@example.com'
+}, function(error, customer) {
+  /* Response. */
+});</code></pre>
+
+      </div>
 
   </div>
 
@@ -547,6 +568,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
           </li>
           <li class="EndpointExampleLang" data-lang='{ "name": "csharp" }'>
             C#
+          </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "nodejs" }'>
+            nodejs
           </li>
       </ul>
 
@@ -592,6 +616,16 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 <span class="n">customerInfo</span><span class="p">.</span><span class="n">CardId</span> <span class="p">=</span> <span class="s">"tokn_test_4xs9408a642a1htto8z"</span>
 
 <span class="n">var</span> <span class="n">customerResult</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">CustomerService</span><span class="p">.</span><span class="nf">CreateCustomer</span> <span class="p">(</span><span class="n">customerInfo</span><span class="p">);</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-nodejs HIDDEN">
+        <pre class="highlight plaintext"><code>omise.customers.create({
+  description: 'John Doe (id: 30)',
+  email: 'john.doe@example.com',
+  card: 'tokn_test_4xs9408a642a1htto8z'
+}, function(error, customer) {
+  /* Response. */
+});</code></pre>
 
       </div>
 
@@ -656,6 +690,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
           <li class="EndpointExampleLang" data-lang='{ "name": "csharp" }'>
             C#
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "nodejs" }'>
+            nodejs
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -681,6 +718,12 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
         <pre class="highlight csharp"><code><span class="n">var</span> <span class="n">customer</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">CustomerService</span><span class="p">.</span><span class="nf">GetCustomer</span><span class="p">(</span><span class="s">"cust_test_4xtrb759599jsxlhkrb"</span><span class="p">);</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-nodejs HIDDEN">
+        <pre class="highlight plaintext"><code>omise.customers.retrieve('cust_test_4xtrb759599jsxlhkrb', function(err, customer) {
+  /* Response. */
+});</code></pre>
 
       </div>
 
@@ -784,6 +827,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
           <li class="EndpointExampleLang" data-lang='{ "name": "csharp" }'>
             C#
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "nodejs" }'>
+            nodejs
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -834,6 +880,19 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 <span class="n">var</span> <span class="n">updateResult</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">CustomerService</span><span class="p">.</span><span class="nf">UpdateCustomer</span><span class="p">(</span><span class="n">customerUpdateInfo</span><span class="p">);</span></code></pre>
 
       </div>
+      <div class="EndpointExampleCode lang-nodejs HIDDEN">
+        <pre class="highlight plaintext"><code>omise.customers.update(
+  'cust_test_4xtrb759599jsxlhkrb',
+  {
+    'email': 'john.smith@example.com',
+    'description': 'Another description'
+  },
+  function(error, customer) {
+    /* Response. */
+  }
+);</code></pre>
+
+      </div>
 
   </div>
 
@@ -864,6 +923,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
           </li>
           <li class="EndpointExampleLang" data-lang='{ "name": "csharp" }'>
             C#
+          </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "nodejs" }'>
+            nodejs
           </li>
       </ul>
 
@@ -907,6 +969,16 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 <span class="n">customerUpdateInfo</span><span class="p">.</span><span class="n">CardId</span> <span class="p">=</span> <span class="s">"tokn_test_4xs9408a642a1htto8z"</span>
 
 <span class="n">var</span> <span class="n">updateResult</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">CustomerService</span><span class="p">.</span><span class="nf">UpdateCustomer</span><span class="p">(</span><span class="n">customerUpdateInfo</span><span class="p">);</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-nodejs HIDDEN">
+        <pre class="highlight plaintext"><code>omise.customers.update(
+  'cust_test_4xtrb759599jsxlhkrb',
+  {'card': 'tokn_test_4xs9408a642a1htto8z'},
+  function(error, customer) {
+    /* Response. */
+  }
+);</code></pre>
 
       </div>
 
@@ -971,6 +1043,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
           <li class="EndpointExampleLang" data-lang='{ "name": "csharp" }'>
             C#
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "nodejs" }'>
+            nodejs
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -1004,6 +1079,12 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
         <pre class="highlight csharp"><code><span class="n">var</span> <span class="n">deleteResult</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">CustomerService</span><span class="p">.</span><span class="nf">DeleteCustomer</span><span class="p">(</span><span class="s">"cust_test_4xtrb759599jsxlhkrb"</span><span class="p">);</span>
 <span class="p">//</span> <span class="n">deleteResult</span><span class="p">.</span><span class="n">deleted</span> <span class="p">=&gt;</span> <span class="k">true</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-nodejs HIDDEN">
+        <pre class="highlight plaintext"><code>omise.customers.destroy('cust_test_4xtrb759599jsxlhkrb', function(error, customer) {
+  /* Response. */
+});</code></pre>
 
       </div>
 
