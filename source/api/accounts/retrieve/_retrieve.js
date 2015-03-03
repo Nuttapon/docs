@@ -1,1 +1,3 @@
-omise.account.retrieve(function(error, account) {});
+omise.account.retrieve(function(error, account) {
+  /* Response. */
+});

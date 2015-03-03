@@ -7,4 +7,6 @@ omise.tokens.create({
     'expiration_month': 2,
     'expiration_year': 2017
   }
-}, function(error, token) {});
+}, function(error, token) {
+  /* Response. */
+});

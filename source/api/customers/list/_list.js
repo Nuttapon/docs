@@ -1,1 +1,3 @@
-omise.customers.list(function(error, list) {});
+omise.customers.list(function(error, list) {
+  /* Response. */
+});

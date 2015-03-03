@@ -1,1 +1,3 @@
-omise.transactions.list(function(error, list) {});
+omise.transactions.list(function(error, list) {
+  /* Response. */
+});

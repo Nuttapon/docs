@@ -1,1 +1,3 @@
-omise.charges.list(function(error, list) {});
+omise.charges.list(function(error, list) {
+  /* Response. */
+});

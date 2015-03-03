@@ -1,1 +1,3 @@
-omise.balance.retrieve(function(error, balance) {})
+omise.balance.retrieve(function(error, balance) {
+  /* Response. */
+});
