@@ -3,5 +3,6 @@
   "ruby": "rb",
   "python": "py",
   "php": "php",
-  "csharp": "cs"
+  "csharp": "cs",
+  "javascript": "js"
 }
