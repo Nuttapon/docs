@@ -55,7 +55,7 @@ en:
     datetime: "datetime"
     card: "card"
     list: "list"
-
+    bank_account: "bank_account"
 
   accounts:
 
@@ -104,6 +104,15 @@ en:
       examples:
         retrieve: "Retrieve the balance"
 
+  bank_accounts:
+    title: "Bank Account"
+    description: "The bank_account object encapsulates bank account information needed for transfer"
+
+    attributes:
+      object: "The string `bank_account`"
+      brand: "The bank account brand"
+      bank_account_no: "The bank account number"
+      bank_account_name: "The bank account name"    
 
   cards:
 
@@ -478,7 +487,7 @@ en:
       description: "The recipient description."
       recipient_type: "The recipient type `individual` or `corporation`"
       tax_id: "The recipient tax id"
-      bank_account: "A bank_account object."
+      bank_account: "A bank account that the recipient owns"
       status: "The recipient status. `verified` or `failed`."
       active: "The recipient activation status. `active` or `inactive`."
       created: "Creation date of the recipient in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format."
@@ -519,8 +528,17 @@ en:
     attributes:
        object: "The string `transfer`."
        id: "The `TRANSFER_ID`."
+       livemode: "Whether this is a Live (true) or Test (false) transfer."
+       location: "Path to retrieve this transfer"
+       recipient: "The id of recipient the transfer was applied"
+       bank_account: "The bank account that the transfer was applied"
+       sent: "Whether the transfer was sent or not"
+       paid: "Whether the transfer was paid or not"
        amount: "Transfer amount in the smallest currency unit (e.g. satang, cent, ... )."
        currency: "The currency as its lower-cased international 3-letter code, defined by the [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) standard."
+       failure_code: "The error code"
+       failure_message: "The error message"
+       transaction: "The `TRANSACTION_ID` of the transfer."
        created: "Creation date of the transfer in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format."
 
     list:

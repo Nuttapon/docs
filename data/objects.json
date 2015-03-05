@@ -52,6 +52,19 @@
 
   },
 
+  "bank_account": {
+    "name": "bank_account",
+    "resource_name": "bank_account",
+
+    "attributes": {
+      "object": "string",
+      "brand": "string",
+      "bank_account_no": "string",
+      "bank_account_name": "string"
+    },
+
+    "endpoints": []
+  },
 
   "card": {
 
@@ -478,7 +491,7 @@
       "description": "string",
       "recipient_type": "string",
       "tax_id": "string",
-      "bank_account": "string",
+      "bank_account": "bank_account",
       "status": "string",
       "active": "string",
       "created": "datetime"
@@ -533,8 +546,17 @@
     "attributes": {
       "object": "string",
       "id": "string",
+      "livemode": "boolean",
+      "location": "string",
+      "recipient": "string",
+      "bank_account": "bank_account",
+      "sent": "boolean",
+      "paid": "boolean",
       "amount": "integer",
       "currency": "string",
+      "failure_code": "string",
+      "failure_message": "string",
+      "transaction": "string",
       "created": "datetime"
     },
 

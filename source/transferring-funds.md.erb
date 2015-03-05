@@ -37,13 +37,13 @@ The following requirements must be met for a transfer to be created:
     -d "bank_account[bank_account_name]=James Smith"
   ```
 
-  The recipient status is 'Pending' after created. There are 2 further steps to be done before getting to transfer to the recipient, Recipient Verification and Recipient Activation. 
+  The recipient status is `Pending` after created. There are 2 further steps to be done before getting to transfer to the recipient, Recipient Verification and Recipient Activation. 
 
   Visit [recipient api](/api/recipients) For more API referrence
 
 ### Recipient verification
   
-  We normally take 2-3 days to verify the recipient. You can see the recipient detail and their verification status in the dashboard. The verification result can be either `Verified` or `Failed`.
+  Recipient verification is done by Omise. We normally take 1-2 days for this. You can see the recipient detail and their verification status in the dashboard. The verification result can be either `Verified` or `Failed`.
 
   ![Recipient list](/images/transferring_funds/recipient_list.png)
 
@@ -53,13 +53,13 @@ The following requirements must be met for a transfer to be created:
 
 ### Recipient activation
 
-  By default, the recipient is inactive until you activate it. You can activate the recipient by going to recipient detail and click at "Activate the recipient". You will then be able to transfer to the recipient.
+  By default, the recipient is inactive unless you activate it. You can do that by going to recipient detail and click at "Activate the recipient". You can then make a transfer to the recipient.
 
   ![Recipient activation](/images/transferring_funds/recipient_activation.png)
 
 ## Transfer to default recipient
 
-  There is an auto-created default recipient for each account (both TEST and LIVE) which has a bank account information that the available funds can be transfered to. The TEST recipient is available for you immediately once you sign up with Omise. 
+  Below is the sample code showing how to create a transfer to the default recipient 
 
   ```shell
     curl https://api.omise.co/transfers \
@@ -86,4 +86,4 @@ The following requirements must be met for a transfer to be created:
 
 ## Transfer timeline
 
-Transfers will be available in the recipient's bank account in the next business day if the transfer is initiated before 11 AM.
+Transfers will be available in the recipient's bank account in the next business day if the they are initiated before 11 AM.
