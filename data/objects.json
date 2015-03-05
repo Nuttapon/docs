@@ -568,6 +568,19 @@
       },
 
       {
+        "name": "create_with_recipient",
+        "verb": "POST",
+        "url": "https://api.omise.co/transfers",
+        "request_parameters": {
+          "amount": "integer",
+          "recipient": "string"
+        },
+        "examples": [
+          "create_with_recipient"
+        ]
+      },
+
+      {
         "name": "retrieve",
         "verb": "GET",
         "url": "https://api.omise.co/transfers/TRANSFER_ID",

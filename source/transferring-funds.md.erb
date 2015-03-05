@@ -12,9 +12,17 @@ The following requirements must be met for a transfer to be created:
 
 ## Recipient
 
-  Each transfer has to be made with a valid recipient. There is 2 types of recipient, individual or corporation.
+### Default recipient
+
+  There is already a default recipient created for you in TEST mode once you sign up with Omise. However, once you submit the registration form to go LIVE and got the approval from us, the default recipient for your live account will be created with the bank account information taken from the registration form.
+
+### Third party recipient
+
+  You can create as many recipients as you want, each recipient has its own bank account information. We allow transferring the balance to these recipient.
 
 ### Create a recipient
+
+  The following command demonstrates how to create a recipient using CURL
 
   ```shell
     curl https://api.omise.co/recipients \
@@ -29,36 +37,42 @@ The following requirements must be met for a transfer to be created:
     -d "bank_account[bank_account_name]=James Smith"
   ```
 
+  The recipient status is 'Pending' after created. There are 2 further steps to be done before getting to transfer to the recipient, Recipient Verification and Recipient Activation. 
+
   Visit [recipient api](/api/recipients) For more API referrence
 
 ### Recipient verification
   
-  Normally we take 2-3 days to verify the recipient (existence of bank account number and name). You have to go to your dashboard recipients page to see the list of recipients you have added. There you will be able to see the recipient detail and their verification status. 
+  We normally take 2-3 days to verify the recipient. You can see the recipient detail and their verification status in the dashboard. The verification result can be either `Verified` or `Failed`.
 
   ![Recipient list](/images/transferring_funds/recipient_list.png)
 
   ![Recipient detail](/images/transferring_funds/recipient_detail.png)
 
-  Once the recipient has been verified, you have to activate the recipient in order to transfer to.
+  Once the recipient has been `Verified`, you have to activate it to make it ready for the transfer.
 
 ### Recipient activation
 
-  You can activate the recipient by going to recipient detail and click at "Activate this recipient". The recipient will then ready for the transfer.
+  By default, the recipient is inactive until you activate it. You can activate the recipient by going to recipient detail and click at "Activate the recipient". You will then be able to transfer to the recipient.
+
+  ![Recipient activation](/images/transferring_funds/recipient_activation.png)
 
 ## Transfer to default recipient
 
-  There is a auto-created default recipient for each account (both TEST and LIVE) which has a bank account information that the available funds can be transfered to. The TEST recipient is available for you immediately once you sign up with Omise. 
+  There is an auto-created default recipient for each account (both TEST and LIVE) which has a bank account information that the available funds can be transfered to. The TEST recipient is available for you immediately once you sign up with Omise. 
 
   ```shell
     curl https://api.omise.co/transfers \
       -X POST \
       -u "$OMISE_KEY_SECRET": \
       -d "amount=350000"
+
+    # Transfer 3500 THB to default recipient
   ```
 
 ## Transfer to third party recipient
 
-  We also allow transferring funds to third party recipient. See the following command for example 
+  Transferring funds to third party recipient is similar to transfer to defaut one except that you have to specify the recipient id to transfer to. See the following command for example 
 
   ```shell
     curl https://api.omise.co/transfers \
@@ -66,4 +80,10 @@ The following requirements must be met for a transfer to be created:
       -u "$OMISE_KEY_SECRET": \
       -d "amount=350000"
       -d "recipient=recp_test_4z6p7e0m4k40txecj5o"
+
+    # Transfer 3500 THB to recipient #recp_test_4z6p7e0m4k40txecj5o
   ```
+
+## Transfer timeline
+
+Transfers will be available in the recipient's bank account in the next business day if the transfer is initiated before 11 AM.
