@@ -56,3 +56,39 @@ task :build do
   end
 
 end
+
+task :build_objects do
+  require "json"
+  require "open3"
+  puts "Generating JSON objects".center(80, "=")
+  puts "Make sure there is no error".center(80, " ")
+  pkey = ENV["pkey"]
+  skey = ENV["skey"]
+  puts "ENV['pkey']          -> #{ENV['pkey'].nil? ? 'MISSING' : 'Success'}"
+  puts "ENV['skey']          -> #{ENV['skey'].nil? ? 'MISSING' : 'Success'}"
+  requests_path = "source/object_representations/requests/"
+  responses = Hash.new({})
+  Dir.glob("#{requests_path}*.sh").sort.each do |path|
+    raw_response, error, status = Open3.capture3("#{File.read(path) % {
+      token: responses["token"]["id"],
+      customer: responses["customer"]["id"],
+      card: responses["customer"]["default_card"],
+      charge: responses["charge"]["id"],
+      skey: skey,
+      pkey: pkey,
+    } }")
+    response = JSON.parse(raw_response)
+    path_length = path.length
+    object_type = path[(requests_path.length+3)..(path_length-4)]
+    if object_type == response["object"]
+      puts "#{object_type.ljust(20)} -> Success"
+    else
+      puts "#{object_type.ljust(20)} -> ERROR! Check source/api/#{object_type}s/_response.json"
+    end
+    responses[object_type] = response
+    File.open("source/api/#{object_type}s/_response.json", "w") do |file|
+      file.puts(JSON.pretty_generate(response))
+    end
+  end
+  puts "DONE".center(80, "=")
+end
