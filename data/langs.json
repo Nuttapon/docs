@@ -4,5 +4,6 @@
   "python": "py",
   "php": "php",
   "csharp": "cs",
-  "javascript": "js"
+  "javascript": "js",
+  "java": "java"
 }

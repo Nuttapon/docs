@@ -46,6 +46,7 @@ en:
     csharp: "C#"
     php: "php"
     javascript: "node.js"
+    java: "java"
 
   types:
     object_id: "object_id"
