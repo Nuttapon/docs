@@ -428,6 +428,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
           <li class="EndpointExampleLang" data-lang='{ "name": "javascript" }'>
             node.js
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "java" }'>
+            java
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -458,6 +461,10 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
         <pre class="highlight javascript"><code><span class="nx">omise</span><span class="p">.</span><span class="nx">charges</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
   <span class="cm">/* Response. */</span>
 <span class="p">});</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-java HIDDEN">
+        <pre class="highlight java"><code><span class="n">Charges</span> <span class="n">charges</span> <span class="o">=</span> <span class="n">Charge</span><span class="o">.</span><span class="na">retrieve</span><span class="o">();</span></code></pre>
 
       </div>
 
@@ -613,6 +620,9 @@ passed with a token, with a customer, or with both a customer and a card.</p>
           <li class="EndpointExampleLang" data-lang='{ "name": "javascript" }'>
             node.js
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "java" }'>
+            java
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -670,6 +680,14 @@ passed with a token, with a customer, or with both a customer and a card.</p>
 <span class="p">});</span></code></pre>
 
       </div>
+      <div class="EndpointExampleCode lang-java HIDDEN">
+        <pre class="highlight java"><code><span class="n">Charge</span> <span class="n">charge</span> <span class="o">=</span> <span class="n">Charge</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;()</span> <span class="o">{</span>
+		<span class="o">{</span><span class="n">put</span><span class="o">(</span><span class="s">"amount"</span><span class="o">,</span> <span class="mi">100000</span><span class="o">);}</span>
+		<span class="o">{</span><span class="n">put</span><span class="o">(</span><span class="s">"currency"</span><span class="o">,</span> <span class="s">"thb"</span><span class="o">);}</span>
+		<span class="o">{</span><span class="n">put</span><span class="o">(</span><span class="s">"card"</span><span class="o">,</span> <span class="s">"tokn_test_4xs9408a642a1htto8z"</span><span class="o">);}</span>
+	<span class="o">});</span></code></pre>
+
+      </div>
 
   </div>
 
@@ -703,6 +721,9 @@ passed with a token, with a customer, or with both a customer and a card.</p>
           </li>
           <li class="EndpointExampleLang" data-lang='{ "name": "javascript" }'>
             node.js
+          </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "java" }'>
+            java
           </li>
       </ul>
 
@@ -755,6 +776,14 @@ passed with a token, with a customer, or with both a customer and a card.</p>
 <span class="p">});</span></code></pre>
 
       </div>
+      <div class="EndpointExampleCode lang-java HIDDEN">
+        <pre class="highlight java"><code><span class="n">Charge</span> <span class="n">charge</span> <span class="o">=</span> <span class="n">Charge</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;()</span> <span class="o">{</span>
+		<span class="o">{</span><span class="n">put</span><span class="o">(</span><span class="s">"amount"</span><span class="o">,</span> <span class="mi">100000</span><span class="o">);}</span>
+		<span class="o">{</span><span class="n">put</span><span class="o">(</span><span class="s">"currency"</span><span class="o">,</span> <span class="s">"thb"</span><span class="o">);}</span>
+		<span class="o">{</span><span class="n">put</span><span class="o">(</span><span class="s">"customer"</span><span class="o">,</span> <span class="s">"cust_test_4xtrb759599jsxlhkrb"</span><span class="o">);}</span>
+	<span class="o">});</span></code></pre>
+
+      </div>
 
   </div>
 
@@ -788,6 +817,9 @@ passed with a token, with a customer, or with both a customer and a card.</p>
           </li>
           <li class="EndpointExampleLang" data-lang='{ "name": "javascript" }'>
             node.js
+          </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "java" }'>
+            java
           </li>
       </ul>
 
@@ -843,6 +875,15 @@ passed with a token, with a customer, or with both a customer and a card.</p>
 <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">charge</span><span class="p">)</span> <span class="p">{</span>
   <span class="cm">/* Response. */</span>
 <span class="p">});</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-java HIDDEN">
+        <pre class="highlight java"><code><span class="n">Charge</span> <span class="n">charge</span> <span class="o">=</span> <span class="n">Charge</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;()</span> <span class="o">{</span>
+		<span class="o">{</span><span class="n">put</span><span class="o">(</span><span class="s">"amount"</span><span class="o">,</span> <span class="mi">100000</span><span class="o">);}</span>
+		<span class="o">{</span><span class="n">put</span><span class="o">(</span><span class="s">"currency"</span><span class="o">,</span> <span class="s">"thb"</span><span class="o">);}</span>
+		<span class="o">{</span><span class="n">put</span><span class="o">(</span><span class="s">"customer"</span><span class="o">,</span> <span class="s">"cust_test_4xtrb759599jsxlhkrb"</span><span class="o">);}</span>
+		<span class="o">{</span><span class="n">put</span><span class="o">(</span><span class="s">"card"</span><span class="o">,</span> <span class="s">"card_test_4xtsoy2nbfs7ujngyyq"</span><span class="o">);}</span>
+	<span class="o">});</span></code></pre>
 
       </div>
 
@@ -906,6 +947,9 @@ passed with a token, with a customer, or with both a customer and a card.</p>
           <li class="EndpointExampleLang" data-lang='{ "name": "javascript" }'>
             node.js
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "java" }'>
+            java
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -937,6 +981,10 @@ passed with a token, with a customer, or with both a customer and a card.</p>
         <pre class="highlight javascript"><code><span class="nx">omise</span><span class="p">.</span><span class="nx">charges</span><span class="p">.</span><span class="nx">retrieve</span><span class="p">(</span><span class="s1">'chrg_test_4xso2s8ivdej29pqnhz'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">charge</span><span class="p">)</span> <span class="p">{</span>
   <span class="cm">/* Response. */</span>
 <span class="p">});</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-java HIDDEN">
+        <pre class="highlight java"><code><span class="n">Charge</span> <span class="n">charge</span> <span class="o">=</span> <span class="n">Charge</span><span class="o">.</span><span class="na">retrieve</span><span class="o">(</span><span class="s">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="o">);</span></code></pre>
 
       </div>
 
@@ -1028,6 +1076,9 @@ modified is its description.</p>
           <li class="EndpointExampleLang" data-lang='{ "name": "javascript" }'>
             node.js
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "java" }'>
+            java
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -1078,6 +1129,13 @@ modified is its description.</p>
     <span class="cm">/* Response. */</span>
   <span class="p">}</span>
 <span class="p">);</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-java HIDDEN">
+        <pre class="highlight java"><code><span class="n">Charge</span> <span class="n">charge</span> <span class="o">=</span> <span class="n">Charge</span><span class="o">.</span><span class="na">retrieve</span><span class="o">(</span><span class="s">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="o">)</span>
+<span class="n">charge</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;()</span> <span class="o">{</span>
+		<span class="o">{</span><span class="n">put</span><span class="o">(</span><span class="s">"description"</span><span class="o">,</span> <span class="s">"Another description"</span><span class="o">);}</span>
+	<span class="o">});</span></code></pre>
 
       </div>
 
@@ -1148,6 +1206,9 @@ vary between cards from 1 to 30 days.</p>
           <li class="EndpointExampleLang" data-lang='{ "name": "javascript" }'>
             node.js
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "java" }'>
+            java
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -1184,6 +1245,11 @@ vary between cards from 1 to 30 days.</p>
 <span class="nx">omise</span><span class="p">.</span><span class="nx">charges</span><span class="p">.</span><span class="nx">capture</span><span class="p">(</span><span class="s1">'chrg_test_4xso2s8ivdej29pqnhz'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">charge</span><span class="p">)</span> <span class="p">{</span>
   <span class="cm">/* Response. */</span>
 <span class="p">});</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-java HIDDEN">
+        <pre class="highlight java"><code><span class="n">Charge</span> <span class="n">charge</span> <span class="o">=</span> <span class="n">Charge</span><span class="o">.</span><span class="na">retrieve</span><span class="o">(</span><span class="s">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="o">);</span>
+<span class="n">charge</span><span class="o">.</span><span class="na">capture</span><span class="o">();</span></code></pre>
 
       </div>
 

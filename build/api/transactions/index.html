@@ -289,6 +289,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
           <li class="EndpointExampleLang" data-lang='{ "name": "javascript" }'>
             node.js
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "java" }'>
+            java
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -317,6 +320,10 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
         <pre class="highlight javascript"><code><span class="nx">omise</span><span class="p">.</span><span class="nx">transactions</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
   <span class="cm">/* Response. */</span>
 <span class="p">});</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-java HIDDEN">
+        <pre class="highlight java"><code><span class="n">Transactions</span> <span class="n">transactions</span> <span class="o">=</span> <span class="n">Transaction</span><span class="o">.</span><span class="na">retrieve</span><span class="o">();</span></code></pre>
 
       </div>
 
@@ -380,6 +387,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
           <li class="EndpointExampleLang" data-lang='{ "name": "javascript" }'>
             node.js
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "java" }'>
+            java
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -410,6 +420,10 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
         <pre class="highlight javascript"><code><span class="nx">omise</span><span class="p">.</span><span class="nx">transactions</span><span class="p">.</span><span class="nx">retrieve</span><span class="p">(</span><span class="s1">'trxn_test_4xuy2z4w5vmvq4x5pfs'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">transaction</span><span class="p">)</span> <span class="p">{</span>
   <span class="cm">/* Response. */</span>
 <span class="p">});</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-java HIDDEN">
+        <pre class="highlight java"><code><span class="n">Transaction</span> <span class="n">transaction</span> <span class="o">=</span> <span class="n">Transaction</span><span class="o">.</span><span class="na">retrieve</span><span class="o">(</span><span class="s">"trxn_test_4xuy2z4w5vmvq4x5pfs"</span><span class="o">);</span></code></pre>
 
       </div>
 

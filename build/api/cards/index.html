@@ -377,6 +377,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
           <li class="EndpointExampleLang" data-lang='{ "name": "javascript" }'>
             node.js
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "java" }'>
+            java
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -411,6 +414,11 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
         <pre class="highlight javascript"><code><span class="nx">omise</span><span class="p">.</span><span class="nx">customers</span><span class="p">.</span><span class="nx">listCards</span><span class="p">(</span><span class="s1">'cust_test_4xsjvylia03ur542vn6'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
   <span class="cm">/* Response. */</span>
 <span class="p">});</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-java HIDDEN">
+        <pre class="highlight java"><code><span class="n">Customer</span> <span class="n">customer</span> <span class="o">=</span> <span class="n">Customer</span><span class="o">.</span><span class="na">retrieve</span><span class="o">(</span><span class="s">"cust_test_4xsjvylia03ur542vn6"</span><span class="o">);</span>
+<span class="n">Card</span> <span class="n">card</span> <span class="o">=</span> <span class="n">customer</span><span class="o">.</span><span class="na">getCards</span><span class="o">();</span></code></pre>
 
       </div>
 
@@ -479,6 +487,9 @@ to the customer which match <code>CUSTOMER_ID</code>.</p>
           <li class="EndpointExampleLang" data-lang='{ "name": "javascript" }'>
             node.js
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "java" }'>
+            java
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -527,6 +538,14 @@ to the customer which match <code>CUSTOMER_ID</code>.</p>
     <span class="cm">/* Response. */</span>
   <span class="p">}</span>
 <span class="p">);</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-java HIDDEN">
+        <pre class="highlight java"><code><span class="n">Customer</span> <span class="n">customer</span> <span class="o">=</span> <span class="n">Customer</span><span class="o">.</span><span class="na">retrieve</span><span class="o">(</span><span class="s">"cust_test_4xsjvylia03ur542vn6"</span><span class="o">);</span>
+<span class="n">Card</span> <span class="n">card</span> <span class="o">=</span> <span class="n">customer</span><span class="o">.</span><span class="na">getCards</span><span class="o">().</span><span class="na">retrieve</span><span class="o">(</span><span class="s">"card_test_4xsjw0t21xaxnuzi9gs"</span><span class="o">);</span>
+
+<span class="err">#</span> <span class="n">Note</span> <span class="n">that</span> <span class="n">you</span> <span class="n">can</span> <span class="n">reload</span> <span class="n">the</span> <span class="n">card</span> <span class="n">once</span> <span class="n">you</span> <span class="n">have</span> <span class="n">an</span> <span class="n">instance</span> <span class="n">of</span> <span class="n">one</span><span class="o">.</span>
+<span class="n">card</span><span class="o">.</span><span class="na">reload</span><span class="o">();</span></code></pre>
 
       </div>
 
@@ -650,6 +669,9 @@ match <code>CUSTOMER_ID</code>.</p>
           <li class="EndpointExampleLang" data-lang='{ "name": "javascript" }'>
             node.js
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "java" }'>
+            java
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -732,6 +754,17 @@ match <code>CUSTOMER_ID</code>.</p>
 <span class="p">);</span></code></pre>
 
       </div>
+      <div class="EndpointExampleCode lang-java HIDDEN">
+        <pre class="highlight java"><code><span class="n">Customer</span> <span class="n">customer</span> <span class="o">=</span> <span class="n">Customer</span><span class="o">.</span><span class="na">retrieve</span><span class="o">(</span><span class="s">"cust_test_4xsjvylia03ur542vn6"</span><span class="o">);</span>
+<span class="n">Card</span> <span class="n">card</span> <span class="o">=</span> <span class="n">customer</span><span class="o">.</span><span class="na">getCards</span><span class="o">().</span><span class="na">retrieve</span><span class="o">(</span><span class="s">"card_test_4xsjw0t21xaxnuzi9gs"</span><span class="o">);</span>
+<span class="n">card</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;()</span> <span class="o">{</span>
+	<span class="o">{</span><span class="n">put</span><span class="o">(</span><span class="s">"expiration_month"</span><span class="o">,</span> <span class="mi">11</span><span class="o">);}</span>
+	<span class="o">{</span><span class="n">put</span><span class="o">(</span><span class="s">"expiration_year"</span><span class="o">,</span> <span class="mi">2017</span><span class="o">);}</span>
+	<span class="o">{</span><span class="n">put</span><span class="o">(</span><span class="s">"name"</span><span class="o">,</span> <span class="s">"Somchai Praset"</span><span class="o">);}</span>
+	<span class="o">{</span><span class="n">put</span><span class="o">(</span><span class="s">"postal_code"</span><span class="o">,</span> <span class="s">"10310"</span><span class="o">);}</span>
+<span class="o">});</span></code></pre>
+
+      </div>
 
   </div>
 
@@ -798,6 +831,9 @@ match <code>CUSTOMER_ID</code>.</p>
           <li class="EndpointExampleLang" data-lang='{ "name": "javascript" }'>
             node.js
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "java" }'>
+            java
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -842,6 +878,13 @@ match <code>CUSTOMER_ID</code>.</p>
     <span class="cm">/* Response. */</span>
   <span class="p">}</span>
 <span class="p">);</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-java HIDDEN">
+        <pre class="highlight java"><code><span class="n">Customer</span> <span class="n">customer</span> <span class="o">=</span> <span class="n">Customer</span><span class="o">.</span><span class="na">retrieve</span><span class="o">(</span><span class="s">"cust_test_4xsjvylia03ur542vn6"</span><span class="o">);</span>
+<span class="n">Card</span> <span class="n">card</span> <span class="o">=</span> <span class="n">customer</span><span class="o">.</span><span class="na">getCards</span><span class="o">().</span><span class="na">retrieve</span><span class="o">(</span><span class="s">"card_test_4xsjw0t21xaxnuzi9gs"</span><span class="o">);</span>
+<span class="n">DeleteCard</span> <span class="n">deleteCard</span> <span class="o">=</span> <span class="n">card</span><span class="o">.</span><span class="na">destroy</span><span class="o">();</span>
+<span class="n">deleteCard</span><span class="o">.</span><span class="na">isDestroyed</span><span class="o">();</span> <span class="err">#</span> <span class="o">=&gt;</span> <span class="kc">true</span></code></pre>
 
       </div>
 

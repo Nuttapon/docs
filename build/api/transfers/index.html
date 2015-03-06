@@ -294,6 +294,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
           <li class="EndpointExampleLang" data-lang='{ "name": "javascript" }'>
             node.js
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "java" }'>
+            java
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -322,6 +325,10 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
         <pre class="highlight javascript"><code><span class="nx">omise</span><span class="p">.</span><span class="nx">transfers</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
   <span class="cm">/* Response. */</span>
 <span class="p">});</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-java HIDDEN">
+        <pre class="highlight java"><code><span class="n">Transfers</span> <span class="n">transfers</span> <span class="o">=</span> <span class="n">Transfer</span><span class="o">.</span><span class="na">retrieve</span><span class="o">();</span></code></pre>
 
       </div>
 
@@ -412,6 +419,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
           <li class="EndpointExampleLang" data-lang='{ "name": "javascript" }'>
             node.js
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "java" }'>
+            java
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -445,6 +455,12 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
         <pre class="highlight javascript"><code><span class="nx">omise</span><span class="p">.</span><span class="nx">transfers</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span><span class="s1">'amount'</span><span class="p">:</span> <span class="s1">'100000'</span><span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">transfer</span><span class="p">)</span> <span class="p">{</span>
   <span class="cm">/* Response. */</span>
 <span class="p">});</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-java HIDDEN">
+        <pre class="highlight java"><code><span class="n">Transfer</span> <span class="n">transfer</span> <span class="o">=</span> <span class="n">Transfer</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;()</span> <span class="o">{</span>
+		<span class="o">{</span><span class="n">put</span><span class="o">(</span><span class="s">"amount"</span><span class="o">,</span> <span class="mi">100000</span><span class="o">);}</span>
+	<span class="o">});</span></code></pre>
 
       </div>
 
@@ -512,6 +528,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
           <li class="EndpointExampleLang" data-lang='{ "name": "javascript" }'>
             node.js
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "java" }'>
+            java
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -542,6 +561,10 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
         <pre class="highlight javascript"><code><span class="nx">omise</span><span class="p">.</span><span class="nx">transfers</span><span class="p">.</span><span class="nx">retrieve</span><span class="p">(</span><span class="s1">'trsf_test_4xs5px8c36dsanuwztf'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">transfer</span><span class="p">)</span> <span class="p">{</span>
   <span class="cm">/* Response. */</span>
 <span class="p">});</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-java HIDDEN">
+        <pre class="highlight java"><code><span class="n">Transfer</span> <span class="n">transfer</span> <span class="o">=</span> <span class="n">Transfer</span><span class="o">.</span><span class="na">retrieve</span><span class="o">(</span><span class="s">"trsf_test_4xs5px8c36dsanuwztf"</span><span class="o">);</span></code></pre>
 
       </div>
 
@@ -632,6 +655,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
           <li class="EndpointExampleLang" data-lang='{ "name": "javascript" }'>
             node.js
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "java" }'>
+            java
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -675,6 +701,13 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
     <span class="cm">/* Response. */</span>
   <span class="p">}</span>
 <span class="p">);</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-java HIDDEN">
+        <pre class="highlight java"><code><span class="n">Transfer</span> <span class="n">transfer</span> <span class="o">=</span> <span class="n">Transfer</span><span class="o">.</span><span class="na">retrieve</span><span class="o">(</span><span class="s">"trsf_test_4xs5px8c36dsanuwztf"</span><span class="o">);</span>
+<span class="n">transfer</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;()</span> <span class="o">{</span>
+		<span class="o">{</span><span class="n">put</span><span class="o">(</span><span class="s">"amount"</span><span class="o">,</span> <span class="mi">50000</span><span class="o">);}</span>
+	<span class="o">});</span></code></pre>
 
       </div>
 
@@ -742,6 +775,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
           <li class="EndpointExampleLang" data-lang='{ "name": "javascript" }'>
             node.js
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "java" }'>
+            java
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -779,6 +815,12 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
         <pre class="highlight javascript"><code><span class="nx">omise</span><span class="p">.</span><span class="nx">transfers</span><span class="p">.</span><span class="nx">destroy</span><span class="p">(</span><span class="s1">'trsf_test_4y3miv1nhy0rceit4w4'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">transfer</span><span class="p">)</span> <span class="p">{</span>
   <span class="cm">/* Response. */</span>
 <span class="p">});</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-java HIDDEN">
+        <pre class="highlight java"><code><span class="n">Transfer</span> <span class="n">transfer</span> <span class="o">=</span> <span class="n">Transfer</span><span class="o">.</span><span class="na">retrieve</span><span class="o">(</span><span class="s">"trsf_test_4xs5px8c36dsanuwztf"</span><span class="o">);</span>
+<span class="n">DeleteTransfer</span> <span class="n">deleteTransfer</span> <span class="o">=</span> <span class="n">transfer</span><span class="o">.</span><span class="na">destroy</span><span class="o">();</span>
+<span class="n">deleteTransfer</span><span class="o">.</span><span class="na">isDestroyed</span><span class="o">();</span> <span class="err">#</span> <span class="o">=&gt;</span> <span class="kc">true</span></code></pre>
 
       </div>
 

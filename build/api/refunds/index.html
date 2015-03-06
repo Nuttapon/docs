@@ -235,6 +235,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
           <li class="EndpointExampleLang" data-lang='{ "name": "javascript" }'>
             node.js
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "java" }'>
+            java
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -267,6 +270,11 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
         <pre class="highlight javascript"><code><span class="nx">omise</span><span class="p">.</span><span class="nx">charges</span><span class="p">.</span><span class="nx">listRefunds</span><span class="p">(</span><span class="s1">'chrg_test_4xso2s8ivdej29pqnhz'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
   <span class="cm">/* Response. */</span>
 <span class="p">});</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-java HIDDEN">
+        <pre class="highlight java"><code><span class="n">Charge</span> <span class="n">charge</span> <span class="o">=</span> <span class="n">Charge</span><span class="o">.</span><span class="na">retrieve</span><span class="o">(</span><span class="s">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="o">);</span>
+<span class="n">Refunds</span> <span class="n">refunds</span> <span class="o">=</span> <span class="n">charge</span><span class="o">.</span><span class="na">refunds</span><span class="o">();</span></code></pre>
 
       </div>
 
@@ -357,6 +365,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
           <li class="EndpointExampleLang" data-lang='{ "name": "javascript" }'>
             node.js
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "java" }'>
+            java
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -395,6 +406,13 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
     <span class="cm">/* Response. */</span>
   <span class="p">}</span>
 <span class="p">);</span></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-java HIDDEN">
+        <pre class="highlight java"><code><span class="n">Charge</span> <span class="n">charge</span> <span class="o">=</span> <span class="n">Charge</span><span class="o">.</span><span class="na">retrieve</span><span class="o">(</span><span class="s">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="o">);</span>
+<span class="n">charge</span><span class="o">.</span><span class="na">refunds</span><span class="o">().</span><span class="na">create</span><span class="o">(</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;()</span> <span class="o">{</span>
+		<span class="o">{</span><span class="n">put</span><span class="o">(</span><span class="s">"amount"</span><span class="o">,</span> <span class="mi">10000</span><span class="o">);}</span>
+	<span class="o">});</span></code></pre>
 
       </div>
 
@@ -462,6 +480,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
           <li class="EndpointExampleLang" data-lang='{ "name": "javascript" }'>
             node.js
           </li>
+          <li class="EndpointExampleLang" data-lang='{ "name": "java" }'>
+            java
+          </li>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
@@ -489,6 +510,11 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
       </div>
       <div class="EndpointExampleCode lang-javascript HIDDEN">
         <pre class="highlight javascript"><code></code></pre>
+
+      </div>
+      <div class="EndpointExampleCode lang-java HIDDEN">
+        <pre class="highlight java"><code><span class="n">Charge</span> <span class="n">charge</span> <span class="o">=</span> <span class="n">Charge</span><span class="o">.</span><span class="na">retrieve</span><span class="o">(</span><span class="s">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="o">);</span>
+<span class="n">Refund</span> <span class="n">refund</span> <span class="o">=</span> <span class="n">charge</span><span class="o">.</span><span class="na">refunds</span><span class="o">().</span><span class="na">retrieve</span><span class="o">(</span><span class="s">"rfnd_test_4ypebtxon6oye5o8myu"</span><span class="o">);</span></code></pre>
 
       </div>
 
