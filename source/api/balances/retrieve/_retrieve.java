@@ -1,4 +1,4 @@
 Balance balance = Balance.retrieve();
 
-# After retrieving it, the account can be refreshed:
+# After retrieving it, the balance can be refreshed:
 balance.reload();
