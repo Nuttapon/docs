@@ -1,8 +1,8 @@
 {
   "object": "card",
-  "id": "card_test_4z9f62wadvhqp345zal",
+  "id": "card_test_4z9prs97rrpg11nxcps",
   "livemode": false,
-  "location": "/customers/cust_test_4z9f5jq2aswjsnlzm7v/cards/card_test_4z9f62wadvhqp345zal",
+  "location": "/customers/cust_test_4z9psbuhupqxux0gt3n/cards/card_test_4z9prs97rrpg11nxcps",
   "country": "us",
   "city": "Bangkok",
   "postal_code": "10320",
@@ -14,5 +14,5 @@
   "fingerprint": "mKleiBfwp+PoJWB/ipngANuECUmRKjyxROwFW5IO7TM=",
   "name": "Somchai Prasert",
   "security_code_check": true,
-  "created": "2015-03-05T08:07:19Z"
+  "created": "2015-03-06T02:11:38Z"
 }

@@ -1,10 +1,10 @@
 {
   "object": "refund",
-  "id": "rfnd_test_4z9f63arl7z65uv1lh1",
-  "location": "/charges/chrg_test_4z9f5jww40wjr3bmsqp/refunds/rfnd_test_4z9f63arl7z65uv1lh1",
+  "id": "rfnd_test_4z9prsoukqoaniof8nu",
+  "location": "/charges/chrg_test_4z9psc1ximo7bppx7hu/refunds/rfnd_test_4z9prsoukqoaniof8nu",
   "amount": 20000,
   "currency": "thb",
-  "charge": "chrg_test_4z9f5jww40wjr3bmsqp",
-  "transaction": "trxn_test_4z9f63b0lipmoyk9ph1",
-  "created": "2015-03-05T08:07:20Z"
+  "charge": "chrg_test_4z9psc1ximo7bppx7hu",
+  "transaction": "trxn_test_4z9prsp0uis1skurwzk",
+  "created": "2015-03-06T02:11:40Z"
 }

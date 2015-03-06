@@ -64,8 +64,8 @@ task :build_objects do
   puts "Make sure there is no error".center(80, " ")
   pkey = ENV["pkey"]
   skey = ENV["skey"]
-  puts "ENV['pkey']          -> #{ENV['pkey'].nil? ? 'MISSING' : 'Success'}"
-  puts "ENV['skey']          -> #{ENV['skey'].nil? ? 'MISSING' : 'Success'}"
+  puts "ENV['pkey']          -> #{ENV['pkey'].nil? ? 'ERROR! Make sure it is set.' : 'Success'}"
+  puts "ENV['skey']          -> #{ENV['skey'].nil? ? 'ERROR! Make sure it is set.' : 'Success'}"
   requests_path = "source/object_representations/requests/"
   responses = Hash.new({})
   Dir.glob("#{requests_path}*.sh").sort.each do |path|
@@ -82,13 +82,13 @@ task :build_objects do
     object_type = path[(requests_path.length+3)..(path_length-4)]
     if object_type == response["object"]
       puts "#{object_type.ljust(20)} -> Success"
+      File.open("source/api/#{object_type}s/_response.json", "w") do |file|
+        file.puts(JSON.pretty_generate(response))
+      end
     else
       puts "#{object_type.ljust(20)} -> ERROR! Check source/api/#{object_type}s/_response.json"
     end
     responses[object_type] = response
-    File.open("source/api/#{object_type}s/_response.json", "w") do |file|
-      file.puts(JSON.pretty_generate(response))
-    end
   end
   puts "DONE".center(80, "=")
 end
