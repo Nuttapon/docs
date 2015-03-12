@@ -5,6 +5,7 @@ card.ExpirationMonth = 10;
 card.ExpirationYear = 2018;
 card.City = "Bangkok";
 card.PostalCode = "10320";
+card.SecurityCode = "123";
 
 var token = new TokenInfo ();
 token.Card = card;
