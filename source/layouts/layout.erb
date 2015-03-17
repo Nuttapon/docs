@@ -43,6 +43,7 @@
         <% else %>
           <%= yield %>
         <% end %>
+        <%= partial "shared/footer" %>
       </div>
     </div>
 
@@ -50,7 +51,6 @@
       <input type="search">
     </div>
 
-    <%= partial "shared/footer" %>
     <%= partial "shared/google_analytics" if build? %>
 
   </body>
