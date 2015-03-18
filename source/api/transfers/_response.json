@@ -1,6 +1,14 @@
 {
-  "object": "error",
-  "location": "https://docs.omise.co/api/errors#not-found",
-  "code": "not_found",
-  "message": "transfer trsf_test_4y3i4d7lghq78ntxt8m was not found"
+  "object": "transfer",
+  "id": "trsf_test_4zefok7nt4m2ghyrulb",
+  "livemode": false,
+  "location": "/transfers/trsf_test_4zefok7nt4m2ghyrulb",
+  "sent": false,
+  "paid": false,
+  "amount": 100000,
+  "currency": "thb",
+  "failure_code": null,
+  "failure_message": null,
+  "transaction": null,
+  "created": "2015-03-18T03:47:55Z"
 }
