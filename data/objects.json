@@ -150,6 +150,10 @@
       "captured": "boolean",
       "transaction": "string",
       "card": "card",
+      "refunded": "integer",
+      "refunds": "list",
+      "failure_code": "string",
+      "failure_message": "string",
       "customer": "string",
       "ip": "string",
       "created": "datetime"
