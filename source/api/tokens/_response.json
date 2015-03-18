@@ -1,24 +1,25 @@
 {
   "object": "token",
-  "id": "tokn_test_4xs9408a642a1htto8z",
+  "id": "tokn_test_4z9prs98vhdkk3w7xoj",
   "livemode": false,
-  "location": "/tokens/tokn_test_4xs9408a642a1htto8z",
+  "location": "/tokens/tokn_test_4z9prs98vhdkk3w7xoj",
   "used": false,
   "card": {
     "object": "card",
-    "id": "card_test_4xs94086bpvq56tghuo",
+    "id": "card_test_4z9prs97rrpg11nxcps",
     "livemode": false,
-    "country": "th",
+    "country": "us",
     "city": "Bangkok",
     "postal_code": "10320",
-    "financing": "credit",
+    "financing": "",
     "last_digits": "4242",
     "brand": "Visa",
     "expiration_month": 10,
     "expiration_year": 2018,
-    "fingerprint": "/LCaOoTah/+As+qKsohIldZkEfew0Zq2nJKgIObRwMI=",
+    "fingerprint": "mKleiBfwp+PoJWB/ipngANuECUmRKjyxROwFW5IO7TM=",
     "name": "Somchai Prasert",
-    "created": "2014-10-20T09:41:56Z"
+    "security_code_check": true,
+    "created": "2015-03-06T02:11:38Z"
   },
-  "created": "2014-10-20T09:41:56Z"
+  "created": "2015-03-06T02:11:38Z"
 }
