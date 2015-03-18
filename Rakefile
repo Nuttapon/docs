@@ -25,7 +25,9 @@ task :build do
       .gsub("\n", " ")
       .gsub(/[ ]+/, " ")
 
-    absolute_path = path.gsub(/^build/, "").gsub(/\/index.html$/, "")
+    absolute_path = path.gsub(/^build/, "")
+      .gsub(/\/index\.html$/, "")
+      .gsub(/\.html$/, "")
     absolute_path = absolute_path == "" ? "/" : absolute_path
 
     documents[absolute_path] = { title: doc.title.gsub(/^Omise\: /, ""), content: text }

@@ -1,7 +1,5 @@
 $markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
 
-activate :directory_indexes
-
 activate :syntax
 
 activate :i18n
@@ -16,6 +14,7 @@ set :markdown_engine, :redcarpet
 set :markdown, fenced_code_blocks: true, tables: true, with_toc_data: true
 
 configure :development do
+  activate :directory_indexes
   activate :livereload
 end
 
