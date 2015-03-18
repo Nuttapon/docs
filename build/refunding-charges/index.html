@@ -5,7 +5,7 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <link rel="shortcut icon" href="/images/favicon-dfe3f165.png">
 
-      <title>Omise: Getting Started</title>
+      <title>Omise: Refunding Charges</title>
 
       <link srel="stylesheet" href="https://cdn1.omise.co/fonts/inconsolata.css">
       <link srel="stylesheet" href="https://cdn2.omise.co/fonts/lato.css">
@@ -14,10 +14,10 @@
     <script src="/javascripts/all-40e0ffb7.js" type="text/javascript"></script>
 
     <!-- Facebook OpenGraph -->
-    <meta property="og:title" content="Omise: translation missing: en.Getting Started" />
+    <meta property="og:title" content="Omise: translation missing: en.Refunding Charges" />
     <meta property="og:image" content="https://cdn.omise.co/assets/omise-2x.png" />
   </head>
-  <body class="index">
+  <body class="refunding-charges refunding-charges_index">
 
     <header class="Header">
   <div class="HeaderInner"><div class="Wrapper">
@@ -48,10 +48,10 @@
       <nav class="Nav"><div class="NavInner">
   <h2>Documentation</h2>
   <ul>
-    <li><a class="Current" href="/">Getting Started</a></li>
+    <li><a href="/">Getting Started</a></li>
     <li><a href="/collecting-card-information">Collecting Cards</a></li>
     <li><a href="/charging-cards">Charging Cards</a></li>
-    <li><a href="/refunding-charges">Refunding Charges</a></li>
+    <li><a class="Current" href="/refunding-charges">Refunding Charges</a></li>
   </ul>
 
   <h2>References</h2>
@@ -80,45 +80,35 @@
 </div></nav>
       <div class="MainContent">
           <header class="PageHeader">
-            <h1 class="PageTitle">Getting Started</h1>
-              <p>In these pages you&#39;ll find all information you need to get started and start receiving payments on your website.</p>
-
+            <h1 class="PageTitle">Refunding Charges</h1>
           </header>
           <div class="Page">
-            <h2 id="how-it-all-works">How It All Works</h2>
+            <h3 id="what-is-this?">What is this?</h3>
 
-<p>The first articles will give you a general overview of Omise so you have a good understanding of how all the pieces fall into place. More details are available for each steps into their own separate articles.</p>
+<p>In order to get you up and running as quickly as possible, we added the ability to create refunds directly from our Dashboard.</p>
 
-<h3 id="collecting-credit-card-information">Collecting Credit Card Information</h3>
+<h2 id="create-a-refund">Create a refund</h2>
 
-<p>The first step is to collect your customer credit card information. Any sensitive card data that transits, gets stored or processed through your server requires that you pass an audit in order to be <a href="https://www.pcisecuritystandards.org/security_standards/documents.php?agreements=pcidss&amp;association=pcidss">PCI compliant</a>.
-This is where Omise comes in: We are PCI certified and our API allows your server to never touch sensitive data!</p>
-
-<p>To collect credit cards on your website, Omise offers a small Javascript library called <a href="https://github.com/omise/omise.js">Omise.js</a>. It can be integrated on your website very easily and will still allow you to use your own forms.
-It works by tokenizing the card:</p>
+<p>The following requirements must be met for a charge to be refundable:</p>
 
 <ul>
-<li> Your users fill in their credit card details on your form. They never leave your website!</li>
-<li> Omise.js sends us the data and we return a token.</li>
-<li> You can use this token to create a one-time charge or save the card under a Customer on our servers for later use.</li>
+<li>It must be either <code>pending</code> or <code>closed</code></li>
+<li>It must have been <code>captured</code></li>
+<li>It must not be already fully refunded</li>
+<li>It must have been settled within 1 year</li>
 </ul>
 
-<p><strong><a href="/collecting-card-information/">Learn more about Omise.js and Tokens</a></strong></p>
+<p>First, log in to the dashboard and find the charge you want to refund.</p>
 
-<h3 id="charging-cards">Charging Cards</h3>
+<p>Assuming the charge meets all requirements, you will find the &quot;Refund&quot; button here:</p>
 
-<p>Next up is charging your customer card. This can be done using the token you received during the previous step. We offer multiple options for this: You can use one of our libraries, your language standard library or even curl. Our API follows a REST architecture.</p>
+<p><img alt="Refund button" src="/images/refunds_gui/refund_button-f5855218.png" /></p>
 
-<p>Omise also offers a convenient abstraction atop Cards called Customers. If you choose to use the token to attach the card to a customer, you can reuse that customer object later on to charge the card again. Your users will never have to enter their details twice!</p>
+<p>Clicking on it gives you the choice to do a full or partial refund:</p>
 
-<p><strong><a href="/charging-cards/">Learn more on how to charge cards</a></strong></p>
+<p><img alt="Refund creation" src="/images/refunds_gui/refund_creation-1a910903.png" /></p>
 
-<h3 id="quick-start-guide">Quick Start Guide</h3>
-
-<p>This guide is designed to get you testing and seeing how easy you can get start
-charging with Omise as quickly as possible.</p>
-
-<p><strong><a href="/quick-start-guide/">Learn more to see how easy to get start</a></strong></p>
+<p>That&#39;s all there is to it!</p>
 
           </div>
         <footer class="Footer">
