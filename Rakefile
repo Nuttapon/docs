@@ -66,7 +66,7 @@ task :build_objects do
   skey = ENV["skey"]
   puts "ENV['pkey']          -> #{ENV['pkey'].nil? ? 'ERROR! Make sure it is set.' : 'Success'}"
   puts "ENV['skey']          -> #{ENV['skey'].nil? ? 'ERROR! Make sure it is set.' : 'Success'}"
-  requests_path = "source/object_representations/requests/"
+  requests_path = "requests/"
   responses = Hash.new({})
   Dir.glob("#{requests_path}*.sh").sort.each do |path|
     raw_response, error, status = Open3.capture3("#{File.read(path) % {
