@@ -409,6 +409,7 @@ a terminal, etc.).</p>
 <span class="n">card</span><span class="p">.</span><span class="n">ExpirationYear</span> <span class="p">=</span> <span class="m">2018</span><span class="p">;</span>
 <span class="n">card</span><span class="p">.</span><span class="n">City</span> <span class="p">=</span> <span class="s">"Bangkok"</span><span class="p">;</span>
 <span class="n">card</span><span class="p">.</span><span class="n">PostalCode</span> <span class="p">=</span> <span class="s">"10320"</span><span class="p">;</span>
+<span class="n">card</span><span class="p">.</span><span class="n">SecurityCode</span> <span class="p">=</span> <span class="s">"123"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">token</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">TokenInfo</span> <span class="p">();</span>
 <span class="n">token</span><span class="p">.</span><span class="n">Card</span> <span class="p">=</span> <span class="n">card</span><span class="p">;</span>
@@ -424,7 +425,8 @@ a terminal, etc.).</p>
     <span class="s1">'postal_code'</span><span class="p">:</span> <span class="mi">10320</span><span class="p">,</span>
     <span class="s1">'number'</span><span class="p">:</span> <span class="s1">'4242424242424242'</span><span class="p">,</span>
     <span class="s1">'expiration_month'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="s1">'expiration_year'</span><span class="p">:</span> <span class="mi">2017</span>
+    <span class="s1">'expiration_year'</span><span class="p">:</span> <span class="mi">2017</span><span class="p">,</span>
+    <span class="s1">'security_code'</span><span class="p">:</span> <span class="mi">123</span>
   <span class="p">}</span>
 <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">token</span><span class="p">)</span> <span class="p">{</span>
   <span class="cm">/* Response. */</span>
