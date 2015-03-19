@@ -1,8 +1,8 @@
 {
   "object": "transaction",
-  "id": "trxn_test_4xuy2z4w5vmvq4x5pfs",
-  "type": "credit",
-  "amount": 9635024,
-  "currency": "thb",
-  "created": "2014-10-27T06:58:56Z"
+  "id": "trxn_test_4z9d4abslzu19kjdc5h",
+  "type": "debit",
+  "amount": 20000,
+  "currency": "THB",
+  "created": "2015-03-05T04:37:41Z"
 }

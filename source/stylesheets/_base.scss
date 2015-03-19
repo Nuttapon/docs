@@ -1,13 +1,28 @@
+@mixin wrapper {
+  width: 1020px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .Main {
+  @include wrapper;
   position: relative;
-  padding-left: 220px;
-  margin: 32px 0;
+  padding: 0 0 0 180px;
+  background: white;
+}
+
+.MainContent {
+  padding: 32px 0 0 39px;
+  border-left: 1px solid $grey-blue-light;
 }
 
 .Header {
   position: relative;
   background: $grey-blue-dark;
+}
+
+.Wrapper {
+  @include wrapper;
 }
 
 .HeaderInner {
@@ -56,10 +71,11 @@
   }
 
   hr {
-    margin: 48px 0;
-    border: 0;
+    position: relative;
     height: 1px;
-    background: $border-color-light;
+    margin: 48px auto;
+    border: 0;
+    background: $grey-blue-light;
   }
 
   table {
@@ -112,17 +128,16 @@
 #table-of-contents {
   & + ul {
     list-style: none;
-    padding: 0 0 0 15px;
-    border-left: 5px solid $border-color-light;
+    padding: 0;
     font-size: 1em;
     background: white;
   }
 }
 
 .Footer {
+  margin: 0 auto;
+  padding: 0 0 64px;
   color: #a8a8a8;
-  margin: 0 0 64px;
-  padding-left: 220px;
   font-size: .875em;
 
   a {

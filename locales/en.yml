@@ -45,6 +45,8 @@ en:
     python: "python"
     csharp: "C#"
     php: "php"
+    javascript: "node.js"
+    java: "java"
 
   types:
     object_id: "object_id"
@@ -212,6 +214,10 @@ en:
       authorized: "Whether the charge has been authorized or not."
       captured: "Whether the charge has been captured or not."
       transaction: "The `TRANSACTION_ID` of that charge."
+      refunded: "An amount of money that has been refunded."
+      refunds: "A list of refund objects."
+      failure_code: "A failure code."
+      failure_message: "A short explanation about the failure message."
       card: "The card object that was charged."
       customer: "The `CUSTOMER_ID` to which the charge belongs."
       ip: "The customer IP, as sent to Omise."

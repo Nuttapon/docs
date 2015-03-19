@@ -44,7 +44,9 @@ code {
 .csharp .p,
 .python .o,
 .php .o,
-.ruby .o {
+.ruby .o,
+.javascript .cm,
+.java .o {
   color: #9aa1a4;
 }
 
@@ -80,7 +82,8 @@ code {
 .json .s2,
 .html .s2,
 .html .s,
-.javascript .s2 {
+.javascript .s2,
+.java .s {
   color: #a9e8fc;
 }
 

@@ -1,22 +1,14 @@
 {
   "object": "transfer",
-  "id": "trsf_test_4y3miv1nhy0dceit4w4",
+  "id": "trsf_test_4zefok7nt4m2ghyrulb",
   "livemode": false,
-  "location": "/transfers/trsf_test_4y3miv1nhy0dceit4w4",
-  "recipient": "recp_test_4z6p4ez5zcod2w25i31",
-  "bank_account": {
-    "object": "bank_account",
-    "brand": "bbl",
-    "bank_account_no": "test_acc123456",
-    "bank_account_name": "tes recipient 123 bank account",
-    "created": "2015-02-26T09:56:15Z"
-  },
+  "location": "/transfers/trsf_test_4zefok7nt4m2ghyrulb",
   "sent": false,
   "paid": false,
-  "amount": 10000,
+  "amount": 100000,
   "currency": "thb",
   "failure_code": null,
   "failure_message": null,
   "transaction": null,
-  "created": "2015-03-05T08:24:51Z"
+  "created": "2015-03-18T03:47:55Z"
 }
