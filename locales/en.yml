@@ -108,7 +108,7 @@ en:
 
   bank_accounts:
     title: "Bank Account"
-    description: "The bank account object encapsulates bank account information needed for transfer"
+    description: "The bank account object encapsulates bank account information needed for transfer."
 
     meta:
       title: "Bank Account Object"
@@ -117,8 +117,8 @@ en:
     attributes:
       object: "The string `bank_account`"
       brand: "The bank account brand"
-      bank_account_no: "The bank account number"
-      bank_account_name: "The bank account name"    
+      number: "The bank account number"
+      name: "The bank account name"
 
   cards:
 

@@ -59,8 +59,8 @@
     "attributes": {
       "object": "string",
       "brand": "string",
-      "bank_account_no": "string",
-      "bank_account_name": "string"
+      "number": "string",
+      "name": "string"
     },
 
     "endpoints": []

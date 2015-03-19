@@ -3,19 +3,19 @@
   "id": "recp_test_4z6p7e0m4k40txecj5o",
   "livemode": false,
   "location": "/recipients/recp_test_4z6p7e0m4k40txecj5o",
-  "name": "James smith",
-  "email": "test_recp123@localhost",
-  "description": "My first other recipient",
-  "recipient_type": "individual",
-  "tax_id": "1234567890",
-  "created": "2015-02-26T09:08:50Z",
+  "status": "pending",
+  "active": false,
+  "name": "Somchai Prasert",
+  "email": "somchai.prasert@example.com",
+  "description": "Somchai Prasert",
+  "type": "individual",
+  "tax_id": "123456789012345",
   "bank_account": {
     "object": "bank_account",
-    "brand": "test",
-    "bank_account_no": "acc12345",
-    "bank_account_name": "James Smith",
-    "created": "2015-03-03T11:44:03Z"
+    "brand": "bbl",
+    "number": "1234567890",
+    "name": "SOMCHAI PRASERT",
+    "created": "2015-02-26T09:56:15Z"
   },
-  "status": "pending",
-  "active": false
+  "created": "2015-02-26T09:08:50Z"
 }
