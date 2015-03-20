@@ -1,11 +1,8 @@
 $markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
 
 activate :directory_indexes
-
 activate :syntax
-
 activate :i18n
-
 activate :asset_hash
 
 activate :autoprefixer do

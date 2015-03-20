@@ -1,0 +1,7 @@
+#!/bin/sh
+curl https://api.omise.co/customers \
+  -X POST \
+  -u %{skey}: \
+  -d "description=John Doe (id: 30)" \
+  -d "email=john.doe@example.com" \
+  -d "card=%{token}"

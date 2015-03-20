@@ -1,5 +1,5 @@
 <header class="Header">
-  <div class="HeaderInner">
+  <div class="HeaderInner"><div class="Wrapper">
     <%= image_tag "logo.svg", height: 20, width: 61, alt: "Omise", class: "Logo" %>
     <nav class="Menu">
       <span data-dropdown='{ "className": ".SearchBox" }' class="SearchButton">Search</span>
@@ -16,12 +16,12 @@
         <%= link_to "Report an issue about the docs", "https://github.com/omise/docs/issues", class: "MenuDropdownItem" %>
       </div>
     </nav>
-  </div>
-  <div class="HeaderLocation">
+  </div></div>
+  <div class="HeaderLocation"><div class="Wrapper">
     <% if current_page.data.header_location %>
       <%= current_page.data.header_location.upcase %>
     <% else %>
       <%= I18n.t("shared.documentation").upcase %>
     <% end %>
-  </div>
+  </div></div>
 </header>

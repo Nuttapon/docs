@@ -36,6 +36,7 @@
 <% object.endpoints.each do |e| %>
   <section class="Endpoint">
 
+    <a name="<%= object.name.pluralize %>-<%= e.name %>"></a>
     <header class="EndpointHeader">
       <h2 class="EndpointTitle">
         <%= I18n.t("#{object.name.pluralize}.#{e.name}.title") %>
