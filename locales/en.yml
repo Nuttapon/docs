@@ -495,7 +495,7 @@ en:
       name: "The recipient's name."
       email: "The recipient's email."
       description: "The recipient description."
-      recipient_type: "The recipient type `individual` or `corporation`"
+      type: "The recipient type `individual` or `corporation`"
       tax_id: "The recipient tax id"
       bank_account: "A bank account that the recipient owns"
       status: "The recipient status. `verified` or `failed`."

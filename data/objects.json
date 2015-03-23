@@ -493,7 +493,7 @@
       "name": "string",
       "email": "string",
       "description": "string",
-      "recipient_type": "string",
+      "type": "string",
       "tax_id": "string",
       "bank_account": "bank_account",
       "status": "string",

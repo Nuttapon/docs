@@ -31,10 +31,10 @@ The following requirements must be met for a transfer to be created:
     -d "name=James Smith"
     -d "email=james.smith@example.com"
     -d "description=My first other recipient" \
-    -d "recipient_type=individual"
+    -d "type=individual"
     -d "bank_account[brand]=test" \
-    -d "bank_account[bank_account_no]=acc12345" \
-    -d "bank_account[bank_account_name]=James Smith"
+    -d "bank_account[number]=acc12345" \
+    -d "bank_account[name]=James Smith"
   ```
 
   The recipient status is `Pending` after created. There are 2 further steps to be done before getting to transfer to the recipient, Recipient Verification and Recipient Activation. 

@@ -7,5 +7,5 @@ curl https://api.omise.co/recipients \
     -d "recipient_type=individual" \
     -d "tax_id=1234567890" \
     -d "bank_account[brand]=test" \
-    -d "bank_account[bank_account_no]=acc12345" \
-    -d "bank_account[bank_account_name]=James Smith"
+    -d "bank_account[number]=acc12345" \
+    -d "bank_account[name]=James Smith"
