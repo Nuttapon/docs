@@ -1,25 +1,25 @@
 {
   "object": "customer",
-  "id": "cust_test_4z9psbuhupqxux0gt3n",
+  "id": "cust_test_4zgf1cv8e71bbwcww1p",
   "livemode": false,
-  "location": "/customers/cust_test_4z9psbuhupqxux0gt3n",
-  "default_card": "card_test_4z9prs97rrpg11nxcps",
+  "location": "/customers/cust_test_4zgf1cv8e71bbwcww1p",
+  "default_card": "card_test_4zgf1crf975xnz6coa7",
   "email": "john.doe@example.com",
   "description": "John Doe (id: 30)",
-  "created": "2015-03-06T02:13:11Z",
+  "created": "2015-03-23T05:25:14Z",
   "cards": {
     "object": "list",
     "from": "1970-01-01T00:00:00+00:00",
-    "to": "2015-03-06T02:13:11+00:00",
+    "to": "2015-03-23T05:25:14+00:00",
     "offset": 0,
     "limit": 20,
     "total": 1,
     "data": [
       {
         "object": "card",
-        "id": "card_test_4z9prs97rrpg11nxcps",
+        "id": "card_test_4zgf1crf975xnz6coa7",
         "livemode": false,
-        "location": "/customers/cust_test_4z9psbuhupqxux0gt3n/cards/card_test_4z9prs97rrpg11nxcps",
+        "location": "/customers/cust_test_4zgf1cv8e71bbwcww1p/cards/card_test_4zgf1crf975xnz6coa7",
         "country": "us",
         "city": "Bangkok",
         "postal_code": "10320",
@@ -31,9 +31,9 @@
         "fingerprint": "mKleiBfwp+PoJWB/ipngANuECUmRKjyxROwFW5IO7TM=",
         "name": "Somchai Prasert",
         "security_code_check": true,
-        "created": "2015-03-06T02:11:38Z"
+        "created": "2015-03-23T05:25:14Z"
       }
     ],
-    "location": "/customers/cust_test_4z9psbuhupqxux0gt3n/cards"
+    "location": "/customers/cust_test_4zgf1cv8e71bbwcww1p/cards"
   }
 }

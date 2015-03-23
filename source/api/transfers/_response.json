@@ -3,12 +3,12 @@
   "id": "trsf_test_4zefok7nt4m2ghyrulb",
   "livemode": false,
   "location": "/transfers/trsf_test_4zefok7nt4m2ghyrulb",
-  "sent": false,
-  "paid": false,
+  "sent": true,
+  "paid": true,
   "amount": 100000,
   "currency": "thb",
   "failure_code": null,
   "failure_message": null,
-  "transaction": null,
+  "transaction": "trxn_test_4zehfwh0nrxzzmxu4bm",
   "created": "2015-03-18T03:47:55Z"
 }
