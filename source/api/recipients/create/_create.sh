@@ -4,7 +4,7 @@ curl https://api.omise.co/recipients \
     -d "name=James Smith" \
     -d "email=test_recp123@localhost" \
     -d "description=My first other recipient" \
-    -d "recipient_type=individual" \
+    -d "type=individual" \
     -d "tax_id=1234567890" \
     -d "bank_account[brand]=test" \
     -d "bank_account[number]=acc12345" \
