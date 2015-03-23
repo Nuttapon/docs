@@ -347,6 +347,68 @@ en:
         destroy: "Destroy a customer"
         response: "Response (JSON)"
 
+  disputes:
+
+    title: "Disputes API"
+    description: ""
+
+    meta:
+      title: "Disputes API reference"
+      description: ""
+
+    # LIST
+    list:
+      title: "List all disputes"
+      description:
+        Returns a `list` of `dispute` objects.
+      query_parameters: *list_query_parameters
+      examples:
+        list: "List all disputes"
+
+    # OPEN
+    open:
+      title: "List all open disputes"
+      description:
+        Returns a `list` of open `dispute` objects.
+      query_parameters: *list_query_parameters
+      examples:
+        open: "List all open disputes"
+
+    # PENDING
+    pending:
+      title: "List all pending disputes"
+      description:
+        Returns a `list` of pending `dispute` objects.
+      query_parameters: *list_query_parameters
+      examples:
+        pending: "List all pending disputes"
+
+    # CLOSED
+    closed:
+      title: "List all closed disputes"
+      description:
+        Returns a `list` of closed `dispute` objects.
+      query_parameters: *list_query_parameters
+      examples:
+        closed: "List all closed disputes"
+
+    # RETRIEVE
+    retrieve:
+      title: "Retrieve a dispute"
+      description:
+        Returns a `dispute` object.
+      examples:
+        retrieve: "Retrieve a dispute"
+
+    #UPDATE
+    update:
+      title: "Update a dispute"
+      description: |
+        Returns the updated dispute object.
+      request_parameters:
+        message: "The new dispute message"
+      examples:
+        update: "Update a dispute"
 
   refunds:
 
@@ -357,7 +419,7 @@ en:
       title: "Refunds API Reference"
       description: ""
 
-    list:
+    open:
       title: "List all refunds"
       description: |
         Returns a `list` of `refund` objects.
