@@ -335,9 +335,13 @@
     "attributes": {
       "object": "string",
       "id": "string",
-      "type": "string",
+      "livemode": "boolean",
+      "location": "string",
       "amount": "integer",
       "currency": "string",
+      "status": "string",
+      "message": "string",
+      "charge": "string",
       "created": "datetime"
     },
 
