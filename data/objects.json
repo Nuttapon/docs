@@ -376,6 +376,7 @@
           "open"
         ]
       },
+
       {
         "name": "pending",
         "verb": "GET",
@@ -390,6 +391,7 @@
           "pending"
         ]
       },
+
       {
         "name": "closed",
         "verb": "GET",
@@ -404,7 +406,6 @@
           "closed"
         ]
       },
-
 
       {
         "name": "retrieve",
@@ -430,6 +431,7 @@
     ]
 
   },
+
 
   "refund": {
 
@@ -477,8 +479,8 @@
     ]
 
   },
-  
-  
+
+
   "token": {
 
     "name": "token",
