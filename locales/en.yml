@@ -57,6 +57,7 @@ en:
     datetime: "datetime"
     card: "card"
     list: "list"
+    dispute: "dispute"
 
 
   accounts:
@@ -208,6 +209,7 @@ en:
       card: "The card object that was charged."
       customer: "The `CUSTOMER_ID` to which the charge belongs."
       ip: "The customer IP, as sent to Omise."
+      dispute: "If the charge is disputed, this contains the `dispute` object."
       created: "Creation date of the charge in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format."
 
     deprecated_attributes:
