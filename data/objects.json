@@ -156,6 +156,7 @@
       "failure_message": "string",
       "customer": "string",
       "ip": "string",
+      "dispute": "dispute",
       "created": "datetime"
     },
 

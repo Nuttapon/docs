@@ -68,6 +68,7 @@
       <li><a href="/api/cards">Cards</a></li>
       <li><a href="/api/charges">Charges</a></li>
       <li><a href="/api/customers">Customers</a></li>
+      <li><a href="/api/disputes">Disputes</a></li>
       <li><a class="Current" href="/api/refunds">Refunds</a></li>
       <li><a href="/api/tokens">Tokens</a></li>
       <li><a href="/api/transactions">Transactions</a></li>
@@ -105,13 +106,13 @@
         <div class="EndpointExampleCode">
           <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"refund"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rfnd_test_4z9prsoukqoaniof8nu"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/charges/chrg_test_4z9psc1ximo7bppx7hu/refunds/rfnd_test_4z9prsoukqoaniof8nu"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rfnd_test_4zgf1d7jcw5kr123puq"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/charges/chrg_test_4zgf1d2wbstl173k99v/refunds/rfnd_test_4zgf1d7jcw5kr123puq"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">20000</span><span class="p">,</span><span class="w">
   </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thb"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"charge"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chrg_test_4z9psc1ximo7bppx7hu"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"trxn_test_4z9prsp0uis1skurwzk"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-03-06T02:11:40Z"</span><span class="w">
+  </span><span class="s2">"charge"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chrg_test_4zgf1d2wbstl173k99v"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"trxn_test_4zgf1d7pma3429157d1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-03-23T05:25:16Z"</span><span class="w">
 </span><span class="p">}</span></code></pre>
 
         </div>
@@ -129,7 +130,7 @@
     <a name="refunds-list"></a>
     <header class="EndpointHeader">
       <h2 class="EndpointTitle">
-        List all refunds
+        translation missing: en.refunds.list.title
       </h2>
       -
       <span class="EndpointVerbGet">
@@ -141,10 +142,7 @@
     </header>
 
       <div class="EndpointBody">
-        <p>Returns a <code>list</code> of <code>refund</code> objects.</p>
-
-<p>Return all refund that belongs to the charge. You can learn more about
-lists in the <a href="./pagination">pagination documentation</a>.</p>
+        <p>translation missing: en.refunds.list.description</p>
 
       </div>
 
@@ -164,8 +162,7 @@ lists in the <a href="./pagination">pagination documentation</a>.</p>
               offset
           </td>
           <td>integer</td>
-          <td><p>(<em>optional</em>, default: 0) The offset of the first record returned.
-I.e.: How many records to skip from the beginning.</p>
+          <td><p>translation missing: en.refunds.list.query_parameters.offset</p>
 </td>
         </tr>
         <tr>
@@ -173,8 +170,7 @@ I.e.: How many records to skip from the beginning.</p>
               limit
           </td>
           <td>integer</td>
-          <td><p>(<em>optional</em>, default: 20, maximum: 100) The maximum amount of records
-returned.</p>
+          <td><p>translation missing: en.refunds.list.query_parameters.limit</p>
 </td>
         </tr>
         <tr>
@@ -182,10 +178,7 @@ returned.</p>
               from
           </td>
           <td>datetime</td>
-          <td><p>(<em>optional</em>, default: <code>1970-01-01T00:00:00Z</code>, format:
-<a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a>) The UTC date and
-time limiting the beginning of returned records.
-E.g.: <code>2014-10-20T00:00:00Z</code></p>
+          <td><p>translation missing: en.refunds.list.query_parameters.from</p>
 </td>
         </tr>
         <tr>
@@ -193,10 +186,7 @@ E.g.: <code>2014-10-20T00:00:00Z</code></p>
               to
           </td>
           <td>datetime</td>
-          <td><p>(<em>optional</em>, default: current UTC Datetime, format:
-<a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a>) The UTC date and
-time limiting the end of returned records.
-E.g.: <code>2015-01-20T00:00:00Z</code></p>
+          <td><p>translation missing: en.refunds.list.query_parameters.to</p>
 </td>
         </tr>
     </tbody>
@@ -213,7 +203,7 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
   <header class="EndpointExampleHeader">
     <h4 class="EndpointExampleTitle">
-      List all refunds
+      translation missing: en.refunds.list.examples.list
     </h4>
   </header>
 
