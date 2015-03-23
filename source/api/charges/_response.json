@@ -1,35 +1,35 @@
 {
   "object": "charge",
-  "id": "chrg_test_4z9psc1ximo7bppx7hu",
+  "id": "chrg_test_4zgf1d2wbstl173k99v",
   "livemode": false,
-  "location": "/charges/chrg_test_4z9psc1ximo7bppx7hu",
+  "location": "/charges/chrg_test_4zgf1d2wbstl173k99v",
   "amount": 100000,
   "currency": "thb",
   "description": null,
   "capture": true,
   "authorized": true,
   "captured": true,
-  "transaction": "trxn_test_4z9psc2bsw6cbh2nhql",
+  "transaction": "trxn_test_4zgf1d3f7t9k6gk8hn8",
   "refunded": 0,
   "refunds": {
     "object": "list",
     "from": "1970-01-01T00:00:00+00:00",
-    "to": "2015-03-06T02:13:12+00:00",
+    "to": "2015-03-23T05:25:15+00:00",
     "offset": 0,
     "limit": 20,
     "total": 0,
     "data": [
 
     ],
-    "location": "/charges/chrg_test_4z9psc1ximo7bppx7hu/refunds"
+    "location": "/charges/chrg_test_4zgf1d2wbstl173k99v/refunds"
   },
   "failure_code": null,
   "failure_message": null,
   "card": {
     "object": "card",
-    "id": "card_test_4z9prs97rrpg11nxcps",
+    "id": "card_test_4zgf1crf975xnz6coa7",
     "livemode": false,
-    "location": "/customers/cust_test_4z9psbuhupqxux0gt3n/cards/card_test_4z9prs97rrpg11nxcps",
+    "location": "/customers/cust_test_4zgf1cv8e71bbwcww1p/cards/card_test_4zgf1crf975xnz6coa7",
     "country": "us",
     "city": "Bangkok",
     "postal_code": "10320",
@@ -41,9 +41,10 @@
     "fingerprint": "mKleiBfwp+PoJWB/ipngANuECUmRKjyxROwFW5IO7TM=",
     "name": "Somchai Prasert",
     "security_code_check": true,
-    "created": "2015-03-06T02:11:38Z"
+    "created": "2015-03-23T05:25:14Z"
   },
-  "customer": "cust_test_4z9psbuhupqxux0gt3n",
+  "customer": "cust_test_4zgf1cv8e71bbwcww1p",
   "ip": null,
-  "created": "2015-03-06T02:13:12Z"
+  "dispute": null,
+  "created": "2015-03-23T05:25:15Z"
 }
