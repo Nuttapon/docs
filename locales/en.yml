@@ -502,6 +502,13 @@ en:
       active: "The recipient activation status. `active` or `inactive`."
       created: "Creation date of the recipient in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format."
 
+    list:
+      title: "List a recipient"
+      description: ""
+      query_parameters: *list_query_parameters
+      examples:
+        list: "List a recipient"
+
     create:
       title: "Create a recipient"
       description: ""

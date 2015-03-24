@@ -503,6 +503,21 @@
 
     "endpoints": [
       {
+        "name": "list",
+        "verb": "GET",
+        "url": "https://api.omise.co/recipients",
+        "query_parameters": {
+          "offset": "integer",
+          "limit": "integer",
+          "from": "datetime",
+          "to": "datetime"
+        },
+        "examples": [
+          "list"
+        ]
+      },
+      
+      {
         "name": "create",
         "verb": "POST",
         "url": "https://api.omise.co/recipients",
