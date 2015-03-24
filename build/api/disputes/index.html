@@ -52,6 +52,7 @@
     <li><a href="/collecting-card-information">Collecting Cards</a></li>
     <li><a href="/charging-cards">Charging Cards</a></li>
     <li><a href="/refunding-charges">Refunding Charges</a></li>
+    <li><a href="/dashboard-transfers">Dashboard Transfers</a></li>
     <li><a href="/release-notes">Release notes</a></li>
   </ul>
 
@@ -89,6 +90,101 @@
 
 
 <section class="ObjectAttributes">
+
+    <div class="EndpointParameters">
+  <h3 class="SectionTitle">Object Attributes</h3>
+  <table class="EndpointParametersTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+              object
+          </td>
+          <td>string</td>
+          <td><p>The string <code>dispute</code>.</p>
+</td>
+        </tr>
+        <tr>
+          <td>
+              id
+          </td>
+          <td>string</td>
+          <td><p>The <code>DISPUTE_ID</code>.</p>
+</td>
+        </tr>
+        <tr>
+          <td>
+              livemode
+          </td>
+          <td>boolean</td>
+          <td><p>Whether this is a live (<code>true</code>) or test (<code>false</code>) dispute.</p>
+</td>
+        </tr>
+        <tr>
+          <td>
+              location
+          </td>
+          <td>string</td>
+          <td><p>Path to retrieve the dispute.</p>
+</td>
+        </tr>
+        <tr>
+          <td>
+              amount
+          </td>
+          <td>integer</td>
+          <td><p>The amount in the smallest subunits of the currency used. So for <code>thb</code> (Thai Baht) you&#39;ll need to pass the amount in satangs.</p>
+</td>
+        </tr>
+        <tr>
+          <td>
+              currency
+          </td>
+          <td>string</td>
+          <td><p>The currency as its lower-cased international 3-letter code, defined by the <a href="http://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> standard.</p>
+</td>
+        </tr>
+        <tr>
+          <td>
+              status
+          </td>
+          <td>string</td>
+          <td><p>The dispute status. One of <code>open</code>, <code>pending</code> or <code>closed</code></p>
+</td>
+        </tr>
+        <tr>
+          <td>
+              message
+          </td>
+          <td>string</td>
+          <td><p>The dispute message. A short explanation for the dispute.</p>
+</td>
+        </tr>
+        <tr>
+          <td>
+              charge
+          </td>
+          <td>string</td>
+          <td><p>The <code>CHARGE_ID</code></p>
+</td>
+        </tr>
+        <tr>
+          <td>
+              created
+          </td>
+          <td>datetime</td>
+          <td><p>Creation date of the customer in <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format.</p>
+</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 
 
