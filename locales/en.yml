@@ -434,7 +434,7 @@ en:
       title: "Refunds API Reference"
       description: ""
 
-    open:
+    list:
       title: "List all refunds"
       description: |
         Returns a `list` of `refund` objects.
