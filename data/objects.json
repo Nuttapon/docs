@@ -443,7 +443,7 @@
       {
         "name": "list",
         "verb": "GET",
-        "url": "https://api.omise.co/refunds",
+        "url": "https://api.omise.co/charges/CHARGE_ID/refunds",
         "query_parameters": {
           "offset": "integer",
           "limit": "integer",
@@ -458,7 +458,7 @@
       {
         "name": "create",
         "verb": "POST",
-        "url": "https://api.omise.co/refunds",
+        "url": "https://api.omise.co/charges/CHARGE_ID/refunds",
         "request_parameters": {
           "amount": "integer"
         },
@@ -470,7 +470,7 @@
       {
         "name": "retrieve",
         "verb": "GET",
-        "url": "https://api.omise.co/refunds/REFUND_ID",
+        "url": "https://api.omise.co/charges/CHARGE_ID/refunds/REFUND_ID",
         "examples": [
           "retrieve"
         ]
