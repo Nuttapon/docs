@@ -3,7 +3,7 @@ title: Security Best Practices
 excerpt: Omise Recommended Best Practices
 ---
 
-### Collect cards using Javascript Library
+## Collect cards using Javascript Library
 
 Omise.js allows you to easily collect card information from the customer's browser directly. It collects extra information about the user that is used by our Fraud Detection system to prevent fraud, such as client IP, browser agent, history. This way your server never has to deal with sensitive card information.
 
@@ -16,10 +16,10 @@ Sending card data from your server is only allowed if you have PCI-DSS V3.0 comp
 
 #### There are many advantages if sending card data from the browser instead of server:
 
-1. Our fraud detection system uses information from the user browser in order to calculate the risk score. Information such as user IP, browser user-agent, and other browser history from our database, are essential to detect fraud. For example, if the IP belongs to a server hosting provider, Tor network or public proxy, the chances of fraud are higher, but if the IP belongs to an ADSL user matching the country of the card issuer, it is most likely a legitimate transaction.
-Sending from server directly prevents our fraud detection operate at best, and will exponentially increase fraud on your account and cause you losses.
+1. Our fraud detection system uses information from the user browser in order to calculate the risk score. Information such as user IP, browser user-agent, and other browser history from our database are essential to detect fraud. For example, if the IP belongs to a server hosting provider, Tor network or public proxy, the chances of fraud are high, but if the IP belongs to an ADSL user matching the country of the card issuer, it is most likely a legitimate transaction.
+Sending from server directly prevents our fraud detection to operate at best, and will exponentially increase fraud on your account and cause you losses.
 
-2. When the full credit card is passing through your server, the form post data can be stored on your server logs. It can also be easily recorded using linux tools such as tcpdump. Please make sure your logs are not recording the form parameters on your checkout pages.  
+2. When the full credit card is passing through your server, the form post data can be stored on your server logs. It can also be easily recorded using linux tools such as tcpdump. Please make sure your logs are not recording card data, such as form parameters on your checkout pages.  
 In the event your server is compromised, all credit card passing through it can be recorded and leaked out. For this reason, PCI-DSS is required if the credit card is transmitted. Visa and Mastercard do not allow the transmission of cards in the server unless you are PCI-DSS certified.
 
 
