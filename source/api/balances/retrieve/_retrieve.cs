@@ -1,1 +1,1 @@
-var account = client.AccountService.GetAccount();
+var balance = client.BalanceService.GetBalance();
