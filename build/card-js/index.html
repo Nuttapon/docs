@@ -52,6 +52,9 @@
     <li><a href="/collecting-card-information">Collecting Cards</a></li>
     <li><a href="/charging-cards">Charging Cards</a></li>
     <li><a href="/refunding-charges">Refunding Charges</a></li>
+    <li><a href="/dashboard-transfers">Dashboard Transfers</a></li>
+    <li><a href="/security-best-practices">Security Best Practices</a></li>
+    <li><a href="/release-notes">Release Notes</a></li>
   </ul>
 
   <h2>References</h2>
@@ -67,6 +70,7 @@
       <li><a href="/api/cards">Cards</a></li>
       <li><a href="/api/charges">Charges</a></li>
       <li><a href="/api/customers">Customers</a></li>
+      <li><a href="/api/disputes">Disputes</a></li>
       <li><a href="/api/refunds">Refunds</a></li>
       <li><a href="/api/tokens">Tokens</a></li>
       <li><a href="/api/transactions">Transactions</a></li>
@@ -78,6 +82,7 @@
     <li><a href="/woocommerce">WooCommerce</a></li>
   </ul>
 </div></nav>
+
       <div class="MainContent">
           <header class="PageHeader">
             <h1 class="PageTitle">Card.js</h1>
@@ -104,7 +109,6 @@
 <span class="nt">&lt;body&gt;</span>
 <span class="nt">&lt;form</span> <span class="na">name=</span><span class="s">"checkoutForm"</span> <span class="na">method=</span><span class="s">"POST"</span> <span class="na">action=</span><span class="s">"checkout"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">name=</span><span class="s">"description"</span> <span class="na">value=</span><span class="s">"Product order ฿100.25"</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">name=</span><span class="s">"amount"</span> <span class="na">value=</span><span class="s">"10025"</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"https://cdn.omise.co/card.js"</span>
       <span class="na">data-key=</span><span class="s">"YOUR_PUBLIC_KEY"</span>
       <span class="na">data-image=</span><span class="s">"PATH_TO_LOGO_IMAGE"</span>
@@ -174,7 +178,7 @@
 
  <span class="n">token</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="ss">:omiseToken</span><span class="p">]</span>
  <span class="n">checkout_description</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="ss">:description</span><span class="p">]</span>
- <span class="n">checkout_amount</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="ss">:amount</span><span class="p">]</span>
+ <span class="n">checkout_amount</span> <span class="o">=</span> <span class="mi">10025</span>
 
  <span class="n">charge</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Charge</span><span class="p">.</span><span class="nf">create</span><span class="p">({</span>
   <span class="ss">return_uri: </span><span class="s2">"https://example.com/orders/384/complete"</span><span class="p">,</span>

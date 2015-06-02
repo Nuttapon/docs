@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <link rel="shortcut icon" href="/images/favicon-dfe3f165.png">
+
+      <title>Omise: Security Best Practices</title>
+
+      <link srel="stylesheet" href="https://cdn1.omise.co/fonts/inconsolata.css">
+      <link srel="stylesheet" href="https://cdn2.omise.co/fonts/lato.css">
+
+    <link href="/stylesheets/all-0a66131a.css" rel="stylesheet" type="text/css" />
+    <script src="/javascripts/all-40e0ffb7.js" type="text/javascript"></script>
+
+    <!-- Facebook OpenGraph -->
+    <meta property="og:title" content="Omise: translation missing: en.Security Best Practices" />
+    <meta property="og:image" content="https://cdn.omise.co/assets/omise-2x.png" />
+  </head>
+  <body class="security-best-practices security-best-practices_index">
+
+    <header class="Header">
+  <div class="HeaderInner"><div class="Wrapper">
+    <img height="20" width="61" alt="Omise" class="Logo" src="/images/logo-b646e62e.svg" />
+    <nav class="Menu">
+      <span data-dropdown='{ "className": ".SearchBox" }' class="SearchButton">Search</span>
+      <span data-dropdown='{ "className": ".MenuDropdown" }' class="MenuButton">Menu</span>
+      <div class="MenuDropdown" style="display:none;">
+        <a class="MenuDropdownItem" href="https://www.omise.co/">Homepage</a>
+        <hr>
+        <a class="MenuDropdownItem" href="https://dashboard.omise.co/signin">Sign In</a>
+        <a class="MenuDropdownItem" href="https://dashboard.omise.co/signup">Register</a>
+        <hr>
+        <a class="MenuDropdownItem" href="https://github.com/omise">Omise on GitHub</a>
+        <hr>
+        <a class="MenuDropdownItem" href="https://support.omise.co/">Support</a>
+        <a class="MenuDropdownItem" href="https://github.com/omise/docs/issues">Report an issue about the docs</a>
+      </div>
+    </nav>
+  </div></div>
+  <div class="HeaderLocation"><div class="Wrapper">
+      DOCUMENTATION
+  </div></div>
+</header>
+
+
+    <div class="Main">
+      <nav class="Nav"><div class="NavInner">
+  <h2>Documentation</h2>
+  <ul>
+    <li><a href="/">Getting Started</a></li>
+    <li><a href="/collecting-card-information">Collecting Cards</a></li>
+    <li><a href="/charging-cards">Charging Cards</a></li>
+    <li><a href="/refunding-charges">Refunding Charges</a></li>
+    <li><a href="/dashboard-transfers">Dashboard Transfers</a></li>
+    <li><a class="Current" href="/security-best-practices">Security Best Practices</a></li>
+    <li><a href="/release-notes">Release Notes</a></li>
+  </ul>
+
+  <h2>References</h2>
+  <ul>
+    <li><a href="/omise-js">Omise.js</a></li>
+    <li><a href="/card-js">Card.js</a></li>
+    <li><a href="/api/authentication">Authentication</a></li>
+    <li><a href="/api/pagination">Pagination &amp; Lists</a></li>
+    <li><a href="/api/tests">Tests</a></li>
+    <li><a href="/api/errors">Errors</a><br></li>
+      <li><a href="/api/account">Account</a></li>
+      <li><a href="/api/balance">Balance</a></li>
+      <li><a href="/api/cards">Cards</a></li>
+      <li><a href="/api/charges">Charges</a></li>
+      <li><a href="/api/customers">Customers</a></li>
+      <li><a href="/api/disputes">Disputes</a></li>
+      <li><a href="/api/refunds">Refunds</a></li>
+      <li><a href="/api/tokens">Tokens</a></li>
+      <li><a href="/api/transactions">Transactions</a></li>
+      <li><a href="/api/transfers">Transfers</a></li>
+  </ul>
+
+  <h2>Plugins</h2>
+  <ul>
+    <li><a href="/woocommerce">WooCommerce</a></li>
+  </ul>
+</div></nav>
+
+      <div class="MainContent">
+          <header class="PageHeader">
+            <h1 class="PageTitle">Security Best Practices</h1>
+              <p>Omise Recommended Best Practices</p>
+
+          </header>
+          <div class="Page">
+            <h2 id="collect-cards-using-javascript-library">Collect cards using Javascript Library</h2>
+
+<p>Omise.js allows you to easily collect card information from the customer&#39;s browser directly. It collects extra information about the user that is used by our Fraud Detection system to prevent fraud, such as client IP, browser agent, history. This way your server never has to deal with sensitive card information.</p>
+
+<p>You can read more about it on our <a href="/api/tokens/">Tokens documentation page</a></p>
+
+<h2 id="never-send-card-data-through-your-servers">Never send card data through your servers</h2>
+
+<p>Card data should not go through your servers, instead it should be sent from the browser directly to Omise Vault server.
+Sending card data from your server is only allowed if you have PCI-DSS V3.0 compliance for transmitting card data. Please contact us if you are planing on doing this approach.</p>
+
+<h4 id="there-are-many-advantages-if-sending-card-data-from-the-browser-instead-of-server:">There are many advantages if sending card data from the browser instead of server:</h4>
+
+<ol>
+<li><p>Our fraud detection system uses information from the user browser in order to calculate the risk score. Information such as user IP, browser user-agent, and other browser history from our database are essential to detect fraud. For example, if the IP belongs to a server hosting provider, Tor network or public proxy, the chances of fraud are high, but if the IP belongs to an ADSL user matching the country of the card issuer, it is most likely a legitimate transaction.
+Sending from server directly prevents our fraud detection to operate at best, and will exponentially increase fraud on your account and cause you losses.</p></li>
+<li><p>When the full credit card is passing through your server, the form post data can be stored on your server logs. It can also be easily recorded using linux tools such as tcpdump. Please make sure your logs are not recording card data, such as form parameters on your checkout pages.<br>
+In the event your server is compromised, all credit card passing through it can be recorded and leaked out. For this reason, PCI-DSS is required if the credit card is transmitted. Visa and Mastercard do not allow the transmission of cards in the server unless you are PCI-DSS certified.</p></li>
+</ol>
+
+<h2 id="enable-https-on-your-website">Enable HTTPS on your website</h2>
+
+<p>Using HTTPS (TLS) on your checkout pages will protect your customer sensitive data, prevent account compromise and inspire confidence to your users.
+Also, Google Search Engine gives higher rank to HTTPS enabled sites.</p>
+
+<p>Use latest TLS only on your web servers. SSLv3 is a weak protocol with many security flaws. It is now disabled in some newer browsers.</p>
+
+<h2 id="secure-your-account-secret-keys">Secure your Account Secret Keys</h2>
+
+<p>Your secret keys should be highly secure. Your secret keys are used to perform crucial API operations, such as charges, refunds, transfers, and download all customers.</p>
+
+<ol>
+<li><p>Never store your Secret Keys on your code repository (git, svn, hg). In Heroku you can use <a href="https://devcenter.heroku.com/articles/config-vars">environment variables</a> to store your secret key.</p></li>
+<li><p>If you build a backend with input fields to store your secret key, you should make the input a password type field: 
+<code>&lt;input type=&#39;password&#39;&gt;</code></p></li>
+<li><p>If you find that your secret key has been compromised, login to your dashboard account and roll your keys as soon as possible. 
+Also please notify Omise team in such cases.</p></li>
+</ol>
+
+<h2 id="fraud-prevention">Fraud Prevention</h2>
+
+<p>In some type of business, fraud is more prevalent. Such as Digital goods, where the digital product is instantly downloaded or when there is no shipping. Other high risk business models are money transfer, mobile top-up, and prepaid cards top-up, since the cash value can be taken before refunds or transaction void can occur, causing financial losses.</p>
+
+<p>For these kind of business we recommend an extended customer validation and extra care, such as requiring the customer to send a photo of the front of credit card alongside with an identification card that matches the credit card name.</p>
+
+<p>We advice you keep a close looks to your logs for high risk or fraud transactions. Login to your dashboard and click on &quot;Logs&quot;.</p>
+
+<h2 id="keep-updated">Keep updated</h2>
+
+<p>Don&#39;t forget to Periodically check Omise Documentation for updated libraries and security news. 
+We regularly release new versions of our libraries, and we will email you when this happens.</p>
+
+<p>Facebook: <a href="https://www.facebook.com/Omiseco">facebook.com/Omiseco</a><br>
+Twitter: <a href="https://twitter.com/Omise">twitter.com/Omise</a><br>
+Official Blog: <a href="https://www.omise.co/blog/">Omise.co/blog</a></p>
+
+          </div>
+        <footer class="Footer">
+  © 2015 Omise, Co. Ltd.
+  <a href="https://www.omise.co/">About</a>
+  <a href="https://www.omise.co/terms.html">Terms</a>
+  <a href="https://www.omise.co/privacy.html">Privacy</a>
+</footer>
+
+      </div>
+    </div>
+
+    <div class="SearchBox" data-search='{}' style="display: none">
+      <input type="search">
+    </div>
+
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-54948916-2', 'auto');
+  ga('require', 'linkid', 'linkid.js');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+
+</script>
+
+
+  </body>
+</html>

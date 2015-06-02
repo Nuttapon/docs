@@ -169,6 +169,7 @@
       "failure_message": "string",
       "customer": "string",
       "ip": "string",
+      "dispute": "dispute",
       "created": "datetime"
     },
 
@@ -416,6 +417,112 @@
 
   },
 
+  "dispute": {
+
+    "name": "dispute",
+    "resource_name": "disputes",
+
+    "attributes": {
+      "object": "string",
+      "id": "string",
+      "livemode": "boolean",
+      "location": "string",
+      "amount": "integer",
+      "currency": "string",
+      "status": "string",
+      "message": "string",
+      "charge": "string",
+      "created": "datetime"
+    },
+
+    "endpoints": [
+
+      {
+        "name": "list",
+        "verb": "GET",
+        "url": "https://api.omise.co/disputes",
+        "query_parameters": {
+          "offset": "integer",
+          "limit": "integer",
+          "from": "datetime",
+          "to": "datetime"
+        },
+        "examples": [
+          "list"
+        ]
+      },
+
+      {
+        "name": "open",
+        "verb": "GET",
+        "url": "https://api.omise.co/disputes/open",
+        "query_parameters": {
+          "offset": "integer",
+          "limit": "integer",
+          "from": "datetime",
+          "to": "datetime"
+        },
+        "examples": [
+          "open"
+        ]
+      },
+
+      {
+        "name": "pending",
+        "verb": "GET",
+        "url": "https://api.omise.co/disputes/pending",
+        "query_parameters": {
+          "offset": "integer",
+          "limit": "integer",
+          "from": "datetime",
+          "to": "datetime"
+        },
+        "examples": [
+          "pending"
+        ]
+      },
+
+      {
+        "name": "closed",
+        "verb": "GET",
+        "url": "https://api.omise.co/disputes/closed",
+        "query_parameters": {
+          "offset": "integer",
+          "limit": "integer",
+          "from": "datetime",
+          "to": "datetime"
+        },
+        "examples": [
+          "closed"
+        ]
+      },
+
+      {
+        "name": "retrieve",
+        "verb": "GET",
+        "url": "https://api.omise.co/disputes/DISPUTE_ID",
+        "examples": [
+          "retrieve"
+        ]
+      },
+
+      {
+        "name": "update",
+        "verb": "PATCH",
+        "url": "https://api.omise.co/disputes/DISPUTE_ID",
+        "request_parameters": {
+          "message": "string"
+        },
+        "examples": [
+          "update"
+        ]
+      }
+
+    ]
+
+  },
+
+
   "refund": {
 
     "name": "refund",
@@ -426,7 +533,7 @@
       {
         "name": "list",
         "verb": "GET",
-        "url": "https://api.omise.co/refunds",
+        "url": "https://api.omise.co/charges/CHARGE_ID/refunds",
         "query_parameters": {
           "offset": "integer",
           "limit": "integer",
@@ -441,7 +548,7 @@
       {
         "name": "create",
         "verb": "POST",
-        "url": "https://api.omise.co/refunds",
+        "url": "https://api.omise.co/charges/CHARGE_ID/refunds",
         "request_parameters": {
           "amount": "integer"
         },
@@ -453,7 +560,7 @@
       {
         "name": "retrieve",
         "verb": "GET",
-        "url": "https://api.omise.co/refunds/REFUND_ID",
+        "url": "https://api.omise.co/charges/CHARGE_ID/refunds/REFUND_ID",
         "examples": [
           "retrieve"
         ]
@@ -462,8 +569,8 @@
     ]
 
   },
-  
-  
+
+
   "token": {
 
     "name": "token",
