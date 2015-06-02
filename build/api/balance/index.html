@@ -52,6 +52,7 @@
     <li><a href="/collecting-card-information">Collecting Cards</a></li>
     <li><a href="/charging-cards">Charging Cards</a></li>
     <li><a href="/refunding-charges">Refunding Charges</a></li>
+    <li><a href="/transferring-funds">Transferring funds</a></li>
     <li><a href="/dashboard-transfers">Dashboard Transfers</a></li>
     <li><a href="/security-best-practices">Security Best Practices</a></li>
     <li><a href="/release-notes">Release Notes</a></li>
@@ -67,9 +68,11 @@
     <li><a href="/api/errors">Errors</a><br></li>
       <li><a href="/api/account">Account</a></li>
       <li><a class="Current" href="/api/balance">Balance</a></li>
+      <li><a href="/api/bank_account">Bank account</a></li>
       <li><a href="/api/cards">Cards</a></li>
       <li><a href="/api/charges">Charges</a></li>
       <li><a href="/api/customers">Customers</a></li>
+      <li><a href="/api/recipients">Recipients</a></li>
       <li><a href="/api/disputes">Disputes</a></li>
       <li><a href="/api/refunds">Refunds</a></li>
       <li><a href="/api/tokens">Tokens</a></li>
@@ -166,8 +169,8 @@ your Omise account.</p>
           <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"balance"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"livemode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"available"</span><span class="p">:</span><span class="w"> </span><span class="mi">3131042</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">3511512</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"available"</span><span class="p">:</span><span class="w"> </span><span class="mi">380470</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">380470</span><span class="p">,</span><span class="w">
   </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thb"</span><span class="w">
 </span><span class="p">}</span></code></pre>
 
@@ -239,37 +242,33 @@ your Omise account.</p>
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
-        <pre class="highlight shell"><code>curl https://api.omise.co/account <span class="se">\</span>
+        <pre class="highlight shell"><code>curl https://api.omise.co/balance <span class="se">\</span>
   -u skey_test_4xs8breq3htbkj03d2x:</code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-ruby HIDDEN">
         <pre class="highlight ruby"><code><span class="no">Omise</span><span class="p">.</span><span class="nf">api_key</span> <span class="o">=</span> <span class="s2">"skey_test_4xs8breq3htbkj03d2x"</span>
 
-<span class="n">account</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Account</span><span class="p">.</span><span class="nf">retrieve</span>
+<span class="n">balance</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Balance</span><span class="p">.</span><span class="nf">retrieve</span>
 
-<span class="c1"># After retrieving it, the account can be refreshed:</span>
-<span class="n">account</span><span class="p">.</span><span class="nf">reload</span></code></pre>
+<span class="c1"># After retrieving it, the balance can be refreshed:</span>
+<span class="n">balance</span><span class="p">.</span><span class="nf">reload</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-python HIDDEN">
-        <pre class="highlight python"><code><span class="n">account</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Account</span><span class="o">.</span><span class="n">retrieve</span><span class="p">()</span>
-
-<span class="c"># After retrieving it, the account can be refreshed:</span>
-<span class="n">account</span><span class="o">.</span><span class="nb">reload</span><span class="p">()</span></code></pre>
+        <pre class="highlight python"><code><span class="n">balance</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Balance</span><span class="o">.</span><span class="n">retrieve</span><span class="p">()</span>
+<span class="n">balance</span><span class="o">.</span><span class="n">total</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-php HIDDEN">
         <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-
-<span class="nv">$account</span> <span class="o">=</span> <span class="nx">OmiseAccount</span><span class="o">::</span><span class="na">retrieve</span><span class="p">();</span>
-
-<span class="c1">// After retrieving it, the account can be refreshed:
-</span><span class="nv">$account</span><span class="o">-&gt;</span><span class="na">reload</span><span class="p">();</span></code></pre>
+<span class="nv">$balance</span> <span class="o">=</span> <span class="nx">OmiseBalance</span><span class="o">::</span><span class="na">retrieve</span><span class="p">();</span>
+<span class="c1">// After retrieving it, the balance can be refreshed:
+</span><span class="nv">$balance</span><span class="o">-&gt;</span><span class="na">reload</span><span class="p">();</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
-        <pre class="highlight csharp"><code><span class="n">var</span> <span class="n">account</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">AccountService</span><span class="p">.</span><span class="nf">GetAccount</span><span class="p">();</span></code></pre>
+        <pre class="highlight csharp"><code><span class="n">var</span> <span class="n">balance</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">BalanceService</span><span class="p">.</span><span class="nf">GetBalance</span><span class="p">();</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-javascript HIDDEN">

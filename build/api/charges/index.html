@@ -52,6 +52,7 @@
     <li><a href="/collecting-card-information">Collecting Cards</a></li>
     <li><a href="/charging-cards">Charging Cards</a></li>
     <li><a href="/refunding-charges">Refunding Charges</a></li>
+    <li><a href="/transferring-funds">Transferring funds</a></li>
     <li><a href="/dashboard-transfers">Dashboard Transfers</a></li>
     <li><a href="/security-best-practices">Security Best Practices</a></li>
     <li><a href="/release-notes">Release Notes</a></li>
@@ -67,9 +68,11 @@
     <li><a href="/api/errors">Errors</a><br></li>
       <li><a href="/api/account">Account</a></li>
       <li><a href="/api/balance">Balance</a></li>
+      <li><a href="/api/bank_account">Bank account</a></li>
       <li><a href="/api/cards">Cards</a></li>
       <li><a class="Current" href="/api/charges">Charges</a></li>
       <li><a href="/api/customers">Customers</a></li>
+      <li><a href="/api/recipients">Recipients</a></li>
       <li><a href="/api/disputes">Disputes</a></li>
       <li><a href="/api/refunds">Refunds</a></li>
       <li><a href="/api/tokens">Tokens</a></li>
@@ -319,36 +322,36 @@ capture later.</p>
         <div class="EndpointExampleCode">
           <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"charge"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chrg_test_4zgf1d2wbstl173k99v"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chrg_test_5086xlsx4lghk9bpb75"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"livemode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/charges/chrg_test_4zgf1d2wbstl173k99v"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/charges/chrg_test_5086xlsx4lghk9bpb75"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100000</span><span class="p">,</span><span class="w">
   </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thb"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="s2">"authorized"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="s2">"captured"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"trxn_test_4zgf1d3f7t9k6gk8hn8"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"trxn_test_5086xltqqbv4qpmu0ri"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"refunded"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"refunds"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"list"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-01-01T00:00:00+00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-03-23T05:25:15+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-06-02T05:41:49+00:00"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
 
     </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/charges/chrg_test_4zgf1d2wbstl173k99v/refunds"</span><span class="w">
+    </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/charges/chrg_test_5086xlsx4lghk9bpb75/refunds"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"failure_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"failure_message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card_test_4zgf1crf975xnz6coa7"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card_test_5086xl7amxfysl0ac5l"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"livemode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/customers/cust_test_4zgf1cv8e71bbwcww1p/cards/card_test_4zgf1crf975xnz6coa7"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/customers/cust_test_5086xleuh9ft4bn0ac2/cards/card_test_5086xl7amxfysl0ac5l"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"us"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bangkok"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10320"</span><span class="p">,</span><span class="w">
@@ -360,12 +363,12 @@ capture later.</p>
     </span><span class="s2">"fingerprint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mKleiBfwp+PoJWB/ipngANuECUmRKjyxROwFW5IO7TM="</span><span class="p">,</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Somchai Prasert"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"security_code_check"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-03-23T05:25:14Z"</span><span class="w">
+    </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-06-02T05:41:46Z"</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"customer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cust_test_4zgf1cv8e71bbwcww1p"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"customer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cust_test_5086xleuh9ft4bn0ac2"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"ip"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"dispute"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-03-23T05:25:15Z"</span><span class="w">
+  </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-06-02T05:41:49Z"</span><span class="w">
 </span><span class="p">}</span></code></pre>
 
         </div>

@@ -5,7 +5,7 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <link rel="shortcut icon" href="/images/favicon-dfe3f165.png">
 
-      <title>Omise: Release notes</title>
+      <title>Omise: Bank Account Object</title>
 
       <link srel="stylesheet" href="https://cdn1.omise.co/fonts/inconsolata.css">
       <link srel="stylesheet" href="https://cdn2.omise.co/fonts/lato.css">
@@ -14,10 +14,10 @@
     <script src="/javascripts/all-40e0ffb7.js" type="text/javascript"></script>
 
     <!-- Facebook OpenGraph -->
-    <meta property="og:title" content="Omise: translation missing: en.Release notes" />
+    <meta property="og:title" content="Omise: Bank Account Object" />
     <meta property="og:image" content="https://cdn.omise.co/assets/omise-2x.png" />
   </head>
-  <body class="release-notes release-notes_index">
+  <body class="api api_bank_account api_bank_account_index">
 
     <header class="Header">
   <div class="HeaderInner"><div class="Wrapper">
@@ -39,7 +39,7 @@
     </nav>
   </div></div>
   <div class="HeaderLocation"><div class="Wrapper">
-      DOCUMENTATION
+      API REFERENCE
   </div></div>
 </header>
 
@@ -55,7 +55,7 @@
     <li><a href="/transferring-funds">Transferring funds</a></li>
     <li><a href="/dashboard-transfers">Dashboard Transfers</a></li>
     <li><a href="/security-best-practices">Security Best Practices</a></li>
-    <li><a class="Current" href="/release-notes">Release Notes</a></li>
+    <li><a href="/release-notes">Release Notes</a></li>
   </ul>
 
   <h2>References</h2>
@@ -68,7 +68,7 @@
     <li><a href="/api/errors">Errors</a><br></li>
       <li><a href="/api/account">Account</a></li>
       <li><a href="/api/balance">Balance</a></li>
-      <li><a href="/api/bank_account">Bank account</a></li>
+      <li><a class="Current" href="/api/bank_account">Bank account</a></li>
       <li><a href="/api/cards">Cards</a></li>
       <li><a href="/api/charges">Charges</a></li>
       <li><a href="/api/customers">Customers</a></li>
@@ -88,74 +88,95 @@
 
       <div class="MainContent">
           <header class="PageHeader">
-            <h1 class="PageTitle">Release notes</h1>
-              <p>This page lists all major API versions and minor updates as well as their details.</p>
+  <h1 class="PageTitle">Bank Account</h1>
+  <p>The bank account object encapsulates bank account information needed for transfer.</p>
 
-          </header>
-          <div class="Page">
-            <h2 id="api-versions">API versions</h2>
+</header>
 
-<h3 id="2014-07-27">2014-07-27</h3>
 
-<p>First release.</p>
+<section class="ObjectAttributes">
 
-<h2 id="recent-non-breaking-updates">Recent Non-breaking updates</h2>
+    <div class="EndpointParameters">
+  <h3 class="SectionTitle">Object Attributes</h3>
+  <table class="EndpointParametersTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+              object
+          </td>
+          <td>string</td>
+          <td><p>The string <code>bank_account</code></p>
+</td>
+        </tr>
+        <tr>
+          <td>
+              brand
+          </td>
+          <td>string</td>
+          <td><p>The bank account brand</p>
+</td>
+        </tr>
+        <tr>
+          <td>
+              number
+          </td>
+          <td>string</td>
+          <td><p>The bank account number</p>
+</td>
+        </tr>
+        <tr>
+          <td>
+              name
+          </td>
+          <td>string</td>
+          <td><p>The bank account name</p>
+</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
-<p>Listed below are noteworthy changes that add functionality to the Dashboard or API</p>
 
-<table><thead>
-<tr>
-<th style="text-align: left">Date</th>
-<th style="text-align: left">Domain</th>
-<th style="text-align: left">Description</th>
-<th style="text-align: left">URL</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">2015-05</td>
-<td style="text-align: left">Dashboard/API</td>
-<td style="text-align: left">Ability to have multiple recipients per account</td>
-<td style="text-align: left"><a href="/api/recipients">Recipients docs</a></td>
-</tr>
-<tr>
-<td style="text-align: left">2015-05</td>
-<td style="text-align: left">Dashboard</td>
-<td style="text-align: left">Optimized test account reset</td>
-<td style="text-align: left"></td>
-</tr>
-<tr>
-<td style="text-align: left">2015-05</td>
-<td style="text-align: left">Dashboard</td>
-<td style="text-align: left"><code>Live</code> dashboard opens by default after login</td>
-<td style="text-align: left"></td>
-</tr>
-<tr>
-<td style="text-align: left">2015-04</td>
-<td style="text-align: left">API</td>
-<td style="text-align: left">Fixed pagination issue in lists</td>
-<td style="text-align: left"></td>
-</tr>
-<tr>
-<td style="text-align: left">2015-03</td>
-<td style="text-align: left">Dashboard</td>
-<td style="text-align: left">Ability to open/manage disputes</td>
-<td style="text-align: left"><a href="/api/disputes">Dispute docs</a></td>
-</tr>
-<tr>
-<td style="text-align: left">2015-03</td>
-<td style="text-align: left">Dashboard</td>
-<td style="text-align: left">Improved testing interface (dashboard-wide)</td>
-<td style="text-align: left"><a href="/api/tests">Tests</a></td>
-</tr>
-<tr>
-<td style="text-align: left">2015-02</td>
-<td style="text-align: left">Dashboard</td>
-<td style="text-align: left">Ability to create transfers from the dashboard</td>
-<td style="text-align: left"><a href="/dashboard-transfers">Dashboard transfers docs</a></td>
-</tr>
-</tbody></table>
 
-          </div>
+  <div class="EndpointExamples">
+  <h3 class="SectionTitle">Example</h3>
+  <ul class="EndpointExamplesList">
+
+    <li class="EndpointExample" data-accordion='{ "header": ".EndpointExampleHeader", "body": ".EndpointExampleBody" }'>
+      <header class="EndpointExampleHeader">
+        <h4 class="EndpointExampleTitle">
+          Default JSON Representation
+        </h4>
+      </header>
+      <div class="EndpointExampleBody HIDDEN">
+        <div class="EndpointExampleCode">
+          <pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bank_account"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bbl"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOMCHAI PRASERT"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-26T09:56:15Z"</span><span class="w">
+</span><span class="p">}</span></code></pre>
+
+        </div>
+      </div>
+    </li>
+
+  </ul>
+</div>
+
+
+</section>
+
+
+
         <footer class="Footer">
   © 2015 Omise, Co. Ltd.
   <a href="https://www.omise.co/">About</a>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <link rel="shortcut icon" href="/images/favicon-dfe3f165.png">
+
+      <title>Omise: Transferring funds</title>
+
+      <link srel="stylesheet" href="https://cdn1.omise.co/fonts/inconsolata.css">
+      <link srel="stylesheet" href="https://cdn2.omise.co/fonts/lato.css">
+
+    <link href="/stylesheets/all-0a66131a.css" rel="stylesheet" type="text/css" />
+    <script src="/javascripts/all-40e0ffb7.js" type="text/javascript"></script>
+
+    <!-- Facebook OpenGraph -->
+    <meta property="og:title" content="Omise: translation missing: en.Transferring funds" />
+    <meta property="og:image" content="https://cdn.omise.co/assets/omise-2x.png" />
+  </head>
+  <body class="transferring-funds transferring-funds_index">
+
+    <header class="Header">
+  <div class="HeaderInner"><div class="Wrapper">
+    <img height="20" width="61" alt="Omise" class="Logo" src="/images/logo-b646e62e.svg" />
+    <nav class="Menu">
+      <span data-dropdown='{ "className": ".SearchBox" }' class="SearchButton">Search</span>
+      <span data-dropdown='{ "className": ".MenuDropdown" }' class="MenuButton">Menu</span>
+      <div class="MenuDropdown" style="display:none;">
+        <a class="MenuDropdownItem" href="https://www.omise.co/">Homepage</a>
+        <hr>
+        <a class="MenuDropdownItem" href="https://dashboard.omise.co/signin">Sign In</a>
+        <a class="MenuDropdownItem" href="https://dashboard.omise.co/signup">Register</a>
+        <hr>
+        <a class="MenuDropdownItem" href="https://github.com/omise">Omise on GitHub</a>
+        <hr>
+        <a class="MenuDropdownItem" href="https://support.omise.co/">Support</a>
+        <a class="MenuDropdownItem" href="https://github.com/omise/docs/issues">Report an issue about the docs</a>
+      </div>
+    </nav>
+  </div></div>
+  <div class="HeaderLocation"><div class="Wrapper">
+      DOCUMENTATION
+  </div></div>
+</header>
+
+
+    <div class="Main">
+      <nav class="Nav"><div class="NavInner">
+  <h2>Documentation</h2>
+  <ul>
+    <li><a href="/">Getting Started</a></li>
+    <li><a href="/collecting-card-information">Collecting Cards</a></li>
+    <li><a href="/charging-cards">Charging Cards</a></li>
+    <li><a href="/refunding-charges">Refunding Charges</a></li>
+    <li><a class="Current" href="/transferring-funds">Transferring funds</a></li>
+    <li><a href="/dashboard-transfers">Dashboard Transfers</a></li>
+    <li><a href="/security-best-practices">Security Best Practices</a></li>
+    <li><a href="/release-notes">Release Notes</a></li>
+  </ul>
+
+  <h2>References</h2>
+  <ul>
+    <li><a href="/omise-js">Omise.js</a></li>
+    <li><a href="/card-js">Card.js</a></li>
+    <li><a href="/api/authentication">Authentication</a></li>
+    <li><a href="/api/pagination">Pagination &amp; Lists</a></li>
+    <li><a href="/api/tests">Tests</a></li>
+    <li><a href="/api/errors">Errors</a><br></li>
+      <li><a href="/api/account">Account</a></li>
+      <li><a href="/api/balance">Balance</a></li>
+      <li><a href="/api/bank_account">Bank account</a></li>
+      <li><a href="/api/cards">Cards</a></li>
+      <li><a href="/api/charges">Charges</a></li>
+      <li><a href="/api/customers">Customers</a></li>
+      <li><a href="/api/recipients">Recipients</a></li>
+      <li><a href="/api/disputes">Disputes</a></li>
+      <li><a href="/api/refunds">Refunds</a></li>
+      <li><a href="/api/tokens">Tokens</a></li>
+      <li><a href="/api/transactions">Transactions</a></li>
+      <li><a href="/api/transfers">Transfers</a></li>
+  </ul>
+
+  <h2>Plugins</h2>
+  <ul>
+    <li><a href="/woocommerce">WooCommerce</a></li>
+  </ul>
+</div></nav>
+
+      <div class="MainContent">
+          <header class="PageHeader">
+            <h1 class="PageTitle">Transferring funds</h1>
+          </header>
+          <div class="Page">
+            <h2 id="requirement">Requirement</h2>
+
+<p>The following requirement must be met for a transfer to be created:</p>
+
+<ul>
+<li>There must be over 30 THB in your available balance.</li>
+</ul>
+
+<h2 id="recipient">Recipient</h2>
+
+<h3 id="default-recipient">Default recipient</h3>
+
+<p>By default, a recipient is created for you in TEST mode once you sign up with Omise. However, once you get your live account, a new live recipient is created for you using your registration information and bank account.</p>
+
+<h3 id="third-party-recipient">Third party recipient</h3>
+
+<p>You can create as many recipients as you want. Each recipient has its own bank account information. We allow transferring the balance to these recipient.</p>
+
+<h3 id="create-a-recipient">Create a recipient</h3>
+
+<p>The following command demonstrates how to create a recipient using CURL</p>
+<pre class="highlight shell"><code>    curl https://api.omise.co/recipients <span class="se">\</span>
+    -X POST <span class="se">\</span>
+    -u <span class="s2">"</span><span class="nv">$OMISE_KEY_SECRET</span><span class="s2">"</span>: <span class="se">\</span>
+    -d <span class="s2">"name=James Smith"</span>
+    -d <span class="s2">"email=james.smith@example.com"</span>
+    -d <span class="s2">"description=My first other recipient"</span> <span class="se">\</span>
+    -d <span class="s2">"type=individual"</span>
+    -d <span class="s2">"bank_account[brand]=test"</span> <span class="se">\</span>
+    -d <span class="s2">"bank_account[number]=acc12345"</span> <span class="se">\</span>
+    -d <span class="s2">"bank_account[name]=James Smith"</span>
+</code></pre>
+
+<p>By default, recipients are <code>Inactive</code> and <code>non-verified</code>.
+  In order to be operational, recipients have to go through 2 steps:  Verification and Activation. </p>
+
+<p>Visit <a href="/api/recipients">recipient api</a> For more API references.</p>
+
+<h3 id="recipient-verification">Recipient verification</h3>
+
+<p>The recipient verification is done by Omise. We normally take 1-2 days for this. The verification result can be either <code>Verified</code> or <code>Failed</code>.</p>
+
+<p><img alt="Recipient list" src="/images/transferring_funds/recipient_list-a6e7e524.png" /></p>
+
+<p><img alt="Recipient detail" src="/images/transferring_funds/recipient_detail-a60d0e7d.png" /></p>
+
+<h3 id="recipient-activation">Recipient activation</h3>
+
+<p>You can activate recipients independently from the verification process. By default, the recipient is inactive unless you activate it. 
+  Activation is done by going to the recipient details and clicking on &quot;Activate the recipient&quot;. </p>
+
+<p>Remember that both activation and verification must be successful before transfers become possible.</p>
+
+<p><img alt="Recipient activation" src="/images/transferring_funds/recipient_activation-2631e6b5.png" /></p>
+
+<h2 id="transfer-to-default-recipient">Transfer to default recipient</h2>
+
+<p>Below is a sample code showing how to create a transfer to the default recipient </p>
+<pre class="highlight shell"><code>    curl https://api.omise.co/transfers <span class="se">\</span>
+      -X POST <span class="se">\</span>
+      -u <span class="s2">"</span><span class="nv">$OMISE_KEY_SECRET</span><span class="s2">"</span>: <span class="se">\</span>
+      -d <span class="s2">"amount=350000"</span>
+
+    <span class="c"># Transfer 3500 THB to default recipient</span>
+</code></pre>
+
+<h2 id="transfer-to-third-party-recipient">Transfer to third party recipient</h2>
+
+<p>Transferring funds to a third party recipient is similar except that you have to specify the recipient id to transfer to. Here is an example:</p>
+<pre class="highlight shell"><code>    curl https://api.omise.co/transfers <span class="se">\</span>
+      -X POST <span class="se">\</span>
+      -u <span class="s2">"</span><span class="nv">$OMISE_KEY_SECRET</span><span class="s2">"</span>: <span class="se">\</span>
+      -d <span class="s2">"amount=350000"</span>
+      -d <span class="s2">"recipient=recp_test_4z6p7e0m4k40txecj5o"</span>
+
+    <span class="c"># Transfer 3500 THB to recipient #recp_test_4z6p7e0m4k40txecj5o</span>
+</code></pre>
+
+<h2 id="transfer-timeline">Transfer timeline</h2>
+
+<p>Transfers that are initiated before 11 AM are available in the recipient&#39;s bank account within the next business day.</p>
+
+          </div>
+        <footer class="Footer">
+  © 2015 Omise, Co. Ltd.
+  <a href="https://www.omise.co/">About</a>
+  <a href="https://www.omise.co/terms.html">Terms</a>
+  <a href="https://www.omise.co/privacy.html">Privacy</a>
+</footer>
+
+      </div>
+    </div>
+
+    <div class="SearchBox" data-search='{}' style="display: none">
+      <input type="search">
+    </div>
+
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-54948916-2', 'auto');
+  ga('require', 'linkid', 'linkid.js');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+
+</script>
+
+
+  </body>
+</html>
