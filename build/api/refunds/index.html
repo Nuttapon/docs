@@ -52,6 +52,9 @@
     <li><a href="/collecting-card-information">Collecting Cards</a></li>
     <li><a href="/charging-cards">Charging Cards</a></li>
     <li><a href="/refunding-charges">Refunding Charges</a></li>
+    <li><a href="/dashboard-transfers">Dashboard Transfers</a></li>
+    <li><a href="/security-best-practices">Security Best Practices</a></li>
+    <li><a href="/release-notes">Release Notes</a></li>
   </ul>
 
   <h2>References</h2>
@@ -67,6 +70,7 @@
       <li><a href="/api/cards">Cards</a></li>
       <li><a href="/api/charges">Charges</a></li>
       <li><a href="/api/customers">Customers</a></li>
+      <li><a href="/api/disputes">Disputes</a></li>
       <li><a class="Current" href="/api/refunds">Refunds</a></li>
       <li><a href="/api/tokens">Tokens</a></li>
       <li><a href="/api/transactions">Transactions</a></li>
@@ -78,6 +82,7 @@
     <li><a href="/woocommerce">WooCommerce</a></li>
   </ul>
 </div></nav>
+
       <div class="MainContent">
           <header class="PageHeader">
   <h1 class="PageTitle">Refunds API</h1>
@@ -103,13 +108,13 @@
         <div class="EndpointExampleCode">
           <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"refund"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rfnd_test_4z9prsoukqoaniof8nu"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/charges/chrg_test_4z9psc1ximo7bppx7hu/refunds/rfnd_test_4z9prsoukqoaniof8nu"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rfnd_test_4zgf1d7jcw5kr123puq"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/charges/chrg_test_4zgf1d2wbstl173k99v/refunds/rfnd_test_4zgf1d7jcw5kr123puq"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">20000</span><span class="p">,</span><span class="w">
   </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thb"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"charge"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chrg_test_4z9psc1ximo7bppx7hu"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"trxn_test_4z9prsp0uis1skurwzk"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-03-06T02:11:40Z"</span><span class="w">
+  </span><span class="s2">"charge"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chrg_test_4zgf1d2wbstl173k99v"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"trxn_test_4zgf1d7pma3429157d1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-03-23T05:25:16Z"</span><span class="w">
 </span><span class="p">}</span></code></pre>
 
         </div>
@@ -134,7 +139,7 @@
         GET
       </span>
       <span class="EndpointUrl">
-        https://api.omise.co/refunds
+        https://api.omise.co/charges/CHARGE_ID/refunds
       </span>
     </header>
 
@@ -264,7 +269,7 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
-        <pre class="highlight csharp"><code><span class="p">//</span> <span class="n">Coming</span> <span class="n">soon</span></code></pre>
+        <pre class="highlight csharp"><code><span class="n">var</span> <span class="n">refunds</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">ChargeService</span><span class="p">.</span><span class="nf">GetRefunds</span><span class="p">(</span><span class="s">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">);</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-javascript HIDDEN">
@@ -300,7 +305,7 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
         POST
       </span>
       <span class="EndpointUrl">
-        https://api.omise.co/refunds
+        https://api.omise.co/charges/CHARGE_ID/refunds
       </span>
     </header>
 
@@ -377,7 +382,7 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 curl https://api.omise.co/charges/chrg_test_4ype2jynk2len88i4er/refunds <span class="se">\</span>
   -X POST <span class="se">\</span>
   -u skey_test_4ypcvnwzy9ob6gs89pn: <span class="se">\</span>
-  -d <span class="s2">"amount=100000"</span></code></pre>
+  -d <span class="s2">"amount=10000"</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-ruby HIDDEN">
@@ -398,13 +403,13 @@ curl https://api.omise.co/charges/chrg_test_4ype2jynk2len88i4er/refunds <span cl
 
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
-        <pre class="highlight csharp"><code><span class="p">//</span> <span class="n">Coming</span> <span class="n">soon</span></code></pre>
+        <pre class="highlight csharp"><code><span class="n">var</span> <span class="n">refund</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">ChargeService</span><span class="p">.</span><span class="nf">CreateRefund</span><span class="p">(</span><span class="s">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">,</span> <span class="m">10000</span><span class="p">);</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-javascript HIDDEN">
         <pre class="highlight javascript"><code><span class="nx">omise</span><span class="p">.</span><span class="nx">charges</span><span class="p">.</span><span class="nx">createRefund</span><span class="p">(</span>
   <span class="s1">'chrg_test_4ype2jynk2len88i4er'</span><span class="p">,</span>
-  <span class="p">{</span><span class="s1">'amount'</span><span class="p">:</span> <span class="mi">100000</span><span class="p">},</span>
+  <span class="p">{</span><span class="s1">'amount'</span><span class="p">:</span> <span class="mi">10000</span><span class="p">},</span>
   <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">refund</span><span class="p">)</span> <span class="p">{</span>
     <span class="cm">/* Response. */</span>
   <span class="p">}</span>
@@ -440,7 +445,7 @@ curl https://api.omise.co/charges/chrg_test_4ype2jynk2len88i4er/refunds <span cl
         GET
       </span>
       <span class="EndpointUrl">
-        https://api.omise.co/refunds/REFUND_ID
+        https://api.omise.co/charges/CHARGE_ID/refunds/REFUND_ID
       </span>
     </header>
 
@@ -490,7 +495,8 @@ curl https://api.omise.co/charges/chrg_test_4ype2jynk2len88i4er/refunds <span cl
       </ul>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
-        <pre class="highlight shell"><code></code></pre>
+        <pre class="highlight shell"><code>curl https://api.omise.co/charges/chrg_test_4xso2s8ivdej29pqnhz/refunds/rfnd_test_4zgf1d7jcw5kr123puq <span class="se">\</span>
+  -u skey_test_4xsjvwfnvb2g0l81sjz: <span class="se">\</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-ruby HIDDEN">
@@ -509,7 +515,7 @@ curl https://api.omise.co/charges/chrg_test_4ype2jynk2len88i4er/refunds <span cl
 
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
-        <pre class="highlight csharp"><code></code></pre>
+        <pre class="highlight csharp"><code><span class="n">var</span> <span class="n">refund</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">ChargeService</span><span class="p">.</span><span class="nf">GetRefund</span><span class="p">(</span><span class="s">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">,</span><span class="s">"rfnd_test_4zgf1d7jcw5kr123puq"</span><span class="p">);</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-javascript HIDDEN">

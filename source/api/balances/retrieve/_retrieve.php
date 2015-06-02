@@ -1,6 +1,4 @@
 <?php
-
-$account = OmiseAccount::retrieve();
-
-// After retrieving it, the account can be refreshed:
-$account->reload();
+$balance = OmiseBalance::retrieve();
+// After retrieving it, the balance can be refreshed:
+$balance->reload();

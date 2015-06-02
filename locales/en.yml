@@ -58,6 +58,7 @@ en:
     card: "card"
     list: "list"
     bank_account: "bank_account"
+    dispute: "dispute"
 
   accounts:
 
@@ -221,6 +222,7 @@ en:
       card: "The card object that was charged."
       customer: "The `CUSTOMER_ID` to which the charge belongs."
       ip: "The customer IP, as sent to Omise."
+      dispute: "If the charge is disputed, this contains the `dispute` object."
       created: "Creation date of the charge in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format."
 
     deprecated_attributes:
@@ -298,7 +300,7 @@ en:
     attributes:
       object: "The string `customer`."
       id: "The `CUSTOMER_ID`."
-      livemode: "Whether this is a live (`true`) or test (`false`) card."
+      livemode: "Whether this is a live (`true`) or test (`false`) customer."
       location: "Path to retrieve the customer."
       default_card: |
         `CARD_ID` of the card used as default when creating charge with a
@@ -360,6 +362,81 @@ en:
         destroy: "Destroy a customer"
         response: "Response (JSON)"
 
+  disputes:
+
+    title: "Disputes API"
+    description: ""
+
+    meta:
+      title: "Disputes API reference"
+      description: ""
+
+    attributes:
+      object: "The string `dispute`."
+      id: "The `DISPUTE_ID`."
+      livemode: "Whether this is a live (`true`) or test (`false`) dispute."
+      location: "Path to retrieve the dispute."
+      amount: "The amount in the smallest subunits of the currency used. So for `thb` (Thai Baht) you'll need to pass the amount in satangs."
+      currency: "The currency as its lower-cased international 3-letter code, defined by the [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) standard."
+      status: "The dispute status. One of `open`, `pending` or `closed`"
+      message: "The dispute message. A short explanation for the dispute."
+      charge: "The `CHARGE_ID`"
+      created: "Creation date of the customer in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format."
+
+
+    # LIST
+    list:
+      title: "List all disputes"
+      description:
+        Returns a `list` of `dispute` objects.
+      query_parameters: *list_query_parameters
+      examples:
+        list: "List all disputes"
+
+    # OPEN
+    open:
+      title: "List all open disputes"
+      description:
+        Returns a `list` of open `dispute` objects.
+      query_parameters: *list_query_parameters
+      examples:
+        open: "List all open disputes"
+
+    # PENDING
+    pending:
+      title: "List all pending disputes"
+      description:
+        Returns a `list` of pending `dispute` objects.
+      query_parameters: *list_query_parameters
+      examples:
+        pending: "List all pending disputes"
+
+    # CLOSED
+    closed:
+      title: "List all closed disputes"
+      description:
+        Returns a `list` of closed `dispute` objects.
+      query_parameters: *list_query_parameters
+      examples:
+        closed: "List all closed disputes"
+
+    # RETRIEVE
+    retrieve:
+      title: "Retrieve a dispute"
+      description:
+        Returns a `dispute` object.
+      examples:
+        retrieve: "Retrieve a dispute"
+
+    #UPDATE
+    update:
+      title: "Update a dispute"
+      description: |
+        Returns the updated dispute object.
+      request_parameters:
+        message: "The new dispute message"
+      examples:
+        update: "Update a dispute"
 
   refunds:
 
@@ -407,11 +484,14 @@ en:
       token ID. Once the token is used the card is attached to its new owner
       and the token is revoked and can't be used anymore.
     notice: |
-      **Sensitive card data should never go through your server.**  
-      Unless you have a very good reason and know what you are doing, the
-      create method described on this page should only be used with fake data in
+      **Full Credit Card data should never go through your server.**  
+      Do not send the credit card data to Omise from your servers directly.  
+      You must send the card data from the client browser via Javascript (Omise-JS).  
+      The methods described on this page should only be used either with fake data in
       test mode (e.g.: quickly creating some fake data, testing our API from
-      a terminal, etc.).
+      a terminal, etc.), or if you are PCI-DSS compliant.
+      Sending card data from server requires a valid PCI-DSS certification.
+      You can learn more about this in [Security Best Practices](/security-best-practices)
 
     attributes:
       object: "The string `token`."
@@ -471,7 +551,7 @@ en:
       query_parameters: *list_query_parameters
       examples:
         list: "List all transactions"
-    
+
     retrieve:
       title: "Retrieve a transaction"
       description: ""
