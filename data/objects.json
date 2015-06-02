@@ -338,6 +338,83 @@
 
   },
 
+  "recipient": {
+
+    "name": "recipient",
+    "resource_name": "recipients",
+
+    "attributes": {
+      "object": "string",
+      "id": "string",
+      "livemode": "string",
+      "location": "string",
+      "verified": "boolean",
+      "active": "boolean",
+      "name": "string",
+      "email": "string",
+      "description": "string",
+      "type": "string",
+      "tax_id": "string",
+      "bank_account": "bank_account",
+      "failure_code": "string",
+      "created": "datetime"
+    },
+
+    "endpoints": [
+      {
+        "name": "list",
+        "verb": "GET",
+        "url": "https://api.omise.co/recipients",
+        "query_parameters": {
+          "offset": "integer",
+          "limit": "integer",
+          "from": "datetime",
+          "to": "datetime"
+        },
+        "examples": [
+          "list"
+        ]
+      },
+
+      {
+        "name": "create",
+        "verb": "POST",
+        "url": "https://api.omise.co/recipients",
+        "examples": [
+          "create"
+        ]
+      },
+
+      {
+        "name": "retrieve",
+        "verb": "GET",
+        "url": "https://api.omise.co/recipients/RECIPIENT_ID",
+        "examples": [
+          "retrieve"
+        ]
+      },
+
+      {
+        "name": "update",
+        "verb": "PATCH",
+        "url": "https://api.omise.co/recipients/RECIPIENT_ID",
+        "examples": [
+          "update"
+        ]
+      },
+
+      {
+        "name": "destroy",
+        "verb": "DELETE",
+        "url": "https://api.omise.co/recipients/RECIPIENT_ID",
+        "examples": [
+          "destroy"
+        ]
+      }
+
+    ]
+
+  },
 
   "refund": {
 
@@ -473,83 +550,6 @@
         "url": "https://api.omise.co/transactions/TRANSACTION_ID",
         "examples": [
           "retrieve"
-        ]
-      }
-
-    ]
-
-  },
-
-  "recipient": {
-
-    "name": "recipient",
-    "resource_name": "recipients",
-
-    "attributes": {
-      "object": "string",
-      "id": "string",
-      "livemode": "string",
-      "location": "string",
-      "name": "string",
-      "email": "string",
-      "description": "string",
-      "type": "string",
-      "tax_id": "string",
-      "bank_account": "bank_account",
-      "status": "string",
-      "active": "string",
-      "created": "datetime"
-    },
-
-    "endpoints": [
-      {
-        "name": "list",
-        "verb": "GET",
-        "url": "https://api.omise.co/recipients",
-        "query_parameters": {
-          "offset": "integer",
-          "limit": "integer",
-          "from": "datetime",
-          "to": "datetime"
-        },
-        "examples": [
-          "list"
-        ]
-      },
-      
-      {
-        "name": "create",
-        "verb": "POST",
-        "url": "https://api.omise.co/recipients",
-        "examples": [
-          "create"
-        ]
-      },
-
-      {
-        "name": "retrieve",
-        "verb": "GET",
-        "url": "https://api.omise.co/recipients/RECIPIENT_ID",
-        "examples": [
-          "retrieve"
-        ]
-      },
-
-      {
-        "name": "update",
-        "verb": "PATCH",
-        "url": "https://api.omise.co/recipients/RECIPIENT_ID",
-        "examples": [
-          "update"
-        ]
-      },
-
-      {
-        "name": "destroy",
-        "verb": "DELETE",
-        "url": "https://api.omise.co/recipients/RECIPIENT_ID",
-        "examples": [
-          "destroy"
         ]
       }
 

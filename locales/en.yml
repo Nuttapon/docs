@@ -492,22 +492,23 @@ en:
       id: "The `RECIPIENT_ID`."
       livemode: "Whether this is a live (`true`) or test (`false`) recipient."
       location: "Path to retrieve the recipient."
+      verified: "Whether the recipient is verified or not"
+      active: "Whether the recipient is active or not"
       name: "The recipient's name."
       email: "The recipient's email."
       description: "The recipient description."
       type: "The recipient type `individual` or `corporation`"
       tax_id: "The recipient tax id"
       bank_account: "A bank account that the recipient owns"
-      status: "The recipient status. `verified` or `failed`."
-      active: "The recipient activation status. `active` or `inactive`."
+      failure_code: "If the recipient could not be verified, a failure code explaining why."
       created: "Creation date of the recipient in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format."
 
     list:
-      title: "List a recipient"
+      title: "List all recipients"
       description: ""
       query_parameters: *list_query_parameters
       examples:
-        list: "List a recipient"
+        list: "List all recipients"
 
     create:
       title: "Create a recipient"

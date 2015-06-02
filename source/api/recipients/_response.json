@@ -1,21 +1,22 @@
 {
   "object": "recipient",
-  "id": "recp_test_4z6p7e0m4k40txecj5o",
+  "id": "recp_test_5086xmr74vxs0ajpo78",
   "livemode": false,
-  "location": "/recipients/recp_test_4z6p7e0m4k40txecj5o",
-  "status": "pending",
+  "location": "/recipients/recp_test_5086xmr74vxs0ajpo78",
+  "verified": false,
   "active": false,
-  "name": "Somchai Prasert",
-  "email": "somchai.prasert@example.com",
-  "description": "Somchai Prasert",
+  "name": "James Smith",
+  "email": "secondary@recipient.co",
+  "description": "Secondary recipient",
   "type": "individual",
-  "tax_id": "123456789012345",
+  "tax_id": "1234567890",
   "bank_account": {
     "object": "bank_account",
-    "brand": "bbl",
-    "number": "1234567890",
-    "name": "SOMCHAI PRASERT",
-    "created": "2015-02-26T09:56:15Z"
+    "brand": "test",
+    "last_digits": "2345",
+    "name": "James Smith",
+    "created": "2015-06-02T05:41:53Z"
   },
-  "created": "2015-02-26T09:08:50Z"
+  "failure_code": null,
+  "created": "2015-06-02T05:41:53Z"
 }
