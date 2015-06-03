@@ -677,17 +677,9 @@ en:
         Returns a new transfer object.
       request_parameters:
         amount: "The amount in the smallest subunits of the currency used. So for `thb` (Thai Baht) you'll need to pass the amount in satangs."
-      examples:
-        create: "Create a transfer"
-
-    create_with_recipient:
-      title: "Create a transfer to a third-party recipient"
-      description: |
-        Returns a new transfer object.
-      request_parameters:
-        amount: "The amount in the smallest subunits of the currency used. So for `thb` (Thai Baht) you'll need to pass the amount in satangs."
         recipient: "The recipient id"
       examples:
+        create: "Create a transfer"
         create_with_recipient: "Create a transfer to a third-party recipient"
 
     update:
