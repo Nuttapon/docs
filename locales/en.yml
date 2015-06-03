@@ -598,7 +598,7 @@ en:
         email: "(*optional*) The recipient's email"
         description: "(*optional*) The recipient's description"
         type: "Either `individual` or `corporation`"
-        tax_id: "The recipient's tax id"
+        tax_id: "(*optional*) The recipient's tax id"
         bank_account: "A valid [bank account](bank_account) object"
       examples:
         create: "Create a recipient"
