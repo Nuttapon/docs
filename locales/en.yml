@@ -593,6 +593,13 @@ en:
     create:
       title: "Create a recipient"
       description: ""
+      request_parameters:
+        name: "The recipient's name"
+        email: "(*optional*) The recipient's email"
+        description: "(*optional*) The recipient's description"
+        type: "Either `individual` or `corporation`"
+        tax_id: "(*optional*) The recipient's tax id"
+        bank_account: "A valid [bank account](bank_account) object"
       examples:
         create: "Create a recipient"
 
@@ -607,6 +614,13 @@ en:
       description: ""
       examples:
         update: "Update a recipient"
+      request_parameters:
+        name: "(*optional*) The recipient's name"
+        email: "(*optional*) The recipient's email"
+        description: "(*optional*) The recipient's description"
+        type: "(*optional*) Either `individual` or `corporation`"
+        tax_id: "(*optional*) The recipient's tax id"
+        bank_account: "(*optional*) A valid [bank account](bank_account) object"
 
     destroy:
       title: "Destroy a recipient"

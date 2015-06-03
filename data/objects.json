@@ -381,6 +381,14 @@
         "name": "create",
         "verb": "POST",
         "url": "https://api.omise.co/recipients",
+        "request_parameters": {
+          "name": "string",
+          "email": "string",
+          "description": "string",
+          "type": "string",
+          "tax_id": "string",
+          "bank_account": "bank_account"
+        },
         "examples": [
           "create"
         ]
@@ -399,6 +407,14 @@
         "name": "update",
         "verb": "PATCH",
         "url": "https://api.omise.co/recipients/RECIPIENT_ID",
+        "request_parameters": {
+          "name": "string",
+          "email": "string",
+          "description": "string",
+          "type": "string",
+          "tax_id": "string",
+          "bank_account": "bank_account"
+        },
         "examples": [
           "update"
         ]
