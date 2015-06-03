@@ -578,7 +578,7 @@ en:
       email: "The recipient's email."
       description: "The recipient description."
       type: "The recipient type `individual` or `corporation`"
-      tax_id: "(*optional*) The recipient tax id"
+      tax_id: "The recipient tax id"
       bank_account: "The recipient's bank account"
       failure_code: "If the recipient could not be verified, a failure code explaining why."
       created: "Creation date of the recipient in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format."
