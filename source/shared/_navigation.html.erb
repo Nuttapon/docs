@@ -20,7 +20,7 @@
     <li><%= link_to_current "Tests", "/api/tests" %></li>
     <li><%= link_to_current "Errors", "/api/errors" %><br></li>
     <% data.objects.each do |name, object| %>
-      <li><%= link_to_current object.resource_name.humanize, "/api/#{object.resource_name}" %></li>
+      <li><%= link_to_current object.resource_name.titleize, "/api/#{object.resource_name}" %></li>
     <% end %>
   </ul>
 
