@@ -68,7 +68,7 @@
     <li><a href="/api/errors">Errors</a><br></li>
       <li><a href="/api/account">Account</a></li>
       <li><a href="/api/balance">Balance</a></li>
-      <li><a href="/api/bank_account">Bank account</a></li>
+      <li><a href="/api/bank_account">Bank Account</a></li>
       <li><a href="/api/cards">Cards</a></li>
       <li><a href="/api/charges">Charges</a></li>
       <li><a href="/api/customers">Customers</a></li>
@@ -348,7 +348,11 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-ruby HIDDEN">
-        <pre class="highlight ruby"><code></code></pre>
+        <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s2">"omise"</span>
+
+<span class="no">Omise</span><span class="p">.</span><span class="nf">api_key</span> <span class="o">=</span> <span class="s2">"skey_test_4xs8breq3htbkj03d2x"</span>
+
+<span class="n">disputes</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Dispute</span><span class="p">.</span><span class="nf">list</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-python HIDDEN">
@@ -364,7 +368,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-javascript HIDDEN">
-        <pre class="highlight javascript"><code></code></pre>
+        <pre class="highlight javascript"><code><span class="nx">omise</span><span class="p">.</span><span class="nx">disputes</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">resp</span><span class="p">)</span> <span class="p">{</span>
+  <span class="cm">/* Response. */</span>
+<span class="p">});</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-java HIDDEN">
@@ -502,7 +508,11 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-ruby HIDDEN">
-        <pre class="highlight ruby"><code></code></pre>
+        <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s2">"omise"</span>
+
+<span class="no">Omise</span><span class="p">.</span><span class="nf">api_key</span> <span class="o">=</span> <span class="s2">"skey_test_4xs8breq3htbkj03d2x"</span>
+
+<span class="n">disputes</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Dispute</span><span class="p">.</span><span class="nf">list</span><span class="p">(</span><span class="ss">status: </span><span class="s2">"open"</span><span class="p">)</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-python HIDDEN">
@@ -518,7 +528,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-javascript HIDDEN">
-        <pre class="highlight javascript"><code></code></pre>
+        <pre class="highlight javascript"><code><span class="nx">omise</span><span class="p">.</span><span class="nx">disputes</span><span class="p">.</span><span class="nx">listOpen</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">resp</span><span class="p">)</span> <span class="p">{</span>
+  <span class="cm">/* Response. */</span>
+<span class="p">});</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-java HIDDEN">
@@ -656,7 +668,11 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-ruby HIDDEN">
-        <pre class="highlight ruby"><code></code></pre>
+        <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s2">"omise"</span>
+
+<span class="no">Omise</span><span class="p">.</span><span class="nf">api_key</span> <span class="o">=</span> <span class="s2">"skey_test_4xs8breq3htbkj03d2x"</span>
+
+<span class="n">disputes</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Dispute</span><span class="p">.</span><span class="nf">list</span><span class="p">(</span><span class="ss">status: </span><span class="s2">"pending"</span><span class="p">)</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-python HIDDEN">
@@ -672,7 +688,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-javascript HIDDEN">
-        <pre class="highlight javascript"><code></code></pre>
+        <pre class="highlight javascript"><code><span class="nx">omise</span><span class="p">.</span><span class="nx">disputes</span><span class="p">.</span><span class="nx">listPending</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">resp</span><span class="p">)</span> <span class="p">{</span>
+  <span class="cm">/* Response. */</span>
+<span class="p">});</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-java HIDDEN">
@@ -810,7 +828,11 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-ruby HIDDEN">
-        <pre class="highlight ruby"><code></code></pre>
+        <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s2">"omise"</span>
+
+<span class="no">Omise</span><span class="p">.</span><span class="nf">api_key</span> <span class="o">=</span> <span class="s2">"skey_test_4xs8breq3htbkj03d2x"</span>
+
+<span class="n">disputes</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Dispute</span><span class="p">.</span><span class="nf">list</span><span class="p">(</span><span class="ss">status: </span><span class="s2">"closed"</span><span class="p">)</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-python HIDDEN">
@@ -826,7 +848,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-javascript HIDDEN">
-        <pre class="highlight javascript"><code></code></pre>
+        <pre class="highlight javascript"><code><span class="nx">omise</span><span class="p">.</span><span class="nx">disputes</span><span class="p">.</span><span class="nx">listClosed</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">resp</span><span class="p">)</span> <span class="p">{</span>
+  <span class="cm">/* Response. */</span>
+<span class="p">});</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-java HIDDEN">
@@ -909,7 +933,11 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-ruby HIDDEN">
-        <pre class="highlight ruby"><code></code></pre>
+        <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s2">"omise"</span>
+
+<span class="no">Omise</span><span class="p">.</span><span class="nf">api_key</span> <span class="o">=</span> <span class="s2">"skey_test_4xs8breq3htbkj03d2x"</span>
+
+<span class="n">dispute</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Dispute</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"dspt_test_4zgf15h89w8t775kcm8"</span><span class="p">)</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-python HIDDEN">
@@ -925,7 +953,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-javascript HIDDEN">
-        <pre class="highlight javascript"><code></code></pre>
+        <pre class="highlight javascript"><code><span class="nx">omise</span><span class="p">.</span><span class="nx">disputes</span><span class="p">.</span><span class="nx">retrieve</span><span class="p">(</span><span class="s2">"dspt_test_4zei9tuoblpoxid97xp"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">resp</span><span class="p">)</span> <span class="p">{</span>
+  <span class="cm">/* Response. */</span>
+<span class="p">});</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-java HIDDEN">
@@ -1034,7 +1064,14 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-ruby HIDDEN">
-        <pre class="highlight ruby"><code></code></pre>
+        <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s2">"omise"</span>
+
+<span class="no">Omise</span><span class="p">.</span><span class="nf">api_key</span> <span class="o">=</span> <span class="s2">"skey_test_4xs8breq3htbkj03d2x"</span>
+
+<span class="n">dispute</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Dispute</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"dspt_test_4zgf15h89w8t775kcm8"</span><span class="p">)</span>
+<span class="n">dispute</span><span class="p">.</span><span class="nf">update</span><span class="p">({</span>
+  <span class="ss">message: </span><span class="s2">"Proofs and other information regarding the disputed charge ..."</span>
+<span class="p">})</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-python HIDDEN">
@@ -1050,7 +1087,11 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-javascript HIDDEN">
-        <pre class="highlight javascript"><code></code></pre>
+        <pre class="highlight javascript"><code><span class="nx">omise</span><span class="p">.</span><span class="nx">disputes</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s2">"dspt_test_4zei9tuoblpoxid97xp"</span><span class="p">,</span> <span class="p">{</span>
+  <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"Unauthorized transaction"</span>
+<span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">resp</span><span class="p">)</span> <span class="p">{</span>
+  <span class="cm">/* Response. */</span>
+<span class="p">});</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-java HIDDEN">

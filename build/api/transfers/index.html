@@ -68,7 +68,7 @@
     <li><a href="/api/errors">Errors</a><br></li>
       <li><a href="/api/account">Account</a></li>
       <li><a href="/api/balance">Balance</a></li>
-      <li><a href="/api/bank_account">Bank account</a></li>
+      <li><a href="/api/bank_account">Bank Account</a></li>
       <li><a href="/api/cards">Cards</a></li>
       <li><a href="/api/charges">Charges</a></li>
       <li><a href="/api/customers">Customers</a></li>
@@ -453,7 +453,7 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
 
       <div class="EndpointParameters">
-  <h3 class="SectionTitle">Request Parameter</h3>
+  <h3 class="SectionTitle">Request Parameters</h3>
   <table class="EndpointParametersTable">
     <thead>
       <tr>
@@ -471,6 +471,14 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
           <td><p>The amount in the smallest subunits of the currency used. So for <code>thb</code> (Thai Baht) you&#39;ll need to pass the amount in satangs.</p>
 </td>
         </tr>
+        <tr>
+          <td>
+              recipient
+          </td>
+          <td>string</td>
+          <td><p>The recipient id</p>
+</td>
+        </tr>
     </tbody>
   </table>
 </div>
@@ -478,7 +486,7 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
 
         <div class="EndpointExamples">
-    <h3 class="SectionTitle">Example</h3>
+    <h3 class="SectionTitle">Examples</h3>
     <ul class="EndpointExamplesList">
         <li class="EndpointExample" data-accordion='{ "group": "transfers.create", "header": ".EndpointExampleHeader", "body": ".EndpointExampleBody" }'>
 
@@ -558,70 +566,7 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
 </li>
 
-    </ul>
-  </div>
-
-
-  </section>
-  <section class="Endpoint">
-
-    <a name="transfers-create_with_recipient"></a>
-    <header class="EndpointHeader">
-      <h2 class="EndpointTitle">
-        Create a transfer to a third-party recipient
-      </h2>
-      -
-      <span class="EndpointVerbPost">
-        POST
-      </span>
-      <span class="EndpointUrl">
-        https://api.omise.co/transfers
-      </span>
-    </header>
-
-      <div class="EndpointBody">
-        <p>Returns a new transfer object.</p>
-
-      </div>
-
-
-      <div class="EndpointParameters">
-  <h3 class="SectionTitle">Request Parameters</h3>
-  <table class="EndpointParametersTable">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-              amount
-          </td>
-          <td>integer</td>
-          <td><p>The amount in the smallest subunits of the currency used. So for <code>thb</code> (Thai Baht) you&#39;ll need to pass the amount in satangs.</p>
-</td>
-        </tr>
-        <tr>
-          <td>
-              recipient
-          </td>
-          <td>string</td>
-          <td><p>The recipient id</p>
-</td>
-        </tr>
-    </tbody>
-  </table>
-</div>
-
-
-
-        <div class="EndpointExamples">
-    <h3 class="SectionTitle">Example</h3>
-    <ul class="EndpointExamplesList">
-        <li class="EndpointExample" data-accordion='{ "group": "transfers.create_with_recipient", "header": ".EndpointExampleHeader", "body": ".EndpointExampleBody" }'>
+        <li class="EndpointExample" data-accordion='{ "group": "transfers.create", "header": ".EndpointExampleHeader", "body": ".EndpointExampleBody" }'>
 
   <header class="EndpointExampleHeader">
     <h4 class="EndpointExampleTitle">
@@ -664,7 +609,14 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-ruby HIDDEN">
-        <pre class="highlight ruby"><code><span class="c1"># Coming soon</span></code></pre>
+        <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s2">"omise"</span>
+
+<span class="no">Omise</span><span class="p">.</span><span class="nf">api_key</span> <span class="o">=</span> <span class="s2">"skey_test_4xs8breq3htbkj03d2x"</span>
+
+<span class="n">transfer</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Transfer</span><span class="p">.</span><span class="nf">create</span><span class="p">({</span>
+  <span class="ss">recipient: </span><span class="s2">"recp_test_5086xmr74vxs0ajpo78"</span><span class="p">,</span>
+  <span class="ss">amount: </span><span class="mi">100000</span><span class="p">,</span>
+<span class="p">})</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-python HIDDEN">

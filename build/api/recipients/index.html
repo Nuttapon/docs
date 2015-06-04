@@ -68,7 +68,7 @@
     <li><a href="/api/errors">Errors</a><br></li>
       <li><a href="/api/account">Account</a></li>
       <li><a href="/api/balance">Balance</a></li>
-      <li><a href="/api/bank_account">Bank account</a></li>
+      <li><a href="/api/bank_account">Bank Account</a></li>
       <li><a href="/api/cards">Cards</a></li>
       <li><a href="/api/charges">Charges</a></li>
       <li><a href="/api/customers">Customers</a></li>
@@ -386,7 +386,11 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-ruby HIDDEN">
-        <pre class="highlight ruby"><code><span class="c1"># Coming soon</span></code></pre>
+        <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s2">"omise"</span>
+
+<span class="no">Omise</span><span class="p">.</span><span class="nf">api_key</span> <span class="o">=</span> <span class="s2">"skey_test_4xs8breq3htbkj03d2x"</span>
+
+<span class="n">recipients</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Recipient</span><span class="p">.</span><span class="nf">list</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-python HIDDEN">
@@ -394,7 +398,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-php HIDDEN">
-        <pre class="highlight php"><code><span class="c">&lt;!-- Coming soon --&gt;</span></code></pre>
+        <pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$recipient</span> <span class="o">=</span> <span class="nx">OmiseRecipient</span><span class="o">::</span><span class="na">retrieve</span><span class="p">();</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
@@ -402,7 +408,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-javascript HIDDEN">
-        <pre class="highlight javascript"><code><span class="c1">// Coming soon</span></code></pre>
+        <pre class="highlight javascript"><code><span class="nx">omise</span><span class="p">.</span><span class="nx">recipients</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">resp</span><span class="p">)</span> <span class="p">{</span>
+  <span class="cm">/* Response. */</span>
+<span class="p">});</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-java HIDDEN">
@@ -554,7 +562,20 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-ruby HIDDEN">
-        <pre class="highlight ruby"><code><span class="c1"># Coming soon</span></code></pre>
+        <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s2">"omise"</span>
+
+<span class="no">Omise</span><span class="p">.</span><span class="nf">api_key</span> <span class="o">=</span> <span class="s2">"skey_test_4xs8breq3htbkj03d2x"</span>
+
+<span class="n">recipient</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Recipient</span><span class="p">.</span><span class="nf">create</span><span class="p">({</span>
+  <span class="ss">name: </span><span class="s2">"Somchai Prasert"</span><span class="p">,</span>
+  <span class="ss">email: </span><span class="s2">"somchai.prasert@example.com"</span><span class="p">,</span>
+  <span class="ss">type: </span><span class="s2">"individual"</span><span class="p">,</span>
+  <span class="ss">bank_account: </span><span class="p">{</span>
+    <span class="ss">brand: </span><span class="s2">"bbl"</span><span class="p">,</span>
+    <span class="ss">number: </span><span class="s2">"1234567890"</span><span class="p">,</span>
+    <span class="ss">name: </span><span class="s2">"SOMCHAI PRASERT"</span>
+  <span class="p">}</span>
+<span class="p">})</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-python HIDDEN">
@@ -562,7 +583,20 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-php HIDDEN">
-        <pre class="highlight php"><code><span class="c">&lt;!-- Coming soon --&gt;</span></code></pre>
+        <pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$recipient</span> <span class="o">=</span> <span class="nx">OmiseRecipient</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+  <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Omise Tester'</span><span class="p">,</span>
+  <span class="s1">'description'</span> <span class="o">=&gt;</span> <span class="s1">'Tester account'</span><span class="p">,</span>
+  <span class="s1">'email'</span> <span class="o">=&gt;</span> <span class="s1">'tester@omise.co'</span><span class="p">,</span>
+  <span class="s1">'type'</span> <span class="o">=&gt;</span> <span class="s1">'individual'</span><span class="p">,</span>
+  <span class="s1">'tax_id'</span> <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
+  <span class="s1">'bank_account'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'brand'</span> <span class="o">=&gt;</span> <span class="s1">'bbl'</span><span class="p">,</span>
+    <span class="s1">'number'</span> <span class="o">=&gt;</span> <span class="s1">'1234567890'</span><span class="p">,</span>
+    <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Tester Account'</span>
+  <span class="p">)</span>
+<span class="p">));</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
@@ -570,7 +604,20 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-javascript HIDDEN">
-        <pre class="highlight javascript"><code><span class="c1">// Coming soon</span></code></pre>
+        <pre class="highlight javascript"><code><span class="nx">omise</span><span class="p">.</span><span class="nx">recipients</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+  <span class="s1">'name'</span><span class="p">:</span> <span class="s1">'John Doe'</span><span class="p">,</span>
+  <span class="s1">'description'</span><span class="p">:</span> <span class="s1">'John Doe (id: 30)'</span><span class="p">,</span>
+  <span class="s1">'email'</span><span class="p">:</span> <span class="s1">'john.doe@example.com'</span><span class="p">,</span>
+  <span class="s1">'type'</span><span class="p">:</span> <span class="s1">'individual'</span><span class="p">,</span>
+  <span class="s1">'tax_id'</span><span class="p">:</span> <span class="mi">1234567890</span><span class="p">,</span>
+  <span class="s1">'bank_account'</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">'brand'</span><span class="p">:</span> <span class="s1">'bbl'</span><span class="p">,</span>
+    <span class="s1">'number'</span><span class="p">:</span> <span class="mi">1234567890</span><span class="p">,</span>
+    <span class="s1">'name'</span><span class="p">:</span> <span class="s1">'John Doe'</span>
+  <span class="p">}</span>
+<span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">resp</span><span class="p">)</span> <span class="p">{</span>
+  <span class="cm">/* Response. */</span>
+<span class="p">});</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-java HIDDEN">
@@ -650,7 +697,11 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-ruby HIDDEN">
-        <pre class="highlight ruby"><code><span class="c1"># Coming soon</span></code></pre>
+        <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s2">"omise"</span>
+
+<span class="no">Omise</span><span class="p">.</span><span class="nf">api_key</span> <span class="o">=</span> <span class="s2">"skey_test_4xs8breq3htbkj03d2x"</span>
+
+<span class="n">recipient</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Recipient</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"recp_test_5086xmr74vxs0ajpo78"</span><span class="p">)</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-python HIDDEN">
@@ -658,7 +709,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-php HIDDEN">
-        <pre class="highlight php"><code><span class="c">&lt;!-- Coming soon --&gt;</span></code></pre>
+        <pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$recipient</span> <span class="o">=</span> <span class="nx">OmiseRecipient</span><span class="o">::</span><span class="na">retrieve</span><span class="p">(</span><span class="s1">'recp_test_4z6p7e0m4k40txecj5o'</span><span class="p">);</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
@@ -666,7 +719,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-javascript HIDDEN">
-        <pre class="highlight javascript"><code><span class="c1">// Coming soon</span></code></pre>
+        <pre class="highlight javascript"><code><span class="nx">omise</span><span class="p">.</span><span class="nx">recipients</span><span class="p">.</span><span class="nx">retrieve</span><span class="p">(</span><span class="s2">"recp_test_4z6p7e0m4k40txecj5o"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">resp</span><span class="p">){</span>
+  <span class="cm">/* Response. */</span>
+<span class="p">});</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-java HIDDEN">
@@ -813,7 +868,19 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-ruby HIDDEN">
-        <pre class="highlight ruby"><code><span class="c1"># Coming soon</span></code></pre>
+        <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s2">"omise"</span>
+
+<span class="no">Omise</span><span class="p">.</span><span class="nf">api_key</span> <span class="o">=</span> <span class="s2">"skey_test_4xs8breq3htbkj03d2x"</span>
+
+<span class="n">recipient</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Recipient</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"recp_test_5086xmr74vxs0ajpo78"</span><span class="p">)</span>
+<span class="n">recipient</span><span class="p">.</span><span class="nf">update</span><span class="p">({</span>
+  <span class="ss">email: </span><span class="s2">"somchai@prasert.com"</span><span class="p">,</span>
+  <span class="ss">bank_account: </span><span class="p">{</span>
+    <span class="ss">brand: </span><span class="s2">"kbank"</span><span class="p">,</span>
+    <span class="ss">number: </span><span class="s2">"1234567890"</span><span class="p">,</span>
+    <span class="ss">name: </span><span class="s2">"SOMCHAI PRASERT"</span>
+  <span class="p">}</span>
+<span class="p">})</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-python HIDDEN">
@@ -821,7 +888,14 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-php HIDDEN">
-        <pre class="highlight php"><code><span class="c">&lt;!-- Coming soon --&gt;</span></code></pre>
+        <pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$recipient</span> <span class="o">=</span> <span class="nx">OmiseRecipient</span><span class="o">::</span><span class="na">retrieve</span><span class="p">(</span><span class="s1">'recp_test_4z6p7e0m4k40txecj5o'</span><span class="p">);</span>
+<span class="nv">$recipient</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+  <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Omise Tester'</span><span class="p">,</span>
+  <span class="s1">'email'</span> <span class="o">=&gt;</span> <span class="s1">'tester@omise.co'</span><span class="p">,</span>
+  <span class="s1">'description'</span> <span class="o">=&gt;</span> <span class="s1">'Another description'</span>
+<span class="p">));</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
@@ -829,7 +903,16 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-javascript HIDDEN">
-        <pre class="highlight javascript"><code><span class="c1">// Coming soon</span></code></pre>
+        <pre class="highlight javascript"><code><span class="nx">omise</span><span class="p">.</span><span class="nx">recipients</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s2">"recp_test_4z6p7e0m4k40txecj5o"</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"John Smith"</span><span class="p">,</span>
+  <span class="s2">"email"</span><span class="p">:</span> <span class="s2">"john.smith@example.com"</span><span class="p">,</span>
+  <span class="s2">"bank_account"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"nummber"</span><span class="p">:</span> <span class="mi">9876543210</span>
+  <span class="p">}</span>
+<span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">resp</span><span class="p">){</span>
+  <span class="cm">/* Response. */</span>
+<span class="p">});</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-java HIDDEN">
@@ -910,7 +993,12 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-ruby HIDDEN">
-        <pre class="highlight ruby"><code><span class="c1"># Coming soon</span></code></pre>
+        <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s2">"omise"</span>
+
+<span class="no">Omise</span><span class="p">.</span><span class="nf">api_key</span> <span class="o">=</span> <span class="s2">"skey_test_4xs8breq3htbkj03d2x"</span>
+
+<span class="n">recipient</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Recipient</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"recp_test_5086xmr74vxs0ajpo78"</span><span class="p">)</span>
+<span class="n">recipient</span><span class="p">.</span><span class="nf">destroy</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-python HIDDEN">
@@ -918,7 +1006,10 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-php HIDDEN">
-        <pre class="highlight php"><code><span class="c">&lt;!-- Coming soon --&gt;</span></code></pre>
+        <pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$recipient</span> <span class="o">=</span> <span class="nx">OmiseRecipient</span><span class="o">::</span><span class="na">retrieve</span><span class="p">(</span><span class="s1">'recp_test_4z6p7e0m4k40txecj5o'</span><span class="p">);</span>
+<span class="nv">$recipient</span><span class="o">-&gt;</span><span class="na">destroy</span><span class="p">();</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
@@ -926,7 +1017,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-javascript HIDDEN">
-        <pre class="highlight javascript"><code><span class="c1">// Coming soon</span></code></pre>
+        <pre class="highlight javascript"><code><span class="nx">omise</span><span class="p">.</span><span class="nx">recipients</span><span class="p">.</span><span class="nx">destroy</span><span class="p">(</span><span class="s2">"recp_test_4z6p7e0m4k40txecj5o"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">resp</span><span class="p">)</span> <span class="p">{</span>
+  <span class="cm">/* Response. */</span>
+<span class="p">});</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-java HIDDEN">
