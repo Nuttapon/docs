@@ -1,1 +1,3 @@
-// Coming soon
+omise.recipients.list(function(err, resp) {
+  /* Response. */
+});
