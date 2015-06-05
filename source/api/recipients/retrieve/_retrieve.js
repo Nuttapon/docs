@@ -1,3 +1,3 @@
-omise.recipients.retrieve("recp_test_4z6p7e0m4k40txecj5o", function(err, resp){
+omise.recipients.retrieve("recp_test_5086xmr74vxs0ajpo78", function(err, resp){
   /* Response. */
 });
