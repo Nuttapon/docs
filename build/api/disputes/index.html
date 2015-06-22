@@ -82,6 +82,9 @@
 
   <h2>Plugins</h2>
   <ul>
+    <li><a href="/active_merchant">ActiveMerchant</a></li>
+    <li><a href="/magento">Magento</a></li>
+    <li><a href="/opencart">OpenCart</a></li>
     <li><a href="/woocommerce">WooCommerce</a></li>
   </ul>
 </div></nav>
@@ -364,7 +367,7 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
-        <pre class="highlight csharp"><code></code></pre>
+        <pre class="highlight csharp"><code><span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">DisputeService</span><span class="p">.</span><span class="nf">GetAllDisputes</span><span class="p">();</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-javascript HIDDEN">
@@ -374,7 +377,10 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-java HIDDEN">
-        <pre class="highlight java"><code></code></pre>
+        <pre class="highlight java"><code><span class="kn">import</span> <span class="nn">co.omise.model.Dispute</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">co.omise.model.Disputes</span><span class="o">;</span>
+
+<span class="n">Disputes</span> <span class="n">disputes</span> <span class="o">=</span> <span class="n">Dispute</span><span class="o">.</span><span class="na">retrieve</span><span class="o">();</span></code></pre>
 
       </div>
 
@@ -524,7 +530,7 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
-        <pre class="highlight csharp"><code></code></pre>
+        <pre class="highlight csharp"><code><span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">DisputeService</span><span class="p">.</span><span class="nf">GetAllOpenDisputes</span><span class="p">();</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-javascript HIDDEN">
@@ -534,7 +540,11 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-java HIDDEN">
-        <pre class="highlight java"><code></code></pre>
+        <pre class="highlight java"><code><span class="kn">import</span> <span class="nn">co.omise.model.Dispute</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">co.omise.model.Disputes</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">co.omise.model.Dispute.DisputeStatus</span><span class="o">;</span>
+
+<span class="n">Disputes</span> <span class="n">disputes</span> <span class="o">=</span> <span class="n">Dispute</span><span class="o">.</span><span class="na">retrieve</span><span class="o">(</span><span class="n">DisputeStatus</span><span class="o">.</span><span class="na">OPEN</span><span class="o">);</span></code></pre>
 
       </div>
 
@@ -684,7 +694,7 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
-        <pre class="highlight csharp"><code></code></pre>
+        <pre class="highlight csharp"><code><span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">DisputeService</span><span class="p">.</span><span class="nf">GetAllPendingDisputes</span><span class="p">();</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-javascript HIDDEN">
@@ -694,7 +704,11 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-java HIDDEN">
-        <pre class="highlight java"><code></code></pre>
+        <pre class="highlight java"><code><span class="kn">import</span> <span class="nn">co.omise.model.Dispute</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">co.omise.model.Disputes</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">co.omise.model.Dispute.DisputeStatus</span><span class="o">;</span>
+
+<span class="n">Disputes</span> <span class="n">disputes</span> <span class="o">=</span> <span class="n">Dispute</span><span class="o">.</span><span class="na">retrieve</span><span class="o">(</span><span class="n">DisputeStatus</span><span class="o">.</span><span class="na">PENDING</span><span class="o">);</span></code></pre>
 
       </div>
 
@@ -844,7 +858,7 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
-        <pre class="highlight csharp"><code></code></pre>
+        <pre class="highlight csharp"><code><span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">DisputeService</span><span class="p">.</span><span class="nf">GetAllClosedDisputes</span><span class="p">();</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-javascript HIDDEN">
@@ -854,7 +868,11 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-java HIDDEN">
-        <pre class="highlight java"><code></code></pre>
+        <pre class="highlight java"><code><span class="kn">import</span> <span class="nn">co.omise.model.Dispute</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">co.omise.model.Disputes</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">co.omise.model.Dispute.DisputeStatus</span><span class="o">;</span>
+
+<span class="n">Disputes</span> <span class="n">disputes</span> <span class="o">=</span> <span class="n">Dispute</span><span class="o">.</span><span class="na">retrieve</span><span class="o">(</span><span class="n">DisputeStatus</span><span class="o">.</span><span class="na">CLOSED</span><span class="o">);</span></code></pre>
 
       </div>
 
@@ -949,17 +967,19 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
-        <pre class="highlight csharp"><code></code></pre>
+        <pre class="highlight csharp"><code><span class="n">var</span> <span class="n">dispute</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">DisputeService</span><span class="p">.</span><span class="nf">GetDispute</span><span class="p">(</span><span class="s">"dspt_test_4zgf15h89w8t775kcm8"</span><span class="p">);</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-javascript HIDDEN">
-        <pre class="highlight javascript"><code><span class="nx">omise</span><span class="p">.</span><span class="nx">disputes</span><span class="p">.</span><span class="nx">retrieve</span><span class="p">(</span><span class="s2">"dspt_test_4zei9tuoblpoxid97xp"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">resp</span><span class="p">)</span> <span class="p">{</span>
+        <pre class="highlight javascript"><code><span class="nx">omise</span><span class="p">.</span><span class="nx">disputes</span><span class="p">.</span><span class="nx">retrieve</span><span class="p">(</span><span class="s2">"dspt_test_4zgf15h89w8t775kcm8"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">resp</span><span class="p">)</span> <span class="p">{</span>
   <span class="cm">/* Response. */</span>
 <span class="p">});</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-java HIDDEN">
-        <pre class="highlight java"><code></code></pre>
+        <pre class="highlight java"><code><span class="kn">import</span> <span class="nn">co.omise.model.Dispute</span><span class="o">;</span>
+
+<span class="n">Dispute</span> <span class="n">dispute</span> <span class="o">=</span> <span class="n">Dispute</span><span class="o">.</span><span class="na">retrieve</span><span class="o">(</span><span class="s">"dspt_test_4zgf15h89w8t775kcm8"</span><span class="o">);</span></code></pre>
 
       </div>
 
@@ -1083,11 +1103,11 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
-        <pre class="highlight csharp"><code></code></pre>
+        <pre class="highlight csharp"><code><span class="n">var</span> <span class="n">dispute</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">DisputeService</span><span class="p">.</span><span class="nf">UpdateDispute</span><span class="p">(</span><span class="s">"dspt_test_4zgf15h89w8t775kcm8"</span><span class="p">,</span> <span class="s">"Unauthorized transaction"</span><span class="p">);</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-javascript HIDDEN">
-        <pre class="highlight javascript"><code><span class="nx">omise</span><span class="p">.</span><span class="nx">disputes</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s2">"dspt_test_4zei9tuoblpoxid97xp"</span><span class="p">,</span> <span class="p">{</span>
+        <pre class="highlight javascript"><code><span class="nx">omise</span><span class="p">.</span><span class="nx">disputes</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s2">"dspt_test_4zgf15h89w8t775kcm8"</span><span class="p">,</span> <span class="p">{</span>
   <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"Unauthorized transaction"</span>
 <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">resp</span><span class="p">)</span> <span class="p">{</span>
   <span class="cm">/* Response. */</span>
@@ -1095,7 +1115,14 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-java HIDDEN">
-        <pre class="highlight java"><code></code></pre>
+        <pre class="highlight java"><code><span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">co.omise.model.Dispute</span><span class="o">;</span>
+
+<span class="n">Dispute</span> <span class="n">dispute</span> <span class="o">=</span> <span class="n">Dispute</span><span class="o">.</span><span class="na">retrieve</span><span class="o">(</span><span class="s">"dspt_test_4zgf15h89w8t775kcm8"</span><span class="o">);</span>
+<span class="n">dispute</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;()</span> <span class="o">{</span>
+  <span class="o">{</span><span class="n">put</span><span class="o">(</span><span class="s">"message"</span><span class="o">,</span> <span class="s">"Proofs and other information regarding the disputed charge ..."</span><span class="o">);}</span>
+<span class="o">});</span></code></pre>
 
       </div>
 

@@ -82,6 +82,9 @@
 
   <h2>Plugins</h2>
   <ul>
+    <li><a href="/active_merchant">ActiveMerchant</a></li>
+    <li><a href="/magento">Magento</a></li>
+    <li><a href="/opencart">OpenCart</a></li>
     <li><a href="/woocommerce">WooCommerce</a></li>
   </ul>
 </div></nav>
@@ -243,16 +246,16 @@
   </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/recipients/recp_test_5086xmr74vxs0ajpo78"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"verified"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"James Smith"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"secondary@recipient.co"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Secondary recipient"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Somchai Prasert"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"somchai.prasert@example.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"individual"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"tax_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"tax_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"bank_account"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bank_account"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_digits"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2345"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"James Smith"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bbl"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_digits"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7890"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOMCHAI PRASERT"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-06-02T05:41:53Z"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"failure_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -404,7 +407,7 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
-        <pre class="highlight csharp"><code><span class="p">//</span> <span class="n">Coming</span> <span class="n">soon</span></code></pre>
+        <pre class="highlight csharp"><code><span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">RecipientService</span><span class="p">.</span><span class="nf">GetAllRecipients</span><span class="p">();</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-javascript HIDDEN">
@@ -414,7 +417,9 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-java HIDDEN">
-        <pre class="highlight java"><code><span class="c1">// Coming soon</span></code></pre>
+        <pre class="highlight java"><code><span class="kn">import</span> <span class="nn">co.omise.model.Recipient</span><span class="o">;</span>
+
+<span class="n">Recipients</span> <span class="n">recipients</span> <span class="o">=</span> <span class="n">Recipient</span><span class="o">.</span><span class="na">retrieve</span><span class="o">();</span></code></pre>
 
       </div>
 
@@ -600,20 +605,29 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
-        <pre class="highlight csharp"><code><span class="p">//</span> <span class="n">Coming</span> <span class="n">soon</span></code></pre>
+        <pre class="highlight csharp"><code><span class="n">var</span> <span class="n">recipientInfo</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RecipientCreateInfo</span><span class="p">();</span>
+<span class="n">recipientInfo</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="s">"Somchai Prasert"</span><span class="p">;</span>
+<span class="n">recipientInfo</span><span class="p">.</span><span class="n">Email</span> <span class="p">=</span> <span class="s">"somchai.prasert@example.com"</span><span class="p">;</span>
+<span class="n">recipientInfo</span><span class="p">.</span><span class="n">RecipientType</span> <span class="p">=</span> <span class="n">RecipientType</span><span class="p">.</span><span class="n">Individual</span><span class="p">;</span>
+<span class="n">recipientInfo</span><span class="p">.</span><span class="n">BankAccount</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">BankAccountInfo</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">Brand</span> <span class="p">=</span> <span class="s">"bbl"</span><span class="p">,</span>
+  <span class="n">Number</span> <span class="p">=</span> <span class="s">"1234567890"</span><span class="p">,</span>
+  <span class="n">Name</span> <span class="p">=</span> <span class="s">"SOMCHAI PRASERT"</span>
+<span class="p">};</span>
+
+<span class="n">var</span> <span class="n">recipient</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">RecipientService</span><span class="p">.</span><span class="nf">CreateRecipient</span><span class="p">(</span><span class="n">recipientInfo</span><span class="p">);</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-javascript HIDDEN">
         <pre class="highlight javascript"><code><span class="nx">omise</span><span class="p">.</span><span class="nx">recipients</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
-  <span class="s1">'name'</span><span class="p">:</span> <span class="s1">'John Doe'</span><span class="p">,</span>
-  <span class="s1">'description'</span><span class="p">:</span> <span class="s1">'John Doe (id: 30)'</span><span class="p">,</span>
-  <span class="s1">'email'</span><span class="p">:</span> <span class="s1">'john.doe@example.com'</span><span class="p">,</span>
+  <span class="s1">'name'</span><span class="p">:</span> <span class="s1">'Somchai Prasert'</span><span class="p">,</span>
+  <span class="s1">'email'</span><span class="p">:</span> <span class="s1">'somchai.prasert@example.com'</span><span class="p">,</span>
   <span class="s1">'type'</span><span class="p">:</span> <span class="s1">'individual'</span><span class="p">,</span>
-  <span class="s1">'tax_id'</span><span class="p">:</span> <span class="mi">1234567890</span><span class="p">,</span>
   <span class="s1">'bank_account'</span><span class="p">:</span> <span class="p">{</span>
     <span class="s1">'brand'</span><span class="p">:</span> <span class="s1">'bbl'</span><span class="p">,</span>
-    <span class="s1">'number'</span><span class="p">:</span> <span class="mi">1234567890</span><span class="p">,</span>
-    <span class="s1">'name'</span><span class="p">:</span> <span class="s1">'John Doe'</span>
+    <span class="s1">'number'</span><span class="p">:</span> <span class="s1">'1234567890'</span><span class="p">,</span>
+    <span class="s1">'name'</span><span class="p">:</span> <span class="s1">'SOMCHAI PRASERT'</span>
   <span class="p">}</span>
 <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">resp</span><span class="p">)</span> <span class="p">{</span>
   <span class="cm">/* Response. */</span>
@@ -621,7 +635,20 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-java HIDDEN">
-        <pre class="highlight java"><code><span class="c1">// Coming soon</span></code></pre>
+        <pre class="highlight java"><code><span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">co.omise.model.Recipient</span><span class="o">;</span>
+
+<span class="n">Recipient</span> <span class="n">recipient</span> <span class="o">=</span> <span class="n">Recipient</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;()</span> <span class="o">{</span>
+  <span class="o">{</span><span class="n">put</span><span class="o">(</span><span class="s">"name"</span><span class="o">,</span> <span class="s">"Somchai Prasert"</span><span class="o">);}</span>
+  <span class="o">{</span><span class="n">put</span><span class="o">(</span><span class="s">"email"</span><span class="o">,</span> <span class="s">"somchai.prasert@example.com"</span><span class="o">);}</span>
+  <span class="o">{</span><span class="n">put</span><span class="o">(</span><span class="s">"type"</span><span class="o">,</span> <span class="s">"individual"</span><span class="o">);}</span>
+  <span class="o">{</span><span class="n">put</span><span class="o">(</span><span class="s">"bank_account"</span><span class="o">,</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;()</span> <span class="o">{</span>
+    <span class="o">{</span><span class="n">put</span><span class="o">(</span><span class="s">"brand"</span><span class="o">,</span> <span class="s">"bbl"</span><span class="o">);}</span>
+    <span class="o">{</span><span class="n">put</span><span class="o">(</span><span class="s">"number"</span><span class="o">,</span> <span class="s">"1234567890"</span><span class="o">);}</span>
+    <span class="o">{</span><span class="n">put</span><span class="o">(</span><span class="s">"name"</span><span class="o">,</span> <span class="s">"SOMCHAI PRASERT"</span><span class="o">);}</span>
+  <span class="o">});}</span>
+<span class="o">});</span></code></pre>
 
       </div>
 
@@ -715,17 +742,19 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
-        <pre class="highlight csharp"><code><span class="p">//</span> <span class="n">Coming</span> <span class="n">soon</span></code></pre>
+        <pre class="highlight csharp"><code><span class="n">var</span> <span class="n">recipient</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">RecipientService</span><span class="p">.</span><span class="nf">GetRecipient</span><span class="p">(</span><span class="s">"recp_test_5086xmr74vxs0ajpo78"</span><span class="p">);</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-javascript HIDDEN">
-        <pre class="highlight javascript"><code><span class="nx">omise</span><span class="p">.</span><span class="nx">recipients</span><span class="p">.</span><span class="nx">retrieve</span><span class="p">(</span><span class="s2">"recp_test_4z6p7e0m4k40txecj5o"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">resp</span><span class="p">){</span>
+        <pre class="highlight javascript"><code><span class="nx">omise</span><span class="p">.</span><span class="nx">recipients</span><span class="p">.</span><span class="nx">retrieve</span><span class="p">(</span><span class="s2">"recp_test_5086xmr74vxs0ajpo78"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">resp</span><span class="p">){</span>
   <span class="cm">/* Response. */</span>
 <span class="p">});</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-java HIDDEN">
-        <pre class="highlight java"><code><span class="c1">// Coming soon</span></code></pre>
+        <pre class="highlight java"><code><span class="kn">import</span> <span class="nn">co.omise.model.Recipient</span><span class="o">;</span>
+
+<span class="n">Recipient</span> <span class="n">recipient</span> <span class="o">=</span> <span class="n">Recipient</span><span class="o">.</span><span class="na">retrieve</span><span class="o">(</span><span class="s">"recp_test_4z6p7e0m4k40txecj5o"</span><span class="o">);</span></code></pre>
 
       </div>
 
@@ -899,16 +928,27 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
-        <pre class="highlight csharp"><code><span class="p">//</span> <span class="n">Coming</span> <span class="n">soon</span></code></pre>
+        <pre class="highlight csharp"><code><span class="n">var</span> <span class="n">recipientUpdateInfo</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RecipientUpdateInfo</span><span class="p">(){</span>
+  <span class="n">Id</span> <span class="p">=</span> <span class="s">"recp_test_5086xmr74vxs0ajpo78"</span><span class="p">,</span>
+  <span class="n">Email</span> <span class="p">=</span> <span class="s">"somchai@prasert.com"</span><span class="p">,</span>
+  <span class="n">BankAccount</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">BankAccountInfo</span><span class="p">(){</span>
+    <span class="n">Brand</span> <span class="p">=</span> <span class="s">"kbank"</span><span class="p">,</span>
+    <span class="n">Number</span> <span class="p">=</span> <span class="s">"1234567890"</span><span class="p">,</span>
+    <span class="n">Name</span> <span class="p">=</span> <span class="s">"SOMCHAI PRASERT"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">var</span> <span class="n">recipient</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">RecipientService</span><span class="p">.</span><span class="nf">UpdateRecipient</span><span class="p">(</span><span class="n">recipientUpdateInfo</span><span class="p">);</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-javascript HIDDEN">
-        <pre class="highlight javascript"><code><span class="nx">omise</span><span class="p">.</span><span class="nx">recipients</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s2">"recp_test_4z6p7e0m4k40txecj5o"</span><span class="p">,</span>
+        <pre class="highlight javascript"><code><span class="nx">omise</span><span class="p">.</span><span class="nx">recipients</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s2">"recp_test_5086xmr74vxs0ajpo78"</span><span class="p">,</span>
 <span class="p">{</span>
-  <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"John Smith"</span><span class="p">,</span>
-  <span class="s2">"email"</span><span class="p">:</span> <span class="s2">"john.smith@example.com"</span><span class="p">,</span>
+  <span class="s2">"email"</span><span class="p">:</span> <span class="s2">"somchai@prasert.com"</span><span class="p">,</span>
   <span class="s2">"bank_account"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"nummber"</span><span class="p">:</span> <span class="mi">9876543210</span>
+    <span class="s2">"brand"</span><span class="p">:</span> <span class="s2">"kbank"</span><span class="p">,</span>
+    <span class="s2">"number"</span><span class="p">:</span> <span class="s2">"1234567890"</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"SOMCHAI PRASERT"</span>
   <span class="p">}</span>
 <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">resp</span><span class="p">){</span>
   <span class="cm">/* Response. */</span>
@@ -916,7 +956,19 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-java HIDDEN">
-        <pre class="highlight java"><code><span class="c1">// Coming soon</span></code></pre>
+        <pre class="highlight java"><code><span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">co.omise.model.Recipient</span><span class="o">;</span>
+
+<span class="n">Recipient</span> <span class="n">recipient</span> <span class="o">=</span> <span class="n">Recipient</span><span class="o">.</span><span class="na">retrieve</span><span class="o">(</span><span class="s">"recp_test_4z6p7e0m4k40txecj5o"</span><span class="o">);</span>
+<span class="n">recipient</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;()</span> <span class="o">{</span>
+  <span class="o">{</span><span class="n">put</span><span class="o">(</span><span class="s">"name"</span><span class="o">,</span> <span class="s">"somchai@prasert.com"</span><span class="o">);}</span>
+  <span class="o">{</span><span class="n">put</span><span class="o">(</span><span class="s">"bank_account"</span><span class="o">,</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;()</span> <span class="o">{</span>
+    <span class="o">{</span><span class="n">put</span><span class="o">(</span><span class="s">"brand"</span><span class="o">,</span> <span class="s">"kbank"</span><span class="o">);}</span>
+    <span class="o">{</span><span class="n">put</span><span class="o">(</span><span class="s">"number"</span><span class="o">,</span> <span class="s">"1234567890"</span><span class="o">);}</span>
+    <span class="o">{</span><span class="n">put</span><span class="o">(</span><span class="s">"name"</span><span class="o">,</span> <span class="s">"SOMCHAI PRASERT"</span><span class="o">);}</span>
+  <span class="o">});}</span>
+<span class="o">});</span></code></pre>
 
       </div>
 
@@ -1013,17 +1065,20 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
-        <pre class="highlight csharp"><code><span class="p">//</span> <span class="n">Coming</span> <span class="n">soon</span></code></pre>
+        <pre class="highlight csharp"><code><span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">RecipientService</span><span class="p">.</span><span class="nf">DeleteRecipient</span><span class="p">(</span><span class="s">"recp_test_5086xmr74vxs0ajpo78"</span><span class="p">);</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-javascript HIDDEN">
-        <pre class="highlight javascript"><code><span class="nx">omise</span><span class="p">.</span><span class="nx">recipients</span><span class="p">.</span><span class="nx">destroy</span><span class="p">(</span><span class="s2">"recp_test_4z6p7e0m4k40txecj5o"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">resp</span><span class="p">)</span> <span class="p">{</span>
+        <pre class="highlight javascript"><code><span class="nx">omise</span><span class="p">.</span><span class="nx">recipients</span><span class="p">.</span><span class="nx">destroy</span><span class="p">(</span><span class="s2">"recp_test_5086xmr74vxs0ajpo78"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">resp</span><span class="p">)</span> <span class="p">{</span>
   <span class="cm">/* Response. */</span>
 <span class="p">});</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-java HIDDEN">
-        <pre class="highlight java"><code><span class="c1">// Coming soon</span></code></pre>
+        <pre class="highlight java"><code><span class="kn">import</span> <span class="nn">co.omise.model.Recipient</span><span class="o">;</span>
+
+<span class="n">Recipient</span> <span class="n">recipient</span> <span class="o">=</span> <span class="n">Recipient</span><span class="o">.</span><span class="na">retrieve</span><span class="o">(</span><span class="s">"recp_test_4z6p7e0m4k40txecj5o"</span><span class="o">);</span>
+<span class="n">recipient</span><span class="o">.</span><span class="na">destroy</span><span class="o">();</span></code></pre>
 
       </div>
 

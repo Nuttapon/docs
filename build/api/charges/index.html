@@ -82,6 +82,9 @@
 
   <h2>Plugins</h2>
   <ul>
+    <li><a href="/active_merchant">ActiveMerchant</a></li>
+    <li><a href="/magento">Magento</a></li>
+    <li><a href="/opencart">OpenCart</a></li>
     <li><a href="/woocommerce">WooCommerce</a></li>
   </ul>
 </div></nav>
@@ -1039,7 +1042,7 @@ passed with a token, with a customer, or with both a customer and a card.</p>
       <div class="EndpointExampleCode lang-php HIDDEN">
         <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 
-<span class="k">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">client</span><span class="o">.</span><span class="nx">ChargeService</span><span class="o">.</span><span class="nx">GetCharge</span><span class="p">(</span><span class="s2">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">);</span></code></pre>
+<span class="nv">$charge</span> <span class="o">=</span> <span class="nx">OmiseCharge</span><span class="o">::</span><span class="na">retrieve</span><span class="p">(</span><span class="s2">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">);</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
