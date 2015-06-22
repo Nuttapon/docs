@@ -1,0 +1,206 @@
+---
+title: Omise ActiveMerchant Integration
+---
+
+Active Merchant is a simple payment abstraction library extracted from Shopify. The aim of the project is to feel natural to Ruby users and to abstract as many parts as possible away from the user to offer a consistent interface across all supported gateways.
+
+[github.com/Shopify/active_merchant](https://github.com/Shopify/active_merchant/)
+
+ActiveMerchant supports Omise payment method as of version 1.50.0
+
+
+## Installation
+
+### From Git
+
+You can check out the latest source from git:
+
+    git clone git://github.com/Shopify/active_merchant.git
+
+### From RubyGems
+
+Installation from RubyGems:
+
+    gem install activemerchant
+    gem install json
+
+Or, if you're using Bundler, just add the following to your Gemfile:
+
+    gem 'activemerchant'
+    gem 'json'
+
+# Usage
+
+The following examples will demonstrates how to make a purchase with a credit card, how to create a card profile and how to issue full or partial refunds.
+
+## 1. Flow
+
+The following flow is recommended in order to comply with the PCI Security Standards.  
+You should never transmit card data through your servers unless you have a valid PCI certificate.
+
+### Flow using Omise.js
+
+1. User enters the credit card information on a form on your site, completely white-label (user never sees Omise). 
+2. The card is sent directly from the browser to Omise server via HTTPS using our Javascript (Omise.js)
+3. Omise returns a Token that identifies the card and if the card passed the authorization `card.security_code_check`
+4. Your page will send this token to your server to finally make the charge `capture`.
+
+_Notes:_  
+In **step 3**, if `card.security_code_check` is false, the card failed the authorization process, probably because of a wrong CVV, wrong expire date or wrong card number. In this case you should display an error message and ask user to enter card again.
+
+In **step 4**, Omise will make the final capture of the amount. If this fail, but token was authorized, it can be due to card having no funds required for the charge.
+
+## 2. The Code
+
+### Initialization with Omise keys
+
+To make any transaction you need your Omise Keys.  
+[Sign-Up](https://dashboard.omise.co/signup) with Omise to get your keys.
+
+```ruby
+require 'json'
+require 'active_merchant'
+
+gateway = ActiveMerchant::Billing::OmiseGateway.new(
+  public_key: "pkey_test_5033ct7tcw7l4rb3bjz",
+  secret_key: "skey_test_5033ctmg92i4mhfq3ru"
+)
+```
+
+You could do something similar in a rails initializer `config/initializers/omise.rb` to load the keys from your `secrets.yml`  
+
+```ruby
+GATEWAY = ActiveMerchant::Billing::OmiseGateway.new(
+  public_key: "pkey_test_5033ct7tcw7l4rb3bjz",
+  secret_key: Rails.application.secrets.omise_secret_key
+)
+```
+
+If you use Heroku, set the secret using ENV variables
+
+```ruby
+GATEWAY = ActiveMerchant::Billing::OmiseGateway.new(
+  public_key: "pkey_test_5033ct7tcw7l4rb3bjz",
+  secret_key: ENV["omise_secret_key"]
+)
+```
+
+
+### Making a Charge from a Token
+
+To make a charge you will first need a token, which is obtained by using Omise.js on the browser.
+Examples of Omise.js can be found here: [github.com/omise/omise.js](https://github.com/omise/omise.js)
+
+```ruby
+# Example, token from an ajax post in a Rails app
+token = params["token"] # tokn_test_50frulul1q6bn6qjcre
+
+# Amount must be an Integer including in cents (Thai Baht Satangs)
+amount = 10000  # => 100.00 THB
+
+# Capture the full amount
+charge = gateway.purchase(amount, nil, { token_id: token })
+
+charge.message
+# => "Success"
+```
+
+### Authorize and Hold only
+
+In this example, you can `authorize` and only `hold` the amount of the charge.  
+Allowing you to `capture` the charge at a later time.  
+For example, whenever you are ready to ship the product.  
+A hold on a charge will expire after some period depending on the card issuing bank.  
+Can be a few days, up to a few months.
+
+```ruby
+# You got this token from Omise.js Javascript
+token = "tokn_test_50fs5cznlz4vp72uhdu"
+
+# Amount must be an Integer including in cents (Thai Baht Satangs)
+amount = 10000  # => 100.00 THB
+
+# Hold a charge without capture, by adding the option 'capture: false'
+authorize = gateway.authorize(amount, nil, { token_id: token, capture: false })
+
+# Now let's capture that charge, i.e. now that your product is ready.
+charge_id = authorize.params["id"]
+charge = gateway.capture(amount, charge_id)
+
+charge.message
+# => "Success"
+```
+
+
+### Saving Card into a customer profile
+
+We allow you to store the card as a customer object.  
+This is useful if you plan to charge the card later.  
+Also you can have a one-click checkout solution for your returning customers. 
+
+This flow adds an extra step, instead of charging with the token, 
+first you convert the token to a customer, then charge the customer directly anytime.
+
+You still need to use Omise.js to create your tokens.
+
+```ruby
+
+# Example token from Omise.js
+token = "tokn_test_50frulul1q6bn6qjcre"
+
+# Create a customer from the token
+customer = gateway.store(
+  nil,
+  {
+    token_id: token,               # Required: Token
+    email: "john.doe@gmail.com",   # Optional
+    description: "Customer ID: 37" # Optional
+  }
+)
+
+# Amount must be an Integer including in cents (Thai Baht Satangs)
+amount = 10000  # => 100.00 THB
+
+# You should store the customer ID in your database
+# so that you can charge it anytime later.
+customer_id = customer.params["id"]
+
+# Let's charge this customer
+charge = gateway.purchase(amount, nil, { customer_id: customer_id })
+
+charge.message
+# => "Success"
+```
+
+
+### Refunding a Charge
+
+```ruby
+
+# Capture 100 THB from the credit card (as previous example)
+charge = gateway.purchase(amount, nil, { token_id: token })
+
+# We need to use the charge ID for a refund
+charge_id = charge.params["id"]
+
+# Refund the full amount using charge_id
+refund = gateway.refund(amount, charge_id)
+
+refund.message
+# => "Success"
+```
+
+You can also refund a partial amount by passing the desired amount in the refund method.
+
+```
+refund = gateway.refund(amount/2.0, charge_id)
+```
+
+*Note:*  
+For more Ruby features to interact with Omise API, please try [omise-ruby](https://github.com/omise/omise-ruby/) rubygem.
+
+## E-Commerce applications using ActiveMerchant
+
+1. [SpreeCommerce](https://spreecommerce.com/): An open source and fully featured storefront platform built with Ruby on Rails. ([Omise Spree Demo](https://github.com/omise/spree_demo/))
+
+2. [ror_ecommerce](http://www.ror-e.com): A complete e-commerce platform written in Ruby on Rails 4,  built to scale and open source.
