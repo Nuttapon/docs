@@ -1,1 +1,1 @@
-// Coming soon
+var result = client.RecipientService.GetAllRecipients();
