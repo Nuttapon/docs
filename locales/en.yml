@@ -153,7 +153,7 @@ en:
         Returns a `list` of `cards` objects.
         
         Return all charges that belongs to the customer `CUSTOMER_ID`.
-        You can learn more about lists in the [pagination documentation](./pagination).
+        You can learn more about lists in the [pagination documentation](/api/pagination).
       query_parameters: *list_query_parameters
       examples:
         list: "List all cards"
@@ -236,7 +236,7 @@ en:
         Returns a `list` of `charge` objects.
         
         Return all charges that belongs to your account since the beginning of
-        time. You can learn more about lists in the [pagination documentation](./pagination).
+        time. You can learn more about lists in the [pagination documentation](/api/pagination).
       query_parameters: *list_query_parameters
       examples:
         list: "List all charges"
@@ -318,7 +318,7 @@ en:
         Returns a `list` of `customer` objects.
         
         Return all customers that belongs to your account since the beginning of
-        time. You can learn more about lists in the [pagination documentation](./pagination)
+        time. You can learn more about lists in the [pagination documentation](/api/pagination)
       query_parameters: *list_query_parameters
       examples:
         list: "List all customers"
@@ -453,7 +453,7 @@ en:
         Returns a `list` of `refund` objects.
         
         Return all refund that belongs to the charge. You can learn more about
-        lists in the [pagination documentation](./pagination).
+        lists in the [pagination documentation](/api/pagination).
       query_parameters: *list_query_parameters
       examples:
         list: "List all refunds"
@@ -659,7 +659,7 @@ en:
         Returns a `list` of `transfer` objects.
         
         Return all transfers that belongs to your account since the beginning of
-        time. You can learn more about lists in the [pagination documentation](./pagination)
+        time. You can learn more about lists in the [pagination documentation](/api/pagination)
       query_parameters: *list_query_parameters
       examples:
         list: "List all transfers"
