@@ -5,7 +5,7 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <link rel="shortcut icon" href="/images/favicon-dfe3f165.png">
 
-      <title>Omise: Authentication</title>
+      <title>Omise: Supported Banks</title>
 
       <link srel="stylesheet" href="https://cdn1.omise.co/fonts/inconsolata.css">
       <link srel="stylesheet" href="https://cdn2.omise.co/fonts/lato.css">
@@ -14,10 +14,10 @@
     <script src="/javascripts/all-40e0ffb7.js" type="text/javascript"></script>
 
     <!-- Facebook OpenGraph -->
-    <meta property="og:title" content="Omise: translation missing: en.Authentication" />
+    <meta property="og:title" content="Omise: translation missing: en.Supported Banks" />
     <meta property="og:image" content="https://cdn.omise.co/assets/omise-2x.png" />
   </head>
-  <body class="api api_authentication api_authentication_index">
+  <body class="supported-banks supported-banks_index">
 
     <header class="Header">
   <div class="HeaderInner"><div class="Wrapper">
@@ -55,7 +55,7 @@
     <li><a href="/transferring-funds">Transferring funds</a></li>
     <li><a href="/dashboard-transfers">Dashboard Transfers</a></li>
     <li><a href="/security-best-practices">Security Best Practices</a></li>
-    <li><a href="/supported-banks">Supported Banks</a></li>
+    <li><a class="Current" href="/supported-banks">Supported Banks</a></li>
     <li><a href="/release-notes">Release Notes</a></li>
   </ul>
 
@@ -63,7 +63,7 @@
   <ul>
     <li><a href="/omise-js">Omise.js</a></li>
     <li><a href="/card-js">Card.js</a></li>
-    <li><a class="Current" href="/api/authentication">Authentication</a></li>
+    <li><a href="/api/authentication">Authentication</a></li>
     <li><a href="/api/pagination">Pagination &amp; Lists</a></li>
     <li><a href="/api/tests">Tests</a></li>
     <li><a href="/api/errors">Errors</a><br></li>
@@ -92,70 +92,70 @@
 
       <div class="MainContent">
           <header class="PageHeader">
-            <h1 class="PageTitle">Authentication</h1>
-              <p>This document will explain how to authenticate with our API and the purpose of your Public and Secret keys.</p>
-
+            <h1 class="PageTitle">Supported Banks</h1>
           </header>
           <div class="Page">
-            <h3 id="creating-your-account">Creating your account</h3>
-
-<p>In order to use our service, remember you first have to create your free account on <a href="https://dashboard.omise.co">Omise</a>. It takes just a couple of seconds!</p>
-
-<h3 id="the-right-key-for-the-right-job">The right key for the right job</h3>
-
-<p>Remember that you have 2 sets of 2 keys: One set for Test mode and one for Live mode.
-The set of keys you use determines whether actual money will be transferred or not.
-In other words, <strong>you should use your Live keys only on your production server!</strong></p>
-
-<p>You can easily tell which key is which:</p>
+            <p>The following banks are allowed to use for registering with Omise.  </p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">Key format</th>
-<th style="text-align: left"></th>
+<th>Brand</th>
+<th>Full name</th>
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">pkey_test_...</td>
-<td style="text-align: left">Public key for test mode</td>
+<td>bbl</td>
+<td>Bangkok Bank</td>
 </tr>
 <tr>
-<td style="text-align: left">skey_test_...</td>
-<td style="text-align: left">Secret key for test mode</td>
+<td>kbank</td>
+<td>Kasikornbank</td>
 </tr>
 <tr>
-<td style="text-align: left">pkey_...</td>
-<td style="text-align: left">Public key for live mode</td>
+<td>ktb</td>
+<td>Krungthai Bank</td>
 </tr>
 <tr>
-<td style="text-align: left">skey_...</td>
-<td style="text-align: left">Secret key for live mode</td>
+<td>tmb</td>
+<td>TMB Bank</td>
+</tr>
+<tr>
+<td>scb</td>
+<td>Siam Commercial Bank</td>
+</tr>
+<tr>
+<td>citi</td>
+<td>Citibank</td>
+</tr>
+<tr>
+<td>cimb</td>
+<td>CIMB Thai Bank</td>
+</tr>
+<tr>
+<td>uob</td>
+<td>United Overseas Bank (Thai)</td>
+</tr>
+<tr>
+<td>bay</td>
+<td>Bank of Ayudhya (Krungsri)</td>
+</tr>
+<tr>
+<td>tbank</td>
+<td>Thanachart Bank</td>
+</tr>
+<tr>
+<td>ibank</td>
+<td>Islamic Bank of Thailand</td>
+</tr>
+<tr>
+<td>lhb</td>
+<td>Land and Houses Bank</td>
 </tr>
 </tbody></table>
 
-<h3 id="public-key"><a href="https://dashboard.omise.co/test/api-keys">Public key</a></h3>
+<h2 id="creating-a-recipient-with-a-bank-account">Creating a recipient with a bank account</h2>
 
-<p>Whenever you need to send us sensitive cardholder data, the first step is to create a token from your user&#39;s browser using the public key.
-Since all this key can do is creating tokens, it is safe to use on a web page.</p>
-
-<p>Related articles: <a href="/collecting-card-information">collecting card information</a>, <a href="tokens">tokens</a>, <a href="https://github.com/omise/omise.js">Omise.js (external)</a></p>
-
-<h3 id="secret-key"><a href="https://dashboard.omise.co/test/api-keys">Secret key</a></h3>
-
-<p>The secret key is what authenticates your server on Omise. It&#39;s used on all non-token API queries. The live secret key must never be shared nor stored unsecurely.
-We highly recommend encrypting the key on your server for maximum protection.</p>
-
-<p>Authentication to Omise API is done via HTTP Basic Auth with your private key as user name. Password is not required.</p>
-
-<p>If you believe your secret key has been compromised, log in to your Omise account, roll a new key and update it on your server.</p>
-
-<h4 id="example-of-secret-key-usage-on-an-api-call">Example of secret key usage on an API call</h4>
-<pre class="highlight shell"><code>curl https://api.omise.co/customers/cust_test_4xs68oo1vgalgffzsyw/cards <span class="se">\</span>
-  -X GET <span class="se">\</span>
-  -u skey_test_4xs68olyuul9lmmp375: <span class="se">\</span>
-  -d <span class="s2">"offset=50"</span> <span class="se">\</span>
-  -d <span class="s2">"limit=10"</span>
-</code></pre>
+<p>You can also use the bank in the above list when creating a recipient. In TEST mode, &#39;test&#39; brand is also allowed to use. Click <a href="/api/recipients">here</a> for more information on creating a recipient</p>
 
           </div>
         <footer class="Footer">

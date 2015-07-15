@@ -55,6 +55,7 @@
     <li><a href="/transferring-funds">Transferring funds</a></li>
     <li><a href="/dashboard-transfers">Dashboard Transfers</a></li>
     <li><a href="/security-best-practices">Security Best Practices</a></li>
+    <li><a href="/supported-banks">Supported Banks</a></li>
     <li><a href="/release-notes">Release Notes</a></li>
   </ul>
 
@@ -292,7 +293,7 @@
         <p>Returns a <code>list</code> of <code>transfer</code> objects.</p>
 
 <p>Return all transfers that belongs to your account since the beginning of
-time. You can learn more about lists in the <a href="./pagination">pagination documentation</a></p>
+time. You can learn more about lists in the <a href="/api/pagination">pagination documentation</a></p>
 
       </div>
 
@@ -617,7 +618,7 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 <span class="no">Omise</span><span class="p">.</span><span class="nf">api_key</span> <span class="o">=</span> <span class="s2">"skey_test_4xs8breq3htbkj03d2x"</span>
 
 <span class="n">transfer</span> <span class="o">=</span> <span class="no">Omise</span><span class="o">::</span><span class="no">Transfer</span><span class="p">.</span><span class="nf">create</span><span class="p">({</span>
-  <span class="ss">recipient: </span><span class="s2">"recp_test_5086xmr74vxs0ajpo78"</span><span class="p">,</span>
+  <span class="ss">recipient: </span><span class="s2">"recp_test_4z6p7e0m4k40txecj5o"</span><span class="p">,</span>
   <span class="ss">amount: </span><span class="mi">100000</span><span class="p">,</span>
 <span class="p">})</span></code></pre>
 
@@ -627,7 +628,12 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-php HIDDEN">
-        <pre class="highlight php"><code>// Coming soon</code></pre>
+        <pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$transfer</span> <span class="o">=</span> <span class="nx">OmiseTransfer</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+  <span class="s1">'amount'</span> <span class="o">=&gt;</span> <span class="mi">100000</span><span class="p">,</span>
+  <span class="s1">'recipient'</span> <span class="o">=&gt;</span> <span class="s1">'recp_test_4z6p7e0m4k40txecj5o'</span>
+<span class="p">));</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-csharp HIDDEN">
@@ -635,11 +641,16 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-javascript HIDDEN">
-        <pre class="highlight javascript"><code></code></pre>
+        <pre class="highlight javascript"><code><span class="nx">omise</span><span class="p">.</span><span class="nx">transfers</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span><span class="s1">'amount'</span><span class="p">:</span> <span class="s1">'100000'</span><span class="p">,</span> <span class="s1">'recipient'</span><span class="p">:</span> <span class="s1">'recp_test_4z6p7e0m4k40txecj5o'</span><span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">transfer</span><span class="p">)</span> <span class="p">{</span>
+  <span class="cm">/* Response. */</span>
+<span class="p">});</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-java HIDDEN">
-        <pre class="highlight java"><code></code></pre>
+        <pre class="highlight java"><code><span class="n">Transfer</span> <span class="n">transfer</span> <span class="o">=</span> <span class="n">Transfer</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;()</span> <span class="o">{</span>
+  <span class="o">{</span><span class="n">put</span><span class="o">(</span><span class="s">"amount"</span><span class="o">,</span> <span class="mi">100000</span><span class="o">);}</span>
+  <span class="o">{</span><span class="n">put</span><span class="o">(</span><span class="s">"recipient"</span><span class="o">,</span> <span class="s">"recp_test_4z6p7e0m4k40txecj5o"</span><span class="o">);}</span>
+<span class="o">});</span></code></pre>
 
       </div>
 
