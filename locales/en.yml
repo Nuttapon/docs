@@ -117,7 +117,7 @@ en:
 
     attributes:
       object: "The string `bank_account`"
-      brand: "The bank account brand"
+      brand: "The bank account brand. Click [here](/supported-banks) for complete list of supported banks"
       number: "The bank account number"
       name: "The bank account name"
 
@@ -599,7 +599,7 @@ en:
         description: "(*optional*) The recipient's description"
         type: "Either `individual` or `corporation`"
         tax_id: "(*optional*) The recipient's tax id"
-        bank_account: "A valid [bank account](bank_account) object"
+        bank_account: "A valid [bank account](/api/bank_account) object"
       examples:
         create: "Create a recipient"
 
@@ -620,7 +620,7 @@ en:
         description: "(*optional*) The recipient's description"
         type: "(*optional*) Either `individual` or `corporation`"
         tax_id: "(*optional*) The recipient's tax id"
-        bank_account: "(*optional*) A valid [bank account](bank_account) object"
+        bank_account: "(*optional*) A valid [bank account](/api/bank_account) object"
 
     destroy:
       title: "Destroy a recipient"
