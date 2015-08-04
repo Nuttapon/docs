@@ -208,7 +208,7 @@ en:
       object: "The string `charge`."
       id: "A `CHARGE_ID` matching `/chrg(_test)?_[1-9a-z]+/`."
       livemode: "Whether this is a live (`true`) or test (`false`) charge."
-      amount: "The amount in the smallest subunits of the currency used. So for `thb` (Thai Baht) you'll need to pass the amount in satangs."
+      amount: "The amount in the smallest subunits of the currency used. So for `thb` (Thai Baht) you'll need to pass the amount in satangs. Minimum charge amount is `20` Baht and the maximum is `1,000,000` Baht."
       currency: "The currency as its lower-cased international 3-letter code, defined by the [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) standard."
       description: "The charge description as received."
       capture: "Whether the charge is set to be auto-captured or not."
@@ -256,7 +256,7 @@ en:
       request_parameters:
         customer: "(**required** or *optional*) A valid `CUSTOMER_ID` that has at least one card already associated. By default the default card of the customer will be used. This parameter is required unless passing a `TOKEN_ID` in the card parameter."
         card: "(**required** or *optional*) A valid unused `TOKEN_ID` or `CARD_ID`. In the case of the `CARD_ID` the customer parameter **must** be present and be the owner of the card. For the `TOKEN_ID`, the customer **must not** be passed."
-        amount: "(**required**) The amount in the smallest subunits of the currency used. For `thb` (Thai Baht) you'll need to pass the amount in satangs."
+        amount: "(**required**, minimum: 2000, maximum: 100000000) The amount in the smallest subunits of the currency used. For `thb` (Thai Baht) you'll need to pass the amount in satangs."
         currency: "(**required**) The currency in which you want the charge to be done. The default and only valid value is `thb`."
         description: "(*optional*) A custom description for the charge. This value can be searched for in your dashboard."
         capture: "(*optional*) Whether or not you want the charge to be captured right away."
