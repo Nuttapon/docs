@@ -151,7 +151,7 @@ en:
       title: "List all cards"
       description: |
         Returns a `list` of `cards` objects.
-
+        
         Return all charges that belongs to the customer `CUSTOMER_ID`.
         You can learn more about lists in the [pagination documentation](/api/pagination).
       query_parameters: *list_query_parameters
@@ -234,7 +234,7 @@ en:
       title: List all charges
       description: |
         Returns a `list` of `charge` objects.
-
+        
         Return all charges that belongs to your account since the beginning of
         time. You can learn more about lists in the [pagination documentation](/api/pagination).
       query_parameters: *list_query_parameters
@@ -244,7 +244,7 @@ en:
     retrieve:
       title: "Retrieve a charge"
       description: ""
-      examples:
+      examples: 
         retrieve: "Retrieve a charge"
 
     create:
@@ -316,7 +316,7 @@ en:
       title: "List all customers"
       description: |
         Returns a `list` of `customer` objects.
-
+        
         Return all customers that belongs to your account since the beginning of
         time. You can learn more about lists in the [pagination documentation](/api/pagination)
       query_parameters: *list_query_parameters
@@ -451,7 +451,7 @@ en:
       title: "List all refunds"
       description: |
         Returns a `list` of `refund` objects.
-
+        
         Return all refund that belongs to the charge. You can learn more about
         lists in the [pagination documentation](/api/pagination).
       query_parameters: *list_query_parameters
@@ -484,9 +484,9 @@ en:
       token ID. Once the token is used the card is attached to its new owner
       and the token is revoked and can't be used anymore.
     notice: |
-      **Full Credit Card data should never go through your server.**
-      Do not send the credit card data to Omise from your servers directly.
-      You must send the card data from the client browser via Javascript (Omise-JS).
+      **Full Credit Card data should never go through your server.**  
+      Do not send the credit card data to Omise from your servers directly.  
+      You must send the card data from the client browser via Javascript (Omise-JS).  
       The methods described on this page should only be used either with fake data in
       test mode (e.g.: quickly creating some fake data, testing our API from
       a terminal, etc.), or if you are PCI-DSS compliant.
@@ -657,7 +657,7 @@ en:
       title: "List all transfers"
       description: |
         Returns a `list` of `transfer` objects.
-
+        
         Return all transfers that belongs to your account since the beginning of
         time. You can learn more about lists in the [pagination documentation](/api/pagination)
       query_parameters: *list_query_parameters
