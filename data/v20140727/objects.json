@@ -1,0 +1,771 @@
+{
+
+  "account": {
+
+    "name": "account",
+    "resource_name": "account",
+
+    "attributes": {
+      "object": "string",
+      "id": "object_id",
+      "email": "string",
+      "created": "datetime"
+    },
+
+    "endpoints": [
+      {
+        "name": "retrieve",
+        "verb": "GET",
+        "url": "https://api.omise.co/account",
+        "examples": [
+          "retrieve"
+        ]
+      }
+    ]
+
+  },
+
+
+  "balance": {
+
+    "name": "balance",
+    "resource_name": "balance",
+
+    "attributes": {
+      "object": "string",
+      "livemode": "boolean",
+      "available": "integer",
+      "total": "integer",
+      "currency": "string"
+    },
+
+    "endpoints": [
+      {
+        "name": "retrieve",
+        "verb": "GET",
+        "url": "https://api.omise.co/balance",
+        "examples": [
+          "retrieve"
+        ]
+      }
+    ]
+
+  },
+
+  "bank_account": {
+    "name": "bank_account",
+    "resource_name": "bank_account",
+
+    "attributes": {
+      "object": "string",
+      "brand": "string",
+      "number": "string",
+      "name": "string"
+    },
+
+    "endpoints": []
+  },
+
+  "card": {
+
+    "name": "card",
+    "resource_name": "cards",
+
+    "attributes": {
+      "object": "string",
+      "id": "object_id",
+      "livemode": "boolean",
+      "location": "string",
+      "country": "string",
+      "city": "string",
+      "postal_code": "string",
+      "financing": "string",
+      "last_digits": "string",
+      "brand": "string",
+      "expiration_month": "integer",
+      "expiration_year": "integer",
+      "fingerprint": "string",
+      "name": "string",
+      "created": "datetime"
+    },
+
+    "endpoints": [
+
+      {
+        "name": "list",
+        "verb": "GET",
+        "url": "https://api.omise.co/customers/CUSTOMER_ID/cards",
+        "query_parameters": {
+          "offset": "integer",
+          "limit": "integer",
+          "from": "datetime",
+          "to": "datetime"
+        },
+        "examples": [
+          "list"
+        ]
+      },
+
+      {
+        "name": "retrieve",
+        "verb": "GET",
+        "url": "https://api.omise.co/customers/CUSTOMER_ID/cards/CARD_ID",
+        "examples": [
+          "retrieve"
+        ]
+      },
+
+      {
+        "name": "update",
+        "verb": "PATCH",
+        "url": "https://api.omise.co/customers/CUSTOMER_ID/cards/CARD_ID",
+        "request_parameters": {
+          "name": "string",
+          "expiration_month": "integer",
+          "expiration_year": "integer",
+          "postal_code": "string",
+          "city": "string"
+        },
+        "examples": [
+          "update"
+        ]
+      },
+
+      {
+        "name": "destroy",
+        "verb": "DELETE",
+        "url": "https://api.omise.co/customers/CUSTOMER_ID/cards/CARD_ID",
+        "show_json_response": true,
+        "examples": [
+          "destroy"
+        ]
+      }
+
+    ]
+
+  },
+
+
+  "charge": {
+
+    "name": "charge",
+    "resource_name": "charges",
+
+    "attributes": {
+      "object": "string",
+      "id": "object_id",
+      "livemode": "boolean",
+      "amount": "integer",
+      "currency": "string",
+      "description": "string",
+      "capture": "boolean",
+      "authorized": "boolean",
+      "captured": "boolean",
+      "transaction": "string",
+      "card": "card",
+      "refunded": "integer",
+      "refunds": "list",
+      "failure_code": "string",
+      "failure_message": "string",
+      "customer": "string",
+      "ip": "string",
+      "dispute": "dispute",
+      "created": "datetime"
+    },
+
+    "deprecated_attributes": {
+      "return_uri": "string",
+      "reference": "string",
+      "authorize_uri": "string"
+    },
+
+    "endpoints": [
+
+      {
+        "name": "list",
+        "verb": "GET",
+        "url": "https://api.omise.co/charges",
+        "query_parameters": {
+          "offset": "integer",
+          "limit": "integer",
+          "from": "datetime",
+          "to": "datetime"
+        },
+        "examples": [
+          "list"
+        ]
+      },
+
+      {
+        "name": "create",
+        "verb": "POST",
+        "url": "https://api.omise.co/charges",
+        "request_parameters": {
+          "customer": "object_id",
+          "card": "object_id",
+          "amount": "integer",
+          "currency": "string",
+          "description": "string",
+          "capture": "boolean"
+        },
+        "deprecated_request_parameters": {
+          "return_uri": "url"
+        },
+        "examples": [
+          "create_with_token",
+          "create_with_customer",
+          "create_with_card"
+        ]
+      },
+
+      {
+        "name": "retrieve",
+        "verb": "GET",
+        "url": "https://api.omise.co/charges/CHARGE_ID",
+        "examples": [
+          "retrieve"
+        ]
+      },
+
+      {
+        "name": "update",
+        "verb": "PATCH",
+        "url": "https://api.omise.co/charges/CHARGE_ID",
+        "request_parameters": {
+          "description": "string"
+        },
+        "examples": [
+          "update_description"
+        ]
+      },
+
+      {
+        "name": "capture",
+        "verb": "POST",
+        "url": "https://api.omise.co/charges/CHARGE_ID/capture",
+        "examples": [
+          "capture"
+        ]
+      }
+
+    ]
+  },
+
+
+  "customer": {
+
+    "name": "customer",
+    "resource_name": "customers",
+
+    "attributes": {
+      "object": "string",
+      "id": "object_id",
+      "livemode": "boolean",
+      "location": "string",
+      "default_card": "string",
+      "email": "string",
+      "description": "string",
+      "created": "datetime",
+      "cards": "list"
+    },
+
+    "endpoints": [
+
+      {
+        "name": "list",
+        "verb": "GET",
+        "url": "https://api.omise.co/customers",
+        "query_parameters": {
+          "offset": "integer",
+          "limit": "integer",
+          "from": "datetime",
+          "to": "datetime"
+        },
+        "examples": [
+          "list"
+        ]
+      },
+
+      {
+        "name": "create",
+        "verb": "POST",
+        "url": "https://api.omise.co/customers",
+        "request_parameters": {
+          "email": "string",
+          "description": "string",
+          "card": "object_id"
+        },
+        "examples": [
+          "create_simple",
+          "attach_card"
+        ]
+      },
+
+      {
+        "name": "retrieve",
+        "verb": "GET",
+        "url": "https://api.omise.co/customers/CUSTOMER_ID",
+        "examples": [
+          "retrieve"
+        ]
+      },
+
+      {
+        "name": "update",
+        "verb": "PATCH",
+        "url": "https://api.omise.co/customers/CUSTOMER_ID",
+        "request_parameters": {
+          "email": "string",
+          "description": "string",
+          "card": "object_id"
+        },
+        "examples": [
+          "update_simple",
+          "attach_card"
+        ]
+      },
+
+      {
+        "name": "destroy",
+        "verb": "DELETE",
+        "url": "https://api.omise.co/customers/CUSTOMER_ID",
+        "show_json_response": true,
+        "examples": [
+          "destroy"
+        ]
+      }
+
+    ]
+
+  },
+
+  "recipient": {
+
+    "name": "recipient",
+    "resource_name": "recipients",
+
+    "attributes": {
+      "object": "string",
+      "id": "string",
+      "livemode": "string",
+      "location": "string",
+      "verified": "boolean",
+      "active": "boolean",
+      "name": "string",
+      "email": "string",
+      "description": "string",
+      "type": "string",
+      "tax_id": "string",
+      "bank_account": "bank_account",
+      "failure_code": "string",
+      "created": "datetime"
+    },
+
+    "endpoints": [
+      {
+        "name": "list",
+        "verb": "GET",
+        "url": "https://api.omise.co/recipients",
+        "query_parameters": {
+          "offset": "integer",
+          "limit": "integer",
+          "from": "datetime",
+          "to": "datetime"
+        },
+        "examples": [
+          "list"
+        ]
+      },
+
+      {
+        "name": "create",
+        "verb": "POST",
+        "url": "https://api.omise.co/recipients",
+        "request_parameters": {
+          "name": "string",
+          "email": "string",
+          "description": "string",
+          "type": "string",
+          "tax_id": "string",
+          "bank_account": "bank_account"
+        },
+        "examples": [
+          "create"
+        ]
+      },
+
+      {
+        "name": "retrieve",
+        "verb": "GET",
+        "url": "https://api.omise.co/recipients/RECIPIENT_ID",
+        "examples": [
+          "retrieve"
+        ]
+      },
+
+      {
+        "name": "update",
+        "verb": "PATCH",
+        "url": "https://api.omise.co/recipients/RECIPIENT_ID",
+        "request_parameters": {
+          "name": "string",
+          "email": "string",
+          "description": "string",
+          "type": "string",
+          "tax_id": "string",
+          "bank_account": "bank_account"
+        },
+        "examples": [
+          "update"
+        ]
+      },
+
+      {
+        "name": "destroy",
+        "verb": "DELETE",
+        "url": "https://api.omise.co/recipients/RECIPIENT_ID",
+        "examples": [
+          "destroy"
+        ]
+      }
+
+    ]
+
+  },
+
+  "dispute": {
+
+    "name": "dispute",
+    "resource_name": "disputes",
+
+    "attributes": {
+      "object": "string",
+      "id": "string",
+      "livemode": "boolean",
+      "location": "string",
+      "amount": "integer",
+      "currency": "string",
+      "status": "string",
+      "message": "string",
+      "charge": "string",
+      "created": "datetime"
+    },
+
+    "endpoints": [
+
+      {
+        "name": "list",
+        "verb": "GET",
+        "url": "https://api.omise.co/disputes",
+        "query_parameters": {
+          "offset": "integer",
+          "limit": "integer",
+          "from": "datetime",
+          "to": "datetime"
+        },
+        "examples": [
+          "list"
+        ]
+      },
+
+      {
+        "name": "open",
+        "verb": "GET",
+        "url": "https://api.omise.co/disputes/open",
+        "query_parameters": {
+          "offset": "integer",
+          "limit": "integer",
+          "from": "datetime",
+          "to": "datetime"
+        },
+        "examples": [
+          "open"
+        ]
+      },
+
+      {
+        "name": "pending",
+        "verb": "GET",
+        "url": "https://api.omise.co/disputes/pending",
+        "query_parameters": {
+          "offset": "integer",
+          "limit": "integer",
+          "from": "datetime",
+          "to": "datetime"
+        },
+        "examples": [
+          "pending"
+        ]
+      },
+
+      {
+        "name": "closed",
+        "verb": "GET",
+        "url": "https://api.omise.co/disputes/closed",
+        "query_parameters": {
+          "offset": "integer",
+          "limit": "integer",
+          "from": "datetime",
+          "to": "datetime"
+        },
+        "examples": [
+          "closed"
+        ]
+      },
+
+      {
+        "name": "retrieve",
+        "verb": "GET",
+        "url": "https://api.omise.co/disputes/DISPUTE_ID",
+        "examples": [
+          "retrieve"
+        ]
+      },
+
+      {
+        "name": "update",
+        "verb": "PATCH",
+        "url": "https://api.omise.co/disputes/DISPUTE_ID",
+        "request_parameters": {
+          "message": "string"
+        },
+        "examples": [
+          "update"
+        ]
+      }
+
+    ]
+
+  },
+
+
+  "refund": {
+
+    "name": "refund",
+    "resource_name": "refunds",
+
+    "endpoints": [
+
+      {
+        "name": "list",
+        "verb": "GET",
+        "url": "https://api.omise.co/charges/CHARGE_ID/refunds",
+        "query_parameters": {
+          "offset": "integer",
+          "limit": "integer",
+          "from": "datetime",
+          "to": "datetime"
+        },
+        "examples": [
+          "list"
+        ]
+      },
+
+      {
+        "name": "create",
+        "verb": "POST",
+        "url": "https://api.omise.co/charges/CHARGE_ID/refunds",
+        "request_parameters": {
+          "amount": "integer"
+        },
+        "examples": [
+          "create"
+        ]
+      },
+
+      {
+        "name": "retrieve",
+        "verb": "GET",
+        "url": "https://api.omise.co/charges/CHARGE_ID/refunds/REFUND_ID",
+        "examples": [
+          "retrieve"
+        ]
+      }
+
+    ]
+
+  },
+
+
+  "token": {
+
+    "name": "token",
+    "resource_name": "tokens",
+
+    "attributes": {
+      "object": "string",
+      "id": "string",
+      "livemode": "boolean",
+      "location": "string",
+      "used": "boolean",
+      "card": "card",
+      "created": "datetime"
+    },
+
+    "endpoints": [
+
+      {
+        "name": "create",
+        "verb": "POST",
+        "url": "https://vault.omise.co/tokens",
+        "request_parameters": {
+          "card.name": "string",
+          "card.number": "string",
+          "card.expiration_month": "integer",
+          "card.expiration_year": "integer",
+          "card.security_code": "string",
+          "card.city": "string",
+          "card.postal_code": "string"
+        },
+        "examples": [
+          "create"
+        ]
+      },
+
+      {
+        "name": "retrieve",
+        "verb": "GET",
+        "url": "https://api.omise.co/tokens/TOKEN_ID",
+        "examples": [
+          "retrieve"
+        ]
+      }
+
+    ]
+
+  },
+
+
+  "transaction": {
+
+    "name": "transaction",
+    "resource_name": "transactions",
+
+    "attributes": {
+      "object": "string",
+      "id": "string",
+      "type": "string",
+      "amount": "integer",
+      "currency": "string",
+      "created": "datetime"
+    },
+
+    "endpoints": [
+
+      {
+        "name": "list",
+        "verb": "GET",
+        "url": "https://api.omise.co/transactions",
+        "query_parameters": {
+          "offset": "integer",
+          "limit": "integer",
+          "from": "datetime",
+          "to": "datetime"
+        },
+        "examples": [
+          "list"
+        ]
+      },
+
+      {
+        "name": "retrieve",
+        "verb": "GET",
+        "url": "https://api.omise.co/transactions/TRANSACTION_ID",
+        "examples": [
+          "retrieve"
+        ]
+      }
+
+    ]
+
+  },
+
+  "transfer": {
+
+    "name": "transfer",
+    "resource_name": "transfers",
+
+    "attributes": {
+      "object": "string",
+      "id": "string",
+      "livemode": "boolean",
+      "location": "string",
+      "recipient": "string",
+      "bank_account": "bank_account",
+      "sent": "boolean",
+      "paid": "boolean",
+      "amount": "integer",
+      "currency": "string",
+      "failure_code": "string",
+      "failure_message": "string",
+      "transaction": "string",
+      "created": "datetime"
+    },
+
+    "endpoints": [
+
+      {
+        "name": "list",
+        "verb": "GET",
+        "url": "https://api.omise.co/transfers",
+        "query_parameters": {
+          "offset": "integer",
+          "limit": "integer",
+          "from": "datetime",
+          "to": "datetime"
+        },
+        "examples": [
+          "list"
+        ]
+      },
+
+      {
+        "name": "create",
+        "verb": "POST",
+        "url": "https://api.omise.co/transfers",
+        "request_parameters": {
+          "amount": "integer",
+          "recipient": "string"
+        },
+        "examples": [
+          "create",
+          "create_with_recipient"
+        ]
+      },
+
+      {
+        "name": "retrieve",
+        "verb": "GET",
+        "url": "https://api.omise.co/transfers/TRANSFER_ID",
+        "examples": [
+          "retrieve"
+        ]
+      },
+
+      {
+        "name": "update",
+        "verb": "PATCH",
+        "url": "https://api.omise.co/transfers/TRANSFER_ID",
+        "request_parameters": {
+          "amount": "integer"
+        },
+        "examples": [
+          "update"
+        ]
+      },
+
+      {
+        "name": "destroy",
+        "verb": "DELETE",
+        "url": "https://api.omise.co/transfers/TRANSFER_ID",
+        "show_json_response": true,
+        "examples": [
+          "destroy"
+        ]
+      }
+
+    ]
+
+  }
+
+}
