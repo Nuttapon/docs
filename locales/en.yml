@@ -117,7 +117,7 @@ en:
 
     attributes:
       object: "The string `bank_account`"
-      brand: "The bank account brand. Click [here](/supported-banks) for complete list of supported banks"
+      brand: "The bank account brand. Click [here](../supported-banks) for complete list of supported banks"
       number: "The bank account number"
       name: "The bank account name"
 
@@ -153,7 +153,7 @@ en:
         Returns a `list` of `cards` objects.
         
         Return all charges that belongs to the customer `CUSTOMER_ID`.
-        You can learn more about lists in the [pagination documentation](/api/pagination).
+        You can learn more about lists in the [pagination documentation](../api/pagination).
       query_parameters: *list_query_parameters
       examples:
         list: "List all cards"
@@ -236,7 +236,7 @@ en:
         Returns a `list` of `charge` objects.
         
         Return all charges that belongs to your account since the beginning of
-        time. You can learn more about lists in the [pagination documentation](/api/pagination).
+        time. You can learn more about lists in the [pagination documentation](../api/pagination).
       query_parameters: *list_query_parameters
       examples:
         list: "List all charges"
@@ -309,7 +309,7 @@ en:
         as default card and `null` in case there's no cards left.
       email: "Email of the customer supplied during creation."
       description: "Description of the customer supplied during creation."
-      cards: "A paginated [list](/api/pagination) of [card](/api/cards#the-card-object) objects."
+      cards: "A paginated [list](../api/pagination) of [card](../api/cards#the-card-object) objects."
       created: "Creation date of the customer in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format."
 
     list:
@@ -318,7 +318,7 @@ en:
         Returns a `list` of `customer` objects.
         
         Return all customers that belongs to your account since the beginning of
-        time. You can learn more about lists in the [pagination documentation](/api/pagination)
+        time. You can learn more about lists in the [pagination documentation](../api/pagination)
       query_parameters: *list_query_parameters
       examples:
         list: "List all customers"
@@ -453,7 +453,7 @@ en:
         Returns a `list` of `refund` objects.
         
         Return all refund that belongs to the charge. You can learn more about
-        lists in the [pagination documentation](/api/pagination).
+        lists in the [pagination documentation](../api/pagination).
       query_parameters: *list_query_parameters
       examples:
         list: "List all refunds"
@@ -499,7 +499,7 @@ en:
       livemode: "Whether this is a live (`true`) or test (`false`) token."
       location: "Path to retrieve the token."
       used: "Whether the token has been used or not. Tokens can be used only once to make a charge on their card or to associate the card to a customer."
-      card: "A [card](/api/cards) object."
+      card: "A [card](../api/cards) object."
       created: "Creation date of the token in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format."
 
     meta:
@@ -599,7 +599,7 @@ en:
         description: "(*optional*) The recipient's description"
         type: "Either `individual` or `corporation`"
         tax_id: "(*optional*) The recipient's tax id"
-        bank_account: "A valid [bank account](/api/bank_account) object"
+        bank_account: "A valid [bank account](../api/bank_account) object"
       examples:
         create: "Create a recipient"
 
@@ -620,7 +620,7 @@ en:
         description: "(*optional*) The recipient's description"
         type: "(*optional*) Either `individual` or `corporation`"
         tax_id: "(*optional*) The recipient's tax id"
-        bank_account: "(*optional*) A valid [bank account](/api/bank_account) object"
+        bank_account: "(*optional*) A valid [bank account](../api/bank_account) object"
 
     destroy:
       title: "Destroy a recipient"
@@ -659,7 +659,7 @@ en:
         Returns a `list` of `transfer` objects.
         
         Return all transfers that belongs to your account since the beginning of
-        time. You can learn more about lists in the [pagination documentation](/api/pagination)
+        time. You can learn more about lists in the [pagination documentation](../api/pagination)
       query_parameters: *list_query_parameters
       examples:
         list: "List all transfers"
