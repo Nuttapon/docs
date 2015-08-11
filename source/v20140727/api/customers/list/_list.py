@@ -1,0 +1,1 @@
+customers = omise.Customer.retrieve()

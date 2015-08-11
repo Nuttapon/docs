@@ -1,0 +1,37 @@
+<header class="Header">
+  <div class="HeaderInner"><div class="Wrapper">
+    <%= image_tag "logo.svg", height: 20, width: 61, alt: "Omise", class: "Logo" %>
+    <nav class="Menu">
+      <span data-dropdown='{ "className": ".SearchBox" }' class="SearchButton">Search</span>
+      <span data-dropdown='{ "className": ".MenuDropdown" }' class="MenuButton">Menu</span>
+      <div class="MenuDropdown" style="display:none;">
+        <%= link_to "Homepage", "https://www.omise.co/", class: "MenuDropdownItem" %>
+        <hr>
+        <%= link_to "Sign In", "https://dashboard.omise.co/signin", class: "MenuDropdownItem" %>
+        <%= link_to "Register", "https://dashboard.omise.co/signup", class: "MenuDropdownItem" %>
+        <hr>
+        <%= link_to "Omise on GitHub", "https://github.com/omise", class: "MenuDropdownItem" %>
+        <hr>
+        <%= link_to "Support", "https://support.omise.co/", class: "MenuDropdownItem" %>
+        <%= link_to "Report an issue about the docs", "https://github.com/omise/docs/issues", class: "MenuDropdownItem" %>
+      </div>
+    </nav>
+  </div></div>
+  <div class="HeaderLocation">
+    <div class="Wrapper">
+    <% if current_page.data.header_location %>
+      <%= current_page.data.header_location.upcase %>
+    <% else %>
+      <%= I18n.t("shared.documentation").upcase %>
+    <% end %>
+  </div>
+  <div class="ApiVersion">
+    <label for="">API Version: </label>
+    <select id="ApiSelector">
+    <option value="20150715">20150715</option>
+    <option value="20140724">20140724</option>
+  </select>
+  </div>
+
+  </div>
+</header>

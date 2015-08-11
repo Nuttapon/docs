@@ -1,0 +1,67 @@
+---
+title: Charging Cards
+excerpt: This article will highlight how you can charge a credit card
+---
+
+All the examples below requires that you first [collect your customer card information](collecting-card-information) in a token. **All tokens are one time use** so you must choose wisely between charging the card directly or if you need to associate that card to a customer for future use.
+
+The main advantage of attaching a card to a customer is that it will let you charge their card more than once. Recurring customers can benefit from not having to type their card details again for every purchase.
+
+## Charging the Card Directly
+
+This is the easiest way to charge a card. Once you receive a card token, you send it to our [charges API](api/charges/) with the amount you want to charge. Within a few seconds the card will have been charged.
+
+Note that the token will be void once it has been used; you won't be able to charge the card or create a customer with it anymore.
+
+Here's an example using the [Omise ruby](https://github.com/omise/omise-ruby) library:
+
+```ruby
+charge = Omise::Charge.create({
+  amount: 100025,
+  currency: "thb",
+  description: "Order-345678",
+  return_uri: "http://localhost/orders/345678/complete",
+  card: params[:omise_token]
+})
+```
+
+## Charging a Customer
+
+Creating customers with a token will let you charge a card multiple times if needed. With our [customers API](api/customers/) you could create checkout flow where your customer don't have to retype their card information all over again. This decrease dramatically the chance of cart abandonment.
+
+We offer two ways to charge a customer.
+
+### Charging the Default Card
+
+With the default card, you only pass the customer ID. This is useful if you only want to have one card per customer.
+
+Here's an example using the [Omise ruby](https://github.com/omise/omise-ruby) library:
+
+```ruby
+charge = Omise::Charge.create({
+  amount: 100025,
+  currency: "thb",
+  description: "Order-345678",
+  return_uri: "http://localhost/orders/345678/complete",
+  customer: user.omise_customer_id
+})
+```
+
+### Charging a Specific Card
+
+With a specific card, you pass both a customer ID and the specific card ID. This is particularly useful if you have multiple cards attached to a customer.
+
+Note that unlike [charging a card directly with a token](#charging-the-card-directly) to create the charge you have to pass the actual card ID instead of the token ID. You can read how to [list all customer cards](api/cards#list-all-cards) and the [pagination documentation](api/pagination) to see how to retrieve a list of cards for a specific customer.
+
+Here's an example using the [Omise ruby](https://github.com/omise/omise-ruby) library:
+
+```ruby
+charge = Omise::Charge.create({
+  amount: 100025,
+  currency: "thb",
+  description: "Order-345678",
+  return_uri: "http://localhost/orders/345678/complete",
+  customer: customer.omise_id
+  card: customer.cards.find_by(id: params[:id]).omise_id
+})
+```

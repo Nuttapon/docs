@@ -1,0 +1,1 @@
+charges = omise.Charge.retrieve()

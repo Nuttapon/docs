@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <link rel="shortcut icon" href="<%= image_path("favicon.png") %>">
+
+    <% if current_page.data.skip_page_header %>
+      <title>Omise: <%= I18n.t current_page.data.title %></title>
+    <% else %>
+      <title>Omise: <%= current_page.data.title %></title>
+    <% end %>
+
+    <% if build? %>
+      <link srel="stylesheet" href="https://cdn1.omise.co/fonts/inconsolata.css">
+      <link srel="stylesheet" href="https://cdn2.omise.co/fonts/lato.css">
+    <% end %>
+
+    <%= stylesheet_link_tag "all" %>
+    <%= javascript_include_tag  "all" %>
+
+    <!-- Facebook OpenGraph -->
+    <meta property="og:title" content="Omise: <%= I18n.t(current_page.data.title) %>" />
+    <meta property="og:image" content="https://cdn.omise.co/assets/omise-2x.png" />
+  </head>
+  <body class="<%= page_classes %>">
+
+    <%= partial "shared/header" %>
+
+    <div class="Main">
+      <%= partial "v20140727/shared/navigation" %>
+      <div class="MainContent">
+        <% unless current_page.data.skip_page_header %>
+          <header class="PageHeader">
+            <h1 class="PageTitle"><%= current_page.data.title %></h1>
+            <% if current_page.data.excerpt %>
+              <%= $markdown.render current_page.data.excerpt %>
+            <% end %>
+          </header>
+          <div class="Page">
+            <%= yield %>
+          </div>
+        <% else %>
+          <%= yield %>
+        <% end %>
+        <%= partial "shared/footer" %>
+      </div>
+    </div>
+
+    <div class="SearchBox" data-search='{}' style="display: none">
+      <input type="search">
+    </div>
+
+    <%= partial "shared/google_analytics" if build? %>
+
+  </body>
+</html>

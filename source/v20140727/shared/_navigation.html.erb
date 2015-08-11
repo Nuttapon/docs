@@ -1,0 +1,36 @@
+<% version = "v20140727" %>
+<nav class="Nav"><div class="NavInner">
+  <h2>Documentation</h2>
+  <ul>
+    <li><%= link_to_current "Getting Started", "/#{version}/" %></li>
+    <li><%= link_to_current "Collecting Cards", "/#{version}/collecting-card-information"%></li>
+    <li><%= link_to_current "Charging Cards", "/#{version}/charging-cards" %></li>
+    <li><%= link_to_current "Refunding Charges", "/#{version}/refunding-charges" %></li>
+    <li><%= link_to_current "Transferring funds", "/#{version}/transferring-funds" %></li>
+    <li><%= link_to_current "Dashboard Transfers", "/#{version}/dashboard-transfers" %></li>
+    <li><%= link_to_current "Security Best Practices", "/#{version}/security-best-practices" %></li>
+    <li><%= link_to_current "Supported Banks", "/#{version}/supported-banks" %></li>
+    <li><%= link_to_current "Release Notes", "/#{version}/release-notes" %></li>
+  </ul>
+
+  <h2>References</h2>
+  <ul>
+    <li><%= link_to_current "Omise.js", "/#{version}/omise-js" %></li>
+    <li><%= link_to_current "Card.js", "/#{version}/card-js" %></li>
+    <li><%= link_to_current "Authentication", "/#{version}/api/authentication" %></li>
+    <li><%= link_to_current "Pagination &amp; Lists", "/#{version}/api/pagination" %></li>
+    <li><%= link_to_current "Tests", "/#{version}/api/tests" %></li>
+    <li><%= link_to_current "Errors", "/#{version}/api/errors" %><br></li>
+    <% data.v20140727.objects.each do |name, object| %>
+      <li><%= link_to_current object.resource_name.titleize, "/#{version}/api/#{object.resource_name}" %></li>
+    <% end %>
+  </ul>
+
+  <h2>Plugins</h2>
+  <ul>
+    <li><%= link_to_current "ActiveMerchant", "/#{version}/active_merchant" %></li>
+    <li><%= link_to_current "Magento", "/#{version}/magento" %></li>
+    <li><%= link_to_current "OpenCart", "/#{version}/opencart" %></li>
+    <li><%= link_to_current "WooCommerce", "/#{version}/woocommerce" %></li>
+  </ul>
+</div></nav>

@@ -1,0 +1,90 @@
+---
+title: Transferring funds
+description: This page will guide you how to transfer the available balance to your account or third party recipient
+---
+
+## Requirement
+
+The following requirement must be met for a transfer to be created:
+
+- There must be over 30 THB in your available balance.
+
+## Recipient
+
+### Default recipient
+
+  By default, a recipient is created for you in TEST mode once you sign up with Omise. However, once you get your live account, a new live recipient is created for you using your registration information and bank account.
+
+### Third party recipient
+
+  You can create as many recipients as you want. Each recipient has its own bank account information. We allow transferring the balance to these recipient.
+
+### Create a recipient
+
+  The following command demonstrates how to create a recipient using CURL
+
+  ```shell
+    curl https://api.omise.co/recipients \
+    -X POST \
+    -u "$OMISE_KEY_SECRET": \
+    -d "name=James Smith"
+    -d "email=james.smith@example.com"
+    -d "description=My first other recipient" \
+    -d "type=individual"
+    -d "bank_account[brand]=test" \
+    -d "bank_account[number]=acc12345" \
+    -d "bank_account[name]=James Smith"
+  ```
+
+  By default, recipients are `Inactive` and `non-verified`.
+  In order to be operational, recipients have to go through 2 steps:  Verification and Activation. 
+
+  Visit [recipient api](api/recipients) For more API references.
+
+### Recipient verification
+  
+  The recipient verification is done by Omise. We normally take 1-2 days for this. The verification result can be either `Verified` or `Failed`.
+
+  ![Recipient list](/images/transferring_funds/recipient_list.png)
+
+  ![Recipient detail](/images/transferring_funds/recipient_detail.png)
+
+### Recipient activation
+
+  You can activate recipients independently from the verification process. By default, the recipient is inactive unless you activate it. 
+  Activation is done by going to the recipient details and clicking on "Activate the recipient". 
+  
+  Remember that both activation and verification must be successful before transfers become possible.
+
+  ![Recipient activation](/images/transferring_funds/recipient_activation.png)
+
+## Transfer to default recipient
+
+  Below is a sample code showing how to create a transfer to the default recipient 
+
+  ```shell
+    curl https://api.omise.co/transfers \
+      -X POST \
+      -u "$OMISE_KEY_SECRET": \
+      -d "amount=350000"
+
+    # Transfer 3500 THB to default recipient
+  ```
+
+## Transfer to third party recipient
+
+  Transferring funds to a third party recipient is similar except that you have to specify the recipient id to transfer to. Here is an example:
+
+  ```shell
+    curl https://api.omise.co/transfers \
+      -X POST \
+      -u "$OMISE_KEY_SECRET": \
+      -d "amount=350000"
+      -d "recipient=recp_test_4z6p7e0m4k40txecj5o"
+
+    # Transfer 3500 THB to recipient #recp_test_4z6p7e0m4k40txecj5o
+  ```
+
+## Transfer timeline
+
+Transfers that are initiated before 11 AM are available in the recipient's bank account within the next business day.

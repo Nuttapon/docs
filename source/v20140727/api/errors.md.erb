@@ -1,0 +1,293 @@
+---
+title: Errors
+excerpt: Omise will return formatted errors in case something does not go as smoothly as expected.
+---
+
+[The error object](#the-error-object)  
+[Authentication failure](#authentication-failure)  
+[Not found](#not-found)  
+[Used token](#used-token)  
+[Invalid card](#invalid-card)  
+[Invalid card Token](#invalid-card-token)  
+[Missing card](#missing-card)  
+[Invalid charge](#invalid-charge)  
+[Failed capture](#failed-capture)  
+[Failed fraud check](#failed-fraud-check)  
+
+---
+
+## The Error Object
+
+| Key            | Value |
+|:---------------|:------|
+| `object`       | *(string)* "error" |
+| `location`     | *(string)* Link to an article about the error. |
+| `code`         | *(string)* Error code |
+| `message`      | *(string)* A short explanation about the error |
+
+---
+
+## Authentication Failure
+
+An authentication failure means the key you passed is not valid.
+You can find your keys [here](https://dashboard.omise.co/test/api-keys).
+Here is an example when trying to retrieve a customer:
+
+### Curl
+
+```sh
+curl https://api.omise.co/customers/cust_test_4xvqerqazpdhf5xu2zj \
+  -u skey_test_please_let_me_in:      # Incorrect secret key
+```
+
+### JSON Response
+
+```json
+{
+  "object": "error",
+  "location": "https://docs.omise.co/api/errors#authentication-failure",
+  "code": "authentication_failure",
+  "message": "authentication failed"
+}
+```
+
+---
+
+## Not Found
+
+Omise API sometimes requires an ID to be passed. If the object with the corresponding ID cannot be found, this error is raised.
+Here is an example, trying to retrieve a customer with an incorrect ID:
+
+### Curl
+
+```sh
+curl https://api.omise.co/customers/cust_test_000000000000 \ # Not a valid customer ID.
+  -u skey_test_4xc6eevsmz5phbtjcaf:
+```
+
+### JSON Response
+
+```json
+{
+  "object": "error",
+  "location": "https://docs.omise.co/api/errors#not-found",
+  "code": "not_found",
+  "message": "Customer cust_test_000000000000 was not found"
+}
+```
+
+---
+
+## Used Token
+
+Tokens are single-use only. Any attempt to re-use a token will result in a `used_token` error.
+Here is an example when trying to create a customer with a token that was already used:
+
+### Curl
+
+```sh
+curl https://api.omise.co/customers \
+  -X POST \
+  -u skey_test_4xc6eevsmz5phbtjcaf: \
+  -d "description=John Doe (id: 30)" \
+  -d "email=john.doe@example.com" \
+  -d "card=tokn_test_4xvpea0ifwajbx3f873" # This token has already been used
+```
+
+### JSON Response
+
+```json
+{
+  "object": "error",
+  "location": "https://docs.omise.co/api/errors#used-token",
+  "code": "used_token",
+  "message": "token was already used"
+}
+```
+
+---
+
+## Invalid Card
+
+Attempting to create an invalid card will result in an `invalid_card` error to be returned.
+Here is an example of invalid card creation:
+
+### Curl
+
+```sh
+curl https://vault.omise.co/tokens \
+  -X POST \
+  -u pkey_test_4xc6eevsm4i0ysitb4j: \
+  -d "card[name]=JOHN DOE" \
+  -d "card[city]=Bangkok" \
+  -d "card[postal_code]=10320" \
+  -d "card[number]=Definitely not a card number" \ # Invalid card number!
+  -d "card[expiration_month]=10" \
+  -d "card[expiration_year]=2016"
+```
+
+### JSON Response
+
+```json
+{
+  "object": "error",
+  "location": "https://docs.omise.co/api/errors#invalid-card",
+  "code": "invalid_card",
+  "message": "number is invalid and brand not supported (unknown)"
+}
+```
+
+---
+
+## Invalid Card Token
+
+Some API requests expect a card token (string) as parameter. If a non-string object is passed, the `invalid_card_token` error is raised.
+This can typically happen when you try to pass a card dictionary instead of a token
+
+### Curl
+
+```sh
+curl https://api.omise.co/customers \
+  -X POST \
+  -u skey_test_4xc6eevsmz5phbtjcaf: \
+  -d "description=John Doe (id: 30)" \
+  -d "email=john.doe@example.com" \
+  -d "card[number]=4242424242424242" \ # This endpoint expects a token, not a card object
+  -d "card[name]=Somchai Prasert"
+```
+
+### JSON Response
+
+```json
+{
+  "object": "error",
+  "location": "https://docs.omise.co/api/errors#invalid-card-token",
+  "code": "invalid_card_token",
+  "message": "invalid card token"
+}
+```
+
+---
+
+## Missing Card
+
+The creation of a token expects card data parameters. If no card parameters are passed, `missing_card` is raised:
+
+### Curl
+
+```sh
+curl https://vault.omise.co/tokens \
+  -X POST \
+  -u pkey_test_4xc6eevsm4i0ysitb4j:
+
+  # Omitting the following parameters:
+  #-d "card[name]=JOHN DOE" \
+  #-d "card[city]=Bangkok" \
+  #-d "card[postal_code]=10320" \
+  #-d "card[number]=4242424242424242" \
+  #-d "card[expiration_month]=10" \
+  #-d "card[expiration_year]=2016"
+```
+
+### JSON Response
+
+```json
+{
+  "object": "error",
+  "location": "https://docs.omise.co/api/errors#missing-card",
+  "code": "missing_card",
+  "message": "request contains no card parameters"
+}
+```
+
+---
+
+
+## Invalid Charge
+
+If a charge does not meet Omise minimum requirements upon creation, the `invalid_charge` error is raised.
+Its `message` attribute contains more information about the specific errors.
+Here is an example with an invalid amount and currency:
+
+### Curl
+
+```sh
+curl https://api.omise.co/charges \
+  -X POST \
+  -u skey_test_4xc6eevsmz5phbtjcaf: \
+  -d "amount=eleventy" \            # Not an integer
+  -d "currency=bottle caps" \       # Currently not an accepted currency
+  -d "return_uri=http://www.example.com/orders/3947/complete" \
+  -d "customer=cust_test_4xko29qxltncwq3u0i3"
+```
+
+### JSON Response
+
+```json
+{
+  "object": "error",
+  "location": "https://docs.omise.co/api/errors#invalid-charge",
+  "code": "invalid_charge",
+  "message": "currency is currently not supported and amount is not a number"
+}
+```
+
+---
+
+## Failed Capture
+
+The `failed_capture` error is raised when something went wrong with a charge capture.
+It could be that the charge was not authorized yet or was already captured.
+The specific reason can be found in the `message` attribute.
+The following example shows the attempted capture of a charge that has not been authorized.
+
+
+### Curl
+
+```sh
+curl https://api.omise.co/charges/chrg_test_4xvqmz1wx93it4cut8g/capture \
+  -X POST  \
+  -u skey_test_4xc6eevsmz5phbtjcaf:
+```
+
+### JSON Response
+
+```json
+{
+  "object": "error",
+  "location": "https://docs.omise.co/api/errors#failed-capture",
+  "code": "failed_capture",
+  "message": "Charge is not authorized"
+}
+```
+
+---
+
+
+## Failed Fraud Check
+
+Every charge Omise receives is checked for fraud. If the charge is considered fraudulent, `failed_fraud_check` is raised.
+
+### Curl
+
+```sh
+curl https://api.omise.co/charges \
+  -X POST \
+  -u skey_test_4xsjvwfnvb2g0l81sjz: \
+  -d "amount=10000000000" \
+  -d "currency=thb" \
+  -d "description=Attempting something bad!" \
+  -d "ip=133.71.33.7" \
+  -d "card=tokn_test_4xs9408a642a1htto8z"
+```
+
+### JSON Response
+
+```json
+{
+  "object": "error",
+  "location": "https://docs.omise.co/api/errors#failed-fraud-check",
+  "code": "failed_fraud_check",
+  "message": "failed fraud check"
+}
+```

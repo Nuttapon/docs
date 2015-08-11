@@ -1,0 +1,3 @@
+<?php
+
+$recipient = OmiseRecipient::retrieve();

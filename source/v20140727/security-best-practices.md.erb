@@ -1,0 +1,62 @@
+---
+title: Security Best Practices
+excerpt: Omise Recommended Best Practices
+---
+
+## Collect cards using Javascript Library
+
+Omise.js allows you to easily collect card information from the customer's browser directly. It collects extra information about the user that is used by our Fraud Detection system to prevent fraud, such as client IP, browser agent, history. This way your server never has to deal with sensitive card information.
+
+You can read more about it on our [Tokens documentation page](api/tokens/)
+
+## Never send card data through your servers
+
+Card data should not go through your servers, instead it should be sent from the browser directly to Omise Vault server.
+Sending card data from your server is only allowed if you have PCI-DSS V3.0 compliance for transmitting card data. Please contact us if you are planing on doing this approach.
+
+#### There are many advantages if sending card data from the browser instead of server:
+
+1. Our fraud detection system uses information from the user browser in order to calculate the risk score. Information such as user IP, browser user-agent, and other browser history from our database are essential to detect fraud. For example, if the IP belongs to a server hosting provider, Tor network or public proxy, the chances of fraud are high, but if the IP belongs to an ADSL user matching the country of the card issuer, it is most likely a legitimate transaction.
+Sending from server directly prevents our fraud detection to operate at best, and will exponentially increase fraud on your account and cause you losses.
+
+2. When the full credit card is passing through your server, the form post data can be stored on your server logs. It can also be easily recorded using linux tools such as tcpdump. Please make sure your logs are not recording card data, such as form parameters on your checkout pages.  
+In the event your server is compromised, all credit card passing through it can be recorded and leaked out. For this reason, PCI-DSS is required if the credit card is transmitted. Visa and Mastercard do not allow the transmission of cards in the server unless you are PCI-DSS certified.
+
+
+## Enable HTTPS on your website
+
+Using HTTPS (TLS) on your checkout pages will protect your customer sensitive data, prevent account compromise and inspire confidence to your users.
+Also, Google Search Engine gives higher rank to HTTPS enabled sites.
+
+Use latest TLS only on your web servers. SSLv3 is a weak protocol with many security flaws. It is now disabled in some newer browsers.
+
+
+## Secure your Account Secret Keys
+
+Your secret keys should be highly secure. Your secret keys are used to perform crucial API operations, such as charges, refunds, transfers, and download all customers.
+
+1. Never store your Secret Keys on your code repository (git, svn, hg). In Heroku you can use [environment variables](https://devcenter.heroku.com/articles/config-vars) to store your secret key.
+
+2. If you build a backend with input fields to store your secret key, you should make the input a password type field: 
+```<input type='password'>```
+
+3. If you find that your secret key has been compromised, login to your dashboard account and roll your keys as soon as possible. 
+Also please notify Omise team in such cases.
+
+
+## Fraud Prevention
+
+In some type of business, fraud is more prevalent. Such as Digital goods, where the digital product is instantly downloaded or when there is no shipping. Other high risk business models are money transfer, mobile top-up, and prepaid cards top-up, since the cash value can be taken before refunds or transaction void can occur, causing financial losses.
+
+For these kind of business we recommend an extended customer validation and extra care, such as requiring the customer to send a photo of the front of credit card alongside with an identification card that matches the credit card name.
+
+We advice you keep a close looks to your logs for high risk or fraud transactions. Login to your dashboard and click on "Logs".
+
+## Keep updated
+
+Don't forget to Periodically check Omise Documentation for updated libraries and security news. 
+We regularly release new versions of our libraries, and we will email you when this happens.
+
+Facebook: [facebook.com/Omiseco](https://www.facebook.com/Omiseco)  
+Twitter: [twitter.com/Omise](https://twitter.com/Omise)  
+Official Blog: [Omise.co/blog](https://www.omise.co/blog/)

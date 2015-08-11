@@ -1,0 +1,79 @@
+---
+title: Pagination &amp; Lists
+excerpt: Several API requests return lists of objects. This is how they are structured.
+---
+
+
+
+### Request Parameters
+
+| Parameter     | Value                                             |
+|:--------------|:--------------------------------------------------|
+| **from**      | *(optional, default: 1970-01-01T00:00:00Z, format: [iso8601](http://en.wikipedia.org/wiki/ISO_8601))* The UTC date and time limiting the beginning of returned records. E.g.: 2014-10-20T00:00:00Z  |
+| **to**        | *(optional, default: current UTC Datetime, format: [iso8601](http://en.wikipedia.org/wiki/ISO_8601))* The UTC date and time limiting the end of returned records. |
+| **offset**    | *(optional, default: 0)* The offset of the first record returned. I.e.: How many records to skip from the beginning.|
+| **limit**     | *(optional, default: 20, maximum: 100)* The maximum amount of records returned. |
+
+
+### Response parameters
+
+| Parameter     | Value                                             |
+|:--------------|:--------------------------------------------------|
+| **object**    | *(string)* 'list'
+| **from**      | *(datetime, format: [iso8601](http://en.wikipedia.org/wiki/ISO_8601))* The UTC date and time limiting the beginning of returned records. E.g.: 2014-10-20T00:00:00Z  |
+| **to**        | *(datetime, format: [iso8601](http://en.wikipedia.org/wiki/ISO_8601))* The UTC date and time limiting the end of returned records. |
+| **offset**    | *(integer)* The offset of the first record returned.  |
+| **limit**     | *(integer)* The maximum amount of records returned.  |
+| **total**     | *(integer)* Total amount of records between `from` and `to`  |
+| **data**      | *(array)* Array of returned objects ([charges](api/charges), [cards](api/cards), ...)
+
+
+
+<div class="Notice">
+  The following examples illustrate pagination on a cards list. The same applies to all list APIs (cards, transactions) All pagination
+  parameters are optional and can be used in any combination you like.
+</div>
+
+
+### CURL - Cards
+```sh
+curl https://api.omise.co/customers/cust_test_4xs68oo1vgalgffzsyw/cards \
+  -X GET \
+  -u skey_test_4xs68olyuul9lmmp375: \
+  -d "from=2014-10-20T00:00:00Z" \
+  -d "to=2014-10-25T00:00:00Z" \
+  -d "offset=1" \
+  -d "limit=5"
+```
+
+### JSON Response - Cards
+
+```json
+{
+  "object": "list",
+  "from": "2014-10-20T00:00:00Z",
+  "to": "2014-10-25T00:00:00Z",
+  "offset": 1,
+  "limit": 5,
+  "total": 2,
+  "data": [
+    {
+      "object": "card",
+      "id": "card_test_4xs68on6y9b4teqliza",
+      "livemode": false,
+      "location": "/customers/cust_test_4xs68oo1vgalgffzsyw/cards/card_4xs68on6y9b4teqliza",
+      "country": "",
+      "city": "Bangkok",
+      "postal_code": "10310",
+      "financing": "",
+      "last_digits": 4242,
+      "brand": "Visa",
+      "expiration_month": 10,
+      "expiration_year": 2018,
+      "fingerprint": "uBNb5Z5J6firoMoDo80jEc1X/QucKQ4SCu80kP9U0gE=",
+      "name": "Somchai Prasert",
+      "created": "2014-10-20T04:47:15Z"
+    }
+  ]
+}
+```
