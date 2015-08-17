@@ -38,6 +38,9 @@ en:
         [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601)) The UTC date and
         time limiting the end of returned records.
         E.g.: `2015-01-20T00:00:00Z`
+      order: |
+        (*optional*, default: chronological) The order of the list returned.
+        E.g.: chronological(from earliest to latest), reverse_chronological(from latest to earliest)
 
   langs:
     shell: "curl"
