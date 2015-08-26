@@ -20,6 +20,7 @@
     <li><%= link_to_current "Authentication", "/api/authentication" %></li>
     <li><%= link_to_current "Pagination &amp; Lists", "/api/pagination" %></li>
     <li><%= link_to_current "Tests", "/api/tests" %></li>
+    <li><%= link_to_current "Preventing duplicates", "/preventing-duplicate-calls" %></li>
     <li><%= link_to_current "Errors", "/api/errors" %><br></li>
     <% data.objects.each do |name, object| %>
       <li><%= link_to_current object.resource_name.titleize, "/api/#{object.resource_name}" %></li>

@@ -1,0 +1,158 @@
+---
+title: Preventing duplicate API calls
+excerpt: Ensure your charges are not created twice.
+---
+
+## The issue
+Ensuring API calls are not duplicated can be extremely important in some cases.
+E.g. What if your customer manages to click twice on your "Pay Now" button? Will they get charged twice?
+
+## Solutions
+Several measures can be implemented to limit that issue. Disabling the button after the first click being the most common one.
+On top of what, our API gives you the ability to prevent duplicate calls by passing an additional (optional) `idempotent_id` to any call.
+
+
+## How does it work?
+Each call you want de-duplicated must have a unique `idempotent_id`.
+If we receive the same `idempotent_id` for multiple API calls within 30 seconds of the first one:
+
+*  The following calls will be considered duplicates and will have no effect on our side.
+*  Our API response will be identical to the first API call response.
+
+<div class="Notice">
+<p>
+  Important: We only look at idempotent_id to detect duplicates. The method, endpoint and parameters of your call do not matter in this.
+</p>
+  <p>
+    The idempotent_id expires 30 seconds after the first time it was seen.
+  </p>
+</div>
+
+## Examples
+We mentioned the use of `idempotent_id` on charge creations, but it can be used on any call. Here is an example on customer creation.
+
+### Without `idempotent_id`
+
+Initial call:
+
+```sh
+curl http://api.lvh.me:3000/customers \
+-X POST \
+-u skey_test_4x9udpvplrqcyis5lhz: \
+-d "description=John Doe (id: 30)" \
+-d "email=john.doe@example.com"
+
+```
+
+```json
+{
+"object": "customer",
+"id": "cust_test_515dpdiq9jqqyrhvpfg",
+"livemode": false,
+"location": "/customers/cust_test_515dpdiq9jqqyrhvpfg",
+"default_card": null,
+"email": "john.doe@example.com",
+"description": "John Doe (id: 30)",
+"created": "2015-08-26T02:07:46Z",
+...
+}
+```
+
+The second call creates a duplicate customer:
+
+```sh
+curl http://api.lvh.me:3000/customers \
+-X POST \
+-u skey_test_4x9udpvplrqcyis5lhz: \
+-d "description=John Doe (id: 30)" \
+-d "email=john.doe@example.com"
+
+```
+
+```json
+{
+"object": "customer",
+"id": "cust_test_515dphg4a6265xldtco", # A different ID denotes a different customer
+"livemode": false,
+"location": "/customers/cust_test_515dphg4a6265xldtco",
+"default_card": null,
+"email": "john.doe@example.com",
+"description": "John Doe (id: 30)",
+"created": "2015-08-26T02:08:05Z",
+...
+}
+```
+
+
+### With `idempotent_id`
+To prevent this, add the idempotent_id to your call:
+
+```sh
+curl http://api.lvh.me:3000/customers \
+-X POST \
+-u skey_test_4x9udpvplrqcyis5lhz: \
+-d "description=John Doe (id: 30)" \
+-d "email=john.doe@example.com" \
+-d "idempotent_id=ps4l79rko7i3ok"
+```
+
+```json
+{
+"object": "customer",
+"id": "cust_test_515dpw6ks5bqqsy8kcd",
+"livemode": false,
+"location": "/customers/cust_test_515dpw6ks5bqqsy8kcd",
+"default_card": null,
+"email": "john.doe@example.com",
+"description": "John Doe (id: 30)",
+"created": "2015-08-26T02:09:15Z",
+...
+}
+```
+
+The second (duplicate) call returns the same object and does not create a new customer:
+
+```sh
+curl http://api.lvh.me:3000/customers \
+-X POST \
+-u skey_test_4x9udpvplrqcyis5lhz: \
+-d "description=John Doe (id: 30)" \
+-d "email=john.doe@example.com" \
+-d "idempotent_id=ps4l79rko7i3ok"
+```
+
+```json
+{
+"object": "customer",
+"id": "cust_test_515dpw6ks5bqqsy8kcd",
+"livemode": false,
+"location": "/customers/cust_test_515dpw6ks5bqqsy8kcd",
+"default_card": null,
+"email": "john.doe@example.com",
+"description": "John Doe (id: 30)",
+"created": "2015-08-26T02:09:15Z",
+...
+}
+```
+
+And even a third completely different call with the same `idempotent_id` will have no effect and return the same object:
+
+```sh
+curl http://api.lvh.me:3000/charges \
+-u skey_test_4x9udpvplrqcyis5lhz: \
+-d "idempotent_id=ps4l79rko7i3ok"
+```
+
+```json
+{
+"object": "customer",
+"id": "cust_test_515dpw6ks5bqqsy8kcd",
+"livemode": false,
+"location": "/customers/cust_test_515dpw6ks5bqqsy8kcd",
+"default_card": null,
+"email": "john.doe@example.com",
+"description": "John Doe (id: 30)",
+"created": "2015-08-26T02:09:15Z",
+...
+}
+```
