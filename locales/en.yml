@@ -118,7 +118,7 @@ en:
     attributes:
       object: "The string `bank_account`"
       brand: "The bank account brand. Click [here](/supported-banks) for complete list of supported banks"
-      number: "The bank account number"
+      last_digits: "Last 4 digits of the account number."
       name: "The bank account name"
 
   cards:

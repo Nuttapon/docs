@@ -59,7 +59,7 @@
     "attributes": {
       "object": "string",
       "brand": "string",
-      "number": "string",
+      "last_digits": "string",
       "name": "string"
     },
 
