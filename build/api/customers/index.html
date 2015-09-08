@@ -384,7 +384,11 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-python HIDDEN">
-        <pre class="highlight python"><code><span class="n">customers</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Customer</span><span class="o">.</span><span class="n">retrieve</span><span class="p">()</span></code></pre>
+        <pre class="highlight python"><code><span class="kn">import</span> <span class="nn">omise</span>
+
+<span class="n">omise</span><span class="o">.</span><span class="n">api_secret</span> <span class="o">=</span> <span class="s">'skey_test_4xs8breq3htbkj03d2x'</span>
+
+<span class="n">customers</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Customer</span><span class="o">.</span><span class="n">retrieve</span><span class="p">()</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-php HIDDEN">
@@ -531,7 +535,11 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-python HIDDEN">
-        <pre class="highlight python"><code><span class="n">customer</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Customer</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+        <pre class="highlight python"><code><span class="kn">import</span> <span class="nn">omise</span>
+
+<span class="n">omise</span><span class="o">.</span><span class="n">api_secret</span> <span class="o">=</span> <span class="s">'skey_test_4xs8breq3htbkj03d2x'</span>
+
+<span class="n">customer</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Customer</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
   <span class="n">email</span><span class="o">=</span><span class="s">"john.doe@example.com"</span><span class="p">,</span>
   <span class="n">description</span><span class="o">=</span><span class="s">"John Doe (id: 30)"</span>
 <span class="p">)</span></code></pre>
@@ -754,7 +762,11 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-python HIDDEN">
-        <pre class="highlight python"><code><span class="n">customer</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Customer</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"cust_test_4xtrb759599jsxlhkrb"</span><span class="p">)</span></code></pre>
+        <pre class="highlight python"><code><span class="kn">import</span> <span class="nn">omise</span>
+
+<span class="n">omise</span><span class="o">.</span><span class="n">api_secret</span> <span class="o">=</span> <span class="s">'skey_test_4xs8breq3htbkj03d2x'</span>
+
+<span class="n">customer</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Customer</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">'cust_test_4xtrb759599jsxlhkrb'</span><span class="p">)</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-php HIDDEN">
@@ -904,15 +916,19 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-python HIDDEN">
-        <pre class="highlight python"><code><span class="n">customer</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Customer</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"cust_test_4xtrb759599jsxlhkrb"</span><span class="p">)</span>
+        <pre class="highlight python"><code><span class="kn">import</span> <span class="nn">omise</span>
+
+<span class="n">omise</span><span class="o">.</span><span class="n">api_secret</span> <span class="o">=</span> <span class="s">'skey_test_4xs8breq3htbkj03d2x'</span>
+
+<span class="n">customer</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Customer</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">'cust_test_4xtrb759599jsxlhkrb'</span><span class="p">)</span>
 <span class="n">customer</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
-  <span class="n">email</span><span class="o">=</span><span class="s">"john.smith@example.com"</span><span class="p">,</span>
-  <span class="n">description</span><span class="o">=</span><span class="s">"Another description"</span>
+  <span class="n">email</span><span class="o">=</span><span class="s">'john.smith@example.com'</span><span class="p">,</span>
+  <span class="n">description</span><span class="o">=</span><span class="s">'Another description'</span>
 <span class="p">)</span>
 
 <span class="c"># Or alternatively:</span>
-<span class="n">customer</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="s">"john.smith@example.com"</span>
-<span class="n">customer</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="s">"Another description"</span>
+<span class="n">customer</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="s">'john.smith@example.com'</span>
+<span class="n">customer</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="s">'Another description'</span>
 <span class="n">customer</span><span class="o">.</span><span class="n">update</span><span class="p">()</span></code></pre>
 
       </div>
@@ -1140,7 +1156,11 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-python HIDDEN">
-        <pre class="highlight python"><code><span class="n">customer</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Customer</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"cust_test_4xtrb759599jsxlhkrb"</span><span class="p">)</span>
+        <pre class="highlight python"><code><span class="kn">import</span> <span class="nn">omise</span>
+
+<span class="n">omise</span><span class="o">.</span><span class="n">api_secret</span> <span class="o">=</span> <span class="s">'skey_test_4xs8breq3htbkj03d2x'</span>
+
+<span class="n">customer</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Customer</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">'cust_test_4xtrb759599jsxlhkrb'</span><span class="p">)</span>
 <span class="n">customer</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
 <span class="n">customer</span><span class="o">.</span><span class="n">destroyed</span> <span class="c"># =&gt; true</span></code></pre>
 

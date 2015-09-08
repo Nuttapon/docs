@@ -261,7 +261,11 @@ your Omise account.</p>
 
       </div>
       <div class="EndpointExampleCode lang-python HIDDEN">
-        <pre class="highlight python"><code><span class="n">balance</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Balance</span><span class="o">.</span><span class="n">retrieve</span><span class="p">()</span>
+        <pre class="highlight python"><code><span class="kn">import</span> <span class="nn">omise</span>
+
+<span class="n">omise</span><span class="o">.</span><span class="n">api_secret</span> <span class="o">=</span> <span class="s">'skey_test_4xs8breq3htbkj03d2x'</span>
+
+<span class="n">balance</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Balance</span><span class="o">.</span><span class="n">retrieve</span><span class="p">()</span>
 <span class="n">balance</span><span class="o">.</span><span class="n">total</span></code></pre>
 
       </div>

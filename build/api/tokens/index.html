@@ -390,7 +390,11 @@ You can learn more about this in <a href="/security-best-practices">Security Bes
 
       </div>
       <div class="EndpointExampleCode lang-python HIDDEN">
-        <pre class="highlight python"><code><span class="n">token</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Token</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+        <pre class="highlight python"><code><span class="kn">import</span> <span class="nn">omise</span>
+
+<span class="n">omise</span><span class="o">.</span><span class="n">api_secret</span> <span class="o">=</span> <span class="s">'skey_test_4xs8breq3htbkj03d2x'</span>
+
+<span class="n">token</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Token</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
   <span class="n">name</span><span class="o">=</span><span class="s">"Somchai Prasert"</span><span class="p">,</span>
   <span class="n">number</span><span class="o">=</span><span class="s">"4242424242424242"</span><span class="p">,</span>
   <span class="n">expiration_month</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
@@ -538,7 +542,11 @@ You can learn more about this in <a href="/security-best-practices">Security Bes
 
       </div>
       <div class="EndpointExampleCode lang-python HIDDEN">
-        <pre class="highlight python"><code><span class="n">token</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Token</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"tokn_test_4xs9408a642a1htto8z"</span><span class="p">)</span></code></pre>
+        <pre class="highlight python"><code><span class="kn">import</span> <span class="nn">omise</span>
+
+<span class="n">omise</span><span class="o">.</span><span class="n">api_secret</span> <span class="o">=</span> <span class="s">'skey_test_4xs8breq3htbkj03d2x'</span>
+
+<span class="n">token</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Token</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">'tokn_test_4xs9408a642a1htto8z'</span><span class="p">)</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-php HIDDEN">

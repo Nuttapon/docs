@@ -353,6 +353,15 @@ time limiting the end of returned records.
 E.g.: <code>2015-01-20T00:00:00Z</code></p>
 </td>
         </tr>
+        <tr>
+          <td>
+              order
+          </td>
+          <td>string</td>
+          <td><p>(<em>optional</em>, default: chronological) The order of the list returned.
+E.g.: chronological(from earliest to latest), reverse_chronological(from latest to earliest)</p>
+</td>
+        </tr>
     </tbody>
   </table>
 </div>
@@ -410,7 +419,11 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-python HIDDEN">
-        <pre class="highlight python"><code><span class="n">customer</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Customer</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"cust_test_4xsjvylia03ur542vn6"</span><span class="p">)</span>
+        <pre class="highlight python"><code><span class="kn">import</span> <span class="nn">omise</span>
+
+<span class="n">omise</span><span class="o">.</span><span class="n">api_secret</span> <span class="o">=</span> <span class="s">'skey_test_4xs8breq3htbkj03d2x'</span>
+
+<span class="n">customer</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Customer</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"cust_test_4xsjvylia03ur542vn6"</span><span class="p">)</span>
 <span class="n">cards</span> <span class="o">=</span> <span class="n">customer</span><span class="o">.</span><span class="n">cards</span></code></pre>
 
       </div>
@@ -524,8 +537,12 @@ to the customer which match <code>CUSTOMER_ID</code>.</p>
 
       </div>
       <div class="EndpointExampleCode lang-python HIDDEN">
-        <pre class="highlight python"><code><span class="n">customer</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Customer</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"cust_test_4xsjvylia03ur542vn6"</span><span class="p">)</span>
-<span class="n">card</span> <span class="o">=</span> <span class="n">customer</span><span class="o">.</span><span class="n">cards</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"card_test_4xsjw0t21xaxnuzi9gs"</span><span class="p">)</span>
+        <pre class="highlight python"><code><span class="kn">import</span> <span class="nn">omise</span>
+
+<span class="n">omise</span><span class="o">.</span><span class="n">api_secret</span> <span class="o">=</span> <span class="s">'skey_test_4xs8breq3htbkj03d2x'</span>
+
+<span class="n">customer</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Customer</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">'cust_test_4xsjvylia03ur542vn6'</span><span class="p">)</span>
+<span class="n">card</span> <span class="o">=</span> <span class="n">customer</span><span class="o">.</span><span class="n">cards</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">'card_test_4xsjw0t21xaxnuzi9gs'</span><span class="p">)</span>
 
 <span class="c"># Note that you can reload the card once you have an instance of one.</span>
 <span class="n">card</span><span class="o">.</span><span class="nb">reload</span><span class="p">()</span></code></pre>
@@ -715,7 +732,11 @@ match <code>CUSTOMER_ID</code>.</p>
 
       </div>
       <div class="EndpointExampleCode lang-python HIDDEN">
-        <pre class="highlight python"><code><span class="n">customer</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Customer</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"cust_test_4xsjvylia03ur542vn6"</span><span class="p">)</span>
+        <pre class="highlight python"><code><span class="kn">import</span> <span class="nn">omise</span>
+
+<span class="n">omise</span><span class="o">.</span><span class="n">api_secret</span> <span class="o">=</span> <span class="s">'skey_test_4xs8breq3htbkj03d2x'</span>
+
+<span class="n">customer</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Customer</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"cust_test_4xsjvylia03ur542vn6"</span><span class="p">)</span>
 <span class="n">card</span> <span class="o">=</span> <span class="n">customer</span><span class="o">.</span><span class="n">cards</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"card_test_4xsjw0t21xaxnuzi9gs"</span><span class="p">)</span>
 <span class="n">card</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
   <span class="n">expiration_month</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span>
@@ -869,8 +890,12 @@ match <code>CUSTOMER_ID</code>.</p>
 
       </div>
       <div class="EndpointExampleCode lang-python HIDDEN">
-        <pre class="highlight python"><code><span class="n">customer</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Customer</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"cust_test_4xsjvylia03ur542vn6"</span><span class="p">)</span>
-<span class="n">card</span> <span class="o">=</span> <span class="n">customer</span><span class="o">.</span><span class="n">cards</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"card_test_4xsjw0t21xaxnuzi9gs"</span><span class="p">)</span>
+        <pre class="highlight python"><code><span class="kn">import</span> <span class="nn">omise</span>
+
+<span class="n">omise</span><span class="o">.</span><span class="n">api_secret</span> <span class="o">=</span> <span class="s">'skey_test_4xs8breq3htbkj03d2x'</span>
+
+<span class="n">customer</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Customer</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">'cust_test_4xsjvylia03ur542vn6'</span><span class="p">)</span>
+<span class="n">card</span> <span class="o">=</span> <span class="n">customer</span><span class="o">.</span><span class="n">cards</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">'card_test_4xsjw0t21xaxnuzi9gs'</span><span class="p">)</span>
 <span class="n">card</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span></code></pre>
 
       </div>

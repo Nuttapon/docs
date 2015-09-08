@@ -254,7 +254,11 @@
 
       </div>
       <div class="EndpointExampleCode lang-python HIDDEN">
-        <pre class="highlight python"><code><span class="n">account</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Account</span><span class="o">.</span><span class="n">retrieve</span><span class="p">()</span>
+        <pre class="highlight python"><code><span class="kn">import</span> <span class="nn">omise</span>
+
+<span class="n">omise</span><span class="o">.</span><span class="n">api_secret</span> <span class="o">=</span> <span class="s">'skey_test_4xs8breq3htbkj03d2x'</span>
+
+<span class="n">account</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Account</span><span class="o">.</span><span class="n">retrieve</span><span class="p">()</span>
 
 <span class="c"># After retrieving it, the account can be refreshed:</span>
 <span class="n">account</span><span class="o">.</span><span class="nb">reload</span><span class="p">()</span></code></pre>
