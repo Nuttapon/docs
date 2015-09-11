@@ -1,9 +1,15 @@
+require 'rack/rewrite'
+use Rack::Rewrite do
+   r301      '/v20140727',  '/v20140727/'
+end
+
 $markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
 
 activate :directory_indexes
 activate :syntax
 activate :i18n
 activate :asset_hash
+activate :alias
 
 activate :autoprefixer do
   config.ignore   = ["_normalize.css"]
@@ -11,6 +17,8 @@ end
 
 set :markdown_engine, :redcarpet
 set :markdown, fenced_code_blocks: true, tables: true, with_toc_data: true
+
+page "/v20140727/*", :layout => "layout_v20140727"
 
 configure :development do
   activate :livereload
