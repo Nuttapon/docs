@@ -99,7 +99,8 @@
           "offset": "integer",
           "limit": "integer",
           "from": "datetime",
-          "to": "datetime"
+          "to": "datetime",
+          "order": "string"
         },
         "examples": [
           "list"

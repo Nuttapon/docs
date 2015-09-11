@@ -10,7 +10,7 @@
       <link srel="stylesheet" href="https://cdn1.omise.co/fonts/inconsolata.css">
       <link srel="stylesheet" href="https://cdn2.omise.co/fonts/lato.css">
 
-    <link href="/stylesheets/all-0a66131a.css" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/all-84bc9e52.css" rel="stylesheet" type="text/css" />
     <script src="/javascripts/all-40e0ffb7.js" type="text/javascript"></script>
 
     <!-- Facebook OpenGraph -->
@@ -57,6 +57,7 @@
     <li><a href="/security-best-practices">Security Best Practices</a></li>
     <li><a href="/supported-banks">Supported Banks</a></li>
     <li><a href="/release-notes">Release Notes</a></li>
+    <li><a href="/libraries">Libraries</a></li>
   </ul>
 
   <h2>References</h2>
@@ -255,7 +256,7 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
         <pre class="highlight shell"><code>curl https://api.omise.co/charges/chrg_test_4xso2s8ivdej29pqnhz/refunds <span class="se">\</span>
-  -u skey_test_4xsjvwfnvb2g0l81sjz: <span class="se">\</span></code></pre>
+  -u skey_test_4xsjvwfnvb2g0l81sjz:</code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-ruby HIDDEN">
@@ -264,7 +265,11 @@ E.g.: <code>2015-01-20T00:00:00Z</code></p>
 
       </div>
       <div class="EndpointExampleCode lang-python HIDDEN">
-        <pre class="highlight python"><code><span class="n">charge</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Charge</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">)</span>
+        <pre class="highlight python"><code><span class="kn">import</span> <span class="nn">omise</span>
+
+<span class="n">omise</span><span class="o">.</span><span class="n">api_secret</span> <span class="o">=</span> <span class="s">'skey_test_4xs8breq3htbkj03d2x'</span>
+
+<span class="n">charge</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Charge</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">'chrg_test_4xso2s8ivdej29pqnhz'</span><span class="p">)</span>
 <span class="n">refunds</span> <span class="o">=</span> <span class="n">charge</span><span class="o">.</span><span class="n">refunds</span></code></pre>
 
       </div>
@@ -398,7 +403,11 @@ curl https://api.omise.co/charges/chrg_test_4ype2jynk2len88i4er/refunds <span cl
 
       </div>
       <div class="EndpointExampleCode lang-python HIDDEN">
-        <pre class="highlight python"><code><span class="n">charge</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Charge</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">"chrg_test_4xso2s8ivdej29pqnhz"</span><span class="p">)</span>
+        <pre class="highlight python"><code><span class="kn">import</span> <span class="nn">omise</span>
+
+<span class="n">omise</span><span class="o">.</span><span class="n">api_secret</span> <span class="o">=</span> <span class="s">'skey_test_4xs8breq3htbkj03d2x'</span>
+
+<span class="n">charge</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Charge</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">'chrg_test_4xso2s8ivdej29pqnhz'</span><span class="p">)</span>
 <span class="n">refund</span> <span class="o">=</span> <span class="n">charge</span><span class="o">.</span><span class="n">refund</span><span class="p">(</span><span class="n">amount</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span></code></pre>
 
       </div>
@@ -503,7 +512,7 @@ curl https://api.omise.co/charges/chrg_test_4ype2jynk2len88i4er/refunds <span cl
 
       <div class="EndpointExampleCode lang-shell HIDDEN">
         <pre class="highlight shell"><code>curl https://api.omise.co/charges/chrg_test_4xso2s8ivdej29pqnhz/refunds/rfnd_test_4zgf1d7jcw5kr123puq <span class="se">\</span>
-  -u skey_test_4xsjvwfnvb2g0l81sjz: <span class="se">\</span></code></pre>
+  -u skey_test_4xsjvwfnvb2g0l81sjz:</code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-ruby HIDDEN">
@@ -511,7 +520,11 @@ curl https://api.omise.co/charges/chrg_test_4ype2jynk2len88i4er/refunds <span cl
 
       </div>
       <div class="EndpointExampleCode lang-python HIDDEN">
-        <pre class="highlight python"><code></code></pre>
+        <pre class="highlight python"><code><span class="kn">import</span> <span class="nn">omise</span>
+
+<span class="n">omise</span><span class="o">.</span><span class="n">api_secret</span> <span class="o">=</span> <span class="s">'skey_test_4xs8breq3htbkj03d2x'</span>
+
+<span class="n">charge</span> <span class="o">=</span> <span class="n">omise</span><span class="o">.</span><span class="n">Charge</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s">'chrg_test_4xso2s8ivdej29pqnhz'</span><span class="p">)</span></code></pre>
 
       </div>
       <div class="EndpointExampleCode lang-php HIDDEN">
@@ -547,9 +560,10 @@ curl https://api.omise.co/charges/chrg_test_4ype2jynk2len88i4er/refunds <span cl
 
 
         <footer class="Footer">
-  © 2015 Omise, Co. Ltd.
-  <a href="https://www.omise.co/">About</a>
-  <a href="https://www.omise.co/terms.html">Terms</a>
+  © 2015 Omise Co., Ltd.
+  <a href="https://dashboard.omise.co/signup">Signup</a>
+  <a href="https://www.omise.co/">About & Pricing</a>
+  <a href="https://www.omise.co/terms.html">Terms & Conditions</a>
   <a href="https://www.omise.co/privacy.html">Privacy</a>
 </footer>
 
