@@ -2,7 +2,9 @@ class omise.ApiSelector
 
   constructor: (element, options) ->
     @element = element
-    console.log("here")
+    matches = window.location.pathname.match(/v\d{8}/)
+    if matches != null && matches.length > 0
+      $('.ApiSelector').val(matches[0])
 
   events: ->
     @element.on "change", (e) => @change(e)
@@ -13,6 +15,6 @@ class omise.ApiSelector
     currentPath     = window.location.pathname
     matches         = currentPath.match(/v\d{8}/)
     if matches != null && matches.length > 0
-      window.location = "/"
+      window.location = currentPath.replace(matches[0], selectedVersion)
     else
-      window.location = "/v#{selectedVersion}#{currentPath}"
+      window.location = "/#{selectedVersion}#{currentPath}"
