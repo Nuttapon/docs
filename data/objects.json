@@ -145,7 +145,6 @@
 
   },
 
-
   "charge": {
 
     "name": "charge",
@@ -160,7 +159,7 @@
       "description": "string",
       "capture": "boolean",
       "authorized": "boolean",
-      "captured": "boolean",
+      "paid": "boolean",
       "transaction": "string",
       "card": "card",
       "refunded": "integer",
