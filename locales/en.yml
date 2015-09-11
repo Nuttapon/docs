@@ -217,6 +217,7 @@ en:
       capture: "Whether the charge is set to be auto-captured or not."
       authorized: "Whether the charge has been authorized or not."
       captured: "Whether the charge has been captured or not."
+      paid: "Whether the charge has been successfully paid or not."
       transaction: "The `TRANSACTION_ID` of that charge."
       refunded: "An amount of money that has been refunded."
       refunds: "A list of refund objects."
