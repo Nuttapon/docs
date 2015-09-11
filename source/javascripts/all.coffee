@@ -8,6 +8,7 @@ omise.register ->
   omise.dispatch("lang")
   omise.dispatch("dropdown")
   omise.dispatch("search")
+  omise.dispatch("apiSelector")
 
 omise.ready ->
 

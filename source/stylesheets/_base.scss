@@ -25,6 +25,12 @@
   @include wrapper;
 }
 
+.ApiVersion {
+  float: right;
+  margin-top: -16px;
+  padding-right: 121px;
+}
+
 .HeaderInner {
   height: 52px;
   padding: 8px 20px;

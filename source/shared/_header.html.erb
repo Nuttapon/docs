@@ -17,11 +17,21 @@
       </div>
     </nav>
   </div></div>
-  <div class="HeaderLocation"><div class="Wrapper">
+  <div class="HeaderLocation">
+    <div class="Wrapper">
     <% if current_page.data.header_location %>
       <%= current_page.data.header_location.upcase %>
     <% else %>
       <%= I18n.t("shared.documentation").upcase %>
     <% end %>
-  </div></div>
+  </div>
+  <div class="ApiVersion">
+    <label for="">API Version: </label>
+    <select data-apiSelector='{ "className": ".ApiSelector" }' class="ApiSelector">
+      <option value="20150715">20150715</option>
+      <option value="20140727">20140727</option>
+    </select>
+  </div>
+
+  </div>
 </header>
