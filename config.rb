@@ -1,7 +1,7 @@
 require 'rack/rewrite'
 use Rack::Rewrite do
    r301      '/v20140727',        '/v20140727/'
-   r301      %r{/v20150715/(.*)}, '/$1'
+   r301      %r{/v20150910/(.*)}, '/$1'
 end
 
 $markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
