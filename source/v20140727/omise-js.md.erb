@@ -30,7 +30,7 @@ you can exchange for a customer or a charge.
 | Argument   | Value |
 |:-----------|:------|
 | type       | **(required)** type of token you want to create. For now this value must be `card`. |
-| object     | **(required)** a javascript object containing the 5 values required for a [card](api/tokens#token-creation-parameters):  `name`, `number`, `expiration_month`, `expiration_year`, `security_code`. Parameters reference is [here](api/tokens#token-creation-parameters). |
+| object     | **(required)** a javascript object containing the 5 values required for a [card](/api/tokens#token-creation-parameters):  `name`, `number`, `expiration_month`, `expiration_year`, `security_code`. Parameters reference is [here](/api/tokens#token-creation-parameters). |
 | callback   | **(required)** a callback that will be triggered whenever the request with omise server completes (for both error and success). Two arguments will be passed back into the callback. The HTTP statusCode, like `200` for success or `400` for bad request, etc... The second argument is the response from the Omise API.
 
 ### Example
