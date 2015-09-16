@@ -30,6 +30,9 @@
     <div class="Main">
       <%= partial "v20140727/shared/navigation" %>
       <div class="MainContent">
+        <div class="Notice">
+          <p>This is an older version of our API, click <%= link_to_current "here", "/" %> to view the latest version.</p>
+        </div>
         <% unless current_page.data.skip_page_header %>
           <header class="PageHeader">
             <h1 class="PageTitle"><%= current_page.data.title %></h1>
