@@ -262,7 +262,7 @@ en:
         amount: "(**required**, minimum: 2000, maximum: 100000000) The amount in the smallest subunits of the currency used. For `thb` (Thai Baht) you'll need to pass the amount in satangs."
         currency: "(**required**) The currency in which you want the charge to be done. The default and only valid value is `thb`."
         description: "(*optional*) A custom description for the charge. This value can be searched for in your dashboard."
-        capture: "(*optional*) Whether or not you want the charge to be captured right away."
+        capture: "(*optional*) Whether or not you want the charge to be captured right away, when not specified it is set to `true`."
       deprecated_request_parameters:
         return_uri: "(*optional*) The url where we will return the customer after the card has been authorized"
       examples:
